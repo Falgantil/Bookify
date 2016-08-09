@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Bookify.DataAccess
 {
@@ -32,7 +33,7 @@ namespace Bookify.DataAccess
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public Task<IEnumerable<TEntity>> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -40,6 +41,11 @@ namespace Bookify.DataAccess
         public void Remove(TEntity entity)
         {
             throw new NotImplementedException();
+        }
+
+        public int SaveChanges()
+        {
+            return _ctx.SaveChanges();
         }
 
         public void Update(TEntity entity)
