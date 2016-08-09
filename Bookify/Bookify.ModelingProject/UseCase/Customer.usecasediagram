@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="47a1f040-9c4c-491f-ba79-bb03956a6992" name="Customer" linkedPackageId="34ef098e-e8fa-4ef4-b9ff-49d7957b022d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="b1a66664-e5c7-41db-9dfd-9738d13a232e">
+      <profileInstance Id="64ee066a-1f9e-450b-bc8b-2c6f3c1600c5" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="cdbe04b8-24b9-4712-ae24-04a003d1f426">
+      <profileInstance Id="a2a12a62-ea26-494a-9be4-2015391126f6" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="ffd27a64-9119-45e7-8de0-a533dae45f41" name="Customer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="aeedd545-c53f-4a94-bef8-a8982dbb0475" />
+        <targetEnds>
+          <association Id="76e9b082-43ba-46f9-83a0-66d570d523d8" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="U1: Find book" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" LastKnownName="U1: Find book" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="78503fe2-31dc-4b38-9481-ae402afca296" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5f899092-f977-4c6a-a518-17d9f486dae1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5576021-18d8-46c5-bfee-6316dcc12f58" name="U1: Find book" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2bddb92a-11ef-4e49-b289-857766686df8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1a0dd07c-e48f-4eda-89b1-c6022d7f1408" />
+          </association>
+          <association Id="f057f876-cbb5-4af2-8613-e3e1c65d448b" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="U3: Register" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="039d5d81-3dfe-4c07-998d-25be759d12e7" LastKnownName="U3: Register" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="50c99cae-b0b2-45f8-b02c-b604c676b416" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2a78b5e2-453f-4935-83cc-fb1f97112f3a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7150ede7-205f-4dec-97cb-7289042e3454" name="U3: Register" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="704ca426-5401-42ad-9f02-e1a98624ac25" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="78c2c8b4-66b8-45d5-87ca-04e388de06f7" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="cc2a9837-d19b-466c-8596-e2f5cf8dfdda" name="Member" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="590ff3c0-5b15-41a8-b20d-00fbd1cb0573" />
+        <generalsInternal>
+          <generalization Id="78a5c104-9cb2-4f2a-a049-f5f48e19cdda" isSubstitutable="false">
+            <actorMoniker Id="ffd27a64-9119-45e7-8de0-a533dae45f41" LastKnownName="Customer" />
+            <elementDefinition Id="21244c26-3c22-4aaa-b9ac-a752ffefddfc" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="c59ae9ee-9dc1-4e56-822a-504a046be292" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" LastKnownName="Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="87bb03b3-c63b-4050-a02a-756673b4a996" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="64157ede-2e00-4e8c-85a4-b5022dea48ab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5b457d6b-10f0-4a41-b61d-d9d2d493e683" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4ef3dfb0-969b-4968-a25b-add3c3b0cf9b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e2ec8bb0-b33e-49d6-85a6-1fe2442f9ea3" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" name="Login" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4e52b809-be2e-4d77-af5f-487e4e998460" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c9713bfd-d44f-4014-a75d-c45bf9926fc9" name="Logoff" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f218d4ff-73db-4b00-9206-05b885c0cd5a" />
+        <extendedCases>
+          <extend Id="b29f8c58-34fa-468b-9cc4-61d0d1ce23e3">
+            <useCaseMoniker Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" LastKnownName="Login" />
+            <elementDefinition Id="6c2bd3a2-b325-437b-b10d-f21efeccde75" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9e3dd320-0092-4ba6-aa4c-c5def00dcd4a" name="View account details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a75faa6c-66e3-4b45-a6dc-785f4f84879b" />
+        <extendedCases>
+          <extend Id="2ce14bec-3101-47ba-896a-4b28b2b7ceba">
+            <useCaseMoniker Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" LastKnownName="Login" />
+            <elementDefinition Id="fc3a21d9-9e93-429c-9c18-5b1b36ea6073" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="039d5d81-3dfe-4c07-998d-25be759d12e7" name="U3: Register" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9b41df16-bcf1-4f08-a690-fe45e4f1410a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" name="U1: Find book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="25297018-7d18-499b-ba89-e7c1398f3d4e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3806965d-62ee-42a3-912a-c9512becafdd" name="U1: Search" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c7c2ec9a-569b-4c4c-b02d-28b5ca543bac" />
+        <generalsInternal>
+          <generalization Id="d5f90a16-1c82-404a-a8e9-1083aa11d07c" isSubstitutable="false">
+            <useCaseMoniker Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" LastKnownName="U1: Find book" />
+            <elementDefinition Id="77c1f8c9-ceae-49de-899b-0cf266c242b5" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="70b8bc36-f4da-4519-8dac-67561bf3f654">
+            <useCaseMoniker Id="2919af79-7363-4ef0-8436-68666396b24a" LastKnownName="U1: View results" />
+            <elementDefinition Id="0e64c9af-88cf-4eb9-9ba2-de41dccb6c79" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="34eb90af-7b72-4354-9b4c-1618ae443ba4" name="U1: Browse categories" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cfcf2904-ad8b-4636-93fd-c70aa8fa3349" />
+        <generalsInternal>
+          <generalization Id="459909cd-a835-4c25-9aeb-46ed23b8293a" isSubstitutable="false">
+            <useCaseMoniker Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" LastKnownName="U1: Find book" />
+            <elementDefinition Id="0554273b-ec0e-4c64-9bbc-9447896c8eae" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="c56970f4-0096-4929-9673-87c3494e9cfd">
+            <useCaseMoniker Id="2919af79-7363-4ef0-8436-68666396b24a" LastKnownName="U1: View results" />
+            <elementDefinition Id="e52a89ee-e9ba-4485-a53a-557b34a647e8" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2919af79-7363-4ef0-8436-68666396b24a" name="U1: View results" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c682084a-b547-456c-b2ca-f1d95f1cda40" name="View book details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="578cb98c-7786-44cd-99ea-3ae5b58964fc" />
+        <extendedCases>
+          <extend Id="94b72149-45ec-4785-aaf2-211d44a004f3">
+            <useCaseMoniker Id="2919af79-7363-4ef0-8436-68666396b24a" LastKnownName="U1: View results" />
+            <elementDefinition Id="23888e5f-353f-4131-89a9-39e7b4545897" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="88737503-21a0-44c5-aa64-d6b6ab85f69d" name="Borrow book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="20a66bf9-2d1f-42fb-b42f-2f3b77e46b33" />
+        <extendedCases>
+          <extend Id="68285b37-485c-4380-98cd-09ab20b2bc8a">
+            <useCaseMoniker Id="c682084a-b547-456c-b2ca-f1d95f1cda40" LastKnownName="View book details" />
+            <elementDefinition Id="eb936b5d-e4cb-41b9-b28f-f0dcf7b419a2" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="56141c73-2a9b-41eb-bbad-92d5268cee98" name="U2: Buy book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1c42907c-6f3b-439e-86fa-2d3488c56218" />
+        <extendedCases>
+          <extend Id="1841f86e-ca75-4f28-9cd7-22246a09585a">
+            <useCaseMoniker Id="c682084a-b547-456c-b2ca-f1d95f1cda40" LastKnownName="View book details" />
+            <elementDefinition Id="49160f57-b1f3-4e9a-8403-bef9d0b03d9f" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="34ef098e-e8fa-4ef4-b9ff-49d7957b022d" name="Bookify.ModelingProject">
+    <elementDefinition Id="9594b161-b489-45bf-aa23-a27838dcf138" />
+  </package>
+</useCaseModelRoot>

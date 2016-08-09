@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ecedc4ad-91e5-4999-969e-c82c9b6e49c8" name="Publisher" linkedPackageId="c4cf31df-5a9b-4c33-af5a-a76ca46c4cd9" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="37795051-eea0-4691-b102-9cf191bd5740">
+      <profileInstance Id="eb8a7004-b09d-433d-a2fa-e9ba5113b270" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="fb155998-b6c5-4747-889b-92cd7fd1dc29">
+      <profileInstance Id="1fb456ca-d166-4499-a106-e4c84e4e030e" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="2fb8d7f4-3267-433d-ac6e-36626a45d2f8" name="Publisher" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="70642405-80f0-4e1f-9c8e-c062510fe17b" />
+        <targetEnds>
+          <association Id="81df8762-8f90-475c-af66-383c56273253" isDerived="false" sourceEndRoleName="Publisher" targetEndRoleName="U9: Update book" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="74af898b-a201-4374-ac95-03cd7b85da76" LastKnownName="U9: Update book" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8ab27268-bda4-4686-951a-7fe22e030365" name="Publisher" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0559bca5-dd65-476e-aea3-f4961be633b1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3c8481dd-d707-49c8-a42f-0a11098aea91" name="U9: Update book" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="62697214-58ce-43f2-91d4-286cf21ef49b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="62386f08-c164-41c8-b827-4dff8ce08301" />
+          </association>
+          <association Id="886850b6-92aa-497a-ab9c-f8d05eeaef92" isDerived="false" sourceEndRoleName="Publisher" targetEndRoleName="U8: Add book" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fc8c5322-afdd-4801-9970-c19c8d331ac5" LastKnownName="U8: Add book" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0f7db71c-79d9-4b86-ba60-bdce2700d1d8" name="Publisher" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d46382c5-71bc-4769-bdb0-c28283d08117" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="810ff2b0-9649-4878-81f8-9bb07e395f6e" name="U8: Add book" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3eb470aa-b2d9-4646-97ff-6529556ee4d8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a0a7f8ad-9f8c-445e-ab65-7131b80fd223" />
+          </association>
+          <association Id="131a8a8d-e80a-4c63-a978-03cdfae77444" isDerived="false" sourceEndRoleName="Publisher" targetEndRoleName="U9: View published books" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f06c72c7-e0c4-454f-bb98-2b3bea537bae" LastKnownName="U9: View published books" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="08617135-2652-45b5-ad3f-8a00918c58f2" name="Publisher" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f0610ef9-938d-488b-b75f-254cb87d5883" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3b0c95ac-1177-461d-bad4-dd74298615a0" name="U9: View published books" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5c72ea6b-ec61-4671-b312-137b5bfe4d41" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="24ac41ef-f36a-4d78-9633-1c577e0f11e7" />
+          </association>
+          <association Id="70c9df3f-3b4f-4654-aea6-19f4fa230915" isDerived="false" sourceEndRoleName="Publisher" targetEndRoleName="U9: Delete book" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5424e088-4502-46d5-8d66-a25975f2d9cd" LastKnownName="U9: Delete book" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3913d0e5-e371-4db0-b6a2-25fdcf6fd0ef" name="Publisher" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="26b62c4a-936a-4730-8c19-2fdf71bdd616" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f20469e5-7860-44b4-88c7-2e7cf1a1d5d9" name="U9: Delete book" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="78734d1b-2a1f-472f-b963-cf154e1ecc96" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="89d9e946-949b-4d52-83f0-0d60fa870260" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fc8c5322-afdd-4801-9970-c19c8d331ac5" name="U8: Add book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a5321afd-96b5-47a4-8ffe-3f1ed8c66ef1" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="74af898b-a201-4374-ac95-03cd7b85da76" name="U9: Update book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fe42b764-866e-40a4-ac04-b6796ac526e5" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5b718379-1a32-4b0b-809d-7ce5e9cf7873" name="U10: View book statistics" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="32ae3dbb-b97d-41a9-91a5-46360d59e700" />
+        <extendedCases>
+          <extend Id="9a9a41ae-8cfc-489f-bb32-633ab13482d1">
+            <useCaseMoniker Id="f06c72c7-e0c4-454f-bb98-2b3bea537bae" LastKnownName="U9: View published books" />
+            <elementDefinition Id="e8f0112b-b1a0-4ce7-9415-6549a407bc9b" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5424e088-4502-46d5-8d66-a25975f2d9cd" name="U9: Delete book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a3cbf612-1cc5-4f81-960d-5d1ba110a59f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f06c72c7-e0c4-454f-bb98-2b3bea537bae" name="U9: View published books" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="934eaf47-ae20-415a-94d4-de8e80e3a33e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="c4cf31df-5a9b-4c33-af5a-a76ca46c4cd9" name="Bookify.ModelingProject">
+    <elementDefinition Id="9594b161-b489-45bf-aa23-a27838dcf138" />
+  </package>
+</useCaseModelRoot>

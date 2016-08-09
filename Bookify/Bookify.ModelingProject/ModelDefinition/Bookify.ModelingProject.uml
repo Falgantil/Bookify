@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
-  Id="73993b37-0e56-4862-88d8-7767fc7312b3"
+  Id="9594b161-b489-45bf-aa23-a27838dcf138"
   name="Bookify.ModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <profileInstances>
     <packageHasProfileInstances
@@ -17,28 +17,731 @@
         name="StandardProfileL3" />
     </packageHasProfileInstances>
   </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="70642405-80f0-4e1f-9c8e-c062510fe17b"
+        name="Publisher"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="62386f08-c164-41c8-b827-4dff8ce08301"
+            isDerived="false"
+            sourceEndRoleName="Publisher"
+            targetEndRoleName="U9: Update book"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fe42b764-866e-40a4-ac04-b6796ac526e5"
+              LastKnownName="U9: Update book"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0559bca5-dd65-476e-aea3-f4961be633b1"
+                  name="Publisher"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="62697214-58ce-43f2-91d4-286cf21ef49b"
+                  name="U9: Update book"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a0a7f8ad-9f8c-445e-ab65-7131b80fd223"
+            isDerived="false"
+            sourceEndRoleName="Publisher"
+            targetEndRoleName="U8: Add book"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a5321afd-96b5-47a4-8ffe-3f1ed8c66ef1"
+              LastKnownName="U8: Add book"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d46382c5-71bc-4769-bdb0-c28283d08117"
+                  name="Publisher"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3eb470aa-b2d9-4646-97ff-6529556ee4d8"
+                  name="U8: Add book"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="24ac41ef-f36a-4d78-9633-1c577e0f11e7"
+            isDerived="false"
+            sourceEndRoleName="Publisher"
+            targetEndRoleName="U9: View published books"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="934eaf47-ae20-415a-94d4-de8e80e3a33e"
+              LastKnownName="U9: View published books"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f0610ef9-938d-488b-b75f-254cb87d5883"
+                  name="Publisher"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c72ea6b-ec61-4671-b312-137b5bfe4d41"
+                  name="U9: View published books"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="89d9e946-949b-4d52-83f0-0d60fa870260"
+            isDerived="false"
+            sourceEndRoleName="Publisher"
+            targetEndRoleName="U9: Delete book"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a3cbf612-1cc5-4f81-960d-5d1ba110a59f"
+              LastKnownName="U9: Delete book"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="26b62c4a-936a-4730-8c19-2fdf71bdd616"
+                  name="Publisher"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="78734d1b-2a1f-472f-b963-cf154e1ecc96"
+                  name="U9: Delete book"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a5321afd-96b5-47a4-8ffe-3f1ed8c66ef1"
+        name="U8: Add book"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fe42b764-866e-40a4-ac04-b6796ac526e5"
+        name="U9: Update book"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="32ae3dbb-b97d-41a9-91a5-46360d59e700"
+        name="U10: View book statistics"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="e8f0112b-b1a0-4ce7-9415-6549a407bc9b">
+            <useCaseMoniker
+              Id="934eaf47-ae20-415a-94d4-de8e80e3a33e"
+              LastKnownName="U9: View published books"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a3cbf612-1cc5-4f81-960d-5d1ba110a59f"
+        name="U9: Delete book"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="934eaf47-ae20-415a-94d4-de8e80e3a33e"
+        name="U9: View published books"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="5ab1b000-ddc2-4054-8617-bd928226e114"
+        name="Employee"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7cf161a2-29f6-484b-ab82-bca46aa692bb"
+            isDerived="false"
+            sourceEndRoleName="Employee"
+            targetEndRoleName="U11: Create new publishers "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ad06400d-ae19-4dc1-9515-e915c213132d"
+              LastKnownName="U11: Create new publishers "
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="72f826d7-b282-466f-965d-0c269e8d6764"
+                  name="Employee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2fc3084b-ffdf-4614-9c02-c9b19eadf15a"
+                  name="U11: Create new publishers "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ef0dcb1d-475b-4fab-ad0e-38e093af32e0"
+            isDerived="false"
+            sourceEndRoleName="Employee"
+            targetEndRoleName="U12: Change book status"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d5c62281-5b30-4d14-b5fd-98d6d7ab9325"
+              LastKnownName="U12: Change book status"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c55ce92c-c064-4943-9aff-db868dfc625f"
+                  name="Employee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7853932b-4277-43c7-8c1d-403b11c981f2"
+                  name="U12: Change book status"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="007818b8-7902-46e5-8cb8-a2b80c057af8"
+            isDerived="false"
+            sourceEndRoleName="Employee"
+            targetEndRoleName="U13: Browse book history"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="80ac0f58-1cb4-474a-9777-4bc03cad39d0"
+              LastKnownName="U13: Browse book history"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d29e0b54-8b58-4d29-9f2a-c3ff87951575"
+                  name="Employee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dc001079-c1cb-4a2c-b290-d78c6ac4b6ba"
+                  name="U13: Browse book history"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4fd5f7ea-fc81-43fa-9911-b2549810f05e"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ad06400d-ae19-4dc1-9515-e915c213132d"
+        name="U11: Create new publishers "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="80ac0f58-1cb4-474a-9777-4bc03cad39d0"
+        name="U13: Browse book history"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="46fd840a-ecd0-4220-8021-e83bbf432dd7"
+        name="UseCase13"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d5c62281-5b30-4d14-b5fd-98d6d7ab9325"
+        name="U12: Change book status"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="aeedd545-c53f-4a94-bef8-a8982dbb0475"
+        name="Customer"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1a0dd07c-e48f-4eda-89b1-c6022d7f1408"
+            isDerived="false"
+            sourceEndRoleName="Customer"
+            targetEndRoleName="U1: Find book"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
+              LastKnownName="U1: Find book"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5f899092-f977-4c6a-a518-17d9f486dae1"
+                  name="Customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2bddb92a-11ef-4e49-b289-857766686df8"
+                  name="U1: Find book"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="78c2c8b4-66b8-45d5-87ca-04e388de06f7"
+            isDerived="false"
+            sourceEndRoleName="Customer"
+            targetEndRoleName="U3: Register"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9b41df16-bcf1-4f08-a690-fe45e4f1410a"
+              LastKnownName="U3: Register"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2a78b5e2-453f-4935-83cc-fb1f97112f3a"
+                  name="Customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="704ca426-5401-42ad-9f02-e1a98624ac25"
+                  name="U3: Register"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="590ff3c0-5b15-41a8-b20d-00fbd1cb0573"
+        name="Member"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="21244c26-3c22-4aaa-b9ac-a752ffefddfc"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="aeedd545-c53f-4a94-bef8-a8982dbb0475"
+              LastKnownName="Customer"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="e2ec8bb0-b33e-49d6-85a6-1fe2442f9ea3"
+            isDerived="false"
+            sourceEndRoleName="Member"
+            targetEndRoleName="Login"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4e52b809-be2e-4d77-af5f-487e4e998460"
+              LastKnownName="Login"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="64157ede-2e00-4e8c-85a4-b5022dea48ab"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4ef3dfb0-969b-4968-a25b-add3c3b0cf9b"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3e4ec919-a11d-4a4a-8380-3bbc68825940"
+        name="Book"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4e52b809-be2e-4d77-af5f-487e4e998460"
+        name="Login"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f218d4ff-73db-4b00-9206-05b885c0cd5a"
+        name="Logoff"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="6c2bd3a2-b325-437b-b10d-f21efeccde75">
+            <useCaseMoniker
+              Id="4e52b809-be2e-4d77-af5f-487e4e998460"
+              LastKnownName="Login"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a75faa6c-66e3-4b45-a6dc-785f4f84879b"
+        name="View account details"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="fc3a21d9-9e93-429c-9c18-5b1b36ea6073">
+            <useCaseMoniker
+              Id="4e52b809-be2e-4d77-af5f-487e4e998460"
+              LastKnownName="Login"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9b41df16-bcf1-4f08-a690-fe45e4f1410a"
+        name="U3: Register"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
+        name="U1: Find book"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c7c2ec9a-569b-4c4c-b02d-28b5ca543bac"
+        name="U1: Search"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="77c1f8c9-ceae-49de-899b-0cf266c242b5"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
+              LastKnownName="U1: Find book"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include
+            Id="0e64c9af-88cf-4eb9-9ba2-de41dccb6c79">
+            <useCaseMoniker
+              Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
+              LastKnownName="U1: View results"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cfcf2904-ad8b-4636-93fd-c70aa8fa3349"
+        name="U1: Browse categories"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="0554273b-ec0e-4c64-9bbc-9447896c8eae"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
+              LastKnownName="U1: Find book"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include
+            Id="e52a89ee-e9ba-4485-a53a-557b34a647e8">
+            <useCaseMoniker
+              Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
+              LastKnownName="U1: View results"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
+        name="U1: View results"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="578cb98c-7786-44cd-99ea-3ae5b58964fc"
+        name="View book details"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="23888e5f-353f-4131-89a9-39e7b4545897">
+            <useCaseMoniker
+              Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
+              LastKnownName="U1: View results"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="20a66bf9-2d1f-42fb-b42f-2f3b77e46b33"
+        name="Borrow book"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="eb936b5d-e4cb-41b9-b28f-f0dcf7b419a2">
+            <useCaseMoniker
+              Id="578cb98c-7786-44cd-99ea-3ae5b58964fc"
+              LastKnownName="View book details"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1c42907c-6f3b-439e-86fa-2d3488c56218"
+        name="U2: Buy book"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="49160f57-b1f3-4e9a-8403-bef9d0b03d9f">
+            <useCaseMoniker
+              Id="578cb98c-7786-44cd-99ea-3ae5b58964fc"
+              LastKnownName="View book details"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
     name="Integer"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
     name="Boolean"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
     name="String"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
     name="UnlimitedNatural"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
 </modelStoreModel>
