@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="75199806-5003-45e3-920d-cc026fb44dbe" name="Customer" linkedPackageId="bce6270e-6de9-40dc-8823-5a00cfe27d3e" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="5781a554-52c0-4a94-940e-b768be61e034" name="Customer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="633c039a-1256-4d19-8627-bb8e3e55acdc" />
+        <targetEnds>
+          <association Id="c3f5aefc-08c5-4d02-930e-da935c14b7b2" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="Look for books" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7ac01a68-770e-4dfb-88ed-fe0d44af74ae" LastKnownName="Find book" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b1c58f45-3df1-44fc-aa14-14c60831c912" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="09da08fe-7c2f-4aed-8bbe-760cc44b9774" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="63fff28c-9d1f-4265-91e7-e7017f081cc9" name="Look for books" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3d72aec1-e08b-48e1-8129-e08f943fbfb3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2e68e4af-1282-436d-8bed-4859d6e6e026" />
+          </association>
+          <association Id="8908a306-89f3-4fa5-acf4-de6afbf3f06f" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="Register" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b9a4b822-a0b5-4535-9f47-276b2d24bbaa" LastKnownName="Register" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4d2b7385-9409-4fad-97b3-bf6f75421075" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4a51de10-55fa-4548-ab2e-5d4f3be9d8fd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="388c98e3-8858-4e9b-9ea3-83233d46edb1" name="Register" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="821c3352-1a6d-437f-804c-31f393bd52a0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f0e30926-ef26-4656-a4f1-0503ef50e81a" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="4caf3e8a-6598-4274-9adf-f4711553a29c" name="Member" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0635bcef-23a7-451d-85c0-80494786f90f" />
+        <generalsInternal>
+          <generalization Id="b4a624f6-80a8-4454-9ed2-1d423dcb534f" isSubstitutable="false">
+            <actorMoniker Id="5781a554-52c0-4a94-940e-b768be61e034" LastKnownName="Customer" />
+            <elementDefinition Id="8489e353-c1e9-4cf3-87e2-f7e464234d35" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="cd7d35a9-4f2e-4c46-8197-3ef82c6b42d6" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="75565e96-346f-409b-bc4a-4cc0e6acbe79" LastKnownName="Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0dbeb9e4-e60a-42c2-a2af-96c1b903d1e8" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c51e9eae-67d8-4b5f-b686-9d0e68323a85" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="902bca33-96a5-4a00-bbe7-81cfc4320167" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a639780d-2524-4f0a-9199-101599661ddb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b5b296bf-1343-471a-9b87-56eeeff46bfe" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="75565e96-346f-409b-bc4a-4cc0e6acbe79" name="Login" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fe279aae-4073-4bc5-b80c-e0e3c14ad879" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="09707bb0-bb36-4758-892f-c59b27f39ab3" name="Logoff" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c349fd98-b7ed-46e7-a438-f8e7a51f4f43" />
+        <extendedCases>
+          <extend Id="3607e50b-a863-44e5-9dff-e37b8f4ae1e4">
+            <useCaseMoniker Id="75565e96-346f-409b-bc4a-4cc0e6acbe79" LastKnownName="Login" />
+            <elementDefinition Id="f9558f90-a7ba-4df2-a857-f7e7c52f3eb7" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="709217f5-aa8e-4a57-9f1e-cd28fa0920c1" name="View account details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="78fa3285-ce06-44a3-affb-0a476f2c386f" />
+        <extendedCases>
+          <extend Id="b8fd0ffc-3042-47a3-af35-d1ce9a1b7ecf">
+            <useCaseMoniker Id="75565e96-346f-409b-bc4a-4cc0e6acbe79" LastKnownName="Login" />
+            <elementDefinition Id="eaae0d1f-9a2c-4b25-a11a-873d1fb1b69b" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7ac01a68-770e-4dfb-88ed-fe0d44af74ae" name="Find book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1aba6eb6-3e90-4abf-a74b-76f1ceb3f334" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2e3c8b1d-8548-4b19-a59a-211a05b9e7f9" name="Search" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ed9f3a53-33e0-4a3c-9be5-52e3ebc2aafb" />
+        <generalsInternal>
+          <generalization Id="de358fca-aa82-4752-92cd-4c2dfb2682f0" isSubstitutable="false">
+            <useCaseMoniker Id="7ac01a68-770e-4dfb-88ed-fe0d44af74ae" LastKnownName="Find book" />
+            <elementDefinition Id="2375ccd9-60df-4be6-995e-e670f5e5becf" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="53c77706-2336-4452-891b-e21ddf2cbd96">
+            <useCaseMoniker Id="b2264fe2-9536-4c46-a9d4-785a7f5aeb4b" LastKnownName="View results" />
+            <elementDefinition Id="ff644d8e-1202-444f-a05b-ff474ab025c9" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b78f9194-a308-42e9-b077-0981b160c6fc" name="Browse categories" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="73e44261-8e9d-4eee-8b70-40bba0d26824" />
+        <generalsInternal>
+          <generalization Id="bf973c4b-b2c4-4cc5-8043-376d4e2955cf" isSubstitutable="false">
+            <useCaseMoniker Id="7ac01a68-770e-4dfb-88ed-fe0d44af74ae" LastKnownName="Find book" />
+            <elementDefinition Id="d04ae449-9d83-4d45-b57e-efa19a72184a" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="b24906cb-649d-47bd-81c1-df9c02b6ceb9">
+            <useCaseMoniker Id="b2264fe2-9536-4c46-a9d4-785a7f5aeb4b" LastKnownName="View results" />
+            <elementDefinition Id="d3b33dc9-1763-4d3b-98e8-1f1305bb012c" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b2264fe2-9536-4c46-a9d4-785a7f5aeb4b" name="View results" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7dfb752a-b9a9-4b7d-93dc-f0d05184944b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0bd6700e-18c7-464e-bbb8-c33eb5252a7d" name="View book details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a988a612-a2f1-46ec-a5a4-0de05a5f6f98" />
+        <extendedCases>
+          <extend Id="750795df-84e9-44fb-ae5c-27d1754e3bb8">
+            <useCaseMoniker Id="b2264fe2-9536-4c46-a9d4-785a7f5aeb4b" LastKnownName="View results" />
+            <elementDefinition Id="619ffc31-d180-433b-acfa-f0bf223254a1" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="79c1a599-6da0-491b-b769-4c507d4ffcf0" name="Borrow book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e1e7d38f-b85b-468c-b127-ef9d75152a77" />
+        <extendedCases>
+          <extend Id="7bb4e550-6c46-48bc-8948-e9f57aee8c9a">
+            <useCaseMoniker Id="0bd6700e-18c7-464e-bbb8-c33eb5252a7d" LastKnownName="View book details" />
+            <elementDefinition Id="ee33c82b-798c-4f7e-b9be-ea04e1c5d247" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="db369987-6ea2-453c-9651-38e61464683e" name="Buy book" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f5891e33-6ef8-4ab2-9ea2-3158d026181e" />
+        <extendedCases>
+          <extend Id="e835adcb-ec5f-4b86-8824-a987cfc282a0">
+            <useCaseMoniker Id="0bd6700e-18c7-464e-bbb8-c33eb5252a7d" LastKnownName="View book details" />
+            <elementDefinition Id="acdc65e1-a3c5-4e4d-92ec-eba70f48e53b" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b9a4b822-a0b5-4535-9f47-276b2d24bbaa" name="Register" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="663d2765-edaf-47b8-8231-3ea6c2be9012" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="bce6270e-6de9-40dc-8823-5a00cfe27d3e" name="Bookify.ModelingProject">
+    <elementDefinition Id="4b04d241-610d-481f-9559-82d02431e15b" />
+    <profileInstances>
+      <packageHasProfileInstances Id="baf2bca6-2207-4f1a-88c2-ff6fc8fffef6">
+        <profileInstance Id="fa310817-85a3-4f81-aa2b-365fa46d5229" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="285951a5-1779-4435-b65d-024e3546ba08">
+        <profileInstance Id="fdb665a3-044e-411a-b4ad-0d5f476fb8bd" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

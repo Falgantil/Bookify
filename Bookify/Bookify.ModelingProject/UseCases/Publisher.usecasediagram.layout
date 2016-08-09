@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUseCaseDiagram1">
+  <useCaseModelRootMoniker Id="ce9d1791-18e8-4520-8802-4807df9f0f12" />
+  <nestedChildShapes>
+    <actorShape Id="a93af4a5-2591-484d-bbab-3ef70bd5755a" absoluteBounds="0.75, 1.375, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="02c75b64-7fa4-478e-b1f4-f45225b209e3" LastKnownName="Publisher" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="3d7053ed-08b4-4a90-8060-d2a800be9a6d" absoluteBounds="2.375, 0.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="7195ce38-1299-4047-9ca3-977b22c18a49" LastKnownName="Add book" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.25 : 1.54166666666667); (2.45897485283108 : 1.13867504905631)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="8f424c9c-a71e-4f8a-9873-189954a66ab8" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="a93af4a5-2591-484d-bbab-3ef70bd5755a" />
+        <useCaseShapeMoniker Id="3d7053ed-08b4-4a90-8060-d2a800be9a6d" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="08a1cd77-5b41-42da-9020-96424740126f" absoluteBounds="3.375, 1, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="803e42b6-585f-4c45-96d2-3f3889226787" LastKnownName="Remove book" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.25 : 1.59239130434783); (3.39119136380158 : 1.31310547428675)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="7eca26f7-bc22-4a30-a8c8-0d4605cbb4d6" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="a93af4a5-2591-484d-bbab-3ef70bd5755a" />
+        <useCaseShapeMoniker Id="08a1cd77-5b41-42da-9020-96424740126f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="fc6b19cf-e8e4-4a46-889e-68f04518bc70" absoluteBounds="2.375, 1.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="1fa05bac-6086-423e-9e7b-c6a115db59be" LastKnownName="Update book" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.25 : 1.64166666666667); (2.37938604965868 : 1.71695906997725)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="03d99869-b0d9-4c74-848f-59f42d94091e" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="a93af4a5-2591-484d-bbab-3ef70bd5755a" />
+        <useCaseShapeMoniker Id="fc6b19cf-e8e4-4a46-889e-68f04518bc70" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="cfbb8e36-6dda-4ee9-acae-61abac631122" absoluteBounds="2.375, 2.125, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="bbcc0067-1ff1-467f-a58d-b0b1a8464730" LastKnownName="View published books" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1.25 : 1.73333333333333); (2.46410123430005 : 2.25944386819669)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="6b464480-8e52-479a-91b5-3daca1b4b1e3" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="a93af4a5-2591-484d-bbab-3ef70bd5755a" />
+        <useCaseShapeMoniker Id="cfbb8e36-6dda-4ee9-acae-61abac631122" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="654adeb3-7d7d-49f9-adca-0ba17a1ad6ad" absoluteBounds="4, 2.125, 1, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="bc570270-6819-499a-a091-3156978e2896" LastKnownName="View book statistics" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(4 : 2.4375); (3.375 : 2.4375)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="e002d679-1f60-4320-874a-78931d2d186a" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="3.4325744326026033, 2.2782099129392552, 0.6613636363636366, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="654adeb3-7d7d-49f9-adca-0ba17a1ad6ad" />
+        <useCaseShapeMoniker Id="cfbb8e36-6dda-4ee9-acae-61abac631122" />
+      </nodes>
+    </extendConnector>
+    <rectangleShape Id="c5b0b519-cdaa-46a8-9661-b91b1134e7a5" absoluteBounds="1.875, 0.5, 3.25, 2.5" outlineColor="83, 134, 191" outlineThickness="0.03125" />
+  </nestedChildShapes>
+</useCaseDiagram>
