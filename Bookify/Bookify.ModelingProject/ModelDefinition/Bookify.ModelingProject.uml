@@ -414,7 +414,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
-              LastKnownName="U1: Find book"
+              LastKnownName="Find book"
               LastKnownLocation="Bookify.ModelingProject.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -454,7 +454,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="9b41df16-bcf1-4f08-a690-fe45e4f1410a"
-              LastKnownName="U3: Register"
+              LastKnownName="Register"
               LastKnownLocation="Bookify.ModelingProject.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -554,7 +554,415 @@
         name="Book"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="60956867-fc93-4618-ad2f-1178c4200bab"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="41615ef4-5338-4c13-a664-a62c0eb9894b"
+              LastKnownName="Author"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="59fcc002-2394-4211-a913-18122ad6be79"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2c7cee8b-9baf-4d39-bc76-8bb6cf170a21"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ae2e14e4-6e71-457f-9f8f-2003279e6d29"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="619160a5-9bf3-4c65-8250-4c7fb58f03ab"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b08684fe-4d47-4380-bcfc-3dfd989dd73b"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8d9f176c-dcc4-4b52-ad52-d8bb093f22e9"
+              LastKnownName="BookContent"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8a6dcc0c-b0a9-45c1-a0fe-26a4da368994"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="29c56dca-d04a-4d8b-a4c3-9a2ac2e617ab"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7b6cbcce-f1e0-4991-88a5-9ac964b3bdeb"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e0e2a445-8aa9-4432-afeb-21f79242ff39"
+              LastKnownName="BookGenre"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6ed570e4-010b-4304-a97a-793fe76a619c"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="96186bd4-7e19-4090-8cac-c4428dcc15ca"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="bc1e6b39-3e0a-4105-a19d-5a3c99825468"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c4abb16d-a102-4c95-ab91-16eca5b822cb"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="48431477-e54a-4367-84bb-7a536505442d"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="bb729798-157a-45f7-b239-8710c3086a80"
+              LastKnownName="BookHistory"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="34b3a27b-c956-4a3a-ac63-814e07131018"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b7c854b-e57c-4118-b7e8-5a4748a865db"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5a1783bc-4bf9-4c9f-a36e-b006cb49c58a"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a49b56c2-9501-49d0-affd-c13c1c6d44fb"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e1ecea5b-a847-43af-bef6-d70dd3bdba50"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2c905c82-4c4e-49dd-b342-942fd8797bc6"
+              LastKnownName="Publisher"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e05e090b-fffe-40ac-9fc7-19d31b8d9e4e"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b9d3c9fc-7fc0-470f-b8bb-760bce218752"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="264b2255-d041-4a8a-bfdc-58c0fd78189b"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b32a005b-de81-445b-8365-eb1cd4953f24"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e07e063c-02b2-4841-9cd0-baa0d94a1532"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f3f2201d-362a-44fd-98c0-24542efa607d"
+              LastKnownName="BookOrder"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6706c9d5-f170-4ce7-bd3b-b0e74b5973f5"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a1b42c0e-8243-4614-af88-bdf1c9f4dc05"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="57df75ad-f351-47c0-b743-fdb7ae94e08e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c2c66762-dfff-4a9b-ba5c-70f516c27dca"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="6251d8d9-5d14-499d-b15c-269227ca1c45"
+            name="CopiesAvailable"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8bed54ed-53bf-4746-a439-bf3b9b400318"
+            name="ISBN"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="df0c921c-198c-4028-9e48-71c40f127203"
+            name="Language"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="bd5235a0-59ac-4c1d-bd39-0ab0059b2d03"
+            name="PageCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6745bd28-717d-4123-9312-a0ad24f2dd42"
+            name="Price"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fbf5d7e7-e411-4b78-b54f-d63ba0deaccf"
+            name="Status"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="e9e8faa2-2020-40d0-a1b0-e6f9efdb3d41"
+            name="Summary"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="7cf324fa-2b14-4088-b8ce-2c87e169aa79"
+            name="Title"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="aa08bacc-f61b-4e7e-850d-a0b54e10e868"
+            name="ViewCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1ec7b668-b908-40c3-b8ca-4608368a6621"
+            name="Year"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -600,21 +1008,21 @@
     <packageHasNamedElement>
       <useCase
         Id="9b41df16-bcf1-4f08-a690-fe45e4f1410a"
-        name="U3: Register"
+        name="Register"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
-        name="U1: Find book"
+        name="Find book"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="c7c2ec9a-569b-4c4c-b02d-28b5ca543bac"
-        name="U1: Search"
+        name="Search"
         isAbstract="false"
         isLeaf="false">
         <generalsInternal>
@@ -623,7 +1031,7 @@
             isSubstitutable="false">
             <useCaseMoniker
               Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
-              LastKnownName="U1: Find book"
+              LastKnownName="Find book"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </generalization>
         </generalsInternal>
@@ -632,7 +1040,7 @@
             Id="0e64c9af-88cf-4eb9-9ba2-de41dccb6c79">
             <useCaseMoniker
               Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
-              LastKnownName="U1: View results"
+              LastKnownName="View results"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </include>
         </additions>
@@ -641,7 +1049,7 @@
     <packageHasNamedElement>
       <useCase
         Id="cfcf2904-ad8b-4636-93fd-c70aa8fa3349"
-        name="U1: Browse categories"
+        name="Browse categories"
         isAbstract="false"
         isLeaf="false">
         <generalsInternal>
@@ -650,7 +1058,7 @@
             isSubstitutable="false">
             <useCaseMoniker
               Id="25297018-7d18-499b-ba89-e7c1398f3d4e"
-              LastKnownName="U1: Find book"
+              LastKnownName="Find book"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </generalization>
         </generalsInternal>
@@ -659,7 +1067,7 @@
             Id="e52a89ee-e9ba-4485-a53a-557b34a647e8">
             <useCaseMoniker
               Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
-              LastKnownName="U1: View results"
+              LastKnownName="View results"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </include>
         </additions>
@@ -668,7 +1076,7 @@
     <packageHasNamedElement>
       <useCase
         Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
-        name="U1: View results"
+        name="View results"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
@@ -683,7 +1091,7 @@
             Id="23888e5f-353f-4131-89a9-39e7b4545897">
             <useCaseMoniker
               Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
-              LastKnownName="U1: View results"
+              LastKnownName="View results"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </extend>
         </extendedCases>
@@ -709,7 +1117,7 @@
     <packageHasNamedElement>
       <useCase
         Id="1c42907c-6f3b-439e-86fa-2d3488c56218"
-        name="U2: Buy book"
+        name="Buy book"
         isAbstract="false"
         isLeaf="false">
         <extendedCases>
@@ -722,6 +1130,770 @@
           </extend>
         </extendedCases>
       </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8d9f176c-dcc4-4b52-ad52-d8bb093f22e9"
+        name="BookContent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="5cefe18e-d1dd-4b65-9161-132d1d40f656"
+            name="Blob"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e0e2a445-8aa9-4432-afeb-21f79242ff39"
+        name="BookGenre"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="b9193e44-5eb8-4984-b1ca-0b02684191b3"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="33cb00a8-1a80-4063-887c-b5f2cbd565a3"
+              LastKnownName="Genre"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c43a716-c9cc-4671-b697-2fc147f267cb"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="97f47a7b-8db2-4510-bd18-2bdad48ec295"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="fbed606f-7a73-4768-87cd-dbe76aee560d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="25e94d84-5542-4843-a6bd-fa4ef10a3539"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="33cb00a8-1a80-4063-887c-b5f2cbd565a3"
+        name="Genre"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="2754bf4e-841c-42ae-825f-a2e698dfa3f6"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2c905c82-4c4e-49dd-b342-942fd8797bc6"
+        name="Publisher"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="6047509a-cecd-4c7b-856a-28110935e6c9"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ab38948e-500a-4e8b-bac4-95bb90109e85"
+              LastKnownName="PublisherPerson"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="95fd7e44-9726-4545-a92e-3085aed64998"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="426c4960-8b12-43ab-a786-d84b14032482"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="960f1aab-e37d-47ed-8daa-49f57ebe9f57"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="62bf900d-cb78-4f12-8fde-f25b1d0f688c"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="268b1667-9ef3-4b4e-9314-b021c3dd0b9d"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f25c53a1-50ee-4d1c-b8ef-de6f00f6d682"
+            name="Trusted"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ab38948e-500a-4e8b-bac4-95bb90109e85"
+        name="PublisherPerson"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="bf36f836-87a0-42a3-9176-3768ba4c6162"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="099cc697-fa3b-486f-a196-98979d73dcd1"
+              LastKnownName="Person"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c3e82b46-0f8f-4edf-9c61-f0b7bfc57fe8"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84da1cff-9d4e-4c07-be25-c41a70fb92eb"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="41615ef4-5338-4c13-a664-a62c0eb9894b"
+        name="Author"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="f947a3a5-ad7b-4260-9d2d-835275ad7b28"
+            name="Firstname"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1445b617-488d-4269-a537-f71910892a12"
+            name="Lastname"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bb729798-157a-45f7-b239-8710c3086a80"
+        name="BookHistory"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="de178325-3259-4a71-b629-7c005cf90743"
+            name="Attribute"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="da3facc2-1719-415d-bc7a-48ab7e388c02"
+            name="Datetime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5cc3f278-22d2-4836-b7d1-bdda9023d92d"
+            name="PreviousValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ba0198a7-42fc-497e-922a-8700e6148d10"
+            name="Type"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f3f2201d-362a-44fd-98c0-24542efa607d"
+        name="BookOrder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="26f9fcea-de67-448d-aff9-dabde373eea4">
+            <enumerationMoniker
+              Id="18a1bfb5-9d5a-489e-85f5-279eb01f2b90"
+              LastKnownName="BookOrderStatus"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="a1665ef6-2fae-42a4-9bfd-f444602f5076"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="099cc697-fa3b-486f-a196-98979d73dcd1"
+              LastKnownName="Person"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9a31ba0b-ec11-4392-9104-5256d0fc3cae"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="6bb208b7-72bf-4a3e-8193-52c975df0741"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="9550c8a6-e82d-412a-a607-b39171774f82"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="73dcb1e8-89c6-4867-b4c9-19a838c1b6e2"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="32e84099-4ad8-4496-962e-c26a4c9e86ab"
+            name="Datetime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="340d5b11-9059-4ff9-95d8-d63f868d4b82"
+            name="ReturnDatatime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="398241ff-4f2f-4656-af49-df241780eab6"
+            name="Status"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="099cc697-fa3b-486f-a196-98979d73dcd1"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="0c8f3aae-db15-4f23-b28f-22294ba7df7b"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3bca925d-b7cd-4f96-b3d2-9537324135db"
+              LastKnownName="PersonRole"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c695af7a-fd3a-417c-bbb8-2e32eb178cf9"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="507c6fa5-cd36-43dc-bfff-c19c48e57df5"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d9f2ff83-e578-4b50-b4a3-651e6cd4e867"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="cda325df-68bc-4c24-a324-c68c5221f14a"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="536c7e65-06dc-4208-b756-535d2a74f057"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ec0b39a1-fcf9-4d70-8f78-4de8c3f5a3e7"
+              LastKnownName="Address"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0fdbdc11-9191-4d1f-81a2-8ddf6e48dedc"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7c4504dd-cf7f-47ab-93d7-50e5a64e5cd9"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="537b729e-334e-4b3c-8aff-303fbd49ec53"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="bfa76a70-4cf7-4710-b8d0-a37ebd8b8cd1"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c0225fc8-30bc-4c4a-880f-61ccc4711860"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8f39d9dc-190b-44f6-a4e5-85e8ad568d11"
+              LastKnownName="PaymentInfo"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="12714d4f-bd71-46f9-a782-cd3b717aceab"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0fc74663-d11d-430a-9d2f-65d3af2aea24"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7313629c-b2a7-46b5-b591-7faa9cb0f6d1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="33948a83-412e-4c6c-8f05-ab210bb8a973"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="675b44cd-daa7-4f0a-8171-2fc781b48532"
+            name="Email"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b6182b12-a574-46f9-9049-55fc44225768"
+            name="Firstname"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4671f43c-3e2a-4e08-838d-8cd61f3a9ce5"
+            name="Lastname"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="66498178-35f3-4c22-82ab-7befd0fd224f"
+            name="Password"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4931c354-fca1-4577-8b83-e07f9ea0dae2"
+            name="Username"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8f39d9dc-190b-44f6-a4e5-85e8ad568d11"
+        name="PaymentInfo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b8da6b51-c62e-4b0a-9009-7f5c0fce815c"
+            name="Primary"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3bca925d-b7cd-4f96-b3d2-9537324135db"
+        name="PersonRole"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="bedad71d-7127-4bb2-abdb-199665f7df06"
+            name="Role"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ec0b39a1-fcf9-4d70-8f78-4de8c3f5a3e7"
+        name="Address"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="6bfc67d2-9ac0-4d66-bd12-6cc49589f3b1"
+            name="Contry"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5d2e2ea7-96f5-4ed1-88c7-8a24917f730b"
+            name="Street"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9c547d1c-2d95-4caf-ab7b-e7cfadaff388"
+            name="ZipCode"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="18a1bfb5-9d5a-489e-85f5-279eb01f2b90"
+        name="BookOrderStatus"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="08a93291-43ad-49e3-b57c-1cd0f7f5ce6b"
+            name="Borrowed" />
+          <enumerationLiteral
+            Id="0fe7eacf-ba4f-445e-88f5-bbeaec175470"
+            name="Dequeued" />
+          <enumerationLiteral
+            Id="4ec12dac-c495-40af-a426-dd42332bdbd9"
+            name="Queued" />
+          <enumerationLiteral
+            Id="5fcb82cc-ec69-4ef6-9c68-7800a8b0a955"
+            name="Sold" />
+        </ownedLiterals>
+      </enumeration>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
