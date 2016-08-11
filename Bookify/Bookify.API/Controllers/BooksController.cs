@@ -40,21 +40,5 @@ namespace Bookify.API.Controllers
             };
             return Ok(books);
         }
-
-        public async Task<IHttpActionResult> Hest()
-        {
-            //IEnumerable<Book> books = await _repo.GetAll();
-            //if (books == null)
-            //{
-            //    return NotFound();
-            //}
-            //return Ok(books);
-            var books = new List<Book>
-            {
-                new Book { Id = 1, Title = "Bob på nye eventyr" },
-                new Book { Id = 2, Title = "HarrAr potter" }
-            };
-            return Ok(books.Last());
-        }
     }
 }
