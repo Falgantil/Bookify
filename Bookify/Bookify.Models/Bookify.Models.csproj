@@ -43,6 +43,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="BookContent.cs" />
     <Compile Include="BookHistory.cs" />
     <Compile Include="BookOrder.cs" />
     <Compile Include="Genre.cs" />

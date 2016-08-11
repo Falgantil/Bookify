@@ -18,6 +18,7 @@ namespace Bookify.Models
 
         public Author Author { get; set; }
         public Publisher Publisher { get; set; }
+        public BookContent Content { get; set; }
         public List<BookHistory> History { get; set; }
         public List<Genre> Genres { get; set; }
         public List<BookOrder> Orders { get; set; }
