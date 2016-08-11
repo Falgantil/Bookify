@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookifyContext.cs" />
+    <Compile Include="Configuration\BookConfiguration.cs" />
+    <Compile Include="Configuration\BookContentConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
