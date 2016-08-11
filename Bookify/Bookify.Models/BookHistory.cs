@@ -4,14 +4,9 @@ namespace Bookify.Models
 {
     public class BookHistory
     {
-        public BookHistory()
-        {
-            Datetime = DateTime.Now;
-        }
-
         public int Id { get; set; }
         public int BookId { get; set; }
-        public DateTime Datetime { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
         public string Attribute { get; set; }
         public string PreviousValue { get; set; }
         public BookHistoryType Type { get; set; }

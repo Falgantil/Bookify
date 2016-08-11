@@ -13,7 +13,8 @@ namespace Bookify.Models
         public string Password { get; set; }
 
         public Publisher Publisher { get; set; }
-        public List<PersonRole> Roles { get; set; }
-        public List<Address> Addresses { get; set; }
+        public ICollection<PersonRole> Roles { get; set; } = new HashSet<PersonRole>();
+        public ICollection<Address> Addresses { get; set; } = new HashSet<Address>();
+        public ICollection<Subscription> Subscriptions { get; set; } = new HashSet<Subscription>();
     }
 }

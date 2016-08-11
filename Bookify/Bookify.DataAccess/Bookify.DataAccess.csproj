@@ -52,6 +52,7 @@
     <Compile Include="BookifyContext.cs" />
     <Compile Include="Configuration\BookConfiguration.cs" />
     <Compile Include="Configuration\BookContentConfiguration.cs" />
+    <Compile Include="Configuration\BookFeedbackConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
