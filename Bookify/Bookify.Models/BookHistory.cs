@@ -11,13 +11,16 @@ namespace Bookify.Models
         public string PreviousValue { get; set; }
         public BookHistoryType Type { get; set; }
         public Book Book { get; set; }
-
         public string NewValue
         {
             // Look at Attribute property and Type property, to determine the NewValue to return from the Book object.
             get
             {
-                throw new NotImplementedException();
+                if (Book != null && Type == BookHistoryType.Changed)
+                {
+                    return Book.GetType().GetProperty(Attribute).GetValue(Book, null).ToString();
+                }
+                return null;
             }
         }
     }
