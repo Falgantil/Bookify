@@ -19,23 +19,16 @@ namespace Bookify.API.Controllers
         {
             
         }
-
+        
         [HttpGet]
         public async Task<IHttpActionResult> Get()
         {
-            //IEnumerable<Book> books = await _repo.GetAll();
-            //if (books == null)
-            //{
-            //    return NotFound();
-            //}
-            //return Ok(books);
-
             return Ok(await Task.Factory.StartNew(() =>
             {
                 return new List<Book>
                 {
                     new Book { Id = 1, Title = "Bob på nye eventyr" },
-                    new Book { Id = 2, Title = "HarrAr potter" }
+                    new Book { Id = 2, Title = "Harry potter" }
                 };
             }));
         }
