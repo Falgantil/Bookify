@@ -1,11 +1,6 @@
 ﻿using Bookify.Core;
-using Bookify.DataAccess;
 using Bookify.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -25,6 +20,7 @@ namespace Bookify.API.Controllers
             
         }
 
+        [HttpGet]
         public async Task<IHttpActionResult> Get()
         {
             //IEnumerable<Book> books = await _repo.GetAll();
@@ -33,12 +29,83 @@ namespace Bookify.API.Controllers
             //    return NotFound();
             //}
             //return Ok(books);
-            var books = new List<Book>
+
+            return Ok(await Task.Factory.StartNew(() =>
             {
-                new Book { Id = 1, Title = "Bob på nye eventyr" },
-                new Book { Id = 2, Title = "HarrAr potter" }
-            };
-            return Ok(books);
+                return new List<Book>
+                {
+                    new Book { Id = 1, Title = "Bob på nye eventyr" },
+                    new Book { Id = 2, Title = "HarrAr potter" }
+                };
+            }));
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<IHttpActionResult> Create()
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IHttpActionResult> Update()
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> Get(int id)
+        {
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Authorize]
+        public async Task<IHttpActionResult> Delete(int id)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> History(int id)
+        {
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IHttpActionResult> Buy(int id)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> Download(int id)
+        {
+            return Ok();
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<IHttpActionResult> Review(int id)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> Read(int id)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> Statistics(int id)
+        {
+            return Ok();
         }
     }
 }
