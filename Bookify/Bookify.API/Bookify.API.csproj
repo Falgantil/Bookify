@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
