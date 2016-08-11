@@ -12,12 +12,14 @@ namespace Bookify.DataAccess
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookContent> BookContent { get; set; }
+        public DbSet<BookFeedback> BookFeedback { get; set; }
         public DbSet<BookHistory> BookHistory { get; set; }
         public DbSet<BookOrder> BookOrders { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<PersonRole> PersonRoles { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
 
         public BookifyContext() : base("DefaultConnection")
         {
@@ -30,6 +32,7 @@ namespace Bookify.DataAccess
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new BookConfiguration());
             modelBuilder.Configurations.Add(new BookContentConfiguration());
+            modelBuilder.Configurations.Add(new BookFeedbackConfiguration());
         }
     }
 }

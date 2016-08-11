@@ -10,6 +10,7 @@ namespace Bookify.Models
         public string Title { get; set; }
         public string Summary { get; set; }
         public string ISBN { get; set; }
+        public string Language { get; set; }
         public decimal Price { get; set; }
         public int PublishYear { get; set; }
         public int? PageCount { get; set; }
@@ -19,8 +20,8 @@ namespace Bookify.Models
         public Author Author { get; set; }
         public Publisher Publisher { get; set; }
         public BookContent Content { get; set; }
-        public List<BookHistory> History { get; set; }
-        public List<Genre> Genres { get; set; }
-        public List<BookOrder> Orders { get; set; }
+        public ICollection<BookHistory> History { get; set; } = new HashSet<BookHistory>();
+        public ICollection<Genre> Genres { get; set; } = new HashSet<Genre>();
+        public ICollection<BookOrder> Orders { get; set; } = new HashSet<BookOrder>();
     }
 }

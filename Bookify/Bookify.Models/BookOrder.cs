@@ -8,7 +8,7 @@ namespace Bookify.Models
         public int BookId { get; set; }
         public int PersonId { get; set; }
         public BookOrderStatus Status { get; set; }
-        public DateTime Datetime { get; set; }
+        public DateTime Created { get; set; }
         public DateTime? ReturnDatetime { get; set; }
 
         public Person Person { get; set; }
