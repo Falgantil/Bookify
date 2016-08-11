@@ -5,6 +5,9 @@ namespace Bookify.DataAccess
 {
     internal class BookRepository : GenericRepository<Book>, IBookRepository
     {
-        internal BookRepository(BookifyContext ctx) : base(ctx) { }
+        internal BookRepository(BookifyContext ctx) : base(ctx)
+        {
+
+        }
     }
 }

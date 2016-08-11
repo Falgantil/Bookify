@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http.Headers;
+using System.Web.Http;
 
 namespace Bookify.API
 {
@@ -16,6 +17,9 @@ namespace Bookify.API
                 routeTemplate: "{controller}/{method}/{id}",
                 defaults: new { id = RouteParameter.Optional}
             );
+
+            // return output as json
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
     }
 }
