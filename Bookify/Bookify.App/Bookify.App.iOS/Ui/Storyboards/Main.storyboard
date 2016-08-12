@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="4">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="642" destination="7" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-623" y="6"/>
+        </scene>
+        <scene sceneID="10">
+            <objects>
+                <viewController id="7" sceneMemberID="viewController" customClass="LoginViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="12">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="16" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/icon-logo.png">
+                                <rect key="frame" x="180" y="139.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint id="23" firstItem="16" firstAttribute="height" constant="240"/>
+                                    <constraint id="24" firstAttribute="width" secondItem="16" secondAttribute="height" multiplier="1:1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bookify" lineBreakMode="tailTruncation" minimumFontSize="10" id="17" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="252" y="84" width="96" height="35.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="25" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Username" textAlignment="center">
+                                <rect key="frame" x="75" y="404" width="450" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="26" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password" textAlignment="center">
+                                <rect key="frame" x="75" y="446" width="450" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" returnKeyType="done" spellCheckingType="no" autocorrectionType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="75" y="496" width="450" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.25098039215686274" green="0.50196078431372548" blue="1" alpha="1"/>
+                                <state key="normal" title="Log in">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <constraints>
+                                    <constraint id="38" firstItem="27" firstAttribute="height" constant="40"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="BtnLogin_TouchUpInside:" destination="7" id="1599" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="18" firstItem="17" firstAttribute="centerX" secondItem="12" secondAttribute="centerX"/>
+                            <constraint id="19" firstItem="17" firstAttribute="top" secondItem="2" secondAttribute="bottom" constant="20"/>
+                            <constraint id="20" firstItem="16" firstAttribute="top" secondItem="17" secondAttribute="bottom" constant="20"/>
+                            <constraint id="21" firstItem="16" firstAttribute="centerX" secondItem="12" secondAttribute="centerX"/>
+                            <constraint id="22" firstItem="16" firstAttribute="height" secondItem="12" secondAttribute="height" multiplier="0.4"/>
+                            <constraint id="28" firstItem="12" firstAttribute="bottom" secondItem="27" secondAttribute="bottom" constant="64"/>
+                            <constraint id="29" firstItem="27" firstAttribute="centerX" secondItem="12" secondAttribute="centerX"/>
+                            <constraint id="30" firstItem="27" firstAttribute="width" secondItem="12" secondAttribute="width" multiplier="0.75"/>
+                            <constraint id="32" firstItem="27" firstAttribute="top" secondItem="26" secondAttribute="bottom" constant="20"/>
+                            <constraint id="33" firstItem="26" firstAttribute="centerX" secondItem="12" secondAttribute="centerX"/>
+                            <constraint id="34" firstItem="26" firstAttribute="width" secondItem="27" secondAttribute="width"/>
+                            <constraint id="35" firstItem="26" firstAttribute="top" secondItem="25" secondAttribute="bottom" constant="12"/>
+                            <constraint id="36" firstItem="25" firstAttribute="centerX" secondItem="12" secondAttribute="centerX"/>
+                            <constraint id="37" firstItem="25" firstAttribute="width" secondItem="26" secondAttribute="width"/>
+                        </constraints>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="11"/>
+                    <connections>
+                        <outlet property="btnLogin" destination="27" id="name-outlet-27"/>
+                        <outlet property="txtUsername" destination="25" id="name-outlet-25"/>
+                        <outlet property="txtPassword" destination="26" id="name-outlet-26"/>
+                        <outlet property="lblAppTitle" destination="17" id="name-outlet-17"/>
+                        <outlet property="imgLogo" destination="16" id="name-outlet-16"/>
+                        <outlet property="constBottomConstraint" destination="28" id="name-outlet-28"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="8"/>
+        </scene>
+        <scene sceneID="651">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="652" sceneMemberID="viewController" customClass="FrontTabBarController" storyboardIdentifier="FrontTabBarController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="657">
+                        <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="654" kind="relationship" relationship="viewControllers" id="653"/>
+                        <segue destination="656" kind="relationship" relationship="viewControllers" id="655"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="658" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918" y="2"/>
+        </scene>
+        <scene sceneID="659">
+            <objects>
+                <viewController id="654" sceneMemberID="viewController" title="Featured" customClass="FeaturedViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="647"/>
+                        <viewControllerLayoutGuide type="bottom" id="648"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="660">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="978" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="979" rowHeight="100" accessoryType="disclosureIndicator" reuseIdentifier="BookTblCell" customClass="BookTableCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="979" id="980">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1902" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                    <constraints>
+                                                        <constraint id="1904" firstItem="1902" firstAttribute="height" constant="84"/>
+                                                        <constraint id="1905" firstItem="1902" firstAttribute="width" constant="84"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lblBookTitle" lineBreakMode="tailTruncation" minimumFontSize="16" id="1907" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                                    <rect key="frame" x="100" y="38" width="100" height="24"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="1903" firstItem="1902" firstAttribute="centerY" secondItem="980" secondAttribute="centerY"/>
+                                                <constraint id="1906" firstItem="1902" firstAttribute="leading" secondItem="980" secondAttribute="leading" constant="8"/>
+                                                <constraint id="1908" firstItem="1907" firstAttribute="leading" secondItem="1902" secondAttribute="trailing" constant="8"/>
+                                                <constraint id="1909" firstItem="1907" firstAttribute="centerY" secondItem="980" secondAttribute="centerY"/>
+                                                <constraint id="1910" firstItem="980" firstAttribute="trailing" secondItem="1907" secondAttribute="trailing" constant="8" relation="greaterThanOrEqual"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgThumbnail" destination="1902" id="name-outlet-1902"/>
+                                            <outlet property="lblBookTitle" destination="1907" id="name-outlet-1907"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="987" firstItem="978" firstAttribute="trailing" secondItem="660" secondAttribute="trailing"/>
+                            <constraint id="988" firstItem="978" firstAttribute="leading" secondItem="660" secondAttribute="leading"/>
+                            <constraint id="1918" firstItem="978" firstAttribute="top" secondItem="660" secondAttribute="top"/>
+                            <constraint id="1919" firstItem="978" firstAttribute="bottom" secondItem="660" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Featured" id="661" image="Icons/Star.png"/>
+                    <connections>
+                        <outlet property="tblContent" destination="978" id="name-outlet-978"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="662" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1672" y="-356"/>
+        </scene>
+        <scene sceneID="663">
+            <objects>
+                <viewController id="656" sceneMemberID="viewController" title="Browse">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="649"/>
+                        <viewControllerLayoutGuide type="bottom" id="650"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="664">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Browse" id="665" image="Icons/Compass.png"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="666" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="367"/>
+        </scene>
+        <scene sceneID="1929">
+            <objects>
+                <viewController id="1930" sceneMemberID="viewController" title="Book Title" customClass="BookSummaryViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1927"/>
+                        <viewControllerLayoutGuide type="bottom" id="1928"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1931">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2369" translatesAutoresizingMaskIntoConstraints="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="2394" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <constraints>
+                                            <constraint id="2449" firstItem="2394" firstAttribute="height" constant="200"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" id="2404" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="0.0" y="140" width="600" height="60"/>
+                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Book Title" lineBreakMode="tailTruncation" minimumFontSize="10" id="2408" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" textAlignment="center">
+                                                <rect key="frame" x="20" y="28" width="560" height="24"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint id="2450" firstItem="2408" firstAttribute="leading" secondItem="2404" secondAttribute="leading" constant="20"/>
+                                            <constraint id="2451" firstItem="2408" firstAttribute="top" secondItem="2404" secondAttribute="top" constant="28"/>
+                                            <constraint id="2452" firstItem="2404" firstAttribute="trailing" secondItem="2408" secondAttribute="trailing" constant="20"/>
+                                            <constraint id="2453" firstItem="2404" firstAttribute="bottom" secondItem="2408" secondAttribute="bottom" constant="8"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="af Bjarke Søgaard" lineBreakMode="tailTruncation" minimumFontSize="10" id="2468" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="20" y="220" width="112" height="16.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="38 kapitler" lineBreakMode="tailTruncation" minimumFontSize="10" id="2471" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="right">
+                                        <rect key="frame" x="514.5" y="220" width="65.5" height="16.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" minimumFontSize="16" id="2475" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                        <rect key="frame" x="20" y="244.5" width="560" height="19"/>
+                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint id="2446" firstItem="2394" firstAttribute="top" secondItem="2369" secondAttribute="top"/>
+                                    <constraint id="2447" firstItem="2394" firstAttribute="leading" secondItem="2369" secondAttribute="leading"/>
+                                    <constraint id="2448" firstItem="2394" firstAttribute="trailing" secondItem="2369" secondAttribute="trailing"/>
+                                    <constraint id="2454" firstItem="2404" firstAttribute="leading" secondItem="2394" secondAttribute="leading"/>
+                                    <constraint id="2455" firstItem="2404" firstAttribute="bottom" secondItem="2394" secondAttribute="bottom"/>
+                                    <constraint id="2456" firstItem="2404" firstAttribute="trailing" secondItem="2394" secondAttribute="trailing"/>
+                                    <constraint id="2467" firstItem="2394" firstAttribute="width" secondItem="2369" secondAttribute="width"/>
+                                    <constraint id="2469" firstItem="2468" firstAttribute="top" secondItem="2404" secondAttribute="bottom" constant="20"/>
+                                    <constraint id="2470" firstItem="2468" firstAttribute="leading" secondItem="2369" secondAttribute="leading" constant="20"/>
+                                    <constraint id="2473" firstItem="2471" firstAttribute="top" secondItem="2404" secondAttribute="bottom" constant="20"/>
+                                    <constraint id="2474" firstItem="2394" firstAttribute="trailing" secondItem="2471" secondAttribute="trailing" constant="20"/>
+                                    <constraint id="2476" firstItem="2475" firstAttribute="top" secondItem="2468" secondAttribute="bottom" constant="8"/>
+                                    <constraint id="2477" firstItem="2475" firstAttribute="leading" secondItem="2369" secondAttribute="leading" constant="20"/>
+                                    <constraint id="2479" firstItem="2394" firstAttribute="trailing" secondItem="2475" secondAttribute="trailing" constant="20"/>
+                                    <constraint id="2480" firstItem="2369" firstAttribute="bottom" secondItem="2475" secondAttribute="bottom" constant="20"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2438" firstItem="2369" firstAttribute="leading" secondItem="1931" secondAttribute="leading"/>
+                            <constraint id="2439" firstItem="2369" firstAttribute="trailing" secondItem="1931" secondAttribute="trailing"/>
+                            <constraint id="2445" firstItem="2369" firstAttribute="top" secondItem="1931" secondAttribute="top"/>
+                            <constraint id="2457" firstItem="2369" firstAttribute="width" secondItem="1931" secondAttribute="width"/>
+                            <constraint id="3130" firstItem="1928" firstAttribute="top" secondItem="2369" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgBookCover" destination="2394" id="name-outlet-2394"/>
+                        <outlet property="viewTitleBackground" destination="2404" id="name-outlet-2404"/>
+                        <outlet property="lblBookTitle" destination="2408" id="name-outlet-2408"/>
+                        <outlet property="scrollviewContent" destination="2369" id="name-outlet-2369"/>
+                        <outlet property="lblChapters" destination="2471" id="name-outlet-2471"/>
+                        <outlet property="lblAuthor" destination="2468" id="name-outlet-2468"/>
+                        <outlet property="lblSummary" destination="2475" id="name-outlet-2475"/>
+                        <outlet property="constImageHeight" destination="2449" id="name-outlet-2449"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" id="2653" title="Om bogen" image="Icons/News.png"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1932" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3148" y="-620"/>
+        </scene>
+        <scene sceneID="2493">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="2494" sceneMemberID="viewController" customClass="BookOverviewViewController" storyboardIdentifier="ShowBook">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2499">
+                        <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue id="2654" destination="1930" kind="relationship" relationship="viewControllers"/>
+                        <segue id="3065" destination="2659" kind="relationship" relationship="viewControllers"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2500" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="-358"/>
+        </scene>
+        <scene sceneID="2658">
+            <objects>
+                <viewController id="2659" sceneMemberID="viewController" title="Anmeldelser" customClass="ReviewsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2656"/>
+                        <viewControllerLayoutGuide type="bottom" id="2657"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2660">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3067" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3068" rowHeight="167" customClass="ReviewTableCell" reuseIdentifier="ReviewTblCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="167"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3068" id="3069">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="166.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="af Bjarke Søgaard" lineBreakMode="tailTruncation" minimumFontSize="10" id="3078" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="467.5" y="100" width="112.5" height="17"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3079" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                    <rect key="frame" x="190" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint id="3080" firstAttribute="width" secondItem="3079" secondAttribute="height" multiplier="1:1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3081" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                    <rect key="frame" x="270" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint id="3082" firstAttribute="width" secondItem="3081" secondAttribute="height" multiplier="1:1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3083" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                    <rect key="frame" x="110" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint id="3084" firstAttribute="width" secondItem="3083" secondAttribute="height" multiplier="1:1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3085" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                    <rect key="frame" x="350" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint id="3086" firstAttribute="width" secondItem="3085" secondAttribute="height" multiplier="1:1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3087" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                    <rect key="frame" x="430" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint id="3088" firstAttribute="width" secondItem="3087" secondAttribute="height" multiplier="1:1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="3089" translatesAutoresizingMaskIntoConstraints="NO" text="d. 7 Juli 2016, kl 04:20">
+                                                    <rect key="frame" x="20" y="100" width="139" height="17"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lorem Ipsum etc." lineBreakMode="wordWrap" minimumFontSize="18" id="3090" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                                    <rect key="frame" x="20" y="125.5" width="141" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="3091" firstItem="3089" firstAttribute="top" secondItem="3081" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="3092" firstItem="3089" firstAttribute="leading" secondItem="3069" secondAttribute="leading" constant="20"/>
+                                                <constraint id="3093" firstItem="3081" firstAttribute="centerX" secondItem="3069" secondAttribute="centerX"/>
+                                                <constraint id="3094" firstItem="3081" firstAttribute="top" secondItem="3069" secondAttribute="top" constant="20"/>
+                                                <constraint id="3095" firstItem="3081" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3096" firstItem="3079" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3097" firstItem="3083" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3098" firstItem="3079" firstAttribute="centerY" secondItem="3081" secondAttribute="centerY"/>
+                                                <constraint id="3099" firstItem="3081" firstAttribute="leading" secondItem="3079" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="3100" firstItem="3079" firstAttribute="leading" secondItem="3083" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="3101" firstItem="3083" firstAttribute="centerY" secondItem="3079" secondAttribute="centerY"/>
+                                                <constraint id="3102" firstItem="3085" firstAttribute="leading" secondItem="3081" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="3103" firstItem="3085" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3104" firstItem="3085" firstAttribute="centerY" secondItem="3081" secondAttribute="centerY"/>
+                                                <constraint id="3105" firstItem="3087" firstAttribute="centerY" secondItem="3085" secondAttribute="centerY"/>
+                                                <constraint id="3106" firstItem="3087" firstAttribute="leading" secondItem="3085" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="3107" firstItem="3087" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3108" firstItem="3078" firstAttribute="top" secondItem="3081" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="3109" firstItem="3069" firstAttribute="trailing" secondItem="3078" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="3114" firstItem="3090" firstAttribute="leading" secondItem="3069" secondAttribute="leading" constant="20"/>
+                                                <constraint id="3116" firstItem="3069" firstAttribute="bottom" secondItem="3090" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="3117" firstItem="3090" firstAttribute="top" secondItem="3089" secondAttribute="bottom" constant="8"/>
+                                                <constraint id="3118" firstItem="3090" firstAttribute="top" secondItem="3078" secondAttribute="bottom" constant="8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgStar1" destination="3083" id="name-outlet-3083"/>
+                                            <outlet property="imgStar2" destination="3079" id="name-outlet-3079"/>
+                                            <outlet property="imgStar3" destination="3081" id="name-outlet-3081"/>
+                                            <outlet property="imgStar4" destination="3085" id="name-outlet-3085"/>
+                                            <outlet property="imgStar5" destination="3087" id="name-outlet-3087"/>
+                                            <outlet property="lblDate" destination="3089" id="name-outlet-3089"/>
+                                            <outlet property="lblAuthor" destination="3078" id="name-outlet-3078"/>
+                                            <outlet property="lblComment" destination="3090" id="name-outlet-3090"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="3074" firstItem="3067" firstAttribute="top" secondItem="2660" secondAttribute="top"/>
+                            <constraint id="3075" firstItem="3067" firstAttribute="trailing" secondItem="2660" secondAttribute="trailing"/>
+                            <constraint id="3076" firstItem="3067" firstAttribute="bottom" secondItem="2660" secondAttribute="bottom"/>
+                            <constraint id="3077" firstItem="3067" firstAttribute="leading" secondItem="2660" secondAttribute="leading"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" id="3064" title="Anmeldelser" image="Icons/Reviews.png"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tblContent" destination="3067" id="name-outlet-3067"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2661" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3148" y="83"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icons/icon-logo.png" width="512" height="512"/>
+        <image name="Icons/Star.png" width="25" height="25"/>
+        <image name="Icons/Compass.png" width="25" height="25"/>
+        <image name="Icons/Menu.png" width="25" height="25"/>
+        <image name="Icons/Play.png" width="25" height="25"/>
+        <image name="Icons/More.png" width="25" height="25"/>
+        <image name="Icons/News.png" width="25" height="25"/>
+        <image name="Icons/Reviews.png" width="25" height="25"/>
+        <image name="Icons/StarFilled.png" width="25" height="25"/>
+    </resources>
+</document>

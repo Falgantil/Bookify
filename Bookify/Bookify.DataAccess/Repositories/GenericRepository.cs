@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -18,39 +19,43 @@ namespace Bookify.DataAccess
             _dbSet = ctx.Set<TEntity>();
         }
 
-        public void Add(TEntity entity)
+        public virtual async void Add(TEntity entity)
         {
-            throw new NotImplementedException();
+            this._dbSet.Add(entity);
+            await this._ctx.SaveChangesAsync();
         }
 
-        public TEntity Find(object id)
+        public virtual async Task<TEntity> Find(object id)
         {
-            throw new NotImplementedException();
+            return await this._dbSet.FindAsync(id);
         }
 
-        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
+        public virtual async Task<IEnumerable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var set = this._ctx.Set<TEntity>().AsQueryable();
+            return await set.Where(predicate).ToListAsync();
         }
 
-        public Task<IEnumerable<TEntity>> GetAll()
+        public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
-            throw new NotImplementedException();
+            return await this._dbSet.ToListAsync();
         }
 
-        public void Remove(TEntity entity)
+        public virtual async void Remove(TEntity entity)
         {
-            throw new NotImplementedException();
+            this.Remove(entity);
+            await this._ctx.SaveChangesAsync();
         }
 
-        public int SaveChanges()
+        public virtual async Task<int> SaveChanges()
         {
-            return _ctx.SaveChanges();
+            return await this._ctx.SaveChangesAsync();
         }
 
-        public void Update(TEntity entity)
+        public virtual async void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            this._ctx.Entry(entity).State = EntityState.Modified;
+            await this._ctx.SaveChangesAsync();
         }
     }
 }
