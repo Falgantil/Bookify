@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAddressRepository.cs" />
+    <Compile Include="IAuthorRepository.cs" />
+    <Compile Include="IBookContentRepository.cs" />
+    <Compile Include="IBookHistoryRepository.cs" />
+    <Compile Include="IBookOrderRepository.cs" />
     <Compile Include="IBookRepository.cs" />
     <Compile Include="IGenericRepository.cs" />
+    <Compile Include="IGenreRepository.cs" />
+    <Compile Include="IPaymentInfoRepository.cs" />
+    <Compile Include="IPersonRepository.cs" />
+    <Compile Include="IPersonRoleRepository.cs" />
+    <Compile Include="IPublisherRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
