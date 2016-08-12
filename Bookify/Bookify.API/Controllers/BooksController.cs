@@ -1,5 +1,6 @@
 ﻿using Bookify.Core;
 using Bookify.Models;
+using Ninject;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -15,11 +16,6 @@ namespace Bookify.API.Controllers
             _repo = repo;
         }
 
-        public BooksController()
-        {
-            
-        }
-        
         [HttpGet]
         public async Task<IHttpActionResult> Get()
         {

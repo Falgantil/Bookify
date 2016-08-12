@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace Bookify.DataAccess
 {
-    internal class BookifyContext : DbContext
+    public class BookifyContext : DbContext
     {
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Author> Authors { get; set; }

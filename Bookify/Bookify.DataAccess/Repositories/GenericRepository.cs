@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bookify.DataAccess
 {
-    internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         internal BookifyContext _ctx;
         internal DbSet<TEntity> _dbSet;
