@@ -122,7 +122,7 @@
     <Compile Include="Ui\Controllers\FeaturedViewController.designer.cs">
       <DependentUpon>FeaturedViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\Helpers\ImageBindingHelper.cs" />
+    <Compile Include="Ui\Helpers\BindingHelper.cs" />
     <Compile Include="Ui\TableCells\BookTableCell.cs" />
     <Compile Include="Ui\TableCells\BookTableCell.designer.cs">
       <DependentUpon>BookTableCell.cs</DependentUpon>
@@ -139,7 +139,6 @@
     </Compile>
     <Compile Include="Initialization\Main.cs" />
     <Compile Include="Initialization\AppDelegate.cs" />
-    <BundleResource Include="Resources\Icons\icon-logo.png" />
     <BundleResource Include="Resources\Icons\Star.png" />
     <BundleResource Include="Resources\Icons\Star%402x.png" />
     <BundleResource Include="Resources\Icons\Star%403x.png" />
@@ -164,6 +163,7 @@
     <BundleResource Include="Resources\Icons\StarFilled%403x.png" />
     <BundleResource Include="Resources\Icons\StarFilled.png" />
     <BundleResource Include="Resources\Icons\StarFilled%402x.png" />
+    <BundleResource Include="Resources\Icon-Logo.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -242,6 +242,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bookify.Models\Bookify.Models.csproj">
+      <Project>{490cd2d0-19dd-4991-9cc6-9909be9a1fcb}</Project>
+      <Name>Bookify.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Core\Bookify.App.Core.csproj">
       <Project>{5f7bb490-7bd9-430f-b961-9ee772dc5d0f}</Project>
       <Name>Bookify.App.Core</Name>

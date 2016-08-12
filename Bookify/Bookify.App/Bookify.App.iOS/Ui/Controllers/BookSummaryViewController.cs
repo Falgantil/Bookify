@@ -46,9 +46,9 @@ namespace Bookify.App.iOS.Ui.Controllers
             //    });
             //}));
 
-            var iconMore = UIImage.FromBundle("Icons/More");
+            var iconMore = UIImage.FromBundle("Icons/More.png");
             var btnMore = new UIBarButtonItem(iconMore, UIBarButtonItemStyle.Plain, this.BtnMore_Click);
-            this.NavigationItem.SetRightBarButtonItem(btnMore, false);
+            this.ParentViewController.NavigationItem.SetRightBarButtonItem(btnMore, false);
         }
 
         private void BtnMore_Click(object sender, EventArgs e)
@@ -58,25 +58,27 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected override void CreateBindings()
         {
-            this.View.Bind(this.ViewModel, vm => vm.Book.Title, (view, title) => this.NavigationItem.Title = title);
             this.imgBookCover.BindImageUrl(this.ViewModel, vm => vm.Book.CoverUrl);
             this.lblBookTitle.BindText(this.ViewModel, vm => vm.Book.Title);
             this.lblAuthor.BindText(this.ViewModel, vm => vm.Book.Author, "af {0}");
-            this.lblChapters.Bind(this.ViewModel, vm => vm.Book.Chapters, (lbl, val) =>
-            {
-                switch (val)
-                {
-                    case 0:
-                        lbl.Text = "Ingen kapitler";
-                        break;
-                    case 1:
-                        lbl.Text = "1 kapitel";
-                        break;
-                    default:
-                        lbl.Text = val.ToString() + " kapitler";
-                        break;
-                }
-            });
+            this.lblChapters.Bind(
+                this.ViewModel,
+                vm => vm.Book.Chapters,
+                (lbl, val) =>
+                    {
+                        switch (val)
+                        {
+                            case 0:
+                                lbl.Text = "Ingen kapitler";
+                                break;
+                            case 1:
+                                lbl.Text = "1 kapitel";
+                                break;
+                            default:
+                                lbl.Text = val.ToString() + " kapitler";
+                                break;
+                        }
+                    });
             this.lblSummary.BindText(this.ViewModel, vm => vm.Book.Summary);
         }
 

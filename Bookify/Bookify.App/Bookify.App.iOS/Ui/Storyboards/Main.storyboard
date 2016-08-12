@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="16" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/icon-logo.png">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="16" translatesAutoresizingMaskIntoConstraints="NO" image="Icon-Logo.png">
                                 <rect key="frame" x="180" y="139.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint id="23" firstItem="16" firstAttribute="height" constant="240"/>
@@ -210,7 +210,7 @@
         </scene>
         <scene sceneID="1929">
             <objects>
-                <viewController id="1930" sceneMemberID="viewController" title="Book Title" customClass="BookSummaryViewController">
+                <viewController id="1930" sceneMemberID="viewController" title="Om bogen" customClass="BookSummaryViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1927"/>
                         <viewControllerLayoutGuide type="bottom" id="1928"/>
@@ -344,8 +344,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3067" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3067" translatesAutoresizingMaskIntoConstraints="NO" allowsSelection="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3068" rowHeight="167" customClass="ReviewTableCell" reuseIdentifier="ReviewTblCell">
@@ -356,51 +356,51 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="af Bjarke Søgaard" lineBreakMode="tailTruncation" minimumFontSize="10" id="3078" translatesAutoresizingMaskIntoConstraints="NO">
-                                                    <rect key="frame" x="467.5" y="100" width="112.5" height="17"/>
+                                                    <rect key="frame" x="468" y="85" width="112" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3079" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
-                                                    <rect key="frame" x="190" y="20" width="60" height="60"/>
+                                                    <rect key="frame" x="212.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3080" firstAttribute="width" secondItem="3079" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3081" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
-                                                    <rect key="frame" x="270" y="20" width="60" height="60"/>
+                                                    <rect key="frame" x="277.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3082" firstAttribute="width" secondItem="3081" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3083" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
-                                                    <rect key="frame" x="110" y="20" width="60" height="60"/>
+                                                    <rect key="frame" x="147.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3084" firstAttribute="width" secondItem="3083" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3085" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
-                                                    <rect key="frame" x="350" y="20" width="60" height="60"/>
+                                                    <rect key="frame" x="342.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3086" firstAttribute="width" secondItem="3085" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3087" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
-                                                    <rect key="frame" x="430" y="20" width="60" height="60"/>
+                                                    <rect key="frame" x="407.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3088" firstAttribute="width" secondItem="3087" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="3089" translatesAutoresizingMaskIntoConstraints="NO" text="d. 7 Juli 2016, kl 04:20">
-                                                    <rect key="frame" x="20" y="100" width="139" height="17"/>
+                                                    <rect key="frame" x="20" y="85" width="139" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lorem Ipsum etc." lineBreakMode="wordWrap" minimumFontSize="18" id="3090" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
-                                                    <rect key="frame" x="20" y="125.5" width="141" height="21"/>
+                                                    <rect key="frame" x="20" y="110" width="141" height="36.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
@@ -412,25 +412,26 @@
                                                 <constraint id="3092" firstItem="3089" firstAttribute="leading" secondItem="3069" secondAttribute="leading" constant="20"/>
                                                 <constraint id="3093" firstItem="3081" firstAttribute="centerX" secondItem="3069" secondAttribute="centerX"/>
                                                 <constraint id="3094" firstItem="3081" firstAttribute="top" secondItem="3069" secondAttribute="top" constant="20"/>
-                                                <constraint id="3095" firstItem="3081" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
-                                                <constraint id="3096" firstItem="3079" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
-                                                <constraint id="3097" firstItem="3083" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3095" firstItem="3081" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.075"/>
+                                                <constraint id="3096" firstItem="3079" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.075"/>
+                                                <constraint id="3097" firstItem="3083" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.075"/>
                                                 <constraint id="3098" firstItem="3079" firstAttribute="centerY" secondItem="3081" secondAttribute="centerY"/>
                                                 <constraint id="3099" firstItem="3081" firstAttribute="leading" secondItem="3079" secondAttribute="trailing" constant="20"/>
                                                 <constraint id="3100" firstItem="3079" firstAttribute="leading" secondItem="3083" secondAttribute="trailing" constant="20"/>
                                                 <constraint id="3101" firstItem="3083" firstAttribute="centerY" secondItem="3079" secondAttribute="centerY"/>
                                                 <constraint id="3102" firstItem="3085" firstAttribute="leading" secondItem="3081" secondAttribute="trailing" constant="20"/>
-                                                <constraint id="3103" firstItem="3085" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3103" firstItem="3085" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.075"/>
                                                 <constraint id="3104" firstItem="3085" firstAttribute="centerY" secondItem="3081" secondAttribute="centerY"/>
                                                 <constraint id="3105" firstItem="3087" firstAttribute="centerY" secondItem="3085" secondAttribute="centerY"/>
                                                 <constraint id="3106" firstItem="3087" firstAttribute="leading" secondItem="3085" secondAttribute="trailing" constant="20"/>
-                                                <constraint id="3107" firstItem="3087" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.1"/>
+                                                <constraint id="3107" firstItem="3087" firstAttribute="width" secondItem="3069" secondAttribute="width" multiplier="0.075"/>
                                                 <constraint id="3108" firstItem="3078" firstAttribute="top" secondItem="3081" secondAttribute="bottom" constant="20"/>
                                                 <constraint id="3109" firstItem="3069" firstAttribute="trailing" secondItem="3078" secondAttribute="trailing" constant="20"/>
                                                 <constraint id="3114" firstItem="3090" firstAttribute="leading" secondItem="3069" secondAttribute="leading" constant="20"/>
                                                 <constraint id="3116" firstItem="3069" firstAttribute="bottom" secondItem="3090" secondAttribute="bottom" constant="20"/>
                                                 <constraint id="3117" firstItem="3090" firstAttribute="top" secondItem="3089" secondAttribute="bottom" constant="8"/>
                                                 <constraint id="3118" firstItem="3090" firstAttribute="top" secondItem="3078" secondAttribute="bottom" constant="8"/>
+                                                <constraint id="3141" firstItem="3069" firstAttribute="trailing" secondItem="3090" secondAttribute="trailing" constant="20" relation="greaterThanOrEqual"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -450,8 +451,8 @@
                         <constraints>
                             <constraint id="3074" firstItem="3067" firstAttribute="top" secondItem="2660" secondAttribute="top"/>
                             <constraint id="3075" firstItem="3067" firstAttribute="trailing" secondItem="2660" secondAttribute="trailing"/>
-                            <constraint id="3076" firstItem="3067" firstAttribute="bottom" secondItem="2660" secondAttribute="bottom"/>
                             <constraint id="3077" firstItem="3067" firstAttribute="leading" secondItem="2660" secondAttribute="leading"/>
+                            <constraint id="3152" firstItem="2657" firstAttribute="top" secondItem="3067" secondAttribute="bottom"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" id="3064" title="Anmeldelser" image="Icons/Reviews.png"/>
@@ -466,7 +467,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icons/icon-logo.png" width="512" height="512"/>
+        <image name="Icon-Logo.png" width="512" height="512"/>
         <image name="Icons/Star.png" width="25" height="25"/>
         <image name="Icons/Compass.png" width="25" height="25"/>
         <image name="Icons/Menu.png" width="25" height="25"/>

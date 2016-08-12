@@ -44,6 +44,8 @@
     <Compile Include="Interfaces\Services\IReviewService.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BookModel.cs" />
+    <Compile Include="Models\LightBookModel.cs" />
+    <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Initialization\Bootstrapper.cs" />
@@ -89,7 +91,12 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bookify.Models\Bookify.Models.csproj">
+      <Project>{490cd2d0-19dd-4991-9cc6-9909be9a1fcb}</Project>
+      <Name>Bookify.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,8 +1,7 @@
 using Foundation;
 using System;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
+
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
@@ -14,7 +13,7 @@ namespace Bookify.App.iOS
 {
     public partial class ReviewsViewController : ExtendedViewController<ReviewsViewModel>
     {
-        public ReviewsViewController (IntPtr handle) : base (handle)
+        public ReviewsViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -48,7 +47,7 @@ namespace Bookify.App.iOS
         {
             this.tblContent.ReloadData();
         }
-        
+
         protected override ReviewsViewModel CreateViewModel()
         {
             return AppDelegate.Root.Resolve<ReviewsViewModel>(new Parameter("book", this.Book));
@@ -56,7 +55,7 @@ namespace Bookify.App.iOS
 
         protected override void CreateBindings()
         {
-            
+
         }
     }
 
@@ -68,12 +67,7 @@ namespace Bookify.App.iOS
         {
             this.viewModel = viewModel;
         }
-
-        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
-        {
-            tableView.DeselectRow(indexPath, true);
-        }
-
+        
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             return ReviewTableCell.CreateCell(tableView, indexPath, this.viewModel.Reviews[indexPath.Row]);

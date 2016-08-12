@@ -7,6 +7,8 @@ using System.Text;
 
 using Akavache;
 
+using Bookify.App.Core.Models;
+
 using Rope.Net;
 using Rope.Net.iOS;
 
@@ -16,8 +18,11 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.Helpers
 {
-    public static class ImageBindingHelper
+    public static class BindingHelper
     {
+        private static Lazy<UIImage> imgStar = new Lazy<UIImage>(() => UIImage.FromBundle("Icons/Star.png")); 
+        private static Lazy<UIImage> imgStarFilled = new Lazy<UIImage>(() => UIImage.FromBundle("Icons/StarFilled.png")); 
+
         /// <summary>
         /// Binds the image URL to the specified image view.
         /// Now, every time the URL changes, the corrosponding image will be downloaded
@@ -55,6 +60,22 @@ namespace Bookify.App.iOS.Ui.Helpers
                 });
             binding.With(() => disposed = true);
             return binding;
+        }
+
+        public static IBinding BindRating<TModel>(this UIView parent, TModel model, Expression<Func<TModel, int>> getVal, UIImageView star1, UIImageView star2, UIImageView star3, UIImageView star4, UIImageView star5)
+            where TModel : INotifyPropertyChanged
+        {
+            return parent.Bind(
+                model,
+                getVal,
+                (v, rating) =>
+                    {
+                        star1.Image = rating > 0 ? imgStarFilled.Value : imgStar.Value;
+                        star2.Image = rating > 1 ? imgStarFilled.Value : imgStar.Value;
+                        star3.Image = rating > 2 ? imgStarFilled.Value : imgStar.Value;
+                        star4.Image = rating > 3 ? imgStarFilled.Value : imgStar.Value;
+                        star5.Image = rating > 4 ? imgStarFilled.Value : imgStar.Value;
+                    });
         }
     }
 }
