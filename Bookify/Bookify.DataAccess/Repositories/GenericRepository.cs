@@ -1,6 +1,5 @@
 ﻿using Bookify.Core;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,7 +18,7 @@ namespace Bookify.DataAccess
             _dbSet = ctx.Set<TEntity>();
         }
 
-        public virtual async void Add(TEntity entity)
+        public virtual async Task Add(TEntity entity)
         {
             this._dbSet.Add(entity);
             await this._ctx.SaveChangesAsync();
@@ -30,20 +29,21 @@ namespace Bookify.DataAccess
             return await this._dbSet.FindAsync(id);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
+        public virtual async Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            var set = this._ctx.Set<TEntity>().AsQueryable();
-            return await set.Where(predicate).ToListAsync();
+            var result = await _dbSet.Where(predicate).ToListAsync();
+            return result.AsQueryable();
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAll()
+        public virtual async Task<IQueryable<TEntity>> GetAll()
         {
-            return await this._dbSet.ToListAsync();
+            var result =await this._dbSet.ToListAsync();
+            return result.AsQueryable();
         }
 
-        public virtual async void Remove(TEntity entity)
+        public virtual async Task Remove(TEntity entity)
         {
-            this.Remove(entity);
+            this._ctx.Entry(entity).State = EntityState.Deleted;
             await this._ctx.SaveChangesAsync();
         }
 
@@ -52,7 +52,7 @@ namespace Bookify.DataAccess
             return await this._ctx.SaveChangesAsync();
         }
 
-        public virtual async void Update(TEntity entity)
+        public virtual async Task Update(TEntity entity)
         {
             this._ctx.Entry(entity).State = EntityState.Modified;
             await this._ctx.SaveChangesAsync();
