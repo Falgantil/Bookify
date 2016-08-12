@@ -43,7 +43,7 @@ namespace Bookify.DataAccess
 
         public virtual async void Remove(TEntity entity)
         {
-            this.Remove(entity);
+            this._ctx.Entry(entity).State = EntityState.Deleted;
             await this._ctx.SaveChangesAsync();
         }
 

@@ -37,28 +37,31 @@ namespace Bookify.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IHttpActionResult> Create()
+        public async Task<IHttpActionResult> Create(Book book)
         {
+            _repo.Add(book);
             return Ok();
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IHttpActionResult> Update()
+        public async Task<IHttpActionResult> Update(Book book)
         {
+            _repo.Update(book);
             return Ok();
         }
 
         [HttpPost]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok();
+            return Ok(await _repo.Find(id));
         }
 
         [HttpDelete]
         [Authorize]
         public async Task<IHttpActionResult> Delete(int id)
         {
+            _repo.Disable(id);
             return Ok();
         }
 
