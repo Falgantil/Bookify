@@ -1,10 +1,8 @@
 ﻿using Bookify.Core;
 using Bookify.Models;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Linq;
 
 namespace Bookify.API.Controllers
 {
@@ -21,11 +19,6 @@ namespace Bookify.API.Controllers
             _bookHistoryRepo = bookHistory;
             _personRepository = personRepo;
             _bookOrderRepository = bookOrderRepository;
-        }
-
-        public BooksController()
-        {
-
         }
 
         [HttpGet]

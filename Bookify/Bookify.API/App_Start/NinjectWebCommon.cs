@@ -13,6 +13,7 @@ namespace Bookify.API.App_Start
     using System.Web.Http;
     using Ninject.Web.WebApi;
     using Controllers;
+    using DataAccess.Repositories;
 
     public static class NinjectWebCommon 
     {
@@ -66,8 +67,20 @@ namespace Bookify.API.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<BookifyContext>().To<BookifyContext>().InSingletonScope();
-            kernel.Bind<IBookRepository>().To<BookRepository>();
-            
+            kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
+            kernel.Bind<IPublisherRepository>().To<PublisherRepository>().InRequestScope();
+            kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();
+            kernel.Bind<IPersonRoleRepository>().To<PersonRoleRepository>().InRequestScope();
+            kernel.Bind<IPaymentInfoRepository>().To<PaymentInfoRepository>().InRequestScope();
+            kernel.Bind<IGenreRepository>().To<GenreRepository>().InRequestScope();
+            kernel.Bind<IBookOrderRepository>().To<BookOrderRepository>().InRequestScope();
+            kernel.Bind<IBookHistoryRepository>().To<BookHistoryRepository>().InRequestScope();
+            kernel.Bind<IBookContentRepository>().To<BookContentRepository>().InRequestScope();
+            kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
+            kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
+
+
+
         }        
     }
 }

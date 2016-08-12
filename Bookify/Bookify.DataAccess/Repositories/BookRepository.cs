@@ -1,7 +1,7 @@
 ﻿using Bookify.Core;
 using Bookify.Models;
 
-namespace Bookify.DataAccess
+namespace Bookify.DataAccess.Repositories
 {
     public class BookRepository : GenericRepository<Book>, IBookRepository
     {

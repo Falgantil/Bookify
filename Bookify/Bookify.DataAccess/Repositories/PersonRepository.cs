@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Bookify.DataAccess.Repositories
 {
-    internal class PersonRepository : GenericRepository<Person>, IPersonRepository
+    public class PersonRepository : GenericRepository<Person>, IPersonRepository
     {
-        internal PersonRepository(BookifyContext ctx) : base(ctx)
+        public PersonRepository(BookifyContext ctx) : base(ctx)
         {
 
         }

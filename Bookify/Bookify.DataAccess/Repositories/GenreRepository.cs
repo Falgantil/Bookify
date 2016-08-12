@@ -3,9 +3,9 @@ using Bookify.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
-    internal class GenreRepository : GenericRepository<Genre>, IGenreRepository
+    public class GenreRepository : GenericRepository<Genre>, IGenreRepository
     {
-        internal GenreRepository(BookifyContext ctx) : base(ctx)
+        public GenreRepository(BookifyContext ctx) : base(ctx)
         {
 
         }

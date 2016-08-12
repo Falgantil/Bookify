@@ -3,9 +3,9 @@ using Bookify.Core;
 
 namespace Bookify.DataAccess.Repositories
 {
-    internal class AddressRepository : GenericRepository<Address>, IAddressRepository
+    public class AddressRepository : GenericRepository<Address>, IAddressRepository
     {
-        internal AddressRepository(BookifyContext ctx) : base(ctx)
+        public AddressRepository(BookifyContext ctx) : base(ctx)
         {
 
         }

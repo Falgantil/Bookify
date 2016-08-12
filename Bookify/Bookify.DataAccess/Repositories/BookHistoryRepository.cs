@@ -3,9 +3,9 @@ using Bookify.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
-    internal class BookHistoryRepository : GenericRepository<BookHistory>, IBookHistoryRepository
+    public class BookHistoryRepository : GenericRepository<BookHistory>, IBookHistoryRepository
     {
-        internal BookHistoryRepository(BookifyContext ctx) : base(ctx)
+        public BookHistoryRepository(BookifyContext ctx) : base(ctx)
         {
 
         }
