@@ -1,3 +1,5 @@
+var webpack = require("webpack");
+
 module.exports = {
   entry: './index.js',
 
@@ -8,7 +10,25 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.less$/,
+        loader: "style!css!less"
+      },
+      {
+        test: /\.styl$/,
+        loader: "style!css!stylus"
+      },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.jpg$/, loader: "file-loader" }
     ]
-  }
+  },
+  plugins: [
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+      }),
+      new webpack.HotModuleReplacementPlugin()
+  ]
 }

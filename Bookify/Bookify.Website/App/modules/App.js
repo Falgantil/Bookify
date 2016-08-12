@@ -1,25 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router'
-
-const TitleHeader = ({ title }) => (
-   <h1>{title}</h1>
-)
+import React from 'react';
+import { Link } from 'react-router';
+import FrontPage from './FrontPage';
+import NavigationBar from './NavigationBar';
+import 'bootstrap-material-design';
+import 'bootstrap-material-design/dist/js/material.js';
+import 'bootstrap-material-design/dist/js/ripples.js';
+import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
+import 'bootstrap-material-design/dist/css/ripples.css';
+import './style.styl';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <TitleHeader title="React Router Woot!" />
-        <TitleHeader title="React Router Woot 1!" />
-        <TitleHeader title="React Router Woot 2!" />
-        <ul role="nav">
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/repos">Repos</Link></li>
-        </ul>
-
-        {/* add this */}
-        {this.props.children}
-
+        <NavigationBar />
+        <div className="container">
+          {this.props.children}
+          {!this.props.children && <FrontPage />}
+        </div>
       </div>
     )
   }
