@@ -18,6 +18,10 @@ namespace Bookify.DataAccess.Configuration
                     gb.MapRightKey("GenreId");
                     gb.ToTable("BookGenre");
                 });
+
+            Property(x => x.Title).IsRequired();
+            Property(x => x.ISBN).IsRequired();
+            Property(x => x.Language).IsRequired();
         }
     }
 }
