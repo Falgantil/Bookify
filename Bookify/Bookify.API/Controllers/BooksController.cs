@@ -83,19 +83,7 @@ namespace Bookify.API.Controllers
         [HttpPut]
         public async Task<IHttpActionResult> Buy(int id, string email)
         {
-            var person = (await _personRepository.Get(t => t.Email == email)).FirstOrDefault();
-
-            // Create Email in db if customer is anonymous
-            if (person == null)
-            {
-                person = new Person()
-                {
-                    Email = email
-                };
-                await _personRepository.Add(person);
-                await _personRepository.SaveChanges();
-                // Get the Id the person was asigned when it was created
-            }
+            var person = _personRepository.CreatePersonIfNotExists(email);
 
 
 
