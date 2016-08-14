@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Models;
@@ -9,6 +10,11 @@ namespace Bookify.App.Core.Interfaces.Services
     /// </summary>
     public interface IAuthenticationService
     {
+        /// <summary>
+        /// Occurs when the authentication state changed (Logged in or out).
+        /// </summary>
+        event EventHandler<AccountModel> AuthChanged;
+
         /// <summary>
         /// Gets the logged on account. Returns null if not currently logged on.
         /// </summary>

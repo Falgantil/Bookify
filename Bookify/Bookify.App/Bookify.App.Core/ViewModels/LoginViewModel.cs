@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
+using Bookify.App.Core.Exceptions;
+using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
 
@@ -24,15 +28,16 @@ namespace Bookify.App.Core.ViewModels
         public async Task<AccountModel> Authenticate()
         {
             Func<Task<AccountModel>> op = async () => await this.authService.Authenticate(this.Username, this.Password);
-            var result = await Policy.Handle<Exception>()
+            var result = await Policy.Handle<WebException>()
+                .Or<HttpResponseException>()
                 .RetryAsync()
                 .ExecuteAndCaptureAsync(op);
-            if (result.Outcome == OutcomeType.Successful)
+            if (result.Outcome == OutcomeType.Failure)
             {
-                return result.Result;
+                throw result.FinalException;
             }
 
-            return null;
-        } 
+            return result.Result;
+        }
     }
 }
