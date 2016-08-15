@@ -1,7 +1,7 @@
 using System;
 
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
+using Bookify.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -21,7 +21,7 @@ namespace Bookify.App.Core.ViewModels
         /// <value>
         /// The account.
         /// </value>
-        public AccountModel Account { get; private set; }
+        public Person Account { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is logged in.
@@ -35,10 +35,10 @@ namespace Bookify.App.Core.ViewModels
         /// Invoked when the authentication state changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="accountModel">The account model.</param>
-        private void AuthChanged(object sender, AccountModel accountModel)
+        /// <param name="person">The account model.</param>
+        private void AuthChanged(object sender, Person person)
         {
-            this.Account = accountModel;
+            this.Account = person;
         }
     }
 }

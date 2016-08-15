@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 
-using Bookify.App.Core.Exceptions;
-using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
+using Bookify.App.Sdk.Exceptions;
+using Bookify.Models;
 
 using Polly;
 
@@ -21,13 +19,13 @@ namespace Bookify.App.Core.ViewModels
             this.authService = authService;
         }
 
-        public string Username { get; set; }
+        public string Email { get; set; }
 
         public string Password { get; set; }
 
-        public async Task<AccountModel> Authenticate()
+        public async Task<Person> Authenticate()
         {
-            Func<Task<AccountModel>> op = async () => await this.authService.Authenticate(this.Username, this.Password);
+            Func<Task<Person>> op = async () => await this.authService.Authenticate(this.Email, this.Password);
             var result = await Policy.Handle<WebException>()
                 .Or<HttpResponseException>()
                 .RetryAsync()
