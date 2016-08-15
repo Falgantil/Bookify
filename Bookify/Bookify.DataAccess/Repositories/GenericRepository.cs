@@ -26,7 +26,7 @@ namespace Bookify.DataAccess.Repositories
             return entity;
         }
 
-        public virtual async Task<TEntity> Find(object id)
+        public virtual async Task<TEntity> Find(int id)
         {
             return await this._dbSet.FindAsync(id);
         }

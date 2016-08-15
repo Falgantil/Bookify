@@ -7,7 +7,7 @@ namespace Bookify.Core.Interfaces
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        Task<TEntity> Find(object id);
+        Task<TEntity> Find(int id);
         Task<IQueryable<TEntity>> GetAll();
         Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> Add(TEntity entity);
