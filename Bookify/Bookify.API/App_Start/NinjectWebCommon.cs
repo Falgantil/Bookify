@@ -59,7 +59,7 @@ namespace Bookify.API.App_Start
                 throw;
             }
         }
-
+        
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
@@ -78,9 +78,6 @@ namespace Bookify.API.App_Start
             kernel.Bind<IBookContentRepository>().To<BookContentRepository>().InRequestScope();
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
-
-
-
         }        
     }
 }
