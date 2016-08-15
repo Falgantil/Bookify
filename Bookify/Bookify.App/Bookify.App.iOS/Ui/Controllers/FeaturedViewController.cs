@@ -56,39 +56,9 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void BooksCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
         {
-            if (args.Action != NotifyCollectionChangedAction.Add)
-            {
-                this.tblContent.ReloadData();
-                return;
-            }
-            switch (args.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    this.InsertBooks(args);
-                    break;
-                //case NotifyCollectionChangedAction.Remove:
-                //    this.RemoveBooks(args);
-                //    break;
-                default:
-                    this.tblContent.ReloadData();
-                    break;
-            }
+            this.tblContent.ReloadData();
         }
-
-        private void InsertBooks(NotifyCollectionChangedEventArgs args)
-        {
-            var lightBookModels = args.NewItems.OfType<LightBookModel>().ToArray();
-            if (lightBookModels.Length <= 0)
-            {
-                return;
-            }
-            var indexes = lightBookModels.Select(m => NSIndexPath.FromRowSection(this.ViewModel.Books.IndexOf(m), 0)).ToArray();
-
-            this.tblContent.BeginUpdates();
-            this.tblContent.InsertRows(indexes, UITableViewRowAnimation.Automatic);
-            this.tblContent.EndUpdates();
-        }
-
+        
         public async void CellTapped(LightBookModel model)
         {
             BookModel book;

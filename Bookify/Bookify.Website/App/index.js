@@ -1,21 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, useRouterHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 import App from './modules/App'
-import About from './modules/About'
-import Repos from './modules/Repos'
-import { createHashHistory } from 'history'
-
-const appHistory = useRouterHistory(createHashHistory)({
-  queryKey: false
-})
+import Bookpage from './modules/Bookpage'
 
 render((
-  <Router history={appHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
-      {/* make them children of `App` */}
-      <Route path="/repos" component={Repos}/>
-      <Route path="/about" component={About}/>
+      <Route path="/:bookName" component={Bookpage}/>
     </Route>
   </Router>
 ), document.getElementById('app'))
+
+$.material.init();

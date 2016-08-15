@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Bookify.App.Core.Annotations;
+using Bookify.App.Core.Properties;
 
 namespace Bookify.App.Core.Models
 {

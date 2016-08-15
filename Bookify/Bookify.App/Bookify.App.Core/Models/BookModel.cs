@@ -1,5 +1,3 @@
-using System;
-
 namespace Bookify.App.Core.Models
 {
     public class BookModel : BaseModel
@@ -15,23 +13,9 @@ namespace Bookify.App.Core.Models
         public string CoverUrl { get; set; }
 
         public string Author { get; set; }
-    }
 
-    public class LightBookModel : BaseModel
-    {
-        public string Title { get; set; }
+        public bool OwnsBook { get; set; }
 
-        public string ThumbnailUrl { get; set; }
-    }
-
-    public class ReviewModel : BaseModel
-    {
-        public string Author { get; set; }
-
-        public DateTime CreatedTs { get; set; }
-
-        public string Message { get; set; }
-
-        public int Rating { get; set; }
+        public bool Borrowable { get; set; }
     }
 }

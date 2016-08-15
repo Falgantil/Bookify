@@ -1,12 +1,19 @@
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
+using Bookify.App.Core.Helpers;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.General;
+using Bookify.App.Sdk.Exceptions;
 using CoreAnimation;
 using CoreGraphics;
 using Foundation;
+
+using Polly;
+
 using Rope.Net.iOS;
 
 using UIKit;
@@ -97,16 +104,21 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             using (this.DialogService.Loading("Logger ind, vent venligst..."))
             {
-                var account = await this.ViewModel.Authenticate();
-                if (account == null)
+                try
+                {
+                    var account = await this.ViewModel.Authenticate();
+                    var viewController = new FrontSidebarController();
+                    await this.PresentViewControllerAsync(viewController, true);
+                    UIApplication.SharedApplication.KeyWindow.RootViewController = viewController;
+                }
+                catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.Forbidden)
                 {
                     this.DialogService.Alert("Dit brugernavn eller kodeord kunne ikke genkendes.", "Login fejl", "OK");
-                    return;
                 }
-
-                var viewController = new FrontSidebarController();
-                await this.PresentViewControllerAsync(viewController, true);
-                UIApplication.SharedApplication.KeyWindow.RootViewController = viewController;
+                catch (WebException ex)
+                {
+                    this.DialogService.Alert("Der opstod en fejl under login. Check din internet forbindelse, eller prøv igen senere.", "Forbindelses fejl", "OK");
+                }
             }
         }
     }

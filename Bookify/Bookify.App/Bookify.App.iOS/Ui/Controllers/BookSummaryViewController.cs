@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
@@ -36,47 +39,85 @@ namespace Bookify.App.iOS.Ui.Controllers
 
             this.lblSummary.UserInteractionEnabled = true;
             this.lblSummary.Enabled = true;
-            //this.lblSummary.AddGestureRecognizer(new UITapGestureRecognizer(() =>
-            //{
-            //    var value = this.constImageHeight.Constant == 200 ? 0 : 200;
-            //    this.constImageHeight.Constant = value;
-            //    UIView.Animate(.5f, () =>
-            //    {
-            //        this.View.LayoutIfNeeded();
-            //    });
-            //}));
 
-            var iconMore = UIImage.FromBundle("Icons/More");
+            var iconMore = UIImage.FromBundle("Icons/More.png");
             var btnMore = new UIBarButtonItem(iconMore, UIBarButtonItemStyle.Plain, this.BtnMore_Click);
-            this.NavigationItem.SetRightBarButtonItem(btnMore, false);
+            this.ParentViewController.NavigationItem.SetRightBarButtonItem(btnMore, false);
         }
 
-        private void BtnMore_Click(object sender, EventArgs e)
+        private async void BtnMore_Click(object sender, EventArgs e)
         {
-            this.DialogService.ActionSheetAsync(string.Empty, "Annuller", null, null, "Køb bog", "Anmeldinger");
+            const string MsgTitle = "Valgmuligheder";
+
+            const string OptCancel = "Annuller";
+            const string OptAddToBasket = "Tilføj til indkøbskurv";
+            const string OptReadBook = "Læs bog";
+            const string OptBorrowBook = "Lån bog";
+
+            List<string> options = new List<string> { OptAddToBasket };
+            if (this.ViewModel.OwnsBook)
+            {
+                options.Add(OptReadBook);
+            }
+            else if (this.ViewModel.Borrowable)
+            {
+                options.Add(OptBorrowBook);
+            }
+            var result = await this.DialogService.ActionSheetAsync(MsgTitle, OptCancel, null, null, options.ToArray());
+            switch (result)
+            {
+                case OptCancel:
+                    return;
+                case OptAddToBasket:
+                    this.AddToBasket_Clicked();
+                    break;
+                case OptReadBook:
+                    this.ReadBook_Clicked();
+                    break;
+                case OptBorrowBook:
+                    this.BorrowBook_Clicked();
+                    break;
+            }
+        }
+
+        private async void AddToBasket_Clicked()
+        {
+            await this.ViewModel.AddToBasket();
+        }
+
+        private void ReadBook_Clicked()
+        {
+            
+        }
+
+        private void BorrowBook_Clicked()
+        {
+            
         }
 
         protected override void CreateBindings()
         {
-            this.View.Bind(this.ViewModel, vm => vm.Book.Title, (view, title) => this.NavigationItem.Title = title);
             this.imgBookCover.BindImageUrl(this.ViewModel, vm => vm.Book.CoverUrl);
             this.lblBookTitle.BindText(this.ViewModel, vm => vm.Book.Title);
             this.lblAuthor.BindText(this.ViewModel, vm => vm.Book.Author, "af {0}");
-            this.lblChapters.Bind(this.ViewModel, vm => vm.Book.Chapters, (lbl, val) =>
-            {
-                switch (val)
-                {
-                    case 0:
-                        lbl.Text = "Ingen kapitler";
-                        break;
-                    case 1:
-                        lbl.Text = "1 kapitel";
-                        break;
-                    default:
-                        lbl.Text = val.ToString() + " kapitler";
-                        break;
-                }
-            });
+            this.lblChapters.Bind(
+                this.ViewModel,
+                vm => vm.Book.Chapters,
+                (lbl, val) =>
+                    {
+                        switch (val)
+                        {
+                            case 0:
+                                lbl.Text = "Ingen kapitler";
+                                break;
+                            case 1:
+                                lbl.Text = "1 kapitel";
+                                break;
+                            default:
+                                lbl.Text = val.ToString() + " kapitler";
+                                break;
+                        }
+                    });
             this.lblSummary.BindText(this.ViewModel, vm => vm.Book.Summary);
         }
 

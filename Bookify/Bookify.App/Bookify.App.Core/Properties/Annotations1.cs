@@ -8,7 +8,7 @@
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable InconsistentNaming
 
-namespace Bookify.App.Core.Annotations
+namespace Bookify.App.Core.Properties
 {
   /// <summary>
   /// Indicates that the value of the marked element could be <c>null</c> sometimes,
@@ -83,7 +83,7 @@ namespace Bookify.App.Core.Annotations
     /// </param>
     public StringFormatMethodAttribute(string formatParameterName)
     {
-      FormatParameterName = formatParameterName;
+      this.FormatParameterName = formatParameterName;
     }
 
     public string FormatParameterName { get; private set; }
@@ -98,7 +98,7 @@ namespace Bookify.App.Core.Annotations
   {
     public ValueProviderAttribute(string name)
     {
-      Name = name;
+      this.Name = name;
     }
 
     [NotNull] public string Name { get; private set; }
@@ -162,7 +162,7 @@ namespace Bookify.App.Core.Annotations
     public NotifyPropertyChangedInvocatorAttribute() { }
     public NotifyPropertyChangedInvocatorAttribute(string parameterName)
     {
-      ParameterName = parameterName;
+      this.ParameterName = parameterName;
     }
 
     public string ParameterName { get; private set; }
@@ -219,8 +219,8 @@ namespace Bookify.App.Core.Annotations
 
     public ContractAnnotationAttribute([NotNull] string contract, bool forceFullStates)
     {
-      Contract = contract;
-      ForceFullStates = forceFullStates;
+      this.Contract = contract;
+      this.ForceFullStates = forceFullStates;
     }
 
     public string Contract { get; private set; }
@@ -242,7 +242,7 @@ namespace Bookify.App.Core.Annotations
     public LocalizationRequiredAttribute() : this(true) { }
     public LocalizationRequiredAttribute(bool required)
     {
-      Required = required;
+      this.Required = required;
     }
 
     public bool Required { get; private set; }
@@ -288,7 +288,7 @@ namespace Bookify.App.Core.Annotations
   {
     public BaseTypeRequiredAttribute([NotNull] Type baseType)
     {
-      BaseType = baseType;
+      this.BaseType = baseType;
     }
 
     [NotNull] public Type BaseType { get; private set; }
@@ -312,8 +312,8 @@ namespace Bookify.App.Core.Annotations
 
     public UsedImplicitlyAttribute(ImplicitUseKindFlags useKindFlags, ImplicitUseTargetFlags targetFlags)
     {
-      UseKindFlags = useKindFlags;
-      TargetFlags = targetFlags;
+      this.UseKindFlags = useKindFlags;
+      this.TargetFlags = targetFlags;
     }
 
     public ImplicitUseKindFlags UseKindFlags { get; private set; }
@@ -338,8 +338,8 @@ namespace Bookify.App.Core.Annotations
 
     public MeansImplicitUseAttribute(ImplicitUseKindFlags useKindFlags, ImplicitUseTargetFlags targetFlags)
     {
-      UseKindFlags = useKindFlags;
-      TargetFlags = targetFlags;
+      this.UseKindFlags = useKindFlags;
+      this.TargetFlags = targetFlags;
     }
 
     [UsedImplicitly] public ImplicitUseKindFlags UseKindFlags { get; private set; }
@@ -388,7 +388,7 @@ namespace Bookify.App.Core.Annotations
     public PublicAPIAttribute() { }
     public PublicAPIAttribute([NotNull] string comment)
     {
-      Comment = comment;
+      this.Comment = comment;
     }
 
     public string Comment { get; private set; }
@@ -425,7 +425,7 @@ namespace Bookify.App.Core.Annotations
     public MustUseReturnValueAttribute() { }
     public MustUseReturnValueAttribute([NotNull] string justification)
     {
-      Justification = justification;
+      this.Justification = justification;
     }
 
     public string Justification { get; private set; }
@@ -461,7 +461,7 @@ namespace Bookify.App.Core.Annotations
     public PathReferenceAttribute() { }
     public PathReferenceAttribute([PathReference] string basePath)
     {
-      BasePath = basePath;
+      this.BasePath = basePath;
     }
 
     public string BasePath { get; private set; }
@@ -552,7 +552,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspMvcAreaMasterLocationFormatAttribute(string format)
     {
-      Format = format;
+      this.Format = format;
     }
 
     public string Format { get; private set; }
@@ -563,7 +563,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspMvcAreaPartialViewLocationFormatAttribute(string format)
     {
-      Format = format;
+      this.Format = format;
     }
 
     public string Format { get; private set; }
@@ -574,7 +574,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspMvcAreaViewLocationFormatAttribute(string format)
     {
-      Format = format;
+      this.Format = format;
     }
 
     public string Format { get; private set; }
@@ -585,7 +585,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspMvcMasterLocationFormatAttribute(string format)
     {
-      Format = format;
+      this.Format = format;
     }
 
     public string Format { get; private set; }
@@ -596,7 +596,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspMvcPartialViewLocationFormatAttribute(string format)
     {
-      Format = format;
+      this.Format = format;
     }
 
     public string Format { get; private set; }
@@ -607,7 +607,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspMvcViewLocationFormatAttribute(string format)
     {
-      Format = format;
+      this.Format = format;
     }
 
     public string Format { get; private set; }
@@ -625,7 +625,7 @@ namespace Bookify.App.Core.Annotations
     public AspMvcActionAttribute() { }
     public AspMvcActionAttribute(string anonymousProperty)
     {
-      AnonymousProperty = anonymousProperty;
+      this.AnonymousProperty = anonymousProperty;
     }
 
     public string AnonymousProperty { get; private set; }
@@ -642,7 +642,7 @@ namespace Bookify.App.Core.Annotations
     public AspMvcAreaAttribute() { }
     public AspMvcAreaAttribute(string anonymousProperty)
     {
-      AnonymousProperty = anonymousProperty;
+      this.AnonymousProperty = anonymousProperty;
     }
 
     public string AnonymousProperty { get; private set; }
@@ -660,7 +660,7 @@ namespace Bookify.App.Core.Annotations
     public AspMvcControllerAttribute() { }
     public AspMvcControllerAttribute(string anonymousProperty)
     {
-      AnonymousProperty = anonymousProperty;
+      this.AnonymousProperty = anonymousProperty;
     }
 
     public string AnonymousProperty { get; private set; }
@@ -762,7 +762,7 @@ namespace Bookify.App.Core.Annotations
     public HtmlElementAttributesAttribute() { }
     public HtmlElementAttributesAttribute(string name)
     {
-      Name = name;
+      this.Name = name;
     }
 
     public string Name { get; private set; }
@@ -773,7 +773,7 @@ namespace Bookify.App.Core.Annotations
   {
     public HtmlAttributeValueAttribute([NotNull] string name)
     {
-      Name = name;
+      this.Name = name;
     }
 
     [NotNull] public string Name { get; private set; }
@@ -796,7 +796,7 @@ namespace Bookify.App.Core.Annotations
   {
     public CollectionAccessAttribute(CollectionAccessType collectionAccessType)
     {
-      CollectionAccessType = collectionAccessType;
+      this.CollectionAccessType = collectionAccessType;
     }
 
     public CollectionAccessType CollectionAccessType { get; private set; }
@@ -833,7 +833,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AssertionConditionAttribute(AssertionConditionType conditionType)
     {
-      ConditionType = conditionType;
+      this.ConditionType = conditionType;
     }
 
     public AssertionConditionType ConditionType { get; private set; }
@@ -907,8 +907,8 @@ namespace Bookify.App.Core.Annotations
   {
     public AspChildControlTypeAttribute(string tagName, Type controlType)
     {
-      TagName = tagName;
-      ControlType = controlType;
+      this.TagName = tagName;
+      this.ControlType = controlType;
     }
 
     public string TagName { get; private set; }
@@ -929,7 +929,7 @@ namespace Bookify.App.Core.Annotations
   {
     public AspRequiredAttributeAttribute([NotNull] string attribute)
     {
-      Attribute = attribute;
+      this.Attribute = attribute;
     }
 
     public string Attribute { get; private set; }
@@ -942,7 +942,7 @@ namespace Bookify.App.Core.Annotations
 
     public AspTypePropertyAttribute(bool createConstructorReferences)
     {
-      CreateConstructorReferences = createConstructorReferences;
+      this.CreateConstructorReferences = createConstructorReferences;
     }
   }
 
@@ -951,7 +951,7 @@ namespace Bookify.App.Core.Annotations
   {
     public RazorImportNamespaceAttribute(string name)
     {
-      Name = name;
+      this.Name = name;
     }
 
     public string Name { get; private set; }
@@ -962,8 +962,8 @@ namespace Bookify.App.Core.Annotations
   {
     public RazorInjectionAttribute(string type, string fieldName)
     {
-      Type = type;
-      FieldName = fieldName;
+      this.Type = type;
+      this.FieldName = fieldName;
     }
 
     public string Type { get; private set; }

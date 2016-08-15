@@ -2,6 +2,7 @@ using Foundation;
 using System;
 using System.Collections.Generic;
 using Bookify.App.Core.Models;
+using Bookify.App.iOS.Ui.Helpers;
 using Bookify.App.iOS.Ui.TableCells;
 using Rope.Net;
 using Rope.Net.iOS;
@@ -50,6 +51,7 @@ namespace Bookify.App.iOS
             this.bindings.Add(this.lblDate.Bind(this.model, m => m.CreatedTs, (lbl, date) => lbl.Text = date.ToShortDateString()));
             this.bindings.Add(this.lblAuthor.BindText(this.model, m => m.Author));
             this.bindings.Add(this.lblComment.BindText(this.model, m => m.Message));
+            this.bindings.Add(this.BindRating(this.model, m => m.Rating, this.imgStar1, this.imgStar2, this.imgStar3, this.imgStar4, this.imgStar5));
         }
 
         public static ReviewTableCell CreateCell(UITableView table, NSIndexPath index, ReviewModel book)

@@ -1,5 +1,7 @@
 using Foundation;
 using System;
+using System.Linq;
+
 using Bookify.App.Core.Models;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers;
@@ -32,6 +34,23 @@ namespace Bookify.App.iOS
                     reviewsVc.Book = this.Book;
                 }
             }
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            this.Title = this.SelectedViewController?.Title;
+        }
+
+        public override void ItemSelected(UITabBar tabbar, UITabBarItem item)
+        {
+            var selectedVc = this.ViewControllers.FirstOrDefault(vc => vc.TabBarItem == item);
+            if (selectedVc == null)
+            {
+                return;
+            }
+            this.Title = selectedVc.Title;
         }
     }
 }

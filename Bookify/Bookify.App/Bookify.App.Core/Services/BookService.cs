@@ -54,8 +54,10 @@ namespace Bookify.App.Core.Services
                 CoverUrl = "http://www.harrypottertheplay.com/content/uploads/2015/10/apple-touch-icon.png",
                 Title = "Metamorphosis",
                 Summary = @"The PressBooks version of The Metamorphosis, by Franz Kafka. This book was produced using PressBooks.com, a simple book production tool that creates PDF, EPUB and MOBI. For more information, visit: pressbooks.com. This book is adapted from the Project Gutenberg version. It is in the public domain, and is free for the use of anyone anywhere at no cost and with almost no restrictions whatsoever. You may copy it, give it away or re-use it as you like. This book was produced using PressBooks.com, and PDF rendering was done by PrinceXML.",
-                Author = "J.K. Rowling"
-            };
-        }
+                Author = "J.K. Rowling",
+                OwnsBook = id % 2 == 0,
+                Borrowable = id % 3 == 0
+        };
     }
+}
 }
