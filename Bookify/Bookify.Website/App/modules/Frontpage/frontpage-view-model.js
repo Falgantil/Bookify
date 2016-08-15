@@ -3,7 +3,7 @@ import http from '../util/http';
 import {observable, computed} from "mobx";
 
 class FrontpageViewModel {
-  @observable items = [];
+  @observable books = [];
 
   constructor() {
 
@@ -11,13 +11,13 @@ class FrontpageViewModel {
 
   @computed
   get hasItems() {
-    return this.items.length > 0;
+    return this.books.length > 0;
   }
 
-  async loadItems() {
-    let items = await http.get('https://api.github.com/users/jeffijoe/repos');
-    this.items.replace(items);
-    return this.items;
+  async loadBooks() {
+    this.books = await http.get('http://localhost:9180/books/getBooks');
+    console.log(  this.books)
+
   }
 }
 

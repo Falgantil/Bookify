@@ -5,14 +5,8 @@ import {observable} from "mobx";
 import { Link } from 'react-router'
 
 const BookView = ({ model, book }) => (
-  <Link className="col-sm-4" to={"/" + book.id}>
-    <div className="col-sm-6">
-      <img src="https://i.mofibo.net/covers/3/8/2/9788758821283_2by3_120.jpg" />
-    </div>
-    <div className="col-sm-6">
-      <h3>Bogens Titel</h3>
-      <p>En kort beskrivelse omkring bogen</p>
-    </div>
+  <Link className="col-lg-2 col-md-2 col-sm-2 col-xs-4" to={"/" + book.Id}>
+      <img className="img-responsive" src={"http://localhost:9180/books/thumbnail/" + book.Id} alt=""/>
   </Link>
 )
 
@@ -24,7 +18,7 @@ class Frontpage extends React.Component {
   constructor() {
     super(...arguments);
     this.model = new FrontpageViewModel();
-    this.model.loadItems();
+    this.model.loadBooks();
   }
 
   render() {
@@ -34,7 +28,9 @@ class Frontpage extends React.Component {
         {!this.model.hasItems && <strong>You don't have any items. Poor you!</strong>}
         {this.model.hasItems && (
           <div className="row">
-            { this.model.items.map((item, index) => <BookView model={this.model} book={item} key={index} />) }
+              <div className="col-xs-12">
+                  { this.model.books.map((book, index) => <BookView model={this.model} book={book} key={index} />) }
+              </div>
           </div>
         )}
       </div>
