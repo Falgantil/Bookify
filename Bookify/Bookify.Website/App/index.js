@@ -7,7 +7,7 @@ import Bookpage from './modules/Bookpage'
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <Route path="/:bookName" component={Bookpage}/>
+      <Route path="/:bookId" component={Bookpage}/>
     </Route>
   </Router>
 ), document.getElementById('app'))

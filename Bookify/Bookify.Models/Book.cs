@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Bookify.Models
 {
@@ -17,11 +18,14 @@ namespace Bookify.Models
         public int? CopiesAvailable { get; set; }
         public int ViewCount { get; set; }
 
+        public double AverageRating { get { return Feedback.Count > 0 ? Feedback.Average(x => x.Rating) : 0; } }
+
         public Author Author { get; set; }
         public Publisher Publisher { get; set; }
         public BookContent Content { get; set; }
         public ICollection<BookHistory> History { get; set; } = new HashSet<BookHistory>();
         public ICollection<Genre> Genres { get; set; } = new HashSet<Genre>();
         public ICollection<BookOrder> Orders { get; set; } = new HashSet<BookOrder>();
+        public ICollection<BookFeedback> Feedback { get; set; } = new HashSet<BookFeedback>();
     }
 }

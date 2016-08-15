@@ -1,7 +1,7 @@
-﻿using Bookify.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Bookify.Models;
 
-namespace Bookify.Core
+namespace Bookify.Core.Interfaces
 {
     public interface IPersonRepository : IGenericRepository<Person>
     {
