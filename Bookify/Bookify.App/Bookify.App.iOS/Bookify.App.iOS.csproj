@@ -279,6 +279,10 @@
       <Project>{5f7bb490-7bd9-430f-b961-9ee772dc5d0f}</Project>
       <Name>Bookify.App.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
+      <Project>{04efb456-acc8-4627-a7ab-9b9fc76a49c6}</Project>
+      <Name>Bookify.App.Sdk</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="SidebarNavigation">

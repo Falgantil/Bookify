@@ -13,16 +13,13 @@ namespace Bookify.App.Core.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
+        public event EventHandler<AccountModel> AuthChanged;
+
         public AccountModel LoggedOnAccount { get; private set; }
 
         public async Task<AccountModel> Authenticate(string username, string password)
         {
             await Task.Delay(1500);
-            using (var httpClient = new HttpClient(new NativeMessageHandler()))
-            {
-                var response = await httpClient.GetAsync("https://www.google.dk/");
-                await response.ThrowIfUnsuccessful();
-            }
 
             var accountModel = new AccountModel
             {

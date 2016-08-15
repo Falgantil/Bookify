@@ -3,11 +3,10 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-using Bookify.App.Core.Exceptions;
 using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
-
+using Bookify.App.Sdk.Exceptions;
 using Polly;
 
 namespace Bookify.App.Core.ViewModels
