@@ -10,6 +10,19 @@ using Bookify.Core.Interfaces;
 
 namespace Bookify.API.Controllers
 {
+    public abstract class BaseFilter
+    {
+        public int Index { get; set; }
+        public int Count { get; set; }
+    }
+
+    public class BookFilter : BaseFilter
+    {
+        public int[] GenreIds { get; set; }
+
+        public string Search { get; set; }
+    }
+
     public class BooksController : ApiController
     {
         private IBookRepository _bookRepo;
@@ -27,21 +40,13 @@ namespace Bookify.API.Controllers
             _bookOrderRepo = bookOrderRepo;
             _bookContentRepo = bookContentRepo;
             _bookFeedbackRepo = bookFeedbackRepo;
-
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> Get()
-        {
-            var books = await _bookRepo.GetAll();
-            return Ok(books);
-        }
-
-        [HttpGet]
-        public async Task<IHttpActionResult> Get(int? skip, int? take, List<int> genres = null, string search="", string orderBy= "", bool? desc=false)
+        public async Task<IHttpActionResult> Get([FromUri]BookFilter filter)
         {
             // Genres not added yet, other params works though
-            var books = await _bookRepo.GetAllByParams(skip, take, genres, search.ToLower(), orderBy, desc);
+            var books = await _bookRepo.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
             return Ok(books);
         }
 
@@ -61,28 +66,28 @@ namespace Bookify.API.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        public async Task<IHttpActionResult> Get(int id)
-        {
-            /*
-            Book book = null;
-            try
-            {
-                book = await _bookRepo.Find(id);
-            }
-            catch (ArgumentNullException)
-            {
-                return NotFound();
-            }
-            catch (Exception e)
-            {
-                return InternalServerError(e);
-            }
-            return Ok(book);
-            */
-            return await CatchExceptions(async () => await _bookRepo.Find(id));
-        }
-       
+        //[HttpPost]
+        //public async Task<IHttpActionResult> Get(int id)
+        //{
+        //    /*
+        //    Book book = null;
+        //    try
+        //    {
+        //        book = await _bookRepo.Find(id);
+        //    }
+        //    catch (ArgumentNullException)
+        //    {
+        //        return NotFound();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return InternalServerError(e);
+        //    }
+        //    return Ok(book);
+        //    */
+        //    return await CatchExceptions(async () => await _bookRepo.Find(id));
+        //}
+
 
         [HttpDelete]
         [Authorize]
@@ -172,13 +177,6 @@ namespace Bookify.API.Controllers
         {
             return Ok();
         }
-        [HttpGet]
-        [Authorize]
-        public async Task<IHttpActionResult> Search()
-        {
-            return Ok();
-        }
-
 
         public async Task<IHttpActionResult> CatchExceptions(Func<Task<Book>> func)
         {

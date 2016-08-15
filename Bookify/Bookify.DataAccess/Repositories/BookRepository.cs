@@ -21,15 +21,10 @@ namespace Bookify.DataAccess.Repositories
             return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).SingleAsync();
         }
 
-        public async Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, List<int> genres, string search, string orderBy, bool? desc)
+        public async Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc)
         {
             IQueryable<Book> result = await GetAll();
 
-            if (skip != null)
-                result = result.Skip(skip.Value);
-            if (take != null)
-                result = result.Take(take.Value);
-            
             /*
             if (genres != null && genres.Any())
             {
@@ -37,14 +32,18 @@ namespace Bookify.DataAccess.Repositories
             }
             */
 
-            if (string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(search))
                 result = result.Where(b => b.Author.Name.ToLower() == search || b.ISBN == search || b.Publisher.Name.ToLower() == search || b.Title.ToLower() == search);
 
 
             if (orderBy != null)
                 result = Core.Extensions.Extensions.OrderBy(result, orderBy, desc);
 
-
+            if (skip != null)
+                result = result.Skip(skip.Value);
+            if (take != null)
+                result = result.Take(take.Value);
+            
             return result;
         }
 
