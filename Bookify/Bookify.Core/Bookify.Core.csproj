@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncryptSha512.cs" />
     <Compile Include="IAddressRepository.cs" />
     <Compile Include="IAuthenticationService.cs" />
     <Compile Include="IAuthorRepository.cs" />

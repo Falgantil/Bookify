@@ -32,6 +32,10 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Create(Book book)
         {
+            Func<string> somename = () =>
+            {
+                return "";
+            };
             _bookRepo.Add(book);
             return Ok();
         }
