@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JWT, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.1.3.4\lib\3.5\JWT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,25 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAddressRepository.cs" />
-    <Compile Include="IAuthorRepository.cs" />
-    <Compile Include="IBookContentRepository.cs" />
-    <Compile Include="IBookHistoryRepository.cs" />
-    <Compile Include="IBookOrderRepository.cs" />
-    <Compile Include="IBookRepository.cs" />
-    <Compile Include="IGenericRepository.cs" />
-    <Compile Include="IGenreRepository.cs" />
-    <Compile Include="IPaymentInfoRepository.cs" />
-    <Compile Include="IPersonRepository.cs" />
-    <Compile Include="IPersonRoleRepository.cs" />
-    <Compile Include="IPublisherRepository.cs" />
+    <Compile Include="EncryptSha512.cs" />
+    <Compile Include="Exceptions\InvalidAccessTokenException.cs" />
+    <Compile Include="Exceptions\PersonRegistrationException.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Interfaces\Repositories\IBookFeedbackRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAddressRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAuthorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBookContentRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBookHistoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBookOrderRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBookRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGenreRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPaymentInfoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPersonRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPersonRoleRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPublisherRepository.cs" />
+    <Compile Include="Interfaces\Services\IAuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bookify.Models\Bookify.Models.csproj">
       <Project>{72800c42-b1e9-4409-99ff-39d4a4da479c}</Project>
       <Name>Bookify.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
