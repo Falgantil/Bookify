@@ -5,6 +5,7 @@ using Bookify.Models;
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;
+using Bookify.Core.Interfaces;
 
 namespace Bookify.DataAccess.Repositories
 {

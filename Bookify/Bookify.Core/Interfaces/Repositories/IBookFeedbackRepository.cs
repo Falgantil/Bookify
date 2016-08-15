@@ -1,4 +1,5 @@
-﻿using Bookify.Models;
+﻿using Bookify.Core.Interfaces;
+using Bookify.Models;
 
 namespace Bookify.Core
 {

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Bookify.Core;
 using Bookify.Models;
 using System.Linq;
+using Bookify.Core.Interfaces;
 
 namespace Bookify.DataAccess.Repositories
 {
