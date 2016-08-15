@@ -1,11 +1,12 @@
-﻿using Bookify.Core;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Bookify.Core;
+using Bookify.Core.Interfaces;
 
-namespace Bookify.DataAccess
+namespace Bookify.DataAccess.Repositories
 {
     public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
@@ -14,14 +15,15 @@ namespace Bookify.DataAccess
 
         public GenericRepository(BookifyContext ctx)
         {
-            _ctx = ctx;
-            _dbSet = ctx.Set<TEntity>();
+            this._ctx = ctx;
+            this._dbSet = ctx.Set<TEntity>();
         }
 
-        public virtual async Task Add(TEntity entity)
+        public virtual async Task<TEntity> Add(TEntity entity)
         {
-            this._dbSet.Add(entity);
+            entity = this._dbSet.Add(entity);
             await this._ctx.SaveChangesAsync();
+            return entity;
         }
 
         public virtual async Task<TEntity> Find(object id)
@@ -31,7 +33,7 @@ namespace Bookify.DataAccess
 
         public virtual async Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            var result = await _dbSet.Where(predicate).ToListAsync();
+            var result = await this._dbSet.Where(predicate).ToListAsync();
             return result.AsQueryable();
         }
 
@@ -52,10 +54,12 @@ namespace Bookify.DataAccess
             return await this._ctx.SaveChangesAsync();
         }
 
-        public virtual async Task Update(TEntity entity)
+        public virtual async Task<TEntity> Update(TEntity entity)
         {
-            this._ctx.Entry(entity).State = EntityState.Modified;
+            var dbEntityEntry = this._ctx.Entry(entity);
+            dbEntityEntry.State = EntityState.Modified;
             await this._ctx.SaveChangesAsync();
+            return dbEntityEntry.Entity;
         }
     }
 }

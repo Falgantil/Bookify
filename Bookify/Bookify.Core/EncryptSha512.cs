@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using WorkRegistration.Converters;
 
-namespace WorkRegistration
+namespace Bookify.Core
 {
     public class EncryptSha512
     {

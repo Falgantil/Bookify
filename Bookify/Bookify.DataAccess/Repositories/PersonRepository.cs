@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Bookify.Core;
 using Bookify.Models;
 using System.Linq;
+using Bookify.Core.Interfaces;
 
 namespace Bookify.DataAccess.Repositories
 {
@@ -24,8 +25,8 @@ namespace Bookify.DataAccess.Repositories
                 {
                     Email = email
                 };
-                await Add(person);
-                await SaveChanges();
+                await this.Add(person);
+                await this.SaveChanges();
                 // Get the Id the person was asigned when it was created
             }
             return person;

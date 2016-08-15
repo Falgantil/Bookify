@@ -3,6 +3,7 @@ using Bookify.Models;
 using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.Core.Interfaces;
 
 namespace Bookify.API.Controllers
 {
