@@ -57,6 +57,7 @@
     <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\AuthorRepository.cs" />
     <Compile Include="Repositories\BookContentRepository.cs" />
+    <Compile Include="Repositories\BookFeedbackRepository.cs" />
     <Compile Include="Repositories\BookHistoryRepository.cs" />
     <Compile Include="Repositories\BookOrderRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />

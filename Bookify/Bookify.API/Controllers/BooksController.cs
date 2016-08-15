@@ -1,6 +1,9 @@
 ﻿using Bookify.Core;
 using Bookify.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,15 +13,20 @@ namespace Bookify.API.Controllers
     {
         private IBookRepository _bookRepo;
         private IBookHistoryRepository _bookHistoryRepo;
-        private IPersonRepository _personRepository;
-        private IBookOrderRepository _bookOrderRepository;
+        private IPersonRepository _personRepo;
+        private IBookOrderRepository _bookOrderRepo;
+        private IBookContentRepository _bookContentRepo;
+        private IBookFeedbackRepository _bookFeedbackRepo;
 
-        public BooksController(IBookRepository bookRepo, IBookHistoryRepository bookHistory, IPersonRepository personRepo, IBookOrderRepository bookOrderRepository)
+        public BooksController(IBookRepository bookRepo, IBookHistoryRepository bookHistoryRepo, IPersonRepository personRepo, IBookOrderRepository bookOrderRepo, IBookContentRepository bookContentRepo, IBookFeedbackRepository bookFeedbackRepo)
         {
             _bookRepo = bookRepo;
-            _bookHistoryRepo = bookHistory;
-            _personRepository = personRepo;
-            _bookOrderRepository = bookOrderRepository;
+            _bookHistoryRepo = bookHistoryRepo;
+            _personRepo = personRepo;
+            _bookOrderRepo = bookOrderRepo;
+            _bookContentRepo = bookContentRepo;
+            _bookFeedbackRepo = bookFeedbackRepo;
+
         }
 
         [HttpGet]
@@ -28,11 +36,19 @@ namespace Bookify.API.Controllers
             return Ok(books);
         }
 
+        [HttpGet]
+        public async Task<IHttpActionResult> Get(int? skip, int? take, List<int> genres = null, string search="", string orderBy= "", bool? desc=false)
+        {
+            // Genres not added yet, other params works though
+            var books = await _bookRepo.GetAllByParams(skip, take, genres, search.ToLower(), orderBy, desc);
+            return Ok(books);
+        }
+
         [HttpPut]
         [Authorize]
         public async Task<IHttpActionResult> Create(Book book)
         {
-            _bookRepo.Add(book);
+            await _bookRepo.Add(book);
             return Ok();
         }
 
@@ -40,15 +56,32 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Update(Book book)
         {
-            _bookRepo.Update(book);
+            await _bookRepo.Update(book);
             return Ok();
         }
 
         [HttpPost]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok(await _bookRepo.Find(id));
+            /*
+            Book book = null;
+            try
+            {
+                book = await _bookRepo.Find(id);
+            }
+            catch (ArgumentNullException)
+            {
+                return NotFound();
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+            return Ok(book);
+            */
+            return await CatchExceptions(async () => await _bookRepo.Find(id));
         }
+       
 
         [HttpDelete]
         [Authorize]
@@ -76,20 +109,16 @@ namespace Bookify.API.Controllers
         [HttpPut]
         public async Task<IHttpActionResult> Buy(int id, string email)
         {
-            var person = _personRepository.CreatePersonIfNotExists(email);
+            var person = _personRepo.CreatePersonIfNotExists(email);
 
 
-
-
-
-            await _bookOrderRepository.Add(new BookOrder()
+            await _bookOrderRepo.Add(new BookOrder()
             {
                 BookId = id,
                 Created = DateTime.Now,
                 Status = BookOrderStatus.Sold,
                 PersonId = person.Id
             });
-            await _bookOrderRepository.SaveChanges();
 
             return Ok();
         }
@@ -98,13 +127,21 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Download(int id)
         {
-            return Ok();
+            var book = await _bookContentRepo.Find(id);
+            return Content(HttpStatusCode.OK, book.Epub);
         }
 
         [HttpPut]
         [Authorize]
-        public async Task<IHttpActionResult> Review(int id)
+        public async Task<IHttpActionResult> Review(int id, int personId, int rating, string text)
         {
+            await _bookFeedbackRepo.Add(new BookFeedback()
+            {
+                BookId = id,
+                PersonId = personId,
+                Rating = rating,
+                Text = text
+            });
             return Ok();
         }
 
@@ -112,14 +149,53 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Read(int id)
         {
-            return Ok();
+            // stream the Epub?
+            var book = await _bookContentRepo.Find(id);
+            return Content(HttpStatusCode.OK, book.Epub);
         }
 
         [HttpGet]
         [Authorize]
         public async Task<IHttpActionResult> Statistics(int id)
         {
+            var statistics = await _bookHistoryRepo.GetAll();
+            foreach (var item in statistics.OrderBy(b => b.Created))
+            {
+
+            }
             return Ok();
         }
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> Cover(int id)
+        {
+            return Ok();
+        }
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> Search()
+        {
+            return Ok();
+        }
+
+
+        public async Task<IHttpActionResult> CatchExceptions(Func<Task<Book>> func)
+        {
+            Book item = null;
+            try
+            {
+                item = await func();
+            }
+            catch (ArgumentNullException)
+            {
+                return NotFound();
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+            return Ok(item);
+        }
+
     }
 }

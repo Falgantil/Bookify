@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="IAddressRepository.cs" />
     <Compile Include="IAuthorRepository.cs" />
     <Compile Include="IBookContentRepository.cs" />
+    <Compile Include="IBookFeedbackRepository.cs" />
     <Compile Include="IBookHistoryRepository.cs" />
     <Compile Include="IBookOrderRepository.cs" />
     <Compile Include="IBookRepository.cs" />

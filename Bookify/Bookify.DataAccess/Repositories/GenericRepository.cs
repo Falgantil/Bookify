@@ -24,7 +24,7 @@ namespace Bookify.DataAccess
             await this._ctx.SaveChangesAsync();
         }
 
-        public virtual async Task<TEntity> Find(object id)
+        public virtual async Task<TEntity> Find(int id)
         {
             return await this._dbSet.FindAsync(id);
         }
