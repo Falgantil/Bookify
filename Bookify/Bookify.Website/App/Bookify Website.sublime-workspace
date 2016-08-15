@@ -72,6 +72,9 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
@@ -81,7 +84,6 @@
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/.babelrc",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.styl",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util/http.js",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.less",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.html",
@@ -124,6 +126,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"p",
 			"length",
 			"/about",
 			"about",
@@ -153,6 +156,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"p"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -230,12 +234,12 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 354.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 374.0
 	},
 	"selected_group": 0,
 	"settings":
