@@ -13,9 +13,4 @@ namespace Bookify.Models
         public BookHistoryType Type { get; set; }
         public Book Book { get; set; }
     }
-
-    public enum BookHistoryType
-    {
-        Added, Deleted, Approved, Changed
-    }
 }

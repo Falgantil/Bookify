@@ -1,4 +1,5 @@
 ﻿using Bookify.Core;
+using Bookify.Core.Attributes;
 using Bookify.Models;
 using System;
 using System.Threading.Tasks;
@@ -29,13 +30,10 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPut]
-        [Authorize]
+        //[Authorize]
+        [Authenticate(]
         public async Task<IHttpActionResult> Create(Book book)
         {
-            Func<string> somename = () =>
-            {
-                return "";
-            };
             _bookRepo.Add(book);
             return Ok();
         }
