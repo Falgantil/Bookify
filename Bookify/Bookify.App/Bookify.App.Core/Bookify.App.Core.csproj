@@ -126,6 +126,10 @@
       <Project>{04efb456-acc8-4627-a7ab-9b9fc76a49c6}</Project>
       <Name>Bookify.App.Sdk</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
+      <Project>{04EFB456-ACC8-4627-A7AB-9B9FC76A49C6}</Project>
+      <Name>Bookify.App.Sdk</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />

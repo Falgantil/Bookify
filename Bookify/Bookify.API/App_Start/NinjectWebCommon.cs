@@ -1,3 +1,7 @@
+using Bookify.Core.Interfaces;
+using Bookify.Core.Interfaces.Services;
+using Bookify.Core.Services;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Bookify.API.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Bookify.API.App_Start.NinjectWebCommon), "Stop")]
 
@@ -59,7 +63,7 @@ namespace Bookify.API.App_Start
                 throw;
             }
         }
-
+        
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
@@ -67,6 +71,8 @@ namespace Bookify.API.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<BookifyContext>().To<BookifyContext>().InSingletonScope();
+            kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InRequestScope();
+            kernel.Bind<IBookFeedbackRepository>().To<BookFeedbackRepository>().InRequestScope();
             kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
             kernel.Bind<IPublisherRepository>().To<PublisherRepository>().InRequestScope();
             kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();
@@ -78,9 +84,6 @@ namespace Bookify.API.App_Start
             kernel.Bind<IBookContentRepository>().To<BookContentRepository>().InRequestScope();
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
-
-
-
         }        
     }
 }

@@ -14,9 +14,4 @@ namespace Bookify.Models
         public Person Person { get; set; }
         public Book Book { get; set; }
     }
-
-    public enum BookOrderStatus
-    {
-        Borrowed, Sold, Queued, Dequeued
-    }
 }

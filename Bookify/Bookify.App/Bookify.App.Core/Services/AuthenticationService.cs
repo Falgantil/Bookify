@@ -15,6 +15,7 @@ namespace Bookify.App.Core.Services
     {
         public event EventHandler<Person> AuthChanged;
 
+
         public Person LoggedOnAccount { get; private set; }
 
         public async Task<Person> Authenticate(string username, string password)

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Sdk.Exceptions;
 using Bookify.Models;
-
 using Polly;
 
 namespace Bookify.App.Core.ViewModels
