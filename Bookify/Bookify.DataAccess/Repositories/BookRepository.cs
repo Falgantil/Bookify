@@ -49,6 +49,16 @@ namespace Bookify.DataAccess.Repositories
                 }
                 queryableBooks = hashBooks.AsQueryable();
             }
+            */
+
+            if (!string.IsNullOrEmpty(search))
+                booksQuery = booksQuery
+                    .Where(b =>
+                            string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
+                            b.ISBN == search ||
+                            string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
+                            string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
+            // string.Equals (a,b, StringComparison.CurrentCultureIgnoreCase) mean a compare a & b and ignore the case of the string
 
             if (orderBy != null)
                 queryableBooks = queryableBooks.OrderBy(orderBy, desc);
