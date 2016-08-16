@@ -3,10 +3,11 @@ import FrontpageViewModel from './frontpage-view-model';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 import { Link } from 'react-router'
+import bookifyapi from '../util/bookifyapi';
 
 const BookView = ({ model, book }) => (
   <Link className="col-lg-2 col-md-2 col-sm-2 col-xs-4" to={"/" + book.Id}>
-      <img className="img-responsive" src={"http://localhost:9180/books/thumbnail/" + book.Id} alt=""/>
+      <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" />
   </Link>
 )
 
@@ -24,15 +25,11 @@ class Frontpage extends React.Component {
   render() {
     return (
       <div>
-        {this.model.hasItems && <strong>You have items yo!</strong>}
-        {!this.model.hasItems && <strong>You don't have any items. Poor you!</strong>}
-        {this.model.hasItems && (
-          <div className="row">
+        <div className="row">
               <div className="col-xs-12">
                   { this.model.books.map((book, index) => <BookView model={this.model} book={book} key={index} />) }
               </div>
           </div>
-        )}
       </div>
     )
   }
