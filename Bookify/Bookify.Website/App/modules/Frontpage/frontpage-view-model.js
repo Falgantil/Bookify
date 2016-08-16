@@ -15,6 +15,8 @@ class FrontpageViewModel {
 
   async loadBooks() {
     this.books = await bookifyapi.getBooks();
+    console.log(this.books);
+
   }
 }
 
