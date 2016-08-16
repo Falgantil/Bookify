@@ -13,8 +13,6 @@ const GenreList = ({ genre, isLast }) => (
   </span>
   )
 
-
-
 /**
  * The Bookpage.
  */
@@ -66,7 +64,7 @@ class Bookpage extends React.Component {
   <div className="row">
     <h4 className="col-xs-12">Bøger af samme forfatter</h4>
     <div className="col-xs-12">
-      <BookListView apiUrl="http://localhost:9180/books/getRelatedBooks" currentBookId={this.model.book.Id} />
+      <BookListView type="related" bookId={this.model.book.Id} />
     </div>
   </div>
    <div className="row">
