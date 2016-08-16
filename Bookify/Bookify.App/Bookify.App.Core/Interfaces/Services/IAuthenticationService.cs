@@ -30,5 +30,12 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <param name="password">The password.</param>
         /// <returns></returns>
         Task<Person> Authenticate(string username, string password);
+
+        /// <summary>
+        /// Deauthenticates the user.
+        /// </summary>
+        /// <returns></returns>
+        Task Deauthenticate();
+
     }
 }

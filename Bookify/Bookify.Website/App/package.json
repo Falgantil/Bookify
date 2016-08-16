@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base --hot ."
+    "start": "webpack-dev-server --inline --content-base --hot .",
+    "build": "webpack --production --optimize"
   },
   "author": "",
   "license": "ISC",

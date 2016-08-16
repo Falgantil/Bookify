@@ -16,13 +16,13 @@ class BookListView extends React.Component {
   constructor(args) {
     super(...arguments);
     this.model = new BookListViewModel();
-    this.model.loadBooks(args.apiUrl);
+    this.model.loadBooks(args.type, args.bookId);
   }
 
   render() {
     return (
       <div>
-        {this.model.books.filter((b)  => b.Id != this.props.currentBookId).map((b, index) => <Book book={b} key={index} />) }
+        {this.model.books.filter((b)  => b.Id != this.props.bookId).map((b, index) => <Book book={b} key={index} />) }
       </div>
     )
   }

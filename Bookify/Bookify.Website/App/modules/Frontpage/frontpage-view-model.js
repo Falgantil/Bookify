@@ -1,5 +1,4 @@
-import $ from 'jquery';
-import http from '../util/http';
+import bookifyapi from '../util/bookifyapi';
 import {observable, computed} from "mobx";
 
 class FrontpageViewModel {
@@ -15,9 +14,7 @@ class FrontpageViewModel {
   }
 
   async loadBooks() {
-    this.books = await http.get('http://localhost:9180/books/getBooks');
-    console.log(  this.books)
-
+    this.books = await bookifyapi.getBooks();
   }
 }
 
