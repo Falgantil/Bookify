@@ -1,5 +1,5 @@
 using System;
-
+using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.Models;
 
@@ -39,6 +39,11 @@ namespace Bookify.App.Core.ViewModels
         private void AuthChanged(object sender, Person person)
         {
             this.Account = person;
+        }
+
+        public async Task Logout()
+        {
+            await this.authenticationService.Deauthenticate();
         }
     }
 }

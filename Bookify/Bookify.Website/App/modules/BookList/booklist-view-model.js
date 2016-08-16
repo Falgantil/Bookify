@@ -1,5 +1,4 @@
-import $ from 'jquery';
-import http from '../util/http';
+import bookifyapi from '../util/bookifyapi';
 import {observable, computed} from "mobx";
 
 class BookListViewModel {
@@ -8,8 +7,13 @@ class BookListViewModel {
   constructor() {
   }
 
- async loadBooks(apiUrl) {
-    this.books =  await http.get(apiUrl);
+ async loadBooks(type, bookId) {
+    switch(type) {
+      case "related":
+          this.books = await  bookifyapi.getRelatedBooks(bookId);
+          break;
+      default:
+    }
   }
 }
 

@@ -22,6 +22,8 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class LoginViewController : ExtendedViewController<LoginViewModel>
     {
+        public const string StoryboardIdentifier = "LoginViewController";
+
         private bool shouldHide;
 
         private KeyboardNotificationManager keyboardManager;
