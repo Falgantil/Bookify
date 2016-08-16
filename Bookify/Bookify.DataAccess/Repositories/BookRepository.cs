@@ -1,10 +1,10 @@
 ﻿
+using System;
 using System.Threading.Tasks;
-using Bookify.Core;
 using Bookify.Models;
 using System.Linq;
 using System.Data.Entity;
-using System.Collections.Generic;
+using Bookify.Core.Extensions;
 using Bookify.Core.Interfaces;
 
 namespace Bookify.DataAccess.Repositories
@@ -33,11 +33,17 @@ namespace Bookify.DataAccess.Repositories
             */
 
             if (!string.IsNullOrEmpty(search))
-                result = result.Where(b => b.Author.Name.ToLower() == search || b.ISBN == search || b.Publisher.Name.ToLower() == search || b.Title.ToLower() == search);
-
+                result = result
+                    .Where(b =>
+                            string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
+                            b.ISBN == search ||
+                            string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
+                            string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
+            // string.Equals (a,b, StringComparison.CurrentCultureIgnoreCase) mean a compare a & b and ignore the case of the string
 
             if (orderBy != null)
-                result = Core.Extensions.Extensions.OrderBy(result, orderBy, desc);
+                result = result.OrderBy(orderBy, desc);
+            // Order by is a Extension -> doens't need to call the object it lays in to exec the method ;)
 
             if (skip != null)
                 result = result.Skip(skip.Value);
