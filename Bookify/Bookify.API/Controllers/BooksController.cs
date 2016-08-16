@@ -2,10 +2,12 @@
 using Bookify.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Results;
 using Bookify.Core.Interfaces;
 
 namespace Bookify.API.Controllers
@@ -13,7 +15,7 @@ namespace Bookify.API.Controllers
     public abstract class BaseFilter
     {
         public int Index { get; set; }
-        public int Count { get; set; }
+        public int Count { get; set; } = 10;
     }
 
     public class BookFilter : BaseFilter
@@ -46,8 +48,12 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Get([FromUri]BookFilter filter)
         {
             // Genres not added yet, other params works though
-            var books = await _bookRepo.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
-            return Ok(books);
+            var booksQuery = await _bookRepo.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
+            // search for the books
+            var books = booksQuery?.ToList() ?? new List<Book>();
+            return Json(books);
+            
+            // return the book when done searching 
         }
 
         [HttpPut]
