@@ -29,11 +29,24 @@ namespace Bookify.DataAccess.Repositories
                 result = result.Skip(skip.Value);
             if (take != null)
                 result = result.Take(take.Value);
-            
+
             /*
+            List<Book> tempResult = new List<Book>();
             if (genres != null && genres.Any())
             {
-                result = result.Where(b => b.Genres.SelectMany(m => m.Id == genres.First()));
+                //result = result.Where(b => b.Genres..Contains())
+                foreach (var book in result)
+                {
+                    foreach (var bookgenre in book.Genres)
+                    {
+                        foreach (var genre in genres)
+                        {
+                            if (bookgenre.Id == genre) {
+                                tempResult.Add(book); // go to next book 
+                            }
+                        }
+                    }
+                }
             }
             */
 
