@@ -53,7 +53,6 @@
     <Compile Include="Initialization\Bootstrapper.cs" />
     <Compile Include="Initialization\Parameter.cs" />
     <Compile Include="Interfaces\Initialization\IPlatformInitializer.cs" />
-    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Interfaces\Services\IAuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookService.cs" />
@@ -122,6 +121,10 @@
     <ProjectReference Include="..\..\Bookify.Models\Bookify.Models.csproj">
       <Project>{490cd2d0-19dd-4991-9cc6-9909be9a1fcb}</Project>
       <Name>Bookify.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
+      <Project>{04efb456-acc8-4627-a7ab-9b9fc76a49c6}</Project>
+      <Name>Bookify.App.Sdk</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
       <Project>{04EFB456-ACC8-4627-A7AB-9B9FC76A49C6}</Project>

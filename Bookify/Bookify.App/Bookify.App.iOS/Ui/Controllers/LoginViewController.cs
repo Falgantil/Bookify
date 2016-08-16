@@ -3,11 +3,11 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-using Bookify.App.Core.Helpers;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.General;
 using Bookify.App.Sdk.Exceptions;
+
 using CoreAnimation;
 using CoreGraphics;
 using Foundation;
@@ -22,6 +22,8 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class LoginViewController : ExtendedViewController<LoginViewModel>
     {
+        public const string StoryboardIdentifier = "LoginViewController";
+
         private bool shouldHide;
 
         private KeyboardNotificationManager keyboardManager;
@@ -48,7 +50,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected override void CreateBindings()
         {
-            this.txtUsername.BindText(this.ViewModel, vm => vm.Username);
+            this.txtUsername.BindText(this.ViewModel, vm => vm.Email);
             this.txtPassword.BindText(this.ViewModel, vm => vm.Password);
         }
 

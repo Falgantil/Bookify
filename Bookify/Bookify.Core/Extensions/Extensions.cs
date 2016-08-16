@@ -16,11 +16,11 @@ namespace Bookify.Core.Extensions
             var propertyAccess = Expression.MakeMemberAccess(parameter, property);
             var orderByExp = Expression.Lambda(propertyAccess, parameter);
 
-            string tempDesc = "OrderBy";
-            if (desc != null && desc.Value == true)
+            var tempDesc = "OrderBy";
+            if (desc != null && desc.Value)
                 tempDesc = "OrderByDescending";
 
-            MethodCallExpression resultExp = Expression.Call(typeof(Queryable), tempDesc, new Type[] { type, property.PropertyType }, source.Expression, Expression.Quote(orderByExp));
+            var resultExp = Expression.Call(typeof(Queryable), tempDesc, new[] { type, property.PropertyType }, source.Expression, Expression.Quote(orderByExp));
             return source.Provider.CreateQuery<T>(resultExp);
         }
 

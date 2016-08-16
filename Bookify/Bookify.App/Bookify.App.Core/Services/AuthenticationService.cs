@@ -1,34 +1,59 @@
 ﻿using System;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-
-using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
-
-using ModernHttpClient;
+using Bookify.Models;
 
 namespace Bookify.App.Core.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        public event EventHandler<AccountModel> AuthChanged;
+        /// <summary>
+        /// Occurs when the authentication state changed (Logged in or out).
+        /// </summary>
+        public event EventHandler<Person> AuthChanged;
 
-        public AccountModel LoggedOnAccount { get; private set; }
+        /// <summary>
+        /// Gets the logged on account. Returns null if not currently logged on.
+        /// </summary>
+        /// <value>
+        /// The logged on account.
+        /// </value>
+        public Person LoggedOnAccount { get; private set; }
 
-        public async Task<AccountModel> Authenticate(string username, string password)
+        /// <summary>
+        /// Called when <see cref="LoggedOnAccount"/> has changed.
+        /// </summary>
+        private void OnLoggedOnAccountChanged()
+        {
+            this.AuthChanged?.Invoke(this, this.LoggedOnAccount);
+        }
+
+        /// <summary>
+        /// Authenticates the user using the provided <see cref="username" /> and <see cref="password" />.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
+        public async Task<Person> Authenticate(string username, string password)
         {
             await Task.Delay(1500);
 
-            var accountModel = new AccountModel
+            var person = new Person
             {
-                FirstName = "Bjarke",
-                IsSubscribed = true,
-                LastName = "Søgaard"
+                Firstname = "Bjarke",
+                Lastname = "Søgaard"
             };
-            this.LoggedOnAccount = accountModel;
-            return accountModel;
+            this.LoggedOnAccount = person;
+            return person;
+        }
+
+        /// <summary>
+        /// Deauthenticates the user.
+        /// </summary>
+        /// <returns></returns>
+        public async Task Deauthenticate()
+        {
+            this.LoggedOnAccount = null;
         }
     }
 }
