@@ -51,7 +51,7 @@ namespace Bookify.API.Controllers
             var booksQuery = await _bookRepo.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
             // search for the books
             var books = booksQuery?.ToList() ?? new List<Book>();
-            return Json(books);
+            return Ok(books);
             
             // return the book when done searching 
         }
