@@ -40,6 +40,7 @@ class Bookpage extends React.Component {
             </div>
             <h1>{this.model.book.Title}</h1>
             <small>af <a href="#">{this.model.book.Author.Name}</a></small>
+            <p><Link className="btn btn-primary btn-lg rippe" to="/">KØB</Link></p>
         </div>
       <div className="col-xs-12">
           <dl className="dl-horizontal">
