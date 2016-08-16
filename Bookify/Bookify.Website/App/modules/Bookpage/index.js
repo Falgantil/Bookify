@@ -5,6 +5,7 @@ import {observable} from "mobx";
 import { Link } from 'react-router';
 import BookListView from '../BookList';
 import RatingView from '../Shared/rating-view';
+import bookifyapi from '../util/bookifyapi';
 
 const GenreList = ({ genre, isLast }) => (
   <span>
@@ -12,8 +13,6 @@ const GenreList = ({ genre, isLast }) => (
     {!isLast && (<span>, </span>)}
   </span>
   )
-
-
 
 /**
  * The Bookpage.
@@ -35,11 +34,12 @@ class Bookpage extends React.Component {
       <div className="col-xs-12 text-center">
             <div className="book-cover">
                 <div className="image-container">
-                    <img className="cover" src={"http://localhost:9180/books/thumbnail/" + this.model.book.Id} />
+                    <img className="cover" src={bookifyapi.getBookThumbnailSrc(this.model.book.Id)} alt=""/>
                 </div>
             </div>
             <h1>{this.model.book.Title}</h1>
             <small>af <a href="#">{this.model.book.Author.Name}</a></small>
+            <p><Link className="btn btn-primary btn-lg rippe" to="/">KØB</Link></p>
         </div>
       <div className="col-xs-12">
           <dl className="dl-horizontal">
@@ -62,12 +62,14 @@ class Bookpage extends React.Component {
           </dl>
       </div>
   </div>
+  <hr/>
   <div className="row">
     <h4 className="col-xs-12">Bøger af samme forfatter</h4>
     <div className="col-xs-12">
-      <BookListView apiUrl="http://localhost:9180/books/getRelatedBooks" currentBookId={this.model.book.Id} />
+      <BookListView type="related" bookId={this.model.book.Id} />
     </div>
   </div>
+  <hr/>
    <div className="row">
     <h4 className="col-xs-12">Bedømmelser</h4>
     <div className="col-xs-12">

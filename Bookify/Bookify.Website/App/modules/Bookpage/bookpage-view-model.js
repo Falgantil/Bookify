@@ -1,5 +1,4 @@
-import $ from 'jquery';
-import http from '../util/http';
+import bookifyapi from '../util/bookifyapi';
 import {observable, computed} from "mobx";
 
 class BookpageViewModel {
@@ -14,7 +13,7 @@ class BookpageViewModel {
       return;
     }
     this.bookId = bookId;
-    this.book = await http.get('http://localhost:9180/books/getBook/' + this.bookId);
+    this.book = await bookifyapi.getBook(bookId);
   }
 }
 

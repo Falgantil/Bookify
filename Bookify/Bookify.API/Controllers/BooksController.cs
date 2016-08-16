@@ -3,6 +3,9 @@ using Bookify.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -51,7 +54,7 @@ namespace Bookify.API.Controllers
             var booksQuery = await _bookRepo.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
             // search for the books
             var books = booksQuery?.ToList() ?? new List<Book>();
-            return Json(books);
+            return Ok(books);
             
             // return the book when done searching 
         }
@@ -60,8 +63,8 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Create(Book book)
         {
-            await _bookRepo.Add(book);
-            return Ok();
+            var createdBook = await _bookRepo.Add(book);
+            return Json(createdBook);
         }
 
         [HttpPost]
@@ -178,10 +181,20 @@ namespace Bookify.API.Controllers
             return Ok();
         }
         [HttpGet]
-        [Authorize]
-        public async Task<IHttpActionResult> Cover(int id)
+        //[Authorize]
+        public async Task<IHttpActionResult> Cover(int id, int? width, int? height)
         {
-            return Ok();
+
+
+            var book = await _bookRepo.FindWithContent(id);
+            using (var ms = new MemoryStream())
+            using (var img = Image.FromStream(new MemoryStream(book.Content.Cover)))
+            {
+
+                var thumbnail = img.GetThumbnailImage(width ?? img.Width, height ?? img.Height, null, new IntPtr());
+                thumbnail.Save(ms, ImageFormat.Png);
+                return Json(ms.ToArray());
+            }
         }
 
         public async Task<IHttpActionResult> CatchExceptions(Func<Task<Book>> func)
