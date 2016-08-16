@@ -4,7 +4,8 @@ import _ from 'lodash';
 
 let defaultOptions = {
   contentType: 'application/json;charset=utf8',
-  dataType: 'json'
+  dataType: 'json',
+  'Access-Control-Allow-Origin': '*'
 };
 
 class Http {

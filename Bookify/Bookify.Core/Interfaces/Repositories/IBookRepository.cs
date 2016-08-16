@@ -9,5 +9,6 @@ namespace Bookify.Core.Interfaces
     {
         Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc);
         Task<Book> FindWithContent(int id);
+        Task<Book> FindForStatistics(int id);
     }
 }

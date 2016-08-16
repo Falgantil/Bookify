@@ -20,11 +20,10 @@ class NavigationBar extends React.Component {
           </div>
           <div className="navbar-collapse collapse navbar-responsive-collapse">
             <ul className="nav navbar-nav">
-              <li><Link to="/">Bøger</Link></li>
-              <li><a href="#">Forfattere</a></li>
+              <li><Link to="/booknew">Ny bog</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Log ind</a></li>
+              <li><Link to="/loginpage">Log ind</Link></li>
             </ul>
           </div>
         </div>

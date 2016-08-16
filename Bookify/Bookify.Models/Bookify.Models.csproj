@@ -46,6 +46,7 @@
     <Compile Include="BookHistoryType.cs" />
     <Compile Include="BookOrder.cs" />
     <Compile Include="BookOrderStatus.cs" />
+    <Compile Include="BookStatistics.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="PaymentInfo.cs" />
     <Compile Include="Person.cs" />

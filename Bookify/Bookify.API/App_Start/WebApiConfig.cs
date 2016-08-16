@@ -10,11 +10,11 @@ namespace Bookify.API
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "{controller}/{method}/{id}",
+                routeTemplate: "{controller}/{action}/{id}",
                 defaults: new
                 {
                     id = RouteParameter.Optional,
-                    method = "Get"
+                    action = "Get"
                 }
             );
 
