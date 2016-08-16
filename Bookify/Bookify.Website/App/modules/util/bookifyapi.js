@@ -7,9 +7,10 @@ let baseUrl = 'http://bookifyapi.azurewebsites.net/';
 class BookifyAPI {
   getBaseUrl() { return baseUrl; }
 
-  getBooks() { return http.get(baseUrl + 'books/getbooks');  }
+  getBooks() { return http.get(baseUrl + 'books');  }
   getBook(id) { return http.get(baseUrl + 'books/getbook/' + id); }
-
+  getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
+  getBookThumbnailSrc(id) { return baseUrl + 'books/thumbnail/' + id; }
 
   getRelatedBooks(id) { return http.get(baseUrl + 'books/getrelatedbooks/' + id); }
 
