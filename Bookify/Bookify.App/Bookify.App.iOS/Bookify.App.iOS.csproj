@@ -126,6 +126,7 @@
       <DependentUpon>FeaturedViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Helpers\BindingHelper.cs" />
+    <Compile Include="Ui\Storyboards\Storyboard.cs" />
     <Compile Include="Ui\TableCells\BookTableCell.cs" />
     <Compile Include="Ui\TableCells\BookTableCell.designer.cs">
       <DependentUpon>BookTableCell.cs</DependentUpon>

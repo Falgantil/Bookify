@@ -66,9 +66,9 @@ namespace Bookify.App.iOS.Ui.Controllers
             };
         }
 
-        private void BtnLogout_Clicked()
+        private async void BtnLogout_Clicked()
         {
-
+            await this.ViewModel.Logout();
         }
 
         private void BtnRegister_Clicked()
@@ -83,7 +83,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void BtnLogin_Clicked()
         {
-
+            Storyboards.Storyboard.Main.InstantiateViewController("")
         }
     }
 }

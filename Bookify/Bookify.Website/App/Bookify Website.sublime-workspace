@@ -15,6 +15,23 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "modules/Frontpage/frontpage-view-model.js",
+			"settings":
+			{
+				"buffer_size": 416,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "{\n    \"index\": 0,\n    \"count\": 10,\n    \"genreIds\": null,\n    \"search\": null\n}",
+			"settings":
+			{
+				"buffer_size": 77,
+				"line_ending": "Windows",
+				"name": "{"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -68,22 +85,26 @@
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage"
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Shared",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util"
 	],
 	"file_history":
 	[
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/bookpage-view-model.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util/http.js",
 		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.js",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/package.json",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/webpack.config.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/.babelrc",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.styl",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util/http.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.less",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.html",
@@ -167,8 +188,215 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "modules/Frontpage/frontpage-view-model.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								408,
+								408
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8,
+								8
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
