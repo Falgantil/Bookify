@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bookify.Models;
 using System.Linq;
@@ -23,50 +25,45 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc)
         {
-            IQueryable<Book> result = await GetAll();
-
-            /*
-            List<Book> tempResult = new List<Book>();
-            if (genres != null && genres.Any())
-            {
-                //result = result.Where(b => b.Genres..Contains())
-                foreach (var book in result)
-                {
-                    foreach (var bookgenre in book.Genres)
-                    {
-                        foreach (var genre in genres)
-                        {
-                            if (bookgenre.Id == genre) {
-                                tempResult.Add(book); // go to next book 
-                            }
-                        }
-                    }
-                }
-            }
-            */
+            IQueryable<Book> queryableBooks = await GetAll();
 
             if (!string.IsNullOrEmpty(search))
-                result = result
+                queryableBooks = queryableBooks
                     .Where(b =>
-                            string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
+                            string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase) ||
                             b.ISBN == search ||
-                            string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
+                            string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase) ||
                             string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
-            // string.Equals (a,b, StringComparison.CurrentCultureIgnoreCase) mean a compare a & b and ignore the case of the string
+            // string.Equals (a,b, StringComparison.CurrentCultureIgnoreCase) mean a compare a & b and ignore the case of the string 
+
+            if (genres != null && genres.Any())
+            {
+                var hashBooks = new HashSet<Book>();
+                foreach (var book in queryableBooks)
+                {
+                    var genresAsIds = book.Genres.Select(x => x.Id);
+                    if (genresAsIds.Intersect(genres).Any())
+                    {
+                        hashBooks.Add(book);
+                    }
+                }
+                queryableBooks = hashBooks.AsQueryable();
+            }
 
             if (orderBy != null)
-                result = result.OrderBy(orderBy, desc);
-            // Order by is a Extension -> doens't need to call the object it lays in to exec the method ;)
+                queryableBooks = queryableBooks.OrderBy(orderBy, desc);
 
             if (skip != null)
-                result = result.Skip(skip.Value);
+                queryableBooks = queryableBooks.Skip(skip.Value);
             if (take != null)
-                result = result.Take(take.Value);
-            
-            return result;
+                queryableBooks = queryableBooks.Take(take.Value);
+
+            return queryableBooks;
         }
 
-      
-        
+        public async Task<Book> FindWithContent(int id)
+        {
+            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Content).SingleAsync();
+        }
     }
 }
