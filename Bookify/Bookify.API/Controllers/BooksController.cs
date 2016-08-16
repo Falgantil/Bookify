@@ -63,27 +63,27 @@ namespace Bookify.API.Controllers
             return Ok();
         }
 
-        //[HttpPost]
-        //public async Task<IHttpActionResult> Get(int id)
-        //{
-        //    /*
-        //    Book book = null;
-        //    try
-        //    {
-        //        book = await _bookRepo.Find(id);
-        //    }
-        //    catch (ArgumentNullException)
-        //    {
-        //        return NotFound();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return InternalServerError(e);
-        //    }
-        //    return Ok(book);
-        //    */
-        //    return await CatchExceptions(async () => await _bookRepo.Find(id));
-        //}
+        [HttpGet]
+        public async Task<IHttpActionResult> Book(int id)
+        {
+            
+            Book book;
+            try
+            {
+                book = await _bookRepository.Find(id);
+            }
+            catch (ArgumentNullException)
+            {
+                return NotFound();
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+            return Ok(book);
+            
+            //return await CatchExceptions(async () => await _bookRepository.Find(id));
+        }
 
 
         [HttpDelete]
