@@ -2,12 +2,13 @@
 using Bookify.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
@@ -182,7 +183,7 @@ namespace Bookify.API.Controllers
         }
         [HttpGet]
         //[Authorize]
-        public async Task<IHttpActionResult> Cover(int id, int? width, int? height)
+        public async Task<HttpResponseMessage> Cover(int id, int? width = null, int? height = null)
         {
 
 
@@ -193,7 +194,16 @@ namespace Bookify.API.Controllers
 
                 var thumbnail = img.GetThumbnailImage(width ?? img.Width, height ?? img.Height, null, new IntPtr());
                 thumbnail.Save(ms, ImageFormat.Png);
-                return Json(ms.ToArray());
+                return new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(ms.ToArray())
+                    {
+                        Headers =
+                        {
+                            ContentType = new MediaTypeHeaderValue("image/png")
+                        }
+                    }
+                };
             }
         }
 
