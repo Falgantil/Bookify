@@ -43,7 +43,7 @@ namespace Bookify.API.Controllers
             // search for the books
             var books = booksQuery?.ToList() ?? new List<Book>();
             return Ok(books);
-            
+
             // return the book when done searching 
         }
 
@@ -51,22 +51,20 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Create(Book book)
         {
-            var createdBook = await _bookRepository.Add(book);
-            return Ok(createdBook);
+            return Ok(await _bookRepository.Add(book));
         }
 
         [HttpPost]
         [Authorize]
         public async Task<IHttpActionResult> Update(Book book)
         {
-            await _bookRepository.Update(book);
-            return Ok();
+            return Ok(await _bookRepository.Update(book));
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> Book(int id)
         {
-            
+
             Book book;
             try
             {
@@ -81,7 +79,7 @@ namespace Bookify.API.Controllers
                 return InternalServerError(e);
             }
             return Ok(book);
-            
+
             //return await CatchExceptions(async () => await _bookRepository.Find(id));
         }
 
@@ -96,9 +94,7 @@ namespace Bookify.API.Controllers
                 Type = BookHistoryType.Deleted,
                 Created = DateTime.Now
             };
-            await _bookHistoryRepository.Add(bookHistory);
-            await _bookHistoryRepository.SaveChanges();
-            return Ok();
+            return Ok(await _bookHistoryRepository.Add(bookHistory));
         }
 
         [HttpGet]
@@ -115,15 +111,13 @@ namespace Bookify.API.Controllers
             var person = _personRepository.CreatePersonIfNotExists(email);
 
 
-            await _bookOrderRepository.Add(new BookOrder()
+            return Ok(await _bookOrderRepository.Add(new BookOrder()
             {
                 BookId = id,
                 Created = DateTime.Now,
                 Status = BookOrderStatus.Sold,
                 PersonId = person.Id
-            });
-
-            return Ok();
+            }));
         }
 
         [HttpGet]
@@ -138,14 +132,14 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Review(int id, int personId, int rating, string text)
         {
-            await _bookFeedbackRepository.Add(new BookFeedback()
+
+            return Ok(await _bookFeedbackRepository.Add(new BookFeedback()
             {
                 BookId = id,
                 PersonId = personId,
                 Rating = rating,
                 Text = text
-            });
-            return Ok();
+            }));
         }
 
         [HttpGet]
@@ -161,9 +155,7 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Statistics(int id)
         {
-            var statistics = new BookStatistics() {Book = await _bookRepository.FindForStatistics(id)};
-            
-            return Ok(statistics);
+            return Ok( new BookStatistics() { Book = await _bookRepository.FindForStatistics(id) });
         }
         [HttpGet]
         //[Authorize]
@@ -178,6 +170,7 @@ namespace Bookify.API.Controllers
 
                 var thumbnail = img.GetThumbnailImage(width ?? img.Width, height ?? img.Height, null, new IntPtr());
                 thumbnail.Save(ms, ImageFormat.Png);
+
                 return new HttpResponseMessage(HttpStatusCode.OK)
                 {
                     Content = new ByteArrayContent(ms.ToArray())
