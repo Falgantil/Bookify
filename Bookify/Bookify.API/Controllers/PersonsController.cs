@@ -1,15 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.Core.Interfaces;
+using Bookify.Models;
 
 namespace Bookify.API.Controllers
 {
     public class PersonsController : ApiController
     {
+        private IPersonRepository _personRepository;
+
+        public PersonsController(IPersonRepository personRepository)
+        {
+            _personRepository = personRepository;
+        }
+
+
         [HttpGet]
         public async Task<IHttpActionResult> Get()
         {
@@ -18,29 +24,30 @@ namespace Bookify.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IHttpActionResult> Create()
+        public async Task<IHttpActionResult> Create(Person person)
         {
-            return Ok();
+            return Ok(await _personRepository.Add(person));
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IHttpActionResult> Update(int id)
+        public async Task<IHttpActionResult> Update(Person person)
         {
-            return Ok();
+            return Ok(await _personRepository.Update(person));
         }
 
         [HttpGet]
         [Authorize]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok();
+            return Ok(await _personRepository.Find(id));
         }
 
         [HttpPost]
         [Authorize]
         public async Task<IHttpActionResult> Subscribe(int id)
         {
+            //return Ok(await _personRepository.Subscribe(id));
             return Ok();
         }
     }
