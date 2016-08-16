@@ -65,7 +65,7 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Create(Book book)
         {
             var createdBook = await _bookRepo.Add(book);
-            return Json(createdBook);
+            return Ok(createdBook);
         }
 
         [HttpPost]
@@ -174,12 +174,9 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Statistics(int id)
         {
-            var statistics = await _bookHistoryRepo.GetAll();
-            foreach (var item in statistics.OrderBy(b => b.Created))
-            {
-
-            }
-            return Ok();
+            var statistics = new BookStatistics() {Book = await _bookRepo.FindForStatistics(id)};
+            
+            return Ok(statistics);
         }
         [HttpGet]
         //[Authorize]

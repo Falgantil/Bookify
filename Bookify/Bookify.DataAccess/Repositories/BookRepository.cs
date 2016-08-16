@@ -65,5 +65,10 @@ namespace Bookify.DataAccess.Repositories
         {
             return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Content).SingleAsync();
         }
+
+        public async Task<Book> FindForStatistics(int id)
+        {
+            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.History).Include(b => b.Orders).Include(b => b.Feedback).SingleAsync();
+        }
     }
 }
