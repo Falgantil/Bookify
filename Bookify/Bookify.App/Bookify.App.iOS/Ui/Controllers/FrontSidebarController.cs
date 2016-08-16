@@ -16,18 +16,20 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             base.ViewDidLoad();
 
-            var storyboard = UIStoryboard.FromName("Main", null);
+            var storyboard = Storyboards.Storyboard.Main;
 
-            var vc = (FrontTabBarController)storyboard.InstantiateViewController(FrontTabBarController.StoryboardIdentifier);
+            var vcContent = (FrontTabBarController)storyboard.InstantiateViewController(FrontTabBarController.StoryboardIdentifier);
+            var sidebarMenu = new FrontSidebarMenuController();
             this.Sidebar = new SidebarController(
                 this,
-                new UINavigationController(vc),
-                new UINavigationController(new DialogViewController(UITableViewStyle.Grouped, new RootElement("Side menu"))))
+                new UINavigationController(vcContent),
+                new UINavigationController(sidebarMenu))
             {
                 MenuLocation = SidebarController.MenuLocations.Left
             };
-            vc.SidebarController = this.Sidebar;
-            vc.Parent = this;
+            vcContent.SidebarController = this.Sidebar;
+            sidebarMenu.SidebarController = this.Sidebar;
+            vcContent.Parent = this;
         }
         
         public SidebarController Sidebar { get; set; }

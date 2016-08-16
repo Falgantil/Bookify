@@ -105,6 +105,10 @@
     <Compile Include="BookOverviewViewController.designer.cs">
       <DependentUpon>BookOverviewViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CartItemTableCell.cs" />
+    <Compile Include="CartItemTableCell.designer.cs">
+      <DependentUpon>CartItemTableCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReviewsViewController.cs" />
     <Compile Include="ReviewsViewController.designer.cs">
       <DependentUpon>ReviewsViewController.cs</DependentUpon>
@@ -112,6 +116,10 @@
     <Compile Include="ReviewTableCell.cs" />
     <Compile Include="ReviewTableCell.designer.cs">
       <DependentUpon>ReviewTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingBasketViewController.cs" />
+    <Compile Include="ShoppingBasketViewController.designer.cs">
+      <DependentUpon>ShoppingBasketViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Controllers\BookSummaryViewController.cs" />
     <Compile Include="Ui\Controllers\BookSummaryViewController.designer.cs">
@@ -168,6 +176,21 @@
     <BundleResource Include="Resources\Icons\StarFilled.png" />
     <BundleResource Include="Resources\Icons\StarFilled%402x.png" />
     <BundleResource Include="Resources\Icon-Logo.png" />
+    <BundleResource Include="Resources\Icons\Logout.png" />
+    <BundleResource Include="Resources\Icons\Logout%402x.png" />
+    <BundleResource Include="Resources\Icons\Logout%403x.png" />
+    <BundleResource Include="Resources\Icons\Login.png" />
+    <BundleResource Include="Resources\Icons\Login%402x.png" />
+    <BundleResource Include="Resources\Icons\Login%403x.png" />
+    <BundleResource Include="Resources\Icons\Cart.png" />
+    <BundleResource Include="Resources\Icons\Cart%402x.png" />
+    <BundleResource Include="Resources\Icons\Cart%403x.png" />
+    <BundleResource Include="Resources\Icons\Register.png" />
+    <BundleResource Include="Resources\Icons\Register%402x.png" />
+    <BundleResource Include="Resources\Icons\Register%403x.png" />
+    <BundleResource Include="Resources\Icons\Subscribe.png" />
+    <BundleResource Include="Resources\Icons\Subscribe%402x.png" />
+    <BundleResource Include="Resources\Icons\Subscribe%403x.png" />
     <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,6 +241,14 @@
     </Reference>
     <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.Ninject.3.3.1\lib\Xamarin.iOS\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Polly, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">

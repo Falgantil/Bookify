@@ -8,9 +8,9 @@ namespace Bookify.App.Core.ViewModels
 {
     public class BookSummaryViewModel : BaseViewModel
     {
-        private IBasketService basketService;
+        private IShoppingCartService shoppingCartService;
 
-        public BookSummaryViewModel(BookModel book)
+        public BookSummaryViewModel(BookModel book, IShoppingCartService shoppingCartService)
         {
             if (book == null)
             {
@@ -18,6 +18,7 @@ namespace Bookify.App.Core.ViewModels
             }
 
             this.Book = book;
+            this.shoppingCartService = shoppingCartService;
         }
 
         public BookModel Book { get; }
@@ -28,7 +29,7 @@ namespace Bookify.App.Core.ViewModels
 
         public async Task AddToBasket()
         {
-            await this.basketService.AddToBasket(this.Book);
+            await this.shoppingCartService.AddToBasket(this.Book);
         }
     }
 }

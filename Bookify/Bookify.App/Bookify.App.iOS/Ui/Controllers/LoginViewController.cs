@@ -32,6 +32,8 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
+        public FrontSidebarMenuController Parent { get; set; }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -46,6 +48,19 @@ namespace Bookify.App.iOS.Ui.Controllers
                 this.txtPassword.ResignFirstResponder();
                 return true;
             };
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            var btnBack = new UIBarButtonItem(UIBarButtonSystemItem.Cancel, this.BtnBack_Clicked);
+            this.NavigationItem.SetLeftBarButtonItem(btnBack, false);
+        }
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await this.DismissLoginView();
         }
 
         protected override void CreateBindings()
@@ -109,9 +124,7 @@ namespace Bookify.App.iOS.Ui.Controllers
                 try
                 {
                     var account = await this.ViewModel.Authenticate();
-                    var viewController = new FrontSidebarController();
-                    await this.PresentViewControllerAsync(viewController, true);
-                    UIApplication.SharedApplication.KeyWindow.RootViewController = viewController;
+                    await this.DismissLoginView();
                 }
                 catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.Forbidden)
                 {
@@ -122,6 +135,12 @@ namespace Bookify.App.iOS.Ui.Controllers
                     this.DialogService.Alert("Der opstod en fejl under login. Check din internet forbindelse, eller prøv igen senere.", "Forbindelses fejl", "OK");
                 }
             }
+        }
+
+        private async Task DismissLoginView()
+        {
+            await this.Parent.SidebarController.ParentViewController.DismissViewControllerAsync(true);
+            this.Parent.SidebarController.OpenMenu();
         }
     }
 }

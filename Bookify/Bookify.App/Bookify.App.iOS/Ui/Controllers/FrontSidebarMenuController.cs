@@ -1,27 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Bookify.App.Core.Helpers;
+using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 
 using MonoTouch.Dialog;
-
+using SidebarNavigation;
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
-    public class FrontSidebarMenuController : DialogViewController
+    public class FrontSidebarMenuController : ExtendedDialogViewController
     {
         public FrontSidebarMenuController()
             : base(UITableViewStyle.Grouped, null)
         {
             this.ViewModel = AppDelegate.Root.Resolve<SidebarViewModel>();
             this.CreateMenuItems();
+            this.ViewModel.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName != nameof(this.ViewModel.Account))
+                {
+                    return;
+                }
+                this.InvokeOnMainThread(this.CreateMenuItems);
+            };
         }
 
         public SidebarViewModel ViewModel { get; private set; }
+        public SidebarController SidebarController { get; set; }
 
         private void CreateMenuItems()
         {
@@ -41,9 +52,24 @@ namespace Bookify.App.iOS.Ui.Controllers
             {
                 new Section
                 {
-                    new StringElement("Køb abonnement", this.BtnBuySubscription_Clicked),
-                    new StringElement("Indkøbs kurv", this.BtnShoppingCart_Clicked),
-                    new StringElement("Log ud", this.BtnLogout_Clicked),
+                    new StyledStringElement("Køb abonnement", this.BtnBuySubscription_Clicked)
+                    {
+                        Accessory = UITableViewCellAccessory.DisclosureIndicator,
+                        Image = UIImage.FromBundle("Icons/Subscribe.png")
+                    },
+                    new StyledStringElement("Indkøbs kurv", this.BtnShoppingCart_Clicked)
+                    {
+                        Accessory = UITableViewCellAccessory.DisclosureIndicator,
+                        Image = UIImage.FromBundle("Icons/Cart.png")
+                    }
+                },
+                new Section
+                {
+                    new StyledStringElement("Log ud", this.BtnLogout_Clicked)
+                    {
+                        Accessory = UITableViewCellAccessory.DisclosureIndicator,
+                        Image = UIImage.FromBundle("Icons/Logout.png")
+                    }
                 }
             };
         }
@@ -59,31 +85,96 @@ namespace Bookify.App.iOS.Ui.Controllers
             {
                 new Section
                 {
-                    new StringElement("Indkøbs kurv", this.BtnShoppingCart_Clicked),
-                    new StringElement("Log ind", this.BtnLogin_Clicked),
-                    new StringElement("Registrer", this.BtnRegister_Clicked)
+                    new StyledStringElement("Indkøbs kurv", this.BtnShoppingCart_Clicked)
+                    {
+                        Accessory = UITableViewCellAccessory.DisclosureIndicator,
+                        Image = UIImage.FromBundle("Icons/Cart.png")
+                    }
+                },
+                new Section
+                {
+                    new StyledStringElement("Log ind", this.BtnLogin_Clicked)
+                    {
+                        Accessory = UITableViewCellAccessory.DisclosureIndicator,
+                        Image = UIImage.FromBundle("Icons/Login.png")
+
+                    },
+                    new StyledStringElement("Registrer", this.BtnRegister_Clicked)
+                    {
+                        Accessory = UITableViewCellAccessory.DisclosureIndicator,
+                        Image = UIImage.FromBundle("Icons/Register.png")
+                    }
                 }
             };
         }
 
         private async void BtnLogout_Clicked()
         {
+            if (!await this.DialogService.ConfirmAsync("Ønsker du at logge ud?", "Godkend", "Log ud", "Annuller"))
+            {
+                return;
+            }
+            await Task.Delay(100);
             await this.ViewModel.Logout();
         }
 
-        private void BtnRegister_Clicked()
+        private async void BtnRegister_Clicked()
         {
+            await this.CloseMenu();
 
         }
 
-        private void BtnShoppingCart_Clicked()
+        private async void BtnShoppingCart_Clicked()
         {
+            await this.CloseMenu();
 
+            var storyboard = Storyboards.Storyboard.Main;
+            var vc = storyboard.InstantiateViewController(ShoppingBasketViewController.StoryboardIdentifier);
+            var vcShoppingCart = (ShoppingBasketViewController)vc;
+            var contentAreaController = (UINavigationController)this.SidebarController.ContentAreaController;
+            contentAreaController.PushViewController(vcShoppingCart, true);
         }
 
-        private void BtnLogin_Clicked()
+        private async Task CloseMenu()
         {
-            Storyboards.Storyboard.Main.InstantiateViewController("")
+            this.SidebarController.CloseMenu();
+            await Task.Delay(300);
+        }
+
+        private async void BtnLogin_Clicked()
+        {
+            await this.CloseMenu();
+            var storyboard = Storyboards.Storyboard.Main;
+            var vcLogin = (LoginViewController)storyboard.InstantiateViewController(LoginViewController.StoryboardIdentifier);
+            vcLogin.Parent = this;
+            await this.SidebarController.ParentViewController.PresentViewControllerAsync(new UINavigationController(vcLogin), true);
+        }
+    }
+
+    public class ExtendedDialogViewController : DialogViewController
+    {
+        private readonly Lazy<IUserDialogs> dialogService = new Lazy<IUserDialogs>(() => AppDelegate.Root.Resolve<IUserDialogs>());
+
+        protected IUserDialogs DialogService => this.dialogService.Value;
+
+        public ExtendedDialogViewController(RootElement root) : base(root)
+        {
+        }
+
+        public ExtendedDialogViewController(UITableViewStyle style, RootElement root) : base(style, root)
+        {
+        }
+
+        public ExtendedDialogViewController(RootElement root, bool pushing) : base(root, pushing)
+        {
+        }
+
+        public ExtendedDialogViewController(UITableViewStyle style, RootElement root, bool pushing) : base(style, root, pushing)
+        {
+        }
+
+        public ExtendedDialogViewController(IntPtr handle) : base(handle)
+        {
         }
     }
 }

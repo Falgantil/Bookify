@@ -1,6 +1,6 @@
 namespace Bookify.App.Core.Models
 {
-    public class LightBookModel : BaseModel
+    public class LightBookModel : BaseDataModel
     {
         public string Title { get; set; }
 

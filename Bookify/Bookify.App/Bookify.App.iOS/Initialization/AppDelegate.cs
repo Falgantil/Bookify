@@ -1,5 +1,5 @@
 ﻿using Bookify.App.Core.Initialization;
-
+using Bookify.App.iOS.Ui.Controllers;
 using Foundation;
 
 using UIKit;
@@ -29,8 +29,7 @@ namespace Bookify.App.iOS.Initialization
             this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
             // If you have defined a root view controller, set it here:
-            var storyboard = UIStoryboard.FromName(@"Main", null);
-            this.Window.RootViewController = storyboard.InstantiateInitialViewController();
+            this.Window.RootViewController = new FrontSidebarController();
 
             // make the window visible
             this.Window.MakeKeyAndVisible();

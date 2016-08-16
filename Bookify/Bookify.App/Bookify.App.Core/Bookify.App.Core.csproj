@@ -41,14 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\NameHelper.cs" />
-    <Compile Include="Interfaces\Services\IBasketService.cs" />
+    <Compile Include="Interfaces\Services\ICachingRegion.cs" />
+    <Compile Include="Interfaces\Services\ICachingRegionFactory.cs" />
+    <Compile Include="Interfaces\Services\IShoppingCartService.cs" />
     <Compile Include="Interfaces\Services\IBookService.cs" />
     <Compile Include="Interfaces\Services\IReviewService.cs" />
-    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\BaseDataModel.cs" />
     <Compile Include="Models\BookModel.cs" />
     <Compile Include="Models\LightBookModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="Properties\Annotations2.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Initialization\Bootstrapper.cs" />
     <Compile Include="Initialization\Parameter.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="ViewModels\FeaturedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingBasketViewModel.cs" />
     <Compile Include="ViewModels\SidebarViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,8 +92,20 @@
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.Ninject.3.3.1\lib\portable-net4+sl5+wp8+win8+wpa81+monotouch+monoandroid+Xamarin.iOS\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Polly, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
