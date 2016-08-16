@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Bookify.API
 {
@@ -8,6 +9,9 @@ namespace Bookify.API
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            var enableCorsAttribute = new EnableCorsAttribute("*",
+                                               "Origin, Content-Type, Accept",
+                                               "GET, PUT, POST, DELETE, OPTIONS");
 
             // Web API routes
             config.MapHttpAttributeRoutes();
