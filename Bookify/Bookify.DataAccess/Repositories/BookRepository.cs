@@ -23,8 +23,9 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc)
         {
-            IQueryable<Book> result = await GetAll();
+            IQueryable<Book> booksQuery = await GetAll();
 
+                // var res = listA.Where(n => !listB.Contains(n));
             /*
             if (genres != null && genres.Any())
             {
@@ -33,7 +34,7 @@ namespace Bookify.DataAccess.Repositories
             */
 
             if (!string.IsNullOrEmpty(search))
-                result = result
+                booksQuery = booksQuery
                     .Where(b =>
                             string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase) || 
                             b.ISBN == search ||
@@ -42,15 +43,15 @@ namespace Bookify.DataAccess.Repositories
             // string.Equals (a,b, StringComparison.CurrentCultureIgnoreCase) mean a compare a & b and ignore the case of the string
 
             if (orderBy != null)
-                result = result.OrderBy(orderBy, desc);
+                booksQuery = booksQuery.OrderBy(orderBy, desc);
             // Order by is a Extension -> doens't need to call the object it lays in to exec the method ;)
 
             if (skip != null)
-                result = result.Skip(skip.Value);
+                booksQuery = booksQuery.Skip(skip.Value);
             if (take != null)
-                result = result.Take(take.Value);
+                booksQuery = booksQuery.Take(take.Value);
             
-            return result;
+            return booksQuery;
         }
 
       
