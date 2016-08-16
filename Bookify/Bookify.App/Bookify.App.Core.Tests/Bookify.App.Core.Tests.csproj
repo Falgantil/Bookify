@@ -80,14 +80,23 @@
   <ItemGroup>
     <Compile Include="Initialization\BootstrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LoginViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bookify.Models\Bookify.Models.csproj">
+      <Project>{490cd2d0-19dd-4991-9cc6-9909be9a1fcb}</Project>
+      <Name>Bookify.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Core\Bookify.App.Core.csproj">
       <Project>{5f7bb490-7bd9-430f-b961-9ee772dc5d0f}</Project>
       <Name>Bookify.App.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
+      <Project>{04efb456-acc8-4627-a7ab-9b9fc76a49c6}</Project>
+      <Name>Bookify.App.Sdk</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

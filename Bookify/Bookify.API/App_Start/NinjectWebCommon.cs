@@ -72,6 +72,7 @@ namespace Bookify.API.App_Start
         {
             kernel.Bind<BookifyContext>().To<BookifyContext>().InSingletonScope();
             kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InRequestScope();
+            kernel.Bind<IBookFeedbackRepository>().To<BookFeedbackRepository>().InRequestScope();
             kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
             kernel.Bind<IPublisherRepository>().To<PublisherRepository>().InRequestScope();
             kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();

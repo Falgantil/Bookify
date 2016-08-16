@@ -43,13 +43,16 @@
     <Compile Include="BookContent.cs" />
     <Compile Include="BookFeedback.cs" />
     <Compile Include="BookHistory.cs" />
+    <Compile Include="BookHistoryType.cs" />
     <Compile Include="BookOrder.cs" />
+    <Compile Include="BookOrderStatus.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="PaymentInfo.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="Subscription.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

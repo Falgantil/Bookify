@@ -7,6 +7,6 @@ namespace Bookify.Core.Interfaces
 {
     public interface IBookRepository : IGenericRepository<Book>
     {
-        Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, List<int> genres, string search, string orderBy, bool? desc);
+        Task<IQueryable<Book>> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc);
     }
 }

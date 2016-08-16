@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
+using Bookify.Models;
 
 using ModernHttpClient;
 
@@ -13,22 +13,22 @@ namespace Bookify.App.Core.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        public event EventHandler<AccountModel> AuthChanged;
+        public event EventHandler<Person> AuthChanged;
 
-        public AccountModel LoggedOnAccount { get; private set; }
 
-        public async Task<AccountModel> Authenticate(string username, string password)
+        public Person LoggedOnAccount { get; private set; }
+
+        public async Task<Person> Authenticate(string username, string password)
         {
             await Task.Delay(1500);
 
-            var accountModel = new AccountModel
+            var person = new Person
             {
-                FirstName = "Bjarke",
-                IsSubscribed = true,
-                LastName = "Søgaard"
+                Firstname = "Bjarke",
+                Lastname = "Søgaard"
             };
-            this.LoggedOnAccount = accountModel;
-            return accountModel;
+            this.LoggedOnAccount = person;
+            return person;
         }
     }
 }

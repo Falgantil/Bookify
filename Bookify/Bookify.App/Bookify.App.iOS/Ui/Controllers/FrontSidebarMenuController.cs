@@ -12,7 +12,7 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
-    class FrontSidebarMenuController : DialogViewController
+    public class FrontSidebarMenuController : DialogViewController
     {
         public FrontSidebarMenuController()
             : base(UITableViewStyle.Grouped, null)
@@ -37,7 +37,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void CreateLoggedInMenuItems()
         {
-            this.Root = new RootElement($"Velkommen {this.ViewModel.Account.FirstName}")
+            this.Root = new RootElement($"Velkommen {this.ViewModel.Account.Firstname}")
             {
                 new Section
                 {
@@ -50,7 +50,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void BtnBuySubscription_Clicked()
         {
-            
+
         }
 
         private void CreateNotLoggedInMenuItems()
@@ -73,7 +73,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void BtnRegister_Clicked()
         {
-            
+
         }
 
         private void BtnShoppingCart_Clicked()

@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Website", "Bookify.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DB802A1B-2CBC-4093-81DA-6652DB096ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.UnitTets", "Bookify.UnitTets\Bookify.UnitTets.csproj", "{C5947297-30D0-4F90-9F56-B15751BAEDDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.UnitTest", "Bookify.UnitTets\Bookify.UnitTest.csproj", "{C5947297-30D0-4F90-9F56-B15751BAEDDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Models", "Bookify.Models\Bookify.Models.csproj", "{72800C42-B1E9-4409-99FF-39D4A4DA479C}"
 EndProject

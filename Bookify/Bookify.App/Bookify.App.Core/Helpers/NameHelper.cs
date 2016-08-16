@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Bookify.App.Core.Models;
+using Bookify.Models;
 
 namespace Bookify.App.Core.Helpers
 {
     public static class NameHelper
     {
-        public static string GetFullName(this AccountModel account)
+        public static string GetFullName(this Person account)
         {
-            return $"{account.FirstName} {account.LastName}";
+            return $"{account.Firstname} {account.Lastname}";
         }
     }
 }
