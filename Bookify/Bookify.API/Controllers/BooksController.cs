@@ -161,7 +161,7 @@ namespace Bookify.API.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Cover(int id, int? width = null, int? height = null)
         {
-            MemoryStream stream = _fileServerRepository.GetCoverFile(id);
+            var stream = _fileServerRepository.GetCoverFile(id);
             if (stream == null) return new HttpResponseMessage(HttpStatusCode.InternalServerError);
 
             using (var ms = new MemoryStream())

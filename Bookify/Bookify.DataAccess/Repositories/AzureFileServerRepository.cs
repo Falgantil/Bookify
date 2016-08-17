@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Bookify.Core.Interfaces.Repositories;
 using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
@@ -58,7 +59,7 @@ namespace Bookify.DataAccess.Repositories
         {
         }
 
-        public Stream GetCoverFile(int bookId)
+        public MemoryStream GetCoverFile(int bookId)
         {
             var share = ConnectionToAzureShare();
             if (share == null) return null;
