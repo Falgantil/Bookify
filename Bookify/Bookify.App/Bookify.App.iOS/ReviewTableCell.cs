@@ -51,7 +51,7 @@ namespace Bookify.App.iOS
             this.bindings.Add(this.lblDate.Bind(this.model, m => m.CreatedTs, (lbl, date) => lbl.Text = date.ToShortDateString()));
             this.bindings.Add(this.lblAuthor.BindText(this.model, m => m.Author));
             this.bindings.Add(this.lblComment.BindText(this.model, m => m.Message));
-            this.bindings.Add(this.BindRating(this.model, m => m.Rating, this.imgStar1, this.imgStar2, this.imgStar3, this.imgStar4, this.imgStar5));
+            this.bindings.Add(this.BindRating(this.model, m => m.Rating, this.imgRating1, this.imgRating2, this.imgRating3, this.imgRating4, this.imgRating5));
         }
 
         public static ReviewTableCell CreateCell(UITableView table, NSIndexPath index, ReviewModel book)

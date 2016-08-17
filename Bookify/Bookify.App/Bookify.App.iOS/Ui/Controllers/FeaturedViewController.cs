@@ -7,7 +7,8 @@ using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
-
+using Bookify.App.iOS.Ui.Views;
+using Bookify.Models;
 using Foundation;
 
 using UIKit;
@@ -27,7 +28,9 @@ namespace Bookify.App.iOS.Ui.Controllers
             base.ViewDidLoad();
 
             this.tblContent.RowHeight = 100;
+            this.tblContent.RegisterNibForCellReuse(BookTableCell.Nib, BookTableCell.Key);
             this.tblContent.Source = new FeaturedDataSource(this, this.ViewModel);
+
             this.ViewModel.Books.CollectionChanged += this.BooksCollectionChanged;
         }
 
@@ -59,9 +62,9 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.tblContent.ReloadData();
         }
         
-        public async void CellTapped(LightBookModel model)
+        public async void CellTapped(Models.Book model)
         {
-            BookModel book;
+            Book book;
             using (this.DialogService.Loading("Henter bog..."))
             {
                 book = await this.ViewModel.GetBook(model.Id);

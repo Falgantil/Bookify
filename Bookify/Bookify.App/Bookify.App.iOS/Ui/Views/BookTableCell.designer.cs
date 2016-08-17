@@ -1,4 +1,4 @@
-// WARNING
+﻿// WARNING
 //
 // This file has been generated automatically by Xamarin Studio from the outlets and
 // actions declared in your storyboard file.
@@ -9,18 +9,14 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Views
 {
-    [Register ("CartItemTableCell")]
-    partial class CartItemTableCell
+    [Register ("BookTableCell")]
+    partial class BookTableCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView imgThumbnail { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblBooksQuantity { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -31,11 +27,6 @@ namespace Bookify.App.iOS
             if (imgThumbnail != null) {
                 imgThumbnail.Dispose ();
                 imgThumbnail = null;
-            }
-
-            if (lblBooksQuantity != null) {
-                lblBooksQuantity.Dispose ();
-                lblBooksQuantity = null;
             }
 
             if (lblBookTitle != null) {

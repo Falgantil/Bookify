@@ -11,19 +11,11 @@ using UIKit;
 
 namespace Bookify.App.iOS
 {
-    [Register ("ShoppingBasketViewController")]
-    partial class ShoppingBasketViewController
+    [Register ("BrowseViewController")]
+    partial class BrowseViewController
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView tblContent { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
-            if (tblContent != null) {
-                tblContent.Dispose ();
-                tblContent = null;
-            }
         }
     }
 }

@@ -1,13 +1,10 @@
-using Foundation;
 using System;
 using System.Linq;
-
 using Bookify.App.Core.Models;
-using Bookify.App.iOS.Initialization;
-using Bookify.App.iOS.Ui.Controllers;
+using Bookify.Models;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class BookOverviewViewController : UITabBarController
     {
@@ -15,7 +12,7 @@ namespace Bookify.App.iOS
         {
         }
 
-        public BookModel Book { get; set; }
+        public Book Book { get; set; }
 
         public override void ViewDidLoad()
         {

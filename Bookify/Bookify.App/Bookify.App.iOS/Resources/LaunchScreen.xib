@@ -65,6 +65,5 @@
         <image name="Icons/Play.png" width="25" height="25"/>
         <image name="Icons/Reviews.png" width="25" height="25"/>
         <image name="Icons/Star.png" width="25" height="25"/>
-        <image name="Icons/StarFilled.png" width="25" height="25"/>
     </resources>
 </document>

@@ -8,6 +8,7 @@ using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.Helpers;
+using Bookify.Models;
 using CoreAnimation;
 using CoreGraphics;
 using Rope.Net.iOS;
@@ -21,7 +22,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
-        public BookModel Book { get; set; }
+        public Book Book { get; set; }
 
         public override void ViewDidLoad()
         {
@@ -55,14 +56,14 @@ namespace Bookify.App.iOS.Ui.Controllers
             const string OptBorrowBook = "Lån bog";
 
             List<string> options = new List<string> { OptAddToBasket };
-            if (this.ViewModel.OwnsBook)
-            {
-                options.Add(OptReadBook);
-            }
-            else if (this.ViewModel.Borrowable)
-            {
-                options.Add(OptBorrowBook);
-            }
+            //if (this.ViewModel.OwnsBook)
+            //{
+            //    options.Add(OptReadBook);
+            //}
+            //else if (this.ViewModel.Borrowable)
+            //{
+            //    options.Add(OptBorrowBook);
+            //}
             var result = await this.DialogService.ActionSheetAsync(MsgTitle, OptCancel, null, null, options.ToArray());
             switch (result)
             {
@@ -97,12 +98,12 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected override void CreateBindings()
         {
-            this.imgBookCover.BindImageUrl(this.ViewModel, vm => vm.Book.CoverUrl);
+            this.imgBookCover.BindImageUrl(this.ViewModel, vm => vm.Book.Id);
             this.lblBookTitle.BindText(this.ViewModel, vm => vm.Book.Title);
-            this.lblAuthor.BindText(this.ViewModel, vm => vm.Book.Author, "af {0}");
+            this.lblAuthor.BindText(this.ViewModel, vm => vm.Book.Author.Name, "af {0}");
             this.lblChapters.Bind(
                 this.ViewModel,
-                vm => vm.Book.Chapters,
+                vm => vm.Book.PageCount,
                 (lbl, val) =>
                     {
                         switch (val)

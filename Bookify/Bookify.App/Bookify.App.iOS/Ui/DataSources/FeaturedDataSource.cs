@@ -3,7 +3,7 @@ using System;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers;
 using Bookify.App.iOS.Ui.TableCells;
-
+using Bookify.App.iOS.Ui.Views;
 using Foundation;
 
 using UIKit;

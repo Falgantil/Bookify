@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bookify.App.Core.Annotations;
 using Bookify.App.Core.Models;
+using Bookify.Models;
 
 namespace Bookify.App.Core.Interfaces.Services
 {
@@ -26,14 +27,14 @@ namespace Bookify.App.Core.Interfaces.Services
         /// </summary>
         /// <param name="book">The book.</param>
         /// <returns></returns>
-        Task AddToBasket(BookModel book);
+        Task AddToBasket(Book book);
 
         /// <summary>
         /// Removes the book from the basket.
         /// </summary>
         /// <param name="book">The book.</param>
         /// <returns></returns>
-        Task RemoveFromBasket(BookModel book);
+        Task RemoveFromBasket(Book book);
 
         /// <summary>
         /// Removes the book with the specified ID from the basket.
@@ -71,7 +72,7 @@ namespace Bookify.App.Core.Interfaces.Services
 
         public ObservableCollection<CartItemModel> CartItems { get; } = new ObservableCollection<CartItemModel>();
 
-        public async Task AddToBasket([NotNull] BookModel book)
+        public async Task AddToBasket([NotNull] Book book)
         {
             if (book == null)
                 throw new ArgumentNullException(nameof(book));
@@ -90,7 +91,7 @@ namespace Bookify.App.Core.Interfaces.Services
             await this.cachingRegion.UpdateItem(this.CartItems);
         }
 
-        public async Task RemoveFromBasket([NotNull] BookModel book)
+        public async Task RemoveFromBasket([NotNull] Book book)
         {
             if (book == null)
                 throw new ArgumentNullException(nameof(book));

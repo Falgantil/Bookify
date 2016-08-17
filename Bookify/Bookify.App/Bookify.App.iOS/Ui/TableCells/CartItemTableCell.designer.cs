@@ -11,12 +11,16 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.TableCells
 {
-    [Register ("BookTableCell")]
-    partial class BookTableCell
+    [Register ("CartItemTableCell")]
+    partial class CartItemTableCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView imgThumbnail { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblBooksQuantity { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -27,6 +31,11 @@ namespace Bookify.App.iOS.Ui.TableCells
             if (imgThumbnail != null) {
                 imgThumbnail.Dispose ();
                 imgThumbnail = null;
+            }
+
+            if (lblBooksQuantity != null) {
+                lblBooksQuantity.Dispose ();
+                lblBooksQuantity = null;
             }
 
             if (lblBookTitle != null) {

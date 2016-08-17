@@ -10,8 +10,6 @@ using Bookify.App.Sdk.Exceptions;
 
 using CoreAnimation;
 using CoreGraphics;
-using Foundation;
-
 using Polly;
 
 using Rope.Net.iOS;

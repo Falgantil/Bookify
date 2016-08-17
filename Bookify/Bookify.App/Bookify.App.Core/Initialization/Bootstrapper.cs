@@ -6,7 +6,9 @@ using Acr.UserDialogs;
 using Bookify.App.Core.Interfaces.Initialization;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Services;
-
+using Bookify.App.Sdk;
+using Bookify.App.Sdk.Implementations;
+using Bookify.App.Sdk.Interfaces;
 using Ninject;
 using Ninject.Parameters;
 using PCLStorage;
@@ -73,17 +75,22 @@ namespace Bookify.App.Core.Initialization
         {
             this.kernel = new StandardKernel();
 
+            AppConfig.Website = "http://bookifyapi.azurewebsites.net/";
+
             this.platformInitializer.BeforeInit(this.kernel);
 
             // Create all platform independent bindings here
             this.kernel.Bind<IUserDialogs>().ToMethod(c => UserDialogs.Instance);
             this.kernel.Bind<IFileSystem>().ToMethod(c => FileSystem.Current);
 
+            this.kernel.Bind<IBookApi>().To<BookApi>().InScope(context => this.kernel.Get<IAuthenticationService>().LoggedOnAccount);
+
             this.kernel.Bind<ICachingRegionFactory>().To<CachingRegionFactory>().InSingletonScope();
             this.kernel.Bind<IShoppingCartService>().To<ShoppingCartService>().InSingletonScope();
             this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
             this.kernel.Bind<IBookService>().To<BookService>().InSingletonScope();
             this.kernel.Bind<IReviewService>().To<ReviewService>().InSingletonScope();
+            this.kernel.Bind<IGenreService>().To<GenreService>().InSingletonScope();
 
             this.platformInitializer.AfterInit(this.kernel);
         }
