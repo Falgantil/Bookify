@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
+using Bookify.Models;
 using Polly;
 
 namespace Bookify.App.Core.ViewModels
@@ -13,9 +14,9 @@ namespace Bookify.App.Core.ViewModels
     public class ReviewsViewModel : BaseViewModel
     {
         private readonly IReviewService reviewService;
-        private readonly BookModel book;
+        private readonly Book book;
 
-        public ReviewsViewModel(BookModel book, IReviewService reviewService)
+        public ReviewsViewModel(Book book, IReviewService reviewService)
         {
             this.book = book;
             this.reviewService = reviewService;

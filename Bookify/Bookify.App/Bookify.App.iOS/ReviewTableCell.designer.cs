@@ -16,23 +16,23 @@ namespace Bookify.App.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgStar1 { get; set; }
+        UIKit.UIImageView imgRating1 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgStar2 { get; set; }
+        UIKit.UIImageView imgRating2 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgStar3 { get; set; }
+        UIKit.UIImageView imgRating3 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgStar4 { get; set; }
+        UIKit.UIImageView imgRating4 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgStar5 { get; set; }
+        UIKit.UIImageView imgRating5 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -48,29 +48,29 @@ namespace Bookify.App.iOS
 
         void ReleaseDesignerOutlets ()
         {
-            if (imgStar1 != null) {
-                imgStar1.Dispose ();
-                imgStar1 = null;
+            if (imgRating1 != null) {
+                imgRating1.Dispose ();
+                imgRating1 = null;
             }
 
-            if (imgStar2 != null) {
-                imgStar2.Dispose ();
-                imgStar2 = null;
+            if (imgRating2 != null) {
+                imgRating2.Dispose ();
+                imgRating2 = null;
             }
 
-            if (imgStar3 != null) {
-                imgStar3.Dispose ();
-                imgStar3 = null;
+            if (imgRating3 != null) {
+                imgRating3.Dispose ();
+                imgRating3 = null;
             }
 
-            if (imgStar4 != null) {
-                imgStar4.Dispose ();
-                imgStar4 = null;
+            if (imgRating4 != null) {
+                imgRating4.Dispose ();
+                imgRating4 = null;
             }
 
-            if (imgStar5 != null) {
-                imgStar5.Dispose ();
-                imgStar5 = null;
+            if (imgRating5 != null) {
+                imgRating5.Dispose ();
+                imgRating5 = null;
             }
 
             if (lblAuthor != null) {

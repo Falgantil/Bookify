@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Bookify.Models
 {
-    public class Book
+    public class Book : BaseModel
     {
         public int Id { get; set; }
         public int AuthorId { get; set; }

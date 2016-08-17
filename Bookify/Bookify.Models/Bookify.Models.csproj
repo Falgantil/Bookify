@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Author.cs" />
+    <Compile Include="BaseModel.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookContent.cs" />
     <Compile Include="BookFeedback.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="PaymentInfo.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonRole.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
     <Compile Include="Role.cs" />

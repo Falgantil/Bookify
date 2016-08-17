@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
+using System.Net;
 using System.Reactive.Linq;
 using System.Text;
 
 using Akavache;
 
 using Bookify.App.Core.Models;
-
+using Bookify.App.Sdk;
 using Rope.Net;
 using Rope.Net.iOS;
 
@@ -20,8 +21,8 @@ namespace Bookify.App.iOS.Ui.Helpers
 {
     public static class BindingHelper
     {
-        private static Lazy<UIImage> imgStar = new Lazy<UIImage>(() => UIImage.FromBundle("Icons/Star.png")); 
-        private static Lazy<UIImage> imgStarFilled = new Lazy<UIImage>(() => UIImage.FromBundle("Icons/StarFilled.png")); 
+        private static readonly Lazy<UIImage> imgRating = new Lazy<UIImage>(() => UIImage.FromBundle("Icons/Heart.png"));
+        private static readonly Lazy<UIImage> imgRatingFilled = new Lazy<UIImage>(() => UIImage.FromBundle("Icons/HeartFilled.png"));
 
         /// <summary>
         /// Binds the image URL to the specified image view.
@@ -35,7 +36,7 @@ namespace Bookify.App.iOS.Ui.Helpers
         /// <param name="model">The model.</param>
         /// <param name="getVal">The get value.</param>
         /// <returns></returns>
-        public static IBinding BindImageUrl<TModel>(this UIImageView img, TModel model, Expression<Func<TModel, string>> getVal)
+        public static IBinding BindImageUrl<TModel>(this UIImageView img, TModel model, Expression<Func<TModel, int>> getVal)
             where TModel : INotifyPropertyChanged
         {
             var disposed = false;
@@ -43,26 +44,38 @@ namespace Bookify.App.iOS.Ui.Helpers
             var binding = (Binding)img.Bind(
                 model,
                 getVal,
-                async (i, url) =>
+                async (i, bookId) =>
+                {
+                    var url = AppConfig.GetThumbnail(bookId, (int)img.Frame.Width, (int)img.Frame.Height);
+
+                    UIImage uiImage;
+                    try
                     {
                         var image = await BlobCache.UserAccount.LoadImageFromUrl(
-                        url,
-                        url,
-                        false,
-                        null,
-                        null,
-                        DateTimeOffset.Now.AddDays(7));
+                           url,
+                           url,
+                           false,
+                           null,
+                           null,
+                           DateTimeOffset.Now.AddDays(7));
+                        uiImage = image.ToNative();
+                    }
+                    catch (WebException)
+                    {
+                        uiImage = UIImage.FromBundle("Icons/UnknownImage.png");
+                    }
                     if (disposed)
                     {
                         return;
                     }
-                    img.Image = image.ToNative();
+
+                    img.Image = uiImage;
                 });
             binding.With(() => disposed = true);
             return binding;
         }
 
-        public static IBinding BindRating<TModel>(this UIView parent, TModel model, Expression<Func<TModel, int>> getVal, UIImageView star1, UIImageView star2, UIImageView star3, UIImageView star4, UIImageView star5)
+        public static IBinding BindRating<TModel>(this UIView parent, TModel model, Expression<Func<TModel, int>> getVal, UIImageView rating1, UIImageView rating2, UIImageView rating3, UIImageView rating4, UIImageView rating5)
             where TModel : INotifyPropertyChanged
         {
             return parent.Bind(
@@ -70,11 +83,11 @@ namespace Bookify.App.iOS.Ui.Helpers
                 getVal,
                 (v, rating) =>
                     {
-                        star1.Image = rating > 0 ? imgStarFilled.Value : imgStar.Value;
-                        star2.Image = rating > 1 ? imgStarFilled.Value : imgStar.Value;
-                        star3.Image = rating > 2 ? imgStarFilled.Value : imgStar.Value;
-                        star4.Image = rating > 3 ? imgStarFilled.Value : imgStar.Value;
-                        star5.Image = rating > 4 ? imgStarFilled.Value : imgStar.Value;
+                        rating1.Image = rating > 0 ? imgRatingFilled.Value : imgRating.Value;
+                        rating2.Image = rating > 1 ? imgRatingFilled.Value : imgRating.Value;
+                        rating3.Image = rating > 2 ? imgRatingFilled.Value : imgRating.Value;
+                        rating4.Image = rating > 3 ? imgRatingFilled.Value : imgRating.Value;
+                        rating5.Image = rating > 4 ? imgRatingFilled.Value : imgRating.Value;
                     });
         }
     }

@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controllers
 {
     [Register ("ReviewsViewController")]
     partial class ReviewsViewController

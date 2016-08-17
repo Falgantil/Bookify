@@ -1,15 +1,15 @@
-using Foundation;
 using System;
 using System.Collections.Specialized;
-
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
+using Bookify.App.iOS.Ui.DataSources;
+using Bookify.Models;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class ReviewsViewController : ExtendedViewController<ReviewsViewModel>
     {
@@ -17,7 +17,7 @@ namespace Bookify.App.iOS
         {
         }
 
-        public BookModel Book { get; set; }
+        public Book Book { get; set; }
 
         public override void ViewDidLoad()
         {
@@ -56,30 +56,6 @@ namespace Bookify.App.iOS
         protected override void CreateBindings()
         {
 
-        }
-    }
-
-    public class ReviewsDataSource : UITableViewSource
-    {
-        private readonly ReviewsViewModel viewModel;
-
-        public ReviewsDataSource(ReviewsViewModel viewModel)
-        {
-            this.viewModel = viewModel;
-        }
-        
-        public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
-        {
-            return ReviewTableCell.CreateCell(tableView, indexPath, this.viewModel.Reviews[indexPath.Row]);
-        }
-
-        public override nint RowsInSection(UITableView tableview, nint section)
-        {
-            if (section == 0)
-            {
-                return this.viewModel.Reviews.Count;
-            }
-            return 0;
         }
     }
 }

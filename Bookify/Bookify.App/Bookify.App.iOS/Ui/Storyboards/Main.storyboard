@@ -99,6 +99,7 @@
                     <connections>
                         <segue destination="654" kind="relationship" relationship="viewControllers" id="653"/>
                         <segue destination="656" kind="relationship" relationship="viewControllers" id="655"/>
+                        <segue id="4253" destination="3859" kind="relationship" relationship="viewControllers"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="658" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,7 +108,7 @@
         </scene>
         <scene sceneID="659">
             <objects>
-                <viewController id="654" sceneMemberID="viewController" title="Featured" customClass="FeaturedViewController">
+                <viewController id="654" sceneMemberID="viewController" title="Populære" customClass="FeaturedViewController" storyboardIdentifier="FeaturedViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="647"/>
                         <viewControllerLayoutGuide type="bottom" id="648"/>
@@ -118,66 +119,30 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="978" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="979" rowHeight="100" accessoryType="disclosureIndicator" reuseIdentifier="BookTblCell" customClass="BookTableCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="979" id="980">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1902" translatesAutoresizingMaskIntoConstraints="NO">
-                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
-                                                    <constraints>
-                                                        <constraint id="1904" firstItem="1902" firstAttribute="height" constant="84"/>
-                                                        <constraint id="1905" firstItem="1902" firstAttribute="width" constant="84"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lblBookTitle" lineBreakMode="tailTruncation" minimumFontSize="16" id="1907" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
-                                                    <rect key="frame" x="100" y="38" width="100" height="24"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint id="1903" firstItem="1902" firstAttribute="centerY" secondItem="980" secondAttribute="centerY"/>
-                                                <constraint id="1906" firstItem="1902" firstAttribute="leading" secondItem="980" secondAttribute="leading" constant="8"/>
-                                                <constraint id="1908" firstItem="1907" firstAttribute="leading" secondItem="1902" secondAttribute="trailing" constant="8"/>
-                                                <constraint id="1909" firstItem="1907" firstAttribute="centerY" secondItem="980" secondAttribute="centerY"/>
-                                                <constraint id="1910" firstItem="980" firstAttribute="trailing" secondItem="1907" secondAttribute="trailing" constant="8" relation="greaterThanOrEqual"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgThumbnail" destination="1902" id="name-outlet-1902"/>
-                                            <outlet property="lblBookTitle" destination="1907" id="name-outlet-1907"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                <prototypes/>
                             </tableView>
                         </subviews>
                         <constraints>
                             <constraint id="987" firstItem="978" firstAttribute="trailing" secondItem="660" secondAttribute="trailing"/>
                             <constraint id="988" firstItem="978" firstAttribute="leading" secondItem="660" secondAttribute="leading"/>
                             <constraint id="1918" firstItem="978" firstAttribute="top" secondItem="660" secondAttribute="top"/>
-                            <constraint id="1919" firstItem="978" firstAttribute="bottom" secondItem="660" secondAttribute="bottom"/>
+                            <constraint id="3842" firstItem="978" firstAttribute="bottom" secondItem="648" secondAttribute="top"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Featured" id="661" image="Icons/Star.png"/>
+                    <tabBarItem key="tabBarItem" title="Populære" id="661" image="Icons/Star.png"/>
                     <connections>
                         <outlet property="tblContent" destination="978" id="name-outlet-978"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="662" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672" y="-356"/>
+            <point key="canvasLocation" x="1688" y="-340"/>
         </scene>
         <scene sceneID="663">
             <objects>
-                <viewController id="656" sceneMemberID="viewController" title="Browse">
+                <viewController id="656" sceneMemberID="viewController" title="Kategorier" customClass="BrowseViewController" storyboardIdentifier="BrowseViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="649"/>
                         <viewControllerLayoutGuide type="bottom" id="650"/>
@@ -187,11 +152,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Browse" id="665" image="Icons/Compass.png"/>
+                    <tabBarItem key="tabBarItem" title="Kategorier" id="665" image="Icons/Compass.png"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="666" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="367"/>
+            <point key="canvasLocation" x="1688" y="369"/>
         </scene>
         <scene sceneID="1929">
             <objects>
@@ -347,31 +312,31 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3079" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3079" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Heart.png">
                                                     <rect key="frame" x="212.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3080" firstAttribute="width" secondItem="3079" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3081" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3081" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Heart.png">
                                                     <rect key="frame" x="277.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3082" firstAttribute="width" secondItem="3081" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3083" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3083" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Heart.png">
                                                     <rect key="frame" x="147.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3084" firstAttribute="width" secondItem="3083" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3085" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3085" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Heart.png">
                                                     <rect key="frame" x="342.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3086" firstAttribute="width" secondItem="3085" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3087" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Star.png">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3087" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/Heart.png">
                                                     <rect key="frame" x="407.5" y="20" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint id="3088" firstAttribute="width" secondItem="3087" secondAttribute="height" multiplier="1:1"/>
@@ -420,11 +385,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imgStar1" destination="3083" id="name-outlet-3083"/>
-                                            <outlet property="imgStar2" destination="3079" id="name-outlet-3079"/>
-                                            <outlet property="imgStar3" destination="3081" id="name-outlet-3081"/>
-                                            <outlet property="imgStar4" destination="3085" id="name-outlet-3085"/>
-                                            <outlet property="imgStar5" destination="3087" id="name-outlet-3087"/>
+                                            <outlet property="imgRating1" destination="3083" id="name-outlet-3083"/>
+                                            <outlet property="imgRating2" destination="3079" id="name-outlet-3079"/>
+                                            <outlet property="imgRating3" destination="3081" id="name-outlet-3081"/>
+                                            <outlet property="imgRating4" destination="3085" id="name-outlet-3085"/>
+                                            <outlet property="imgRating5" destination="3087" id="name-outlet-3087"/>
                                             <outlet property="lblDate" destination="3089" id="name-outlet-3089"/>
                                             <outlet property="lblAuthor" destination="3078" id="name-outlet-3078"/>
                                             <outlet property="lblComment" destination="3090" id="name-outlet-3090"/>
@@ -487,7 +452,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 stk" lineBreakMode="tailTruncation" minimumFontSize="10" id="3200" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lblBooksQuantity" lineBreakMode="tailTruncation" minimumFontSize="10" id="3200" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                                                     <rect key="frame" x="546" y="40.5" width="34" height="19"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
@@ -533,6 +498,26 @@
             </objects>
             <point key="canvasLocation" x="922" y="730"/>
         </scene>
+        <scene sceneID="3858">
+            <objects>
+                <tableViewController id="3859" sceneMemberID="viewController" title="Søg" customClass="SearchTableViewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3860">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes/>
+                        <connections>
+                            <outlet property="dataSource" destination="3859" id="3861"/>
+                            <outlet property="delegate" destination="3859" id="3862"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Søg" id="4252" image="Icons/Search.png"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3865" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="1056"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Icon-Logo.png" width="512" height="509"/>
@@ -543,11 +528,14 @@
         <image name="Icons/More.png" width="25" height="25"/>
         <image name="Icons/News.png" width="25" height="25"/>
         <image name="Icons/Reviews.png" width="25" height="25"/>
-        <image name="Icons/StarFilled.png" width="25" height="25"/>
         <image name="Icons/Cart.png" width="25" height="25"/>
         <image name="Icons/Login.png" width="25" height="25"/>
         <image name="Icons/Logout.png" width="25" height="25"/>
         <image name="Icons/Register.png" width="25" height="25"/>
         <image name="Icons/Subscribe.png" width="25" height="25"/>
+        <image name="Icons/Heart.png" width="25" height="25"/>
+        <image name="Icons/HeartFilled.png" width="25" height="25"/>
+        <image name="Icons/Search.png" width="25" height="25"/>
+        <image name="Icons/UnknownImage.png" width="100" height="100"/>
     </resources>
 </document>

@@ -101,24 +101,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="BookOverviewViewController.cs" />
-    <Compile Include="BookOverviewViewController.designer.cs">
+    <Compile Include="BrowseViewController.cs" />
+    <Compile Include="BrowseViewController.designer.cs">
+      <DependentUpon>BrowseViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTableViewController.cs" />
+    <Compile Include="SearchTableViewController.designer.cs">
+      <DependentUpon>SearchTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Controllers\Base\BaseSearchTableViewController.cs" />
+    <Compile Include="Ui\Controllers\BookOverviewViewController.cs" />
+    <Compile Include="Ui\Controllers\BookOverviewViewController.designer.cs">
       <DependentUpon>BookOverviewViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="CartItemTableCell.cs" />
-    <Compile Include="CartItemTableCell.designer.cs">
-      <DependentUpon>CartItemTableCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReviewsViewController.cs" />
-    <Compile Include="ReviewsViewController.designer.cs">
+    <Compile Include="Ui\Controllers\Base\ExtendedDialogViewController.cs" />
+    <Compile Include="Ui\Controllers\ReviewsViewController.cs" />
+    <Compile Include="Ui\Controllers\ReviewsViewController.designer.cs">
       <DependentUpon>ReviewsViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="ReviewTableCell.cs" />
     <Compile Include="ReviewTableCell.designer.cs">
       <DependentUpon>ReviewTableCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShoppingBasketViewController.cs" />
-    <Compile Include="ShoppingBasketViewController.designer.cs">
+    <Compile Include="Ui\Controllers\ShoppingBasketDataSource.cs" />
+    <Compile Include="Ui\Controllers\ShoppingBasketViewController.cs" />
+    <Compile Include="Ui\Controllers\ShoppingBasketViewController.designer.cs">
       <DependentUpon>ShoppingBasketViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Controllers\BookSummaryViewController.cs" />
@@ -133,12 +140,9 @@
     <Compile Include="Ui\Controllers\FeaturedViewController.designer.cs">
       <DependentUpon>FeaturedViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\DataSources\ReviewsDataSource.cs" />
     <Compile Include="Ui\Helpers\BindingHelper.cs" />
     <Compile Include="Ui\Storyboards\Storyboard.cs" />
-    <Compile Include="Ui\TableCells\BookTableCell.cs" />
-    <Compile Include="Ui\TableCells\BookTableCell.designer.cs">
-      <DependentUpon>BookTableCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ui\Controllers\FrontTabBarController.cs" />
     <Compile Include="Ui\Controllers\FrontTabBarController.designer.cs">
       <DependentUpon>FrontTabBarController.cs</DependentUpon>
@@ -172,9 +176,6 @@
     <BundleResource Include="Resources\Icons\Reviews%403x.png" />
     <BundleResource Include="Resources\Icons\Reviews.png" />
     <BundleResource Include="Resources\Icons\Reviews%402x.png" />
-    <BundleResource Include="Resources\Icons\StarFilled%403x.png" />
-    <BundleResource Include="Resources\Icons\StarFilled.png" />
-    <BundleResource Include="Resources\Icons\StarFilled%402x.png" />
     <BundleResource Include="Resources\Icon-Logo.png" />
     <BundleResource Include="Resources\Icons\Logout.png" />
     <BundleResource Include="Resources\Icons\Logout%402x.png" />
@@ -191,6 +192,24 @@
     <BundleResource Include="Resources\Icons\Subscribe.png" />
     <BundleResource Include="Resources\Icons\Subscribe%402x.png" />
     <BundleResource Include="Resources\Icons\Subscribe%403x.png" />
+    <Compile Include="Ui\TableCells\CartItemTableCell.cs" />
+    <Compile Include="Ui\TableCells\CartItemTableCell.designer.cs">
+      <DependentUpon>CartItemTableCell.cs</DependentUpon>
+    </Compile>
+    <BundleResource Include="Resources\Icons\Heart.png" />
+    <BundleResource Include="Resources\Icons\Heart%402x.png" />
+    <BundleResource Include="Resources\Icons\Heart%403x.png" />
+    <BundleResource Include="Resources\Icons\HeartFilled.png" />
+    <BundleResource Include="Resources\Icons\HeartFilled%402x.png" />
+    <BundleResource Include="Resources\Icons\HeartFilled%403x.png" />
+    <BundleResource Include="Resources\Icons\Search.png" />
+    <BundleResource Include="Resources\Icons\Search%402x.png" />
+    <BundleResource Include="Resources\Icons\Search%403x.png" />
+    <Compile Include="Ui\Views\BookTableCell.cs" />
+    <Compile Include="Ui\Views\BookTableCell.designer.cs">
+      <DependentUpon>BookTableCell.cs</DependentUpon>
+    </Compile>
+    <BundleResource Include="Resources\Icons\UnknownImage.png" />
     <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +219,7 @@
       <SubType>Designer</SubType>
     </InterfaceDefinition>
     <None Include="packages.config" />
+    <InterfaceDefinition Include="Ui\Views\BookTableCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.Support.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -322,9 +342,7 @@
       <Version>1.9</Version>
     </XamarinComponentReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ui\Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ImageAsset Include="Resources\AppIcon.xcassets\AppIcons.appiconset\Contents.json">
       <InProject>false</InProject>

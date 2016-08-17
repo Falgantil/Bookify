@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
+using Bookify.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -10,7 +11,7 @@ namespace Bookify.App.Core.ViewModels
     {
         private IShoppingCartService shoppingCartService;
 
-        public BookSummaryViewModel(BookModel book, IShoppingCartService shoppingCartService)
+        public BookSummaryViewModel(Book book, IShoppingCartService shoppingCartService)
         {
             if (book == null)
             {
@@ -21,11 +22,11 @@ namespace Bookify.App.Core.ViewModels
             this.shoppingCartService = shoppingCartService;
         }
 
-        public BookModel Book { get; }
+        public Book Book { get; }
 
-        public bool OwnsBook => this.Book.OwnsBook;
+        //public bool OwnsBook => this.Book.OwnsBook;
 
-        public bool Borrowable => this.Book.Borrowable;
+        //public bool Borrowable => this.Book.Borrowable;
 
         public async Task AddToBasket()
         {

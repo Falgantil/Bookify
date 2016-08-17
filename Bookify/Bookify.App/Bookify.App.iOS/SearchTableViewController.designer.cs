@@ -11,8 +11,8 @@ using UIKit;
 
 namespace Bookify.App.iOS
 {
-    [Register ("BookOverviewViewController")]
-    partial class BookOverviewViewController
+    [Register ("SearchTableViewController")]
+    partial class SearchTableViewController
     {
         void ReleaseDesignerOutlets ()
         {
