@@ -11,9 +11,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 using Bookify.Core.Interfaces;
 using Bookify.Models.ViewModels;
+using Bookify.Core.Interfaces.Repositories;
 
 namespace Bookify.API.Controllers
 {
@@ -26,7 +26,7 @@ namespace Bookify.API.Controllers
         private readonly IBookContentRepository _bookContentRepository;
         private readonly IBookFeedbackRepository _bookFeedbackRepository;
 
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookContentRepository bookContentRepository, IBookFeedbackRepository bookFeedbackRepository)
+        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookContentRepository bookContentRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
         {
             _bookRepository = bookRepository;
             _bookHistoryRepository = bookHistoryRepository;
@@ -158,12 +158,13 @@ namespace Bookify.API.Controllers
             return Ok( new BookStatistics() { Book = await _bookRepository.FindForStatistics(id) });
         }
         [HttpGet]
-        //[Authorize]
         public async Task<HttpResponseMessage> Cover(int id, int? width = null, int? height = null)
         {
-            //var book = await _bookRepository.FindWithContent(id);
+            MemoryStream stream = fileServerRepository.GetCoverFile(id);
+            if (stream == null) return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+
             using (var ms = new MemoryStream())
-            using (var img = Image.FromStream(new MemoryStream(File.ReadAllBytes("not working"))))
+            using (var img = Image.FromStream(stream))
             {
 
                 var thumbnail = img.GetThumbnailImage(width ?? img.Width, height ?? img.Height, null, new IntPtr());

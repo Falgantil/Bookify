@@ -1,6 +1,7 @@
 ﻿using Bookify.Models;
 using Bookify.Core;
 using Bookify.Core.Interfaces;
+using Bookify.Core.Interfaces.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {

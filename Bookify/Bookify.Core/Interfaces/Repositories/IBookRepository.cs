@@ -3,7 +3,7 @@ using Bookify.Models;
 using System.Linq;
 using Bookify.Models.ViewModels;
 
-namespace Bookify.Core.Interfaces
+namespace Bookify.Core.Interfaces.Repositories
 {
     public interface IBookRepository : IGenericRepository<Book>
     {

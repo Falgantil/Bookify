@@ -9,6 +9,7 @@ using System.Data.Entity;
 using Bookify.Core.Extensions;
 using Bookify.Core.Interfaces;
 using Bookify.Models.ViewModels;
+using Bookify.Core.Interfaces.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {
@@ -26,7 +27,7 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<BookSearch> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc)
         {
-            IQueryable<Book> queryableBooks = await GetAll();
+            var queryableBooks = await GetAll();
 
             if (!string.IsNullOrEmpty(search))
                 queryableBooks = queryableBooks
@@ -35,8 +36,6 @@ namespace Bookify.DataAccess.Repositories
                             b.ISBN == search ||
                             string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase) ||
                             string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
-            // string.Equals (a,b, StringComparison.CurrentCultureIgnoreCase) mean a compare a & b and ignore the case of the string 
-
             if (genres != null && genres.Any())
             {
 
