@@ -1,4 +1,5 @@
-﻿using Bookify.Models;
+﻿using System.Threading.Tasks;
+using Bookify.Models;
 
 namespace Bookify.Core.Interfaces
 {

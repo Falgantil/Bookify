@@ -33,13 +33,13 @@ namespace Bookify.DataAccess.Repositories
 
         public virtual async Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            var result = await this._dbSet.Where(predicate).ToListAsync();
+            var result = this._dbSet.Where(predicate);
             return result.AsQueryable();
         }
 
         public virtual async Task<IQueryable<TEntity>> GetAll()
         {
-            var result =await this._dbSet.ToListAsync();
+            var result = this._dbSet;
             return result.AsQueryable();
         }
 

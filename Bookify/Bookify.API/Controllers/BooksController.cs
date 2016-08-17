@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 using Bookify.Core.Interfaces;
+using Bookify.Models.ViewModels;
 
 namespace Bookify.API.Controllers
 {
@@ -39,10 +40,9 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Get([FromUri]Core.Filter.BookFilter filter)
         {
             // Genres not added yet, other params works though
-            var booksQuery = await _bookRepository.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
+            var booksQuery = await _bookRepository.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, filter.OrderBy, filter.Desc);
             // search for the books
-            var books = booksQuery?.ToList() ?? new List<Book>();
-            return Ok(books);
+            return Ok(booksQuery);
 
             // return the book when done searching 
         }
@@ -125,7 +125,7 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Download(int id)
         {
             var book = await _bookContentRepository.Find(id);
-            return Content(HttpStatusCode.OK, book.Epub);
+            return Content(HttpStatusCode.OK, book.EpubPath);
         }
 
         [HttpPut]
@@ -148,7 +148,7 @@ namespace Bookify.API.Controllers
         {
             // stream the Epub?
             var book = await _bookContentRepository.Find(id);
-            return Content(HttpStatusCode.OK, book.Epub);
+            return Content(HttpStatusCode.OK, book.EpubPath);
         }
 
         [HttpGet]
@@ -161,11 +161,9 @@ namespace Bookify.API.Controllers
         //[Authorize]
         public async Task<HttpResponseMessage> Cover(int id, int? width = null, int? height = null)
         {
-
-
-            var book = await _bookRepository.FindWithContent(id);
+            //var book = await _bookRepository.FindWithContent(id);
             using (var ms = new MemoryStream())
-            using (var img = Image.FromStream(new MemoryStream(book.Content.Cover)))
+            using (var img = Image.FromStream(new MemoryStream(File.ReadAllBytes("not working"))))
             {
 
                 var thumbnail = img.GetThumbnailImage(width ?? img.Width, height ?? img.Height, null, new IntPtr());

@@ -22,7 +22,7 @@ namespace Bookify.Models
 
         public Author Author { get; set; }
         public Publisher Publisher { get; set; }
-        public BookContent Content { get; set; }
+        //public BookContent Content { get; set; }
         public ICollection<BookHistory> History { get; set; } = new HashSet<BookHistory>();
         public ICollection<Genre> Genres { get; set; } = new HashSet<Genre>();
         public ICollection<BookOrder> Orders { get; set; } = new HashSet<BookOrder>();
