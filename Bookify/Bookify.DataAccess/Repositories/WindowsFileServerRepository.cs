@@ -36,5 +36,10 @@ namespace Bookify.DataAccess.Repositories
         {
             throw new System.NotImplementedException();
         }
+
+        public MemoryStream GetCoverFile(int bookId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

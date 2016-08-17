@@ -13,7 +13,7 @@ namespace Bookify.Core.Interfaces.Repositories
         void ReplaceCoverFile(int bookId, Stream file);
         void DeleteCoverFile(int bookId);
 
-        Stream GetCoverFile(int bookId);
+        MemoryStream GetCoverFile(int bookId);
 
     }
 }

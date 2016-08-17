@@ -25,7 +25,7 @@ namespace Bookify.API.Controllers
         private readonly IBookOrderRepository _bookOrderRepository;
         private readonly IBookContentRepository _bookContentRepository;
         private readonly IBookFeedbackRepository _bookFeedbackRepository;
-
+        private readonly IFileServerRepository _fileServerRepository;
         public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookContentRepository bookContentRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
         {
             _bookRepository = bookRepository;
@@ -34,6 +34,7 @@ namespace Bookify.API.Controllers
             _bookOrderRepository = bookOrderRepository;
             _bookContentRepository = bookContentRepository;
             _bookFeedbackRepository = bookFeedbackRepository;
+            _fileServerRepository = fileServerRepository;
         }
 
         [HttpGet]
@@ -160,7 +161,7 @@ namespace Bookify.API.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Cover(int id, int? width = null, int? height = null)
         {
-            MemoryStream stream = fileServerRepository.GetCoverFile(id);
+            var stream = _fileServerRepository.GetCoverFile(id);
             if (stream == null) return new HttpResponseMessage(HttpStatusCode.InternalServerError);
 
             using (var ms = new MemoryStream())
