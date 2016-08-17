@@ -6,7 +6,7 @@ import {observable} from "mobx";
 import { Link } from 'react-router'
 
 const Book = ({ book }) => (
-  <Link to={"/" + book.Id} className="book-thumbnail">
+  <Link to={"/book/" + book.Id} className="book-thumbnail">
     <img className="img-responsive" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt=""/>
     <p>{book.Title}</p>
   </Link>

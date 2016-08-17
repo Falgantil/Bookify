@@ -39,7 +39,7 @@ class Bookpage extends React.Component {
             </div>
             <h1>{this.model.book.Title}</h1>
             <small>af <a href="#">{this.model.book.Author.Name}</a></small>
-            <p><Link className="btn btn-primary btn-lg rippe" to="/">KØB</Link></p>
+            <p><Link className="btn btn-primary btn-lg btn-raised" to="/">KØB</Link></p>
         </div>
       <div className="col-xs-12">
           <dl className="dl-horizontal">
@@ -74,11 +74,13 @@ class Bookpage extends React.Component {
     <h4 className="col-xs-12">Bedømmelser</h4>
     <div className="col-xs-12">
         <div className="row">
-                  <div className="col-xs-4">
+                  <div className="col-xs-3">
                       <b>Mette Jacobsen</b>
                      <RatingView value="4" />
                   </div>
-                  <div className="col-xs-8"></div>
+                  <div className="col-xs-9">
+                    <p>Ikke ligefrem er litterært mesterværk, men den er lummer og letlæselig.</p>
+                  </div>
         </div>
     </div>
   </div>

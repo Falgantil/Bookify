@@ -9,6 +9,7 @@ using Bookify.App.Core.Services;
 
 using Ninject;
 using Ninject.Parameters;
+using PCLStorage;
 
 namespace Bookify.App.Core.Initialization
 {
@@ -76,7 +77,10 @@ namespace Bookify.App.Core.Initialization
 
             // Create all platform independent bindings here
             this.kernel.Bind<IUserDialogs>().ToMethod(c => UserDialogs.Instance);
+            this.kernel.Bind<IFileSystem>().ToMethod(c => FileSystem.Current);
 
+            this.kernel.Bind<ICachingRegionFactory>().To<CachingRegionFactory>().InSingletonScope();
+            this.kernel.Bind<IShoppingCartService>().To<ShoppingCartService>().InSingletonScope();
             this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
             this.kernel.Bind<IBookService>().To<BookService>().InSingletonScope();
             this.kernel.Bind<IReviewService>().To<ReviewService>().InSingletonScope();

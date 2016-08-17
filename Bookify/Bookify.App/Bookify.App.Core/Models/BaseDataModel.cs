@@ -5,10 +5,13 @@ using Bookify.App.Core.Properties;
 
 namespace Bookify.App.Core.Models
 {
-    public class BaseModel : INotifyPropertyChanged
+    public class BaseDataModel : BaseModel
     {
         public int Id { get; set; }
+    }
 
+    public class BaseModel : INotifyPropertyChanged
+    {
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

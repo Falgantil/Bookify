@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72800C42-B1E9-4409-99FF-39D4A4DA479C}</ProjectGuid>
+    <ProjectGuid>{490CD2D0-19DD-4991-9CC6-9909BE9A1FCB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bookify.Models</RootNamespace>

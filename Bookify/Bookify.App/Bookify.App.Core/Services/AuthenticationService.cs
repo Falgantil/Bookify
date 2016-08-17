@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Bookify.App.Core.Annotations;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.Models;
 
 namespace Bookify.App.Core.Services
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationService : IAuthenticationService, INotifyPropertyChanged
     {
         /// <summary>
         /// Occurs when the authentication state changed (Logged in or out).
@@ -54,6 +57,21 @@ namespace Bookify.App.Core.Services
         public async Task Deauthenticate()
         {
             this.LoggedOnAccount = null;
+        }
+
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

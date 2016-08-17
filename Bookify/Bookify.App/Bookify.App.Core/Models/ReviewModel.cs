@@ -2,7 +2,7 @@ using System;
 
 namespace Bookify.App.Core.Models
 {
-    public class ReviewModel : BaseModel
+    public class ReviewModel : BaseDataModel
     {
         public string Author { get; set; }
 

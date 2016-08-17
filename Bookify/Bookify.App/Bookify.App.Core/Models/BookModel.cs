@@ -1,6 +1,6 @@
 namespace Bookify.App.Core.Models
 {
-    public class BookModel : BaseModel
+    public class BookModel : BaseDataModel
     {
         public string Title { get; set; }
 
@@ -17,5 +17,12 @@ namespace Bookify.App.Core.Models
         public bool OwnsBook { get; set; }
 
         public bool Borrowable { get; set; }
+    }
+
+    public class CartItemModel : BaseModel
+    {
+        public BookModel Book { get; set; }
+
+        public int Quantity { get; set; }
     }
 }

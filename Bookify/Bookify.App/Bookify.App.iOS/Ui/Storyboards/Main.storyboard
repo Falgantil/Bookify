@@ -450,6 +450,89 @@
             </objects>
             <point key="canvasLocation" x="3148" y="83"/>
         </scene>
+        <scene sceneID="3164">
+            <objects>
+                <viewController id="3165" sceneMemberID="viewController" customClass="ShoppingBasketViewController" storyboardIdentifier="ShoppingBasketViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3162"/>
+                        <viewControllerLayoutGuide type="bottom" id="3163"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3166">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3173" translatesAutoresizingMaskIntoConstraints="NO" allowsSelection="NO">
+                                <rect key="frame" x="0.0" y="1" width="600" height="599"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3174" rowHeight="100" customClass="CartItemTableCell" reuseIdentifier="CartItemCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3174" id="3175">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3188" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                    <constraints>
+                                                        <constraint id="3189" firstItem="3188" firstAttribute="height" constant="84"/>
+                                                        <constraint id="3190" firstItem="3188" firstAttribute="width" constant="84"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lblBookTitle" lineBreakMode="tailTruncation" minimumFontSize="16" id="3197" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                                    <rect key="frame" x="100" y="37" width="100" height="25.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 stk" lineBreakMode="tailTruncation" minimumFontSize="10" id="3200" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="546" y="40.5" width="34" height="19"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="3192" firstItem="3188" firstAttribute="leading" secondItem="3175" secondAttribute="leading" constant="8"/>
+                                                <constraint id="3195" firstItem="3188" firstAttribute="centerY" secondItem="3175" secondAttribute="centerY"/>
+                                                <constraint id="3198" firstItem="3197" firstAttribute="centerY" secondItem="3175" secondAttribute="centerY"/>
+                                                <constraint id="3199" firstItem="3197" firstAttribute="leading" secondItem="3188" secondAttribute="trailing" constant="8"/>
+                                                <constraint id="3201" firstItem="3175" firstAttribute="trailing" secondItem="3200" secondAttribute="trailing" constant="20"/>
+                                                <constraint id="3202" firstItem="3200" firstAttribute="centerY" secondItem="3175" secondAttribute="centerY"/>
+                                                <constraint id="3203" firstItem="3197" firstAttribute="top" secondItem="3175" secondAttribute="top" constant="10" relation="greaterThanOrEqual"/>
+                                                <constraint id="3204" firstItem="3175" firstAttribute="bottom" secondItem="3197" secondAttribute="bottom" constant="10" relation="greaterThanOrEqual"/>
+                                                <constraint id="3205" firstItem="3200" firstAttribute="leading" secondItem="3197" secondAttribute="trailing" constant="10" relation="greaterThanOrEqual"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblBookTitle" destination="3197" id="name-outlet-3197"/>
+                                            <outlet property="imgThumbnail" destination="3188" id="name-outlet-3188"/>
+                                            <outlet property="lblBooksQuantity" destination="3200" id="name-outlet-3200"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="3180" firstItem="3173" firstAttribute="top" secondItem="3166" secondAttribute="top"/>
+                            <constraint id="3181" firstItem="3173" firstAttribute="trailing" secondItem="3166" secondAttribute="trailing"/>
+                            <constraint id="3183" firstItem="3173" firstAttribute="leading" secondItem="3166" secondAttribute="leading"/>
+                            <constraint id="3184" firstItem="3173" firstAttribute="bottom" secondItem="3166" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <navigationItem id="3172" key="navigationItem" title="Indkøbs kurv"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tblContent" destination="3173" id="name-outlet-3173"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3167" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="730"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Icon-Logo.png" width="512" height="509"/>
@@ -461,5 +544,10 @@
         <image name="Icons/News.png" width="25" height="25"/>
         <image name="Icons/Reviews.png" width="25" height="25"/>
         <image name="Icons/StarFilled.png" width="25" height="25"/>
+        <image name="Icons/Cart.png" width="25" height="25"/>
+        <image name="Icons/Login.png" width="25" height="25"/>
+        <image name="Icons/Logout.png" width="25" height="25"/>
+        <image name="Icons/Register.png" width="25" height="25"/>
+        <image name="Icons/Subscribe.png" width="25" height="25"/>
     </resources>
 </document>

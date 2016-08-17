@@ -5,34 +5,41 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.Core.Interfaces;
+using Bookify.Models;
 
 namespace Bookify.API.Controllers
 {
     [Authorize]
     public class PublishersController : ApiController
     {
+        private IPublisherRepository _publisherRepository;
+        public PublishersController(IPublisherRepository publisherRepository)
+        {
+            _publisherRepository = publisherRepository;
+        }
         [HttpGet]
         public async Task<IHttpActionResult> Get()
         {
-            return Ok();
+            return Ok(await _publisherRepository.GetAll());
         }
 
         [HttpPut]
-        public async Task<IHttpActionResult> Create()
+        public async Task<IHttpActionResult> Create(Publisher publisher)
         {
-            return Ok();
+            return Ok(await _publisherRepository.Add(publisher));
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Update(int id)
+        public async Task<IHttpActionResult> Update(Publisher publisher)
         {
-            return Ok();
+            return Ok(await _publisherRepository.Update(publisher));
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok();
+            return Ok(await _publisherRepository.Find(id));
         }
     }
 }
