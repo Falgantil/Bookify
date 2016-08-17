@@ -6,6 +6,7 @@ using Bookify.API.Controllers;
 using Bookify.Core.Filter;
 using Bookify.Core.Interfaces.Repositories;
 using Bookify.Models;
+using Bookify.Models.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -26,12 +27,16 @@ namespace Bookify.UnitTets
                         It.IsAny<string>(), It.IsAny<bool?>()))
                 .Returns(async () =>
                 {
-                    return new EnumerableQuery<Book>(new List<Book>
+                    return new BookSearch
                     {
-                        new Book(),
-                        new Book(),
-                        new Book()
-                    });
+                        Books = new []
+                        {
+                            new Book(),
+                            new Book(),
+                            new Book()
+                        },
+                        BookCount = 3
+                    };
                 });
 
             var bookHistoryRepository = new Mock<IBookHistoryRepository>();
