@@ -7,9 +7,10 @@ namespace Bookify.DataAccess.Configuration
     {
         internal BookConfiguration()
         {
-            HasRequired(b => b.Content)
+            /*
+             HasRequired(b => b.Content)
                 .WithRequiredPrincipal(x => x.Book);
-
+                */
             HasMany(b => b.Genres)
                 .WithMany(g => g.Books)
                 .Map(gb =>

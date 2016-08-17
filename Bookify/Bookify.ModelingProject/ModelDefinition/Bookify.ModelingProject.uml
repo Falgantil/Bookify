@@ -1141,7 +1141,7 @@
         <ownedAttributesInternal>
           <property
             Id="5cefe18e-d1dd-4b65-9161-132d1d40f656"
-            name="Epub"
+            name="EpubPath"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1152,7 +1152,7 @@
             isComposite="false" />
           <property
             Id="18dfc90b-2b9f-49f3-bc53-4ea3f0766bea"
-            name="Cover"
+            name="CoverPath"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"

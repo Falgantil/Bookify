@@ -1,9 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Bookify.Core;
+﻿using System.Threading.Tasks;
 using Bookify.Models;
 using System.Linq;
-using Bookify.Core.Interfaces;
+using Bookify.Core.Interfaces.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {

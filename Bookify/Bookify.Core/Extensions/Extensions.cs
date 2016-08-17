@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Bookify.Core.Extensions
 {
-    public static class Extensions
+    public static class QueryAbleExtensions
     {
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string ordering, bool? desc)//, params object[] values
         {
@@ -23,6 +23,5 @@ namespace Bookify.Core.Extensions
             var resultExp = Expression.Call(typeof(Queryable), tempDesc, new[] { type, property.PropertyType }, source.Expression, Expression.Quote(orderByExp));
             return source.Provider.CreateQuery<T>(resultExp);
         }
-
     }
 }

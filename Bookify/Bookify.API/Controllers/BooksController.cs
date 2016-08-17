@@ -11,8 +11,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 using Bookify.Core.Interfaces;
+using Bookify.Models.ViewModels;
+using Bookify.Core.Interfaces.Repositories;
 
 namespace Bookify.API.Controllers
 {
@@ -24,8 +25,8 @@ namespace Bookify.API.Controllers
         private readonly IBookOrderRepository _bookOrderRepository;
         private readonly IBookContentRepository _bookContentRepository;
         private readonly IBookFeedbackRepository _bookFeedbackRepository;
-
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookContentRepository bookContentRepository, IBookFeedbackRepository bookFeedbackRepository)
+        private readonly IFileServerRepository _fileServerRepository;
+        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookContentRepository bookContentRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
         {
             _bookRepository = bookRepository;
             _bookHistoryRepository = bookHistoryRepository;
@@ -33,16 +34,16 @@ namespace Bookify.API.Controllers
             _bookOrderRepository = bookOrderRepository;
             _bookContentRepository = bookContentRepository;
             _bookFeedbackRepository = bookFeedbackRepository;
+            _fileServerRepository = fileServerRepository;
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> Get([FromUri]Core.Filter.BookFilter filter)
         {
             // Genres not added yet, other params works though
-            var booksQuery = await _bookRepository.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
+            var booksQuery = await _bookRepository.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, filter.OrderBy, filter.Desc);
             // search for the books
-            var books = booksQuery?.ToList() ?? new List<Book>();
-            return Ok(books);
+            return Ok(booksQuery);
 
             // return the book when done searching 
         }
@@ -125,7 +126,7 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Download(int id)
         {
             var book = await _bookContentRepository.Find(id);
-            return Content(HttpStatusCode.OK, book.Epub);
+            return Content(HttpStatusCode.OK, book.EpubPath);
         }
 
         [HttpPut]
@@ -148,7 +149,7 @@ namespace Bookify.API.Controllers
         {
             // stream the Epub?
             var book = await _bookContentRepository.Find(id);
-            return Content(HttpStatusCode.OK, book.Epub);
+            return Content(HttpStatusCode.OK, book.EpubPath);
         }
 
         [HttpGet]
@@ -158,14 +159,13 @@ namespace Bookify.API.Controllers
             return Ok( new BookStatistics() { Book = await _bookRepository.FindForStatistics(id) });
         }
         [HttpGet]
-        //[Authorize]
         public async Task<HttpResponseMessage> Cover(int id, int? width = null, int? height = null)
         {
+            var stream = _fileServerRepository.GetCoverFile(id);
+            if (stream == null) return new HttpResponseMessage(HttpStatusCode.InternalServerError);
 
-
-            var book = await _bookRepository.FindWithContent(id);
             using (var ms = new MemoryStream())
-            using (var img = Image.FromStream(new MemoryStream(book.Content.Cover)))
+            using (var img = Image.FromStream(stream))
             {
 
                 var thumbnail = img.GetThumbnailImage(width ?? img.Width, height ?? img.Height, null, new IntPtr());

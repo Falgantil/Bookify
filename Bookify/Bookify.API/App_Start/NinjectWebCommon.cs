@@ -1,4 +1,5 @@
 using Bookify.Core.Interfaces;
+using Bookify.Core.Interfaces.Repositories;
 using Bookify.Core.Interfaces.Services;
 using Bookify.Core.Services;
 
@@ -84,6 +85,7 @@ namespace Bookify.API.App_Start
             kernel.Bind<IBookContentRepository>().To<BookContentRepository>().InRequestScope();
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
+            kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
         }        
     }
 }

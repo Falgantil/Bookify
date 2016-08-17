@@ -17,6 +17,7 @@ namespace Bookify.API
         {
             base.SetDefaultContentHeaders(type, headers, mediaType);
             headers.ContentType = new MediaTypeHeaderValue("application/json"); //; charset=\"UTF-8\"
+            SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }
     }
 }

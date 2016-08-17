@@ -190,10 +190,10 @@
       <class Id="cc674772-b174-4a04-ae99-6c26d7afed48" name="BookContent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8d9f176c-dcc4-4b52-ad52-d8bb093f22e9" />
         <ownedAttributesInternal>
-          <property Id="966c35e3-3171-4512-abeb-f7710865c815" name="Epub" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="966c35e3-3171-4512-abeb-f7710865c815" name="EpubPath" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5cefe18e-d1dd-4b65-9161-132d1d40f656" />
           </property>
-          <property Id="aba766d2-ec64-4288-a9c8-6746b9255fc4" name="Cover" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="aba766d2-ec64-4288-a9c8-6746b9255fc4" name="CoverPath" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="18dfc90b-2b9f-49f3-bc53-4ea3f0766bea" />
           </property>
         </ownedAttributesInternal>
