@@ -1,39 +1,39 @@
-using Bookify.Core.Interfaces;
-using Bookify.Core.Interfaces.Repositories;
-using Bookify.Core.Interfaces.Services;
-using Bookify.Core.Services;
+using System;
+using System.Web;
+using System.Web.Http;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Bookify.API.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Bookify.API.App_Start.NinjectWebCommon), "Stop")]
+using Bookify.API;
+using Bookify.DataAccess;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Repositories;
 
-namespace Bookify.API.App_Start
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
+using Newtonsoft.Json;
+
+using Ninject;
+using Ninject.Web.Common;
+using Ninject.Web.WebApi;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
+
+namespace Bookify.API
 {
-    using System;
-    using System.Web;
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-    using Ninject;
-    using Ninject.Web.Common;
-    using DataAccess;
-    using Core;
-    using System.Web.Http;
-    using Ninject.Web.WebApi;
-    using Controllers;
-    using DataAccess.Repositories;
-
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Bookify.API.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Bookify.API.App_Start
                 throw;
             }
         }
-        
+
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
@@ -72,7 +72,7 @@ namespace Bookify.API.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<BookifyContext>().To<BookifyContext>().InRequestScope();
-            kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InRequestScope();
+            kernel.Bind<IAuthenticationRepository>().To<AuthenticationRepository>().InRequestScope();
             kernel.Bind<IBookFeedbackRepository>().To<BookFeedbackRepository>().InRequestScope();
             kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
             kernel.Bind<IPublisherRepository>().To<PublisherRepository>().InRequestScope();
@@ -86,6 +86,6 @@ namespace Bookify.API.App_Start
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
             kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
-        }        
+        }
     }
 }

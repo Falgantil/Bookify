@@ -3,61 +3,62 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Bookify.Core.Interfaces.Repositories;
+
+using Bookify.DataAccess.Interfaces.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {
     public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        internal BookifyContext _ctx;
-        internal DbSet<TEntity> _dbSet;
+        protected BookifyContext Context { get; }
 
-        public GenericRepository(BookifyContext ctx)
+        private readonly DbSet<TEntity> dbSet;
+
+        protected GenericRepository(BookifyContext context)
         {
-            this._ctx = ctx;
-            this._dbSet = ctx.Set<TEntity>();
+            this.Context = context;
+            this.dbSet = context.Set<TEntity>();
         }
 
-        public virtual async Task<TEntity> Add(TEntity entity)
+        protected virtual async Task<TEntity> Add(TEntity entity)
         {
-            entity = this._dbSet.Add(entity);
-            await this._ctx.SaveChangesAsync();
+            entity = this.dbSet.Add(entity);
+            await this.Context.SaveChangesAsync();
             return entity;
         }
 
-        public virtual async Task<TEntity> Find(int id)
+        protected virtual async Task<TEntity> Find(int id)
         {
-            return await this._dbSet.FindAsync(id);
+            return await this.dbSet.FindAsync(id);
         }
 
-        public virtual async Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
+        protected virtual async Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            var result = this._dbSet.Where(predicate);
+            var result = this.dbSet.Where(predicate);
             return result.AsQueryable();
         }
 
-        public virtual async Task<IQueryable<TEntity>> GetAll()
+        protected virtual async Task<IQueryable<TEntity>> GetAll()
         {
-            var result = this._dbSet;
-            return result.AsQueryable();
+            return this.dbSet.AsQueryable();
         }
 
-        public virtual async Task Remove(TEntity entity)
+        protected virtual async Task Remove(TEntity entity)
         {
-            this._ctx.Entry(entity).State = EntityState.Deleted;
-            await this._ctx.SaveChangesAsync();
+            this.Context.Entry(entity).State = EntityState.Deleted;
+            await this.Context.SaveChangesAsync();
         }
 
-        public virtual async Task<int> SaveChanges()
+        protected virtual async Task<int> SaveChanges()
         {
-            return await this._ctx.SaveChangesAsync();
+            return await this.Context.SaveChangesAsync();
         }
 
-        public virtual async Task<TEntity> Update(TEntity entity)
+        protected virtual async Task<TEntity> Update(TEntity entity)
         {
-            var dbEntityEntry = this._ctx.Entry(entity);
+            var dbEntityEntry = this.Context.Entry(entity);
             dbEntityEntry.State = EntityState.Modified;
-            await this._ctx.SaveChangesAsync();
+            await this.Context.SaveChangesAsync();
             return dbEntityEntry.Entity;
         }
     }

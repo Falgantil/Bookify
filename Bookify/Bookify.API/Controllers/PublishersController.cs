@@ -1,40 +1,51 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
-using Bookify.Core.Interfaces.Repositories;
+
+using Bookify.Common.Commands.Auth;
+using Bookify.Common.Filter;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 using Bookify.Models;
 
 namespace Bookify.API.Controllers
 {
     [Authorize]
-    public class PublishersController : ApiController
+    [RoutePrefix("publishers")]
+    public class PublishersController : BaseApiController
     {
-        private IPublisherRepository _publisherRepository;
+        private readonly IPublisherRepository publisherRepository;
+
         public PublishersController(IPublisherRepository publisherRepository)
         {
-            _publisherRepository = publisherRepository;
+            this.publisherRepository = publisherRepository;
         }
+
         [HttpGet]
-        public async Task<IHttpActionResult> Get()
+        [Route("")]
+        public async Task<IHttpActionResult> Get([FromUri]PublisherFilter filter)
         {
-            return Ok(await _publisherRepository.GetAll());
+            return Ok(await this.publisherRepository.GetByFilter(filter));
         }
 
         [HttpPut]
-        public async Task<IHttpActionResult> Create(Publisher publisher)
+        [Route("")]
+        public async Task<IHttpActionResult> Create([FromBody]CreatePublisherCommand command)
         {
-            return Ok(await _publisherRepository.Add(publisher));
+            return await this.Try(async () => await this.publisherRepository.CreatePublisher(command));
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Update(Publisher publisher)
+        [Route("{id}")]
+        public async Task<IHttpActionResult> Update(int id, [FromBody]UpdatePublisherCommand command)
         {
-            return Ok(await _publisherRepository.Update(publisher));
+            command.Id = id;
+            return await this.Try(async () => await this.publisherRepository.EditPublisher(command));
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok(await _publisherRepository.Find(id));
+            return await this.Try(() => this.publisherRepository.GetById(id));
         }
     }
 }

@@ -1,5 +1,10 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Http;
+
+using Bookify.API.Controllers;
+
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Bookify.API
 {
@@ -20,14 +25,18 @@ namespace Bookify.API
             );
 
             // return output as json
-            config.Formatters.Add(new BrowserJsonFormatter()
+            config.Formatters.Add(new BrowserJsonFormatter
             {
                 SerializerSettings = new JsonSerializerSettings
                 {
-                    PreserveReferencesHandling = PreserveReferencesHandling.Objects
+                    PreserveReferencesHandling = PreserveReferencesHandling.None,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
                 }
             });
-            
+
+            //config.Filters.Add(new AuthAttribute());
+
         }
     }
 }

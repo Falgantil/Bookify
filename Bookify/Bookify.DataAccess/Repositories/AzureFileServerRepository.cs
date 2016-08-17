@@ -1,6 +1,7 @@
-﻿using System;
-using System.IO;
-using Bookify.Core.Interfaces.Repositories;
+﻿using System.IO;
+
+using Bookify.DataAccess.Interfaces.Repositories;
+
 using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.File;

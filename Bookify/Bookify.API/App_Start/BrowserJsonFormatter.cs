@@ -10,14 +10,12 @@ namespace Bookify.API
         public BrowserJsonFormatter()
         {
             this.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-            this.SerializerSettings.Formatting = Formatting.None;
         }
 
         public override void SetDefaultContentHeaders(Type type, HttpContentHeaders headers, MediaTypeHeaderValue mediaType)
         {
             base.SetDefaultContentHeaders(type, headers, mediaType);
             headers.ContentType = new MediaTypeHeaderValue("application/json"); //; charset=\"UTF-8\"
-            SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }
     }
 }

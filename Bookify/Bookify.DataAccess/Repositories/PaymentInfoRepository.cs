@@ -1,11 +1,11 @@
-﻿using Bookify.Core.Interfaces.Repositories;
-using Bookify.Models;
+﻿using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class PaymentInfoRepository : GenericRepository<PaymentInfo>, IPaymentInfoRepository
     {
-        public PaymentInfoRepository(BookifyContext ctx) : base(ctx)
+        public PaymentInfoRepository(BookifyContext context) : base(context)
         {
 
         }

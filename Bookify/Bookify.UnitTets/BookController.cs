@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 using Bookify.API.Controllers;
-using Bookify.Core.Filter;
-using Bookify.Core.Interfaces.Repositories;
-using Bookify.Models;
-using Bookify.Models.ViewModels;
+using Bookify.Common.Filter;
+using Bookify.Common.Models;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
+using Bookify.DataAccess.Models.ViewModels;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -21,23 +22,16 @@ namespace Bookify.UnitTets
             #region Init Mock
 
             var bookRepository = new Mock<IBookRepository>();
-            bookRepository.Setup(
-                repository =>
-                    repository.GetAllByParams(It.IsAny<int?>(), It.IsAny<int?>(), It.IsAny<int[]>(), It.IsAny<string>(),
-                        It.IsAny<string>(), It.IsAny<bool?>()))
-                .Returns(async () =>
-                {
-                    return new BookSearch
+            bookRepository.Setup(repository => repository.GetByFilter(It.IsAny<BookFilter>())).Returns(
+                async () =>
                     {
-                        Books = new []
-                        {
-                            new Book(),
-                            new Book(),
-                            new Book()
-                        },
-                        BookCount = 3
-                    };
-                });
+                        return
+                            new PaginatedEnumerable<BookDto>(
+                                new List<BookDto> { new BookDto(), new BookDto(), new BookDto() },
+                                3,
+                                0,
+                                3);
+                    });
 
             var bookHistoryRepository = new Mock<IBookHistoryRepository>();
             var personRepository = new Mock<IPersonRepository>();
@@ -54,7 +48,7 @@ namespace Bookify.UnitTets
                 personRepository.Object,
                 bookOrderRepository.Object,
                 bookContentRepository.Object,
-                bookFeedbackRepository.Object, 
+                bookFeedbackRepository.Object,
                 fileServerRepository.Object);
 
             await GetBookTestValidEmptyFilter(booksController);
@@ -63,8 +57,7 @@ namespace Bookify.UnitTets
 
             bookRepository.Setup(
                 repository =>
-                    repository.GetAllByParams(It.IsAny<int?>(), It.IsAny<int?>(), It.IsAny<int[]>(), It.IsAny<string>(),
-                        It.IsAny<string>(), It.IsAny<bool?>()))
+                    repository.GetByFilter(It.IsAny<BookFilter>()))
                 .Returns(async () => null);
 
             #endregion

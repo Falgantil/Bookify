@@ -1,11 +1,11 @@
-﻿using Bookify.Core.Interfaces.Repositories;
-using Bookify.Models;
+﻿using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class BookOrderRepository : GenericRepository<BookOrder>, IBookOrderRepository
     {
-        public BookOrderRepository(BookifyContext ctx) : base(ctx)
+        public BookOrderRepository(BookifyContext context) : base(context)
         {
 
         }

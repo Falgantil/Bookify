@@ -80,9 +80,17 @@
       <Project>{2f8e46b0-ecfb-47a0-896a-97660426420a}</Project>
       <Name>Bookify.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bookify.Common\Bookify.Common.csproj">
+      <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
+      <Name>Bookify.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bookify.Core\Bookify.Core.csproj">
       <Project>{93ae1893-0420-4c02-8a5c-97d685b21782}</Project>
       <Name>Bookify.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookify.DataAccess\Bookify.DataAccess.csproj">
+      <Project>{5f4c00af-33fa-4254-84d3-363cc0795266}</Project>
+      <Name>Bookify.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookify.Models\Bookify.Models.csproj">
       <Project>{72800c42-b1e9-4409-99ff-39d4a4da479c}</Project>

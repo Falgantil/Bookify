@@ -1,37 +1,46 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
-using Bookify.Core.Interfaces.Repositories;
+
+using Bookify.Common.Commands.Auth;
+using Bookify.Common.Filter;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 using Bookify.Models;
 
 namespace Bookify.API.Controllers
 {
-    public class GenresController : ApiController
+    [RoutePrefix("genres")]
+    public class GenresController : BaseApiController
     {
-        private IGenreRepository _genreRepository;
+        private IGenreRepository genreRepository;
         public GenresController(IGenreRepository genreRepository)
         {
-            _genreRepository = genreRepository;
+            this.genreRepository = genreRepository;
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> Get()
+        [Route("")]
+        public async Task<IHttpActionResult> Get([FromUri] GenreFilter filter = null)
         {
-            return Ok(await _genreRepository.GetAll());
+            filter = filter ?? new GenreFilter();
+            return await this.Try(() => this.genreRepository.GetByFilter(filter));
         }
 
         [HttpPut]
         [Authorize]
-        public async Task<IHttpActionResult> Create(Genre genre)
+        [Route("")]
+        public async Task<IHttpActionResult> Create([FromBody]CreateGenreCommand command)
         {
-            return Ok(await _genreRepository.Add(genre));
+            return await this.Try(async () => await this.genreRepository.CreateGenre(command));
         }
 
         [HttpPost]
         [Authorize]
-
-        public async Task<IHttpActionResult> Update(Genre genre)
+        [Route("{id}")]
+        public async Task<IHttpActionResult> Update(int id, UpdateGenreCommand command)
         {
-            return Ok(await _genreRepository.Update(genre));
+            command.Id = id;
+            return await this.Try(async () => await this.genreRepository.EditGenre(command));
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.IO;
-using Bookify.Core.Interfaces.Repositories;
+
+using Bookify.DataAccess.Interfaces.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {

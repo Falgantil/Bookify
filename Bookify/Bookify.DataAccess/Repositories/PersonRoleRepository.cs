@@ -1,11 +1,11 @@
-﻿using Bookify.Core.Interfaces.Repositories;
-using Bookify.Models;
+﻿using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class PersonRoleRepository : GenericRepository<PersonRole>, IPersonRoleRepository
     {
-        public PersonRoleRepository(BookifyContext ctx) : base(ctx)
+        public PersonRoleRepository(BookifyContext context) : base(context)
         {
 
         }

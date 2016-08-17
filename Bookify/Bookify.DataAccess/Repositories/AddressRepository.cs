@@ -1,13 +1,11 @@
-﻿using Bookify.Models;
-using Bookify.Core;
-using Bookify.Core.Interfaces;
-using Bookify.Core.Interfaces.Repositories;
+﻿using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class AddressRepository : GenericRepository<Address>, IAddressRepository
     {
-        public AddressRepository(BookifyContext ctx) : base(ctx)
+        public AddressRepository(BookifyContext context) : base(context)
         {
 
         }

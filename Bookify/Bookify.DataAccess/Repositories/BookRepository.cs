@@ -1,75 +1,98 @@
 ﻿
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Bookify.Models;
 using System.Linq;
 using System.Data.Entity;
+
+using Bookify.Common.Commands.Auth;
+using Bookify.Common.Filter;
+using Bookify.Common.Models;
 using Bookify.Core.Extensions;
-using Bookify.Core.Interfaces;
-using Bookify.Models.ViewModels;
-using Bookify.Core.Interfaces.Repositories;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
+using Bookify.DataAccess.Models.ViewModels;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class BookRepository : GenericRepository<Book>, IBookRepository
     {
-        public BookRepository(BookifyContext ctx) : base(ctx)
+        public BookRepository(BookifyContext context) : base(context)
         {
 
         }
 
-        public override async Task<Book> Find(int id)
+        public async Task<BookDto> GetById(int id)
         {
-            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Author).Include(x => x.Publisher).SingleAsync();
+            var book = await this.Context.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Author).Include(x => x.Publisher).SingleAsync();
+            return book.ToDto();
         }
 
-        public async Task<BookSearch> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc)
+        public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)
         {
-            var queryableBooks = await GetAll();
+            var search = filter.SearchText;
+            var genres = filter.GenreIds;
+            var orderBy = filter.OrderBy;
+            var desc = filter.Descending;
+            var index = filter.Index;
+            var count = filter.Count;
+
+            var queryableBooks = await this.GetAll();
 
             if (!string.IsNullOrEmpty(search))
-                queryableBooks = queryableBooks
-                    .Where(b =>
-                            string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase) ||
-                            b.ISBN == search ||
-                            string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase) ||
-                            string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
+            {
+                queryableBooks =
+                    queryableBooks.Where(
+                        b =>
+                        string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase)
+                        || b.ISBN == search
+                        || string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase)
+                        || string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
+            }
+
             if (genres != null && genres.Any())
             {
-
-                //queryableBooks = queryableBooks.Select(x => x.Genres.Where(g => genres.Any(y => y == g.Id)));
-
                 foreach (var genreId in genres)
                 {
                     var genreId1 = genreId;
                     queryableBooks = queryableBooks.Where(book => book.Genres.Any(k => k.Id == genreId1));
                 }
             }
-            queryableBooks = queryableBooks.Include(x => x.Genres);
 
+            queryableBooks = queryableBooks.Include(x => x.Genres);
             queryableBooks = queryableBooks.OrderBy(orderBy, desc);
 
-            BookSearch bookView = new BookSearch() {BookCount = queryableBooks.Count()};
+            var totalCount = queryableBooks.Count();
 
-            if (skip != null)
-                queryableBooks = queryableBooks.Skip(skip.Value);
-            if (take != null)
-                queryableBooks = queryableBooks.Take(take.Value);
+            queryableBooks = queryableBooks.Skip(index);
+            queryableBooks = queryableBooks.Take(count);
 
-            bookView.Books = await queryableBooks.ToListAsync();
-            return bookView;
+            var collection = await queryableBooks.ToListAsync();
+            foreach (var g in collection.SelectMany(b => b.Genres))
+            {
+                g.Books = new Book[0];
+            }
+
+            return new PaginatedEnumerable<BookDto>(collection.Select(b => b.ToDto()), totalCount, index, count);
         }
-        /*
-        public async Task<Book> FindWithContent(int id)
+
+        public async Task<BookStatisticsDto> FindForStatistics(int id)
         {
-            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Content).SingleAsync();
+            var book = await this.Context.Books.Where(b => b.Id == id).Include(b => b.History).Include(b => b.Orders).Include(b => b.Feedback).SingleAsync();
+            var detailedBookDto = book.ToDetailedDto();
+            return new BookStatisticsDto
+            {
+                Book = detailedBookDto
+            };
         }
-        */
-        public async Task<Book> FindForStatistics(int id)
+        
+        public Task<DetailedBookDto> CreateBook(CreateBookCommand command)
         {
-            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.History).Include(b => b.Orders).Include(b => b.Feedback).SingleAsync();
+            throw new NotImplementedException();
+        }
+
+        public Task<DetailedBookDto> EditBook(UpdateBookCommand command)
+        {
+            throw new NotImplementedException();
         }
     }
 }

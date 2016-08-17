@@ -4,6 +4,8 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
 
+using Bookify.DataAccess.Models;
+
 namespace Bookify.DataAccess
 {
     public class BookifyContext : DbContext

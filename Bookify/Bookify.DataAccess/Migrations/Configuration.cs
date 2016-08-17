@@ -35,10 +35,10 @@ namespace Bookify.DataAccess.Migrations
             ctx.SaveChanges();
 
 
-            //ctx.Books.Find(1).Genres.Add(ctx.Genres.Find(3));
-            //ctx.Books.Find(2).Genres.Add(ctx.Genres.Find(3));
-            //ctx.Books.Find(3).Genres.Add(ctx.Genres.Find(2));
-            //ctx.Books.Find(4).Genres.Add(ctx.Genres.Find(2));
+            //Context.Books.Find(1).Genres.Add(Context.Genres.Find(3));
+            //Context.Books.Find(2).Genres.Add(Context.Genres.Find(3));
+            //Context.Books.Find(3).Genres.Add(Context.Genres.Find(2));
+            //Context.Books.Find(4).Genres.Add(Context.Genres.Find(2));
 
             #region Book1
             ctx.Books.AddOrUpdate(x => x.Id,

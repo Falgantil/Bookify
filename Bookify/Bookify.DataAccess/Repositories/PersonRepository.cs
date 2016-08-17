@@ -1,18 +1,23 @@
-﻿using System.Threading.Tasks;
-using Bookify.Models;
+﻿using System.Data.Entity;
+using System.Threading.Tasks;
 using System.Linq;
-using Bookify.Core.Interfaces.Repositories;
+
+using Bookify.Common.Commands.Auth;
+using Bookify.Common.Exceptions;
+using Bookify.Common.Models;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class PersonRepository : GenericRepository<Person>, IPersonRepository
     {
-        public PersonRepository(BookifyContext ctx) : base(ctx)
+        public PersonRepository(BookifyContext context) : base(context)
         {
 
         }
 
-        public async Task<Person> CreatePersonIfNotExists(string email)
+        public async Task<PersonDto> CreatePersonIfNotExists(string email)
         {
             var person = (await this.Get(t => t.Email == email)).FirstOrDefault();
 
@@ -26,7 +31,45 @@ namespace Bookify.DataAccess.Repositories
                 await this.Add(person);
                 // Get the Id the person was asigned when it was created
             }
-            return person;
+            return person.ToDto();
+        }
+
+        public async Task<PersonDto> GetByEmail(string email)
+        {
+            var people = await this.Get(p => p.Email == email);
+            var person = await people.SingleAsync();
+            return person.ToDto();
+        }
+
+        public async Task<PersonDto> CreatePerson(CreateAccountCommand command)
+        {
+            var person = await this.GetByEmail(command.Email);
+            if (person != null)
+            {
+                throw new BadRequestException("An account already exists with the specified email.");
+            }
+
+            var entity = new Person
+            {
+                Firstname = command.FirstName,
+                Lastname = command.LastName,
+                Email = command.Email,
+                Password = EncryptSha512.GetPassword(command.Password),
+                Alias = command.Username
+            };
+            entity = await this.Add(entity);
+            return entity.ToDto();
+        }
+
+        public async Task<PersonDto> GetById(int userId)
+        {
+            var person = await this.Find(userId);
+            return person.ToDto();
+        }
+
+        public Task<PersonDto> EditPerson(UpdatePersonCommand command)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

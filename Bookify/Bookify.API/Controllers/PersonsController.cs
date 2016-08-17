@@ -1,52 +1,44 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
-using Bookify.Core.Interfaces.Repositories;
+
+using Bookify.Common.Commands.Auth;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 using Bookify.Models;
 
 namespace Bookify.API.Controllers
 {
-    public class PersonsController : ApiController
+    [RoutePrefix("peopl")]
+    public class PersonsController : BaseApiController
     {
-        private IPersonRepository _personRepository;
+        private readonly IPersonRepository personRepository;
 
         public PersonsController(IPersonRepository personRepository)
         {
-            _personRepository = personRepository;
+            this.personRepository = personRepository;
         }
-
-
-        [HttpGet]
-        public async Task<IHttpActionResult> Get()
-        {
-            return Ok();
-        }
-
-        [HttpPut]
-        [Authorize]
-        public async Task<IHttpActionResult> Create(Person person)
-        {
-            return Ok(await _personRepository.Add(person));
-        }
-
+        
         [HttpPost]
         [Authorize]
-        public async Task<IHttpActionResult> Update(Person person)
+        [Route("")]
+        public async Task<IHttpActionResult> Update([FromBody]UpdatePersonCommand command)
         {
-            return Ok(await _personRepository.Update(person));
+            return await this.Try(async () => await this.personRepository.EditPerson(command));
         }
 
         [HttpGet]
         [Authorize]
+        [Route("{id}")]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok(await _personRepository.Find(id));
+            return await this.Try(async () => await this.personRepository.GetById(id));
         }
 
         [HttpPost]
         [Authorize]
         public async Task<IHttpActionResult> Subscribe(int id)
         {
-            //return Ok(await _personRepository.Subscribe(id));
+            //return Ok(await personRepository.Subscribe(id));
             return Ok();
         }
     }
