@@ -3,9 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 using Bookify.API.Controllers;
-using Bookify.Core;
 using Bookify.Core.Filter;
-using Bookify.Core.Interfaces;
+using Bookify.Core.Interfaces.Repositories;
 using Bookify.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -40,6 +39,7 @@ namespace Bookify.UnitTets
             var bookOrderRepository = new Mock<IBookOrderRepository>();
             var bookContentRepository = new Mock<IBookContentRepository>();
             var bookFeedbackRepository = new Mock<IBookFeedbackRepository>();
+            var fileServerRepository = new Mock<IFileServerRepository>();
 
             #endregion
 
@@ -49,7 +49,8 @@ namespace Bookify.UnitTets
                 personRepository.Object,
                 bookOrderRepository.Object,
                 bookContentRepository.Object,
-                bookFeedbackRepository.Object);
+                bookFeedbackRepository.Object, 
+                fileServerRepository.Object);
 
             await GetBookTestValidEmptyFilter(booksController);
 
