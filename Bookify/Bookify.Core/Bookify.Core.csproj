@@ -52,6 +52,7 @@
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Filter\BaseFilter.cs" />
     <Compile Include="Filter\BookFilter.cs" />
+    <Compile Include="Interfaces\Repositories\IFileServerRepository.cs" />
     <Compile Include="Interfaces\Repositories\IBookFeedbackRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAddressRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAuthorRepository.cs" />

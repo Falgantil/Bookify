@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Bookify.Models;
-using System.Linq;
 
-namespace Bookify.Core.Interfaces
+namespace Bookify.Core.Interfaces.Repositories
 {
     public interface IBookRepository : IGenericRepository<Book>
     {
