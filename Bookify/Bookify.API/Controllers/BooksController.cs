@@ -11,7 +11,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 using Bookify.Core.Interfaces;
 
 namespace Bookify.API.Controllers
@@ -41,7 +40,9 @@ namespace Bookify.API.Controllers
             // Genres not added yet, other params works though
             var booksQuery = await _bookRepository.GetAllByParams(filter.Index, filter.Count, filter.GenreIds, filter.Search, null, false);
             // search for the books
-            var books = booksQuery?.ToList() ?? new List<Book>();
+            if (booksQuery == null)
+                return InternalServerError(new NullReferenceException());
+            var books = booksQuery.ToList();
             return Ok(books);
             
             // return the book when done searching 
@@ -90,7 +91,7 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Delete(int id)
         {
-            var bookHistory = new BookHistory()
+            var bookHistory = new BookHistory
             {
                 BookId = id,
                 Type = BookHistoryType.Deleted,
@@ -115,7 +116,7 @@ namespace Bookify.API.Controllers
             var person = _personRepository.CreatePersonIfNotExists(email);
 
 
-            await _bookOrderRepository.Add(new BookOrder()
+            await _bookOrderRepository.Add(new BookOrder
             {
                 BookId = id,
                 Created = DateTime.Now,
@@ -138,7 +139,7 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Review(int id, int personId, int rating, string text)
         {
-            await _bookFeedbackRepository.Add(new BookFeedback()
+            await _bookFeedbackRepository.Add(new BookFeedback
             {
                 BookId = id,
                 PersonId = personId,
@@ -161,7 +162,7 @@ namespace Bookify.API.Controllers
         [Authorize]
         public async Task<IHttpActionResult> Statistics(int id)
         {
-            var statistics = new BookStatistics() {Book = await _bookRepository.FindForStatistics(id)};
+            var statistics = new BookStatistics {Book = await _bookRepository.FindForStatistics(id)};
             
             return Ok(statistics);
         }

@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace Bookify.API
 {
@@ -20,6 +21,7 @@ namespace Bookify.API
 
             // return output as json
             config.Formatters.Add(new BrowserJsonFormatter());
+            
         }
     }
 }
