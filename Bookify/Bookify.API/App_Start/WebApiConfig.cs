@@ -20,7 +20,13 @@ namespace Bookify.API
             );
 
             // return output as json
-            config.Formatters.Add(new BrowserJsonFormatter());
+            config.Formatters.Add(new BrowserJsonFormatter()
+            {
+                SerializerSettings = new JsonSerializerSettings
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects
+                }
+            });
             
         }
     }

@@ -22,7 +22,7 @@ namespace Bookify.DataAccess.Repositories
 
         public override async Task<Book> Find(int id)
         {
-            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).SingleAsync();
+            return await _ctx.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Author).Include(x => x.Publisher).SingleAsync();
         }
 
         public async Task<BookSearch> GetAllByParams(int? skip, int? take, int[] genres, string search, string orderBy, bool? desc)
@@ -46,18 +46,9 @@ namespace Bookify.DataAccess.Repositories
                     var genreId1 = genreId;
                     queryableBooks = queryableBooks.Where(book => book.Genres.Any(k => k.Id == genreId1));
                 }
-                //var hashBooks = new HashSet<Book>();
-                //foreach (var book in queryableBooks)
-                //{
-                //    var genresAsIds = book.Genres.Select(x => x.Id);
-                //    if (genresAsIds.Intersect(genres).Any())
-                //    {
-                //        hashBooks.Add(book);
-                //    }
-                //}
-                //queryableBooks = hashBooks.AsQueryable();
             }
-            
+            queryableBooks = queryableBooks.Include(x => x.Genres);
+
             queryableBooks = queryableBooks.OrderBy(orderBy, desc);
 
             BookSearch bookView = new BookSearch() {BookCount = queryableBooks.Count()};

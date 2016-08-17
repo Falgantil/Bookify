@@ -85,6 +85,10 @@
     <Compile Include="Configuration\BookConfiguration.cs" />
     <Compile Include="Configuration\BookContentConfiguration.cs" />
     <Compile Include="Configuration\BookFeedbackConfiguration.cs" />
+    <Compile Include="Migrations\201608171253405_BookContent_Removed.cs" />
+    <Compile Include="Migrations\201608171253405_BookContent_Removed.Designer.cs">
+      <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\AuthorRepository.cs" />
@@ -116,6 +120,11 @@
       <Project>{72800c42-b1e9-4409-99ff-39d4a4da479c}</Project>
       <Name>Bookify.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608171253405_BookContent_Removed.resx">
+      <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
