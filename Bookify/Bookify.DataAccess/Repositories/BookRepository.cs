@@ -3,11 +3,11 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
-
+using System.Linq.Expressions;
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
-using Bookify.Core.Extensions;
+using Bookify.DataAccess.Extensions;
 using Bookify.DataAccess.Interfaces.Repositories;
 using Bookify.DataAccess.Models;
 using Bookify.DataAccess.Models.ViewModels;
@@ -42,11 +42,11 @@ namespace Bookify.DataAccess.Repositories
             {
                 queryableBooks =
                     queryableBooks.Where(
-                        b =>
-                        string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase)
-                        || b.ISBN == search
-                        || string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase)
-                        || string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
+                        b => 
+                            b.Author.Name.StartsWith(search) || b.Author.Name.EndsWith(search) ||
+                            b.Publisher.Name.StartsWith(search) || b.Publisher.Name.EndsWith(search) ||
+                            b.Title.StartsWith(search) || b.Title.EndsWith(search) ||
+                            b.ISBN.StartsWith(search) || b.ISBN.EndsWith(search));
             }
 
             if (genres != null && genres.Any())
