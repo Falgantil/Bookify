@@ -3,7 +3,6 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
-using System.Linq.Expressions;
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
@@ -41,7 +40,7 @@ namespace Bookify.DataAccess.Repositories
             {
                 queryableBooks =
                     queryableBooks.Where(
-                        b => 
+                        b =>
                             b.Author.Name.StartsWith(search) || b.Author.Name.EndsWith(search) ||
                             b.Publisher.Name.StartsWith(search) || b.Publisher.Name.EndsWith(search) ||
                             b.Title.StartsWith(search) || b.Title.EndsWith(search) ||
