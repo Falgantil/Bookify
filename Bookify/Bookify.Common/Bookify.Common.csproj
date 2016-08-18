@@ -84,6 +84,7 @@
     <Compile Include="Models\DetailedBookDto.cs" />
     <Compile Include="Models\GenreDto.cs" />
     <Compile Include="Models\PersonDto.cs" />
+    <Compile Include="Models\PersonRoleDto.cs" />
     <Compile Include="Models\PublisherDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAddressRepository.cs" />
