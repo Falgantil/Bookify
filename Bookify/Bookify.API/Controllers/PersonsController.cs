@@ -1,14 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using Bookify.Common.Commands.Auth;
+using System.Threading.Tasks;
 using System.Web.Http;
-
-using Bookify.Common.Commands.Auth;
-using Bookify.DataAccess.Interfaces.Repositories;
-using Bookify.DataAccess.Models;
-using Bookify.Models;
+using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
-    [RoutePrefix("peopl")]
+    [RoutePrefix("person")]
     public class PersonsController : BaseApiController
     {
         private readonly IPersonRepository personRepository;
@@ -20,10 +17,10 @@ namespace Bookify.API.Controllers
         
         [HttpPost]
         [Authorize]
-        [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]UpdatePersonCommand command)
+        [Route("{id}")]
+        public async Task<IHttpActionResult> Update(int id, [FromBody]UpdatePersonCommand command)
         {
-            return await this.Try(async () => await this.personRepository.EditPerson(command));
+            return await this.Try(async () => await this.personRepository.EditPerson(id, command));
         }
 
         [HttpGet]

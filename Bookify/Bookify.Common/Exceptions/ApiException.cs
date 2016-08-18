@@ -2,7 +2,7 @@
 
 namespace Bookify.Common.Exceptions
 {
-    public class ApiException : Exception
+    public abstract class ApiException : Exception
     {
         public ApiException()
         {
@@ -12,5 +12,7 @@ namespace Bookify.Common.Exceptions
             : base(message)
         {
         }
+
+        public abstract int StatusCode { get; }
     }
 }

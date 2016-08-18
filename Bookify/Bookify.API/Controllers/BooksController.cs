@@ -1,4 +1,8 @@
-﻿using Bookify.Models;
+﻿using Bookify.Common.Commands.Auth;
+using Bookify.Common.Enums;
+using Bookify.Common.Exceptions;
+using Bookify.Common.Filter;
+using Bookify.DataAccess.Models;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -8,15 +12,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
-
-using Bookify.Common.Commands.Auth;
-using Bookify.Common.Enums;
-using Bookify.Common.Exceptions;
-using Bookify.Common.Filter;
-using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
-using Bookify.DataAccess.Models;
-using Bookify.DataAccess.Models.ViewModels;
+using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
@@ -27,17 +23,15 @@ namespace Bookify.API.Controllers
         private readonly IBookHistoryRepository bookHistoryRepository;
         private readonly IPersonRepository personRepository;
         private readonly IBookOrderRepository bookOrderRepository;
-        private readonly IBookContentRepository bookContentRepository;
         private readonly IBookFeedbackRepository bookFeedbackRepository;
         private readonly IFileServerRepository fileServerRepository;
 
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookContentRepository bookContentRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
+        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
         {
             this.bookRepository = bookRepository;
             this.bookHistoryRepository = bookHistoryRepository;
             this.personRepository = personRepository;
             this.bookOrderRepository = bookOrderRepository;
-            this.bookContentRepository = bookContentRepository;
             this.bookFeedbackRepository = bookFeedbackRepository;
             this.fileServerRepository = fileServerRepository;
         }
@@ -79,13 +73,13 @@ namespace Bookify.API.Controllers
         [Route("{id}")]
         public async Task<IHttpActionResult> Delete(int id)
         {
-            var bookHistory = new BookHistory()
+            var command = new CreateHistoryCommand
             {
                 BookId = id,
                 Type = BookHistoryType.Deleted,
                 Created = DateTime.Now
             };
-            return await this.Try(() => this.bookHistoryRepository.AddHistory(bookHistory));
+            return await this.Try(() => this.bookHistoryRepository.AddHistory(command));
         }
 
         [HttpGet]
@@ -118,18 +112,18 @@ namespace Bookify.API.Controllers
         //            });
         //}
 
-        [HttpGet]
-        [Authorize]
-        [Route("{id}/download")]
-        public async Task<IHttpActionResult> Download(int id)
-        {
-            return await this.Try(
-                async () =>
-                    {
-                        var content = await this.bookContentRepository.GetById(id);
-                        return content.EpubPath;
-                    });
-        }
+        //[HttpGet]
+        //[Authorize]
+        //[Route("{id}/download")]
+        //public async Task<IHttpActionResult> Download(int id)
+        //{
+        //    return await this.Try(
+        //        async () =>
+        //            {
+        //                var content = await this.bookContentRepository.GetById(id);
+        //                return content.EpubPath;
+        //            });
+        //}
 
         [HttpPost]
         [Authorize]
@@ -139,14 +133,14 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this.bookFeedbackRepository.CreateFeedback(id, command));
         }
 
-        [HttpGet]
-        [Authorize]
-        [Route("{id}/read")]
-        public async Task<IHttpActionResult> Read(int id)
-        {
-            // stream the Epub?
-            return await this.Download(id);
-        }
+        //[HttpGet]
+        //[Authorize]
+        //[Route("{id}/read")]
+        //public async Task<IHttpActionResult> Read(int id)
+        //{
+        //    // stream the Epub?
+        //    return await this.Download(id);
+        //}
 
         [HttpGet]
         [Authorize]

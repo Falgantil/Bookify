@@ -3,8 +3,8 @@ using System.Web;
 using System.Web.Http;
 
 using Bookify.API;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess;
-using Bookify.DataAccess.Interfaces.Repositories;
 using Bookify.DataAccess.Repositories;
 
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -82,7 +82,6 @@ namespace Bookify.API
             kernel.Bind<IGenreRepository>().To<GenreRepository>().InRequestScope();
             kernel.Bind<IBookOrderRepository>().To<BookOrderRepository>().InRequestScope();
             kernel.Bind<IBookHistoryRepository>().To<BookHistoryRepository>().InRequestScope();
-            kernel.Bind<IBookContentRepository>().To<BookContentRepository>().InRequestScope();
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
             kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();

@@ -5,7 +5,7 @@ using System.Linq;
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
@@ -67,9 +67,18 @@ namespace Bookify.DataAccess.Repositories
             return person.ToDto();
         }
 
-        public Task<PersonDto> EditPerson(UpdatePersonCommand command)
+        public async Task<PersonDto> EditPerson(int id, UpdatePersonCommand command)
         {
-            throw new System.NotImplementedException();
+            var person = await this.Find(id);
+            person.Firstname = command.FirstName ?? person.Firstname;
+            person.Lastname = command.LastName ?? person.Lastname;
+            person.Alias = command.Username ?? person.Alias;
+            if (!string.IsNullOrEmpty(command.Password))
+            {
+                person.Password = EncryptSha512.GetPassword(command.Password);
+            }
+            person = await this.Update(person);
+            return person.ToDto();
         }
     }
 }

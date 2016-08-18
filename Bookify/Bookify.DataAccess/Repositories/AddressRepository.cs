@@ -1,4 +1,4 @@
-﻿using Bookify.DataAccess.Interfaces.Repositories;
+﻿using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories

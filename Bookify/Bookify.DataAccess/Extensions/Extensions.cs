@@ -1,8 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Linq.Expressions;
 
-namespace Bookify.Core.Extensions
+namespace Bookify.DataAccess.Extensions
 {
     public static class QueryAbleExtensions
     {

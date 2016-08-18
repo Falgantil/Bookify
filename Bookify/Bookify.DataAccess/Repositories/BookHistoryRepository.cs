@@ -4,11 +4,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Bookify.Common.Commands.Auth;
 using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
-using Bookify.DataAccess.Models.ViewModels;
 
 namespace Bookify.DataAccess.Repositories
 {
@@ -19,9 +18,12 @@ namespace Bookify.DataAccess.Repositories
 
         }
 
-        public async Task AddHistory(BookHistory bookHistory)
+        public async Task AddHistory(CreateHistoryCommand command)
         {
-            await this.Add(bookHistory);
+            var history = await this.Add(new BookHistory
+            {
+                // TODO: Implement me
+            });
         }
 
         public async Task<IEnumerable<BookHistoryDto>> GetHistoryForBook(int bookId)

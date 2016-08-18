@@ -1,10 +1,8 @@
 ﻿using Bookify.DataAccess.Configuration;
-using Bookify.Models;
+using Bookify.DataAccess.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
-
-using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess
 {
@@ -13,7 +11,6 @@ namespace Bookify.DataAccess
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
-        public DbSet<BookContent> BookContent { get; set; }
         public DbSet<BookFeedback> BookFeedback { get; set; }
         public DbSet<BookHistory> BookHistory { get; set; }
         public DbSet<BookOrder> BookOrders { get; set; }
@@ -33,7 +30,6 @@ namespace Bookify.DataAccess
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new BookConfiguration());
-            modelBuilder.Configurations.Add(new BookContentConfiguration());
             modelBuilder.Configurations.Add(new BookFeedbackConfiguration());
         }
     }

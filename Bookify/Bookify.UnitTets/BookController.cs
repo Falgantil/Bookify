@@ -11,7 +11,7 @@ using Bookify.DataAccess.Models.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace Bookify.UnitTets
+namespace Bookify.UnitTest
 {
     [TestClass]
     public class BookController

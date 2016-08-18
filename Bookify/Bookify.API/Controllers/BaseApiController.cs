@@ -33,13 +33,13 @@ namespace Bookify.API.Controllers
             {
                 return await operation();
             }
-            catch (NotFoundException ex)
+            catch (ApiException ex)
             {
-                return this.Content(HttpStatusCode.NotFound, new { Message = ex.Message });
-            }
-            catch (AuthenticationRequiredException ex)
-            {
-                return this.Content(HttpStatusCode.Forbidden, new { Message = ex.Message });
+                return this.Content((HttpStatusCode)ex.StatusCode, new
+                {
+                    Message = ex.Message,
+                    StatusCode = ex.StatusCode
+                });
             }
             catch (Exception)
             {

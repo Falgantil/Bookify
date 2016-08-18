@@ -4,7 +4,7 @@ using Bookify.App.iOS.Ui.TableCells;
 using Foundation;
 using UIKit;
 
-namespace Bookify.App.iOS.Ui.Controllers
+namespace Bookify.App.iOS.Ui.DataSources
 {
     public class ShoppingBasketDataSource : UITableViewSource
     {

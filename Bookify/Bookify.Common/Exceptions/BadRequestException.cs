@@ -1,4 +1,6 @@
-﻿namespace Bookify.Common.Exceptions
+﻿using System.Net;
+
+namespace Bookify.Common.Exceptions
 {
     public class BadRequestException : ApiException
     {
@@ -11,5 +13,7 @@
             : base(message)
         {
         }
+
+        public override int StatusCode { get; } = (int)HttpStatusCode.BadRequest;
     }
 }
