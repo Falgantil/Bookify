@@ -1,17 +1,11 @@
 using System;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.General;
 using Bookify.App.Sdk.Exceptions;
-
-using CoreAnimation;
-using CoreGraphics;
-using Polly;
-
 using Rope.Net.iOS;
 
 using UIKit;

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bookify.Common.Commands.Auth
+﻿namespace Bookify.Common.Commands.Auth
 {
     public class AuthenticateCommand
     {

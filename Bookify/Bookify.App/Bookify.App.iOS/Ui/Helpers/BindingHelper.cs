@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Net;
 using System.Reactive.Linq;
-using System.Text;
-
 using Akavache;
-
-using Bookify.App.Core.Models;
 using Bookify.App.Sdk;
 using Rope.Net;
 using Rope.Net.iOS;

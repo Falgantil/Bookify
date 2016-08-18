@@ -41,6 +41,8 @@ namespace Bookify.DataAccess.Repositories
                 query = query.Where(g => g.Name.ToLower().Contains(searchText));
             }
 
+            query = query.OrderBy(g => g.Id);
+
             var totalCount = query.Count();
             query = query.Skip(filter.Index);
             query = query.Take(filter.Count);

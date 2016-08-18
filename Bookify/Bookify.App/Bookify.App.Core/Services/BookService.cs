@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
 using Bookify.App.Sdk.Interfaces;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
@@ -47,12 +46,12 @@ namespace Bookify.App.Core.Services
         //    return array;
         //}
 
-        public async Task<IEnumerable<Book>> GetBooks(int index, int count, string searchText)
+        public async Task<IEnumerable<BookDto>> GetBooks(int index, int count, string searchText)
         {
             return await this.api.GetAll(index, count, searchText);
         }
 
-        public async Task<Book> GetBook(int id)
+        public async Task<BookDto> GetBook(int id)
         {
             return await this.api.Get(id);
         }

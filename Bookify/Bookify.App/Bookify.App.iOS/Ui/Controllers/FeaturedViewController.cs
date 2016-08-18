@@ -2,15 +2,11 @@ using System;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
-
-using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
 using Bookify.App.iOS.Ui.Views;
-using Bookify.Models;
-using Foundation;
-
+using Bookify.Common.Models;
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
@@ -62,9 +58,9 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.tblContent.ReloadData();
         }
         
-        public async void CellTapped(Models.Book model)
+        public async void CellTapped(BookDto model)
         {
-            Book book;
+            BookDto book;
             using (this.DialogService.Loading("Henter bog..."))
             {
                 book = await this.ViewModel.GetBook(model.Id);

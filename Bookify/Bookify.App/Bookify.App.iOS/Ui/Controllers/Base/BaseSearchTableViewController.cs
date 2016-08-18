@@ -1,11 +1,8 @@
 using System;
-using System.Collections.ObjectModel;
-using Bookify.App.Core.Models;
 using Bookify.App.iOS.Ui.Views;
-using Bookify.Models;
+using Bookify.Common.Models;
 using Foundation;
 using UIKit;
-using Book = Bookify.Models.Book;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
@@ -53,6 +50,6 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected abstract int GetBookCount();
 
-        protected abstract Book GetBookModel(int index);
+        protected abstract BookDto GetBookModel(int index);
     }
 }

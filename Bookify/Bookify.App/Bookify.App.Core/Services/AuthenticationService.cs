@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Bookify.App.Core.Annotations;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
@@ -13,7 +13,7 @@ namespace Bookify.App.Core.Services
         /// <summary>
         /// Occurs when the authentication state changed (Logged in or out).
         /// </summary>
-        public event EventHandler<Person> AuthChanged;
+        public event EventHandler<PersonDto> AuthChanged;
 
         /// <summary>
         /// Gets the logged on account. Returns null if not currently logged on.
@@ -21,7 +21,7 @@ namespace Bookify.App.Core.Services
         /// <value>
         /// The logged on account.
         /// </value>
-        public Person LoggedOnAccount { get; private set; }
+        public PersonDto LoggedOnAccount { get; private set; }
 
         /// <summary>
         /// Called when <see cref="LoggedOnAccount"/> has changed.
@@ -37,14 +37,14 @@ namespace Bookify.App.Core.Services
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        public async Task<Person> Authenticate(string username, string password)
+        public async Task<PersonDto> Authenticate(string username, string password)
         {
             await Task.Delay(1500);
 
-            var person = new Person
+            var person = new PersonDto
             {
-                Firstname = "Bjarke",
-                Lastname = "Søgaard"
+                FirstName = "Bjarke",
+                LastName = "Søgaard"
             };
             this.LoggedOnAccount = person;
             return person;
