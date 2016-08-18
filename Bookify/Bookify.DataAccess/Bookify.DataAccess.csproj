@@ -169,10 +169,6 @@
       <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
       <Name>Bookify.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bookify.Models\Bookify.Models.csproj">
-      <Project>{72800c42-b1e9-4409-99ff-39d4a4da479c}</Project>
-      <Name>Bookify.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608171253405_BookContent_Removed.resx">

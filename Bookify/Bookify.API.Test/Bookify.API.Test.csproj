@@ -94,10 +94,6 @@
       <Project>{5f4c00af-33fa-4254-84d3-363cc0795266}</Project>
       <Name>Bookify.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bookify.Models\Bookify.Models.csproj">
-      <Project>{72800c42-b1e9-4409-99ff-39d4a4da479c}</Project>
-      <Name>Bookify.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
