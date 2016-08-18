@@ -1,10 +1,8 @@
 ﻿using Bookify.DataAccess.Configuration;
-using Bookify.Models;
+using Bookify.DataAccess.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
-
-using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess
 {

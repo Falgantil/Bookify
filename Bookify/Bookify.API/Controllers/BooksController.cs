@@ -1,4 +1,9 @@
-﻿using Bookify.Models;
+﻿using Bookify.Common.Commands.Auth;
+using Bookify.Common.Enums;
+using Bookify.Common.Exceptions;
+using Bookify.Common.Filter;
+using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.DataAccess.Models;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -8,15 +13,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
-
-using Bookify.Common.Commands.Auth;
-using Bookify.Common.Enums;
-using Bookify.Common.Exceptions;
-using Bookify.Common.Filter;
-using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
-using Bookify.DataAccess.Models;
-using Bookify.DataAccess.Models.ViewModels;
 
 namespace Bookify.API.Controllers
 {

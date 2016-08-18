@@ -1,7 +1,5 @@
-﻿using Bookify.Models;
+﻿using Bookify.DataAccess.Models;
 using System.Data.Entity.ModelConfiguration;
-
-using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Configuration
 {
