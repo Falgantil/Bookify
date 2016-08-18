@@ -106,6 +106,10 @@
     <Compile Include="Migrations\201608171253405_BookContent_Removed.Designer.cs">
       <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608181050518_RemovedBookContentTable.cs" />
+    <Compile Include="Migrations\201608181050518_RemovedBookContentTable.Designer.cs">
+      <DependentUpon>201608181050518_RemovedBookContentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Author.cs" />
@@ -154,6 +158,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608171253405_BookContent_Removed.resx">
       <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608181050518_RemovedBookContentTable.resx">
+      <DependentUpon>201608181050518_RemovedBookContentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

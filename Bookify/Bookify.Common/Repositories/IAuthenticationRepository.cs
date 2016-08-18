@@ -6,7 +6,7 @@ namespace Bookify.Common.Repositories
 {
     public interface IAuthenticationRepository
     {
-        Task<string> Login(AuthenticateCommand command);
+        Task<AuthTokenDto> Login(AuthenticateCommand command);
 
         Task<PersonDto> Register(CreateAccountCommand command);
     }

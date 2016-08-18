@@ -20,7 +20,7 @@ namespace Bookify.DataAccess.Repositories
         {
         }
 
-        public async Task<string> Login(AuthenticateCommand command)
+        public async Task<AuthTokenDto> Login(AuthenticateCommand command)
         {
             var queryable = await this.Get(p => p.Email == command.Email);
             var person = await queryable.SingleOrDefaultAsync();
@@ -38,7 +38,11 @@ namespace Bookify.DataAccess.Repositories
                 { "expdate", unixExpired },
                 { "userid", person.Id }
             };
-            return JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            var token = JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            return new AuthTokenDto
+            {
+                Token = token
+            };
         }
 
         public async Task<PersonDto> Register(CreateAccountCommand command)

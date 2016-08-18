@@ -73,6 +73,7 @@
     <Compile Include="Filter\IPaginatedEnumerable.cs" />
     <Compile Include="Filter\PublisherFilter.cs" />
     <Compile Include="Models\AuthorDto.cs" />
+    <Compile Include="Models\AuthTokenDto.cs" />
     <Compile Include="Models\BaseDto.cs" />
     <Compile Include="Models\BookDto.cs" />
     <Compile Include="Models\BookFeedbackDto.cs" />
