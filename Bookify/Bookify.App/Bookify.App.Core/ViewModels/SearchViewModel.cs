@@ -1,9 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
-using Bookify.Models;
-using Book = Bookify.Models.Book;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -17,7 +15,7 @@ namespace Bookify.App.Core.ViewModels
             this.OnSearchTextChanged();
         }
 
-        public ObservableCollection<Book> Filtered { get; set; }
+        public ObservableCollection<BookDto> Filtered { get; } = new ObservableCollection<BookDto>();
 
         public string SearchText { get; set; }
 

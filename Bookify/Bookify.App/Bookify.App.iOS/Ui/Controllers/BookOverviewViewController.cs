@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
-using Bookify.App.Core.Models;
-using Bookify.Models;
+using Bookify.Common.Models;
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
@@ -12,7 +11,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
-        public Book Book { get; set; }
+        public BookDto Book { get; set; }
 
         public override void ViewDidLoad()
         {

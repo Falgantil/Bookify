@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Specialized;
 using Bookify.App.Core.Initialization;
-using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
-using Bookify.Models;
+using Bookify.Common.Models;
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
@@ -17,7 +16,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
-        public Book Book { get; set; }
+        public BookDto Book { get; set; }
 
         public override void ViewDidLoad()
         {

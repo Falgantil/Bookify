@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.ViewModels;
-using Bookify.Models;
-
+using Bookify.Common.Models;
 using Moq;
 
 using Shouldly;
@@ -31,7 +30,7 @@ namespace Bookify.App.Core.Tests.ViewModels
             var authenticationService = new Mock<IAuthenticationService>();
             authenticationService.Setup(service => service.Authenticate(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(
-                    async (string email, string password) => new Person { Id = 5, Email = email, Password = password });
+                    async (string email, string password) => new PersonDto { Id = 5, Email = email });
 
             var viewModel = new LoginViewModel(authenticationService.Object)
             {
@@ -43,7 +42,6 @@ namespace Bookify.App.Core.Tests.ViewModels
             account.ShouldNotBeNull();
             account.Id.ShouldBe(5);
             account.Email.ShouldBe("test");
-            account.Password.ShouldBe("test");
         }
 
         /// <summary>
@@ -64,7 +62,7 @@ namespace Bookify.App.Core.Tests.ViewModels
                                 firstCall = false;
                                 throw new WebException("First call");
                             }
-                            return new Person { Id = 5, Email = email, Password = password };
+                            return new PersonDto { Id = 5, Email = email };
                         });
 
             var viewModel = new LoginViewModel(authenticationService.Object)
@@ -77,7 +75,6 @@ namespace Bookify.App.Core.Tests.ViewModels
             account.ShouldNotBeNull();
             account.Id.ShouldBe(5);
             account.Email.ShouldBe("test");
-            account.Password.ShouldBe("test");
         }
 
         /// <summary>

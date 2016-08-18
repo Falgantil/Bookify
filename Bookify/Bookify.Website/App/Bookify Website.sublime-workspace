@@ -4,61 +4,17 @@
 		"selected_items":
 		[
 			[
-				"backgrou",
-				"background-color"
+				"imp",
+				"importd	ES6 Import Decorators"
 			],
 			[
-				"ba",
-				"baseUrl"
-			],
-			[
-				"booki",
-				"bookifyapi"
-			],
-			[
-				"get",
-				"getAllBooks"
-			],
-			[
-				"backround",
-				"background-color"
-			],
-			[
-				"rating",
-				"RatingView"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"book",
-				"BookpageViewModel"
-			],
-			[
-				"Bok",
-				"BookListViewModel"
+				"mn",
+				"mnclass	Marionette ES6 Class"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "modules/NewBookpage/index.js",
-			"settings":
-			{
-				"buffer_size": 2652,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/Loginpage/index.js",
-			"settings":
-			{
-				"buffer_size": 977,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -67,10 +23,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 58.0,
-		"last_filter": "Define sync",
+		"height": 140.0,
+		"last_filter": "install pack",
 		"selected_items":
 		[
+			[
+				"install pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Define syn",
+				"Package Syncing: Define Sync Folder"
+			],
 			[
 				"Define sync",
 				"PackageSync: Sync Online - Define Online Sync Folder"
@@ -80,7 +44,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 560.0
+		"width": 446.0
 	},
 	"console":
 	{
@@ -101,46 +65,42 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/assets",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/BookList",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Bookpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Frontpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Loginpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NavigationBar",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Shared",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util"
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Shared",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util"
 	],
 	"file_history":
 	[
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookPage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/BookList/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/style.styl",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Loginpage/index.js",
-		"/C/Users/AndHP/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/bookifyapi.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/http.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/index.html",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/BookList/booklist-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Bookpage/bookpage-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Shared/rating-view.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/api.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/custom.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/App.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/style.less",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/style.less",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/webpack.config.js",
-		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/04-nested-routes/webpack.config.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/package.json",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Core/Filter/BaseFilter.cs",
+		"/C/Projects/Bookify/Bookify/Bookify.Core/Filter/BookFilter.cs",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.html",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/bundle.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/bookpage-view-model.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util/http.js",
+		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/.babelrc",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.styl",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.less",
+		"/C/Users/Falgantil/Desktop/Material Design Demo/Material Design for Bootstrap.html",
+		"/C/Users/Falgantil/Desktop/Material Design Demo/Material Design for Bootstrap_files/index.css",
+		"/C/Users/Falgantil/Desktop/MDB-Free/index.html",
+		"/C/Users/Falgantil/Documents/SublimeText/Snippets/ES6 Import.sublime-snippet",
+		"/C/Users/Falgantil/Desktop/Mofibo/Mofibo - Læs alt det du har lyst til for 129,- pr. måned.html",
+		"/C/Users/Falgantil/Desktop/MDB-Free/js/jquery-2.2.3.js",
+		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/04-nested-routes/webpack.config.js",
 		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/06-params/index.js",
 		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/06-params/modules/Repos.js",
 		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/06-params/modules/Repo.js",
@@ -164,18 +124,38 @@
 		"height": 158.0,
 		"where_history":
 		[
+			"C:\\Projects\\Bookify\\Bookify\\Bookify.Website\\App",
+			""
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			".\",\n",
+			"p",
+			"length",
+			"/about",
+			"about",
+			"About",
+			"about",
+			"Link",
+			"'\n",
+			"<a>",
+			"javascript:void(0)",
+			"design",
 			"class=",
-			"}\n",
+			"bootstrap-elements.html",
+			"\"javascript:void(0)\"",
 			"class=",
+			"/>\n",
+			"class=",
+			"js/",
+			" <!--",
 			"class",
-			"class=",
+			"js",
+			"    <script type=\"text/javascript\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/63644fe68e\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/nr-963.min.js\"></script><script type=\"text/javascript\" id=\"www-widgetapi-script\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/www-widgetapi.js\" async=\"\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/iframe_api\"></script><script type=\"text/javascript\" async=\"\" src=\"https://track.adform.net/serving/scripts/trackpoint/async/\"></script><script async=\"\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/fbevents.js\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/bat.js\" async=\"\"></script><script async=\"\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/analytics.js\"></script><script async=\"\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/gtm.js\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/2227582695.js\"></script>\n<script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/md5.min.js\"></script>",
 			"Repos"
 		],
 		"highlight": true,
@@ -195,247 +175,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "modules/NewBookpage/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2652,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								602,
-								602
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2606,
-										2607
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										305,
-										306
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 225.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "modules/Loginpage/index.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 977,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								892,
-								773
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										943,
-										944
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										303,
-										304
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -445,7 +186,7 @@
 	},
 	"input":
 	{
-		"height": 81.0
+		"height": 68.0
 	},
 	"layout":
 	{
@@ -478,7 +219,7 @@
 	"project": "Bookify Website.sublime-project",
 	"replace":
 	{
-		"height": 114.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -501,12 +242,12 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 354.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 374.0
 	},
 	"selected_group": 0,
 	"settings":
@@ -516,7 +257,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 305.0,
+	"side_bar_width": 276.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

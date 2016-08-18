@@ -137,9 +137,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bookify.Models\Bookify.Models.csproj">
-      <Project>{490cd2d0-19dd-4991-9cc6-9909be9a1fcb}</Project>
-      <Name>Bookify.Models</Name>
+    <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
+      <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
+      <Name>Bookify.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
       <Project>{04efb456-acc8-4627-a7ab-9b9fc76a49c6}</Project>

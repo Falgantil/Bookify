@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using MonoTouch.Dialog;
-
-using SidebarNavigation;
+﻿using SidebarNavigation;
 
 using UIKit;
 

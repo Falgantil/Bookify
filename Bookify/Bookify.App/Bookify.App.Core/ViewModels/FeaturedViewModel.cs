@@ -5,8 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
-using Bookify.Models;
+using Bookify.Common.Models;
 using Polly;
 
 namespace Bookify.App.Core.ViewModels
@@ -20,9 +19,9 @@ namespace Bookify.App.Core.ViewModels
             this.bookService = bookService;
         }
 
-        public ObservableCollection<Bookify.Models.Book> Books { get; } = new ObservableCollection<Bookify.Models.Book>();
+        public ObservableCollection<BookDto> Books { get; } = new ObservableCollection<BookDto>();
 
-        public async Task<IEnumerable<Bookify.Models.Book>> LoadBooks(int index, int count)
+        public async Task<IEnumerable<BookDto>> LoadBooks(int index, int count)
         {
             var result = await
                          Policy.Handle<WebException>()
@@ -40,7 +39,7 @@ namespace Bookify.App.Core.ViewModels
             return newBooks;
         }
 
-        public async Task<Book> GetBook(int id)
+        public async Task<BookDto> GetBook(int id)
         {
             var result = await
                          Policy.Handle<WebException>()

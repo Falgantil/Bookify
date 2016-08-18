@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bookify.Common.Models
+﻿namespace Bookify.Common.Models
 {
     public class PersonDto : BaseDto
     {

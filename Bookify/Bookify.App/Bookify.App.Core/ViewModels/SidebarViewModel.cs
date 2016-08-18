@@ -1,7 +1,6 @@
-using System;
 using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -21,7 +20,7 @@ namespace Bookify.App.Core.ViewModels
         /// <value>
         /// The account.
         /// </value>
-        public Person Account { get; private set; }
+        public PersonDto Account { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is logged in.
@@ -36,7 +35,7 @@ namespace Bookify.App.Core.ViewModels
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="person">The account model.</param>
-        private void AuthChanged(object sender, Person person)
+        private void AuthChanged(object sender, PersonDto person)
         {
             this.Account = person;
         }
