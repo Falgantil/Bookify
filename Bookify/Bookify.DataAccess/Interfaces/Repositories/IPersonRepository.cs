@@ -6,7 +6,7 @@ using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Interfaces.Repositories
 {
-    public interface IPersonRepository : IGenericRepository<Person>
+    public interface IPersonRepository
     {
         Task<PersonDto> CreatePersonIfNotExists(string email);
 
@@ -16,6 +16,6 @@ namespace Bookify.DataAccess.Interfaces.Repositories
 
         Task<PersonDto> GetById(int userId);
 
-        Task<PersonDto> EditPerson(UpdatePersonCommand command);
+        Task<PersonDto> EditPerson(int id, UpdatePersonCommand command);
     }
 }

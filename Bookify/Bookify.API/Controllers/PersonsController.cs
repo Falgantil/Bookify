@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace Bookify.API.Controllers
 {
-    [RoutePrefix("peopl")]
+    [RoutePrefix("person")]
     public class PersonsController : BaseApiController
     {
         private readonly IPersonRepository personRepository;
@@ -17,10 +17,10 @@ namespace Bookify.API.Controllers
         
         [HttpPost]
         [Authorize]
-        [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]UpdatePersonCommand command)
+        [Route("{id}")]
+        public async Task<IHttpActionResult> Update(int id, [FromBody]UpdatePersonCommand command)
         {
-            return await this.Try(async () => await this.personRepository.EditPerson(command));
+            return await this.Try(async () => await this.personRepository.EditPerson(id, command));
         }
 
         [HttpGet]
