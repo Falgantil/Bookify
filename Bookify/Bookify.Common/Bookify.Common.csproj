@@ -65,6 +65,7 @@
     <Compile Include="Exceptions\ApiException.cs" />
     <Compile Include="Exceptions\AuthenticationRequiredException.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
+    <Compile Include="Exceptions\FileAlreadyExistsException.cs" />
     <Compile Include="Exceptions\InvalidAccessTokenException.cs" />
     <Compile Include="Exceptions\InvalidCredentialsException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
