@@ -4,10 +4,7 @@ using System.Web.Http.Results;
 using Bookify.API.Controllers;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
 using Bookify.DataAccess.Models;
-using Bookify.DataAccess.Models.ViewModels;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

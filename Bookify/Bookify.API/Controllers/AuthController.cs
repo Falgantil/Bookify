@@ -5,7 +5,7 @@ using System.Web.Http.Controllers;
 
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Exceptions;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Repositories;
 
 namespace Bookify.API.Controllers
@@ -22,7 +22,6 @@ namespace Bookify.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        [Authorize]
         public async Task<IHttpActionResult> Login([FromBody]AuthenticateCommand command)
         {
             return await this.Try(async () => await this.authRepository.Login(command));
@@ -36,9 +35,8 @@ namespace Bookify.API.Controllers
                 async () =>
                     {
                         var person = await this.authRepository.Register(command);
-                        return
-                            this.authRepository.Login(
-                                new AuthenticateCommand { Email = command.Email, Password = command.Password });
+                        return await this.authRepository.Login(
+                            new AuthenticateCommand { Email = command.Email, Password = command.Password });
                     });
         }
 

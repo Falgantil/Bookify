@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 
 using Bookify.Common.Commands.Auth;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Models;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
@@ -15,13 +16,14 @@ namespace Bookify.DataAccess.Repositories
             this.authRepository = authRepository;
         }
 
-        public async Task<BookFeedback> CreateFeedback(int bookid, CreateFeedbackCommand command)
+        public async Task<BookFeedbackDto> CreateFeedback(int bookid, CreateFeedbackCommand command)
         {
             var bookFeedback = new BookFeedback
             {
                 BookId = bookid
             };
-            return this.Context.BookFeedback.Add(bookFeedback);
+            var feedback = await this.Add(bookFeedback);
+            return feedback.ToDto();
         }
     }
 }

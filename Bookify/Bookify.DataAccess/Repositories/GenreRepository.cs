@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
-using Bookify.DataAccess.Models.ViewModels;
 
 namespace Bookify.DataAccess.Repositories
 {

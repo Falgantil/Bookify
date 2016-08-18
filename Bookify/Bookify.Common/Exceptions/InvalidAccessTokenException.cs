@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace Bookify.Common.Exceptions
 {
     public class InvalidAccessTokenException : ApiException
@@ -11,5 +13,7 @@ namespace Bookify.Common.Exceptions
             : base(message)
         {
         }
+
+        public override int StatusCode { get; } = (int)HttpStatusCode.BadRequest;
     }
 }

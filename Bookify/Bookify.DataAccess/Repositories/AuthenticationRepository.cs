@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
@@ -20,13 +20,13 @@ namespace Bookify.DataAccess.Repositories
         {
         }
 
-        public async Task<string> Login(AuthenticateCommand command)
+        public async Task<AuthTokenDto> Login(AuthenticateCommand command)
         {
             var queryable = await this.Get(p => p.Email == command.Email);
             var person = await queryable.SingleOrDefaultAsync();
             if (person == null || !EncryptSha512.VerifyPassword(command.Password, person.Password))
             {
-                throw new AuthenticationException("Invalid email & password");
+                throw new InvalidCredentialsException("Invalid email & password");
             }
 
             var now = DateTimeOffset.Now.ToUniversalTime();
@@ -38,7 +38,11 @@ namespace Bookify.DataAccess.Repositories
                 { "expdate", unixExpired },
                 { "userid", person.Id }
             };
-            return JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            var token = JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            return new AuthTokenDto
+            {
+                Token = token
+            };
         }
 
         public async Task<PersonDto> Register(CreateAccountCommand command)

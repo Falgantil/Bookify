@@ -1,8 +1,8 @@
 ﻿using Bookify.Common.Commands.Auth;
 using Bookify.Common.Filter;
-using Bookify.DataAccess.Interfaces.Repositories;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
