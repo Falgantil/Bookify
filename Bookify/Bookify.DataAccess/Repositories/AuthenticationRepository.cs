@@ -26,7 +26,7 @@ namespace Bookify.DataAccess.Repositories
             var person = await queryable.SingleOrDefaultAsync();
             if (person == null || !EncryptSha512.VerifyPassword(command.Password, person.Password))
             {
-                throw new AuthenticationException("Invalid email & password");
+                throw new InvalidCredentialsException("Invalid email & password");
             }
 
             var now = DateTimeOffset.Now.ToUniversalTime();

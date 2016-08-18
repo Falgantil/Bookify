@@ -66,6 +66,7 @@
     <Compile Include="Exceptions\AuthenticationRequiredException.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\InvalidAccessTokenException.cs" />
+    <Compile Include="Exceptions\InvalidCredentialsException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filter\BaseFilter.cs" />
     <Compile Include="Filter\BookFilter.cs" />
