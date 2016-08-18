@@ -1,15 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-using Bookify.App.Core.Models;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Interfaces.Services
 {
     public interface IBookService
     {
-        Task<IEnumerable<Book>> GetBooks(int index, int count, string searchText);
+        Task<IEnumerable<BookDto>> GetBooks(int index, int count, string searchText);
 
-        Task<Book> GetBook(int id);
+        Task<BookDto> GetBook(int id);
     }
 }

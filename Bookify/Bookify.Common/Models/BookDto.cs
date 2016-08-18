@@ -1,4 +1,6 @@
-﻿namespace Bookify.Common.Models
+﻿using System.Collections.Generic;
+
+namespace Bookify.Common.Models
 {
     public class BookDto : BaseDto
     {
@@ -13,5 +15,6 @@
         public AuthorDto Author { get; set; }
 
         public PublisherDto Publisher { get; set; }
+        public List<GenreDto> Genres { get; set; }
     }
 }

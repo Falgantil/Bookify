@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Interfaces.Services
 {
     public interface IGenreService
     {
-        Task<IEnumerable<Genre>> GetGenres();
+        Task<IEnumerable<GenreDto>> GetGenres();
     }
 }

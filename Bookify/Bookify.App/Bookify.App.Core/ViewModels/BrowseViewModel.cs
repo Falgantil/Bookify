@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -14,7 +14,7 @@ namespace Bookify.App.Core.ViewModels
             this.genreService = genreService;
         }
 
-        public ObservableCollection<Genre> Categories { get; } = new ObservableCollection<Genre>();
+        public ObservableCollection<GenreDto> Categories { get; } = new ObservableCollection<GenreDto>();
 
         public async Task LoadItems()
         {

@@ -2,16 +2,15 @@ using System;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Models;
-using Bookify.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
     public class BookSummaryViewModel : BaseViewModel
     {
-        private IShoppingCartService shoppingCartService;
+        private readonly IShoppingCartService shoppingCartService;
 
-        public BookSummaryViewModel(Book book, IShoppingCartService shoppingCartService)
+        public BookSummaryViewModel(BookDto book, IShoppingCartService shoppingCartService)
         {
             if (book == null)
             {
@@ -22,7 +21,7 @@ namespace Bookify.App.Core.ViewModels
             this.shoppingCartService = shoppingCartService;
         }
 
-        public Book Book { get; }
+        public BookDto Book { get; }
 
         //public bool OwnsBook => this.Book.OwnsBook;
 

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Bookify.App.Core.Helpers;
-using Bookify.App.Core.Models;
+﻿using System.Threading.Tasks;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 
@@ -46,7 +42,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void CreateLoggedInMenuItems()
         {
-            this.Root = new RootElement($"Velkommen {this.ViewModel.Account.Firstname}")
+            this.Root = new RootElement($"Velkommen {this.ViewModel.Account.FirstName}")
             {
                 new Section
                 {
