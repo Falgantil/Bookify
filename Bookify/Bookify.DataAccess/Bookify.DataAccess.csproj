@@ -99,25 +99,9 @@
   <ItemGroup>
     <Compile Include="BookifyContext.cs" />
     <Compile Include="Configuration\BookConfiguration.cs" />
-    <Compile Include="Configuration\BookContentConfiguration.cs" />
     <Compile Include="Configuration\BookFeedbackConfiguration.cs" />
     <Compile Include="EncryptSha512.cs" />
     <Compile Include="Extensions\Extensions.cs" />
-    <Compile Include="Interfaces\Repositories\IAddressRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IAuthenticationRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IAuthorRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IBookContentRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IBookFeedbackRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IBookHistoryRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IBookOrderRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IBookRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IFileServerRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IGenreRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IPaymentInfoRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IPersonRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IPersonRoleRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IPublisherRepository.cs" />
     <Compile Include="Migrations\201608171253405_BookContent_Removed.cs" />
     <Compile Include="Migrations\201608171253405_BookContent_Removed.Designer.cs">
       <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
@@ -127,7 +111,6 @@
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\BookContent.cs" />
     <Compile Include="Models\BookFeedback.cs" />
     <Compile Include="Models\BookHistory.cs" />
     <Compile Include="Models\BookHistoryType.cs" />
@@ -141,11 +124,9 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\ViewModels\BookStatistics.cs" />
-    <Compile Include="Models\ViewModels\IPaginatedEnumerable.cs" />
     <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\AuthenticationRepository.cs" />
     <Compile Include="Repositories\AuthorRepository.cs" />
-    <Compile Include="Repositories\BookContentRepository.cs" />
     <Compile Include="Repositories\BookFeedbackRepository.cs" />
     <Compile Include="Repositories\BookHistoryRepository.cs" />
     <Compile Include="Repositories\BookOrderRepository.cs" />
@@ -175,7 +156,9 @@
       <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

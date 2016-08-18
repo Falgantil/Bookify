@@ -3,8 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {

@@ -5,7 +5,7 @@ using System.Web.Http.Controllers;
 
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Exceptions;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Repositories;
 
 namespace Bookify.API.Controllers

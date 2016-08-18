@@ -5,7 +5,7 @@ using System.Linq;
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
-using Bookify.DataAccess.Interfaces.Repositories;
+using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
 
 namespace Bookify.DataAccess.Repositories
