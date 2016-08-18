@@ -81,6 +81,7 @@
     <Compile Include="Initialization\BootstrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
