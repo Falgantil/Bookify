@@ -41,7 +41,8 @@ namespace Bookify.DataAccess.Repositories
             var token = JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
             return new AuthTokenDto
             {
-                Token = token
+                Token = token,
+                Role = person.Roles.Select(x=>x.ToPersonRoleDto())
             };
         }
 
