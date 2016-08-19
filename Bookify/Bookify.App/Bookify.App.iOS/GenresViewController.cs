@@ -1,5 +1,6 @@
 using Foundation;
 using System;
+using System.Collections.Specialized;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.Common.Models;
@@ -31,6 +32,7 @@ namespace Bookify.App.iOS
             var source = new GenresDataSource(this.ViewModel);
             source.SelectedRow += this.SourceOnSelectedRow;
             this.tblContent.Source = source;
+            this.ViewModel.Genres.CollectionChanged += (s, e) => this.InvokeOnMainThread(this.tblContent.ReloadData);
         }
 
         public override async void ViewWillAppear(bool animated)
