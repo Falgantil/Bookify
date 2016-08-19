@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Bookify.Common.Commands.Auth;
@@ -70,9 +71,8 @@ namespace Bookify.DataAccess.Repositories
             return entity.ToDto();
         }
 
-        public PersonAuthDto VerifyToken(string accessToken)
+        public async Task<PersonAuthDto> VerifyToken(string accessToken)
         {
-            
             var obj = JWT.JsonWebToken.DecodeToObject<Dictionary<string, object>>(accessToken, SecretKey);
             var issDate = long.Parse(obj[Issdate].ToString());
             var issuedDate = DateTimeOffset.FromUnixTimeSeconds(issDate);
@@ -89,7 +89,8 @@ namespace Bookify.DataAccess.Repositories
             }
 
             var userId = (int) obj[UserId];
-            var userQuery = this.Context.Persons.Where(x => x.Id == userId).Include(x => x.Roles);
+            var userQuery = await this.Get(x => x.Id == userId);
+            userQuery = userQuery.Include(x => x.Roles);
             var user = userQuery.Single();
             if (user == null)
                 throw new NullReferenceException();

@@ -53,11 +53,5 @@ namespace Bookify.API.Controllers
                     });
             }
         }
-
-
-        //public Task<IHttpActionResult> Try<T>(Task<T> operation)
-        //{
-        //    return this.Try(() => operation);
-        //}
     }
 }

@@ -9,6 +9,6 @@ namespace Bookify.Common.Repositories
         Task<AuthTokenDto> Login(AuthenticateCommand command);
 
         Task<PersonDto> Register(CreateAccountCommand command);
-        PersonAuthDto VerifyToken(string accessToken);
+        Task<PersonAuthDto> VerifyToken(string accessToken);
     }
 }
