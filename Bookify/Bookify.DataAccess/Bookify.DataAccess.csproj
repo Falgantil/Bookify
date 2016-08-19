@@ -134,7 +134,6 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonRole.cs" />
     <Compile Include="Models\Publisher.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\ViewModels\BookStatistics.cs" />
     <Compile Include="Repositories\AddressRepository.cs" />

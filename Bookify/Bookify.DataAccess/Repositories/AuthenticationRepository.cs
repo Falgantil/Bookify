@@ -45,7 +45,7 @@ namespace Bookify.DataAccess.Repositories
             return new AuthTokenDto
             {
                 Token = token,
-                Role = person.Roles.Select(x=>x.ToPersonRoleDto())
+                Roles = person.Roles.Select(x=>x.ToPersonRoleDto())
             };
         }
 
@@ -70,7 +70,7 @@ namespace Bookify.DataAccess.Repositories
             return entity.ToDto();
         }
 
-        public async Task<PersonDto> VerifyToken(string accessToken)
+        public async Task<PersonAuthDto> VerifyToken(string accessToken)
         {
             var obj = JWT.JsonWebToken.DecodeToObject<Dictionary<string, object>>(accessToken, SecretKey);
             var issDate = long.Parse(obj[Issdate].ToString());
@@ -88,8 +88,18 @@ namespace Bookify.DataAccess.Repositories
             }
 
             var userId = (int)obj[UserId];
-            var user = await this.Find(userId);
-            return user.ToDto();
+            var user = await this.Context.Persons.Where(x => x.Id == userId).Include(x => x.Roles).SingleAsync();
+            if (user == null)
+                throw new NullReferenceException();
+            return new PersonAuthDto
+            {
+                PersonDto = user.ToDto(),
+                AuthTokenDto = new AuthTokenDto
+                {
+                    Token = accessToken,
+                    Roles = user.Roles.Select(x => x.ToPersonRoleDto())
+                }
+            };
         }
     }
 }

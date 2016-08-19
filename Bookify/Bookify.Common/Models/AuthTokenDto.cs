@@ -6,6 +6,6 @@ namespace Bookify.Common.Models
     public class AuthTokenDto
     {
         public string Token { get; set; }
-        public IEnumerable<PersonRoleDto> Role { get; set; }
+        public IEnumerable<PersonRoleDto> Roles { get; set; }
     }
 }
