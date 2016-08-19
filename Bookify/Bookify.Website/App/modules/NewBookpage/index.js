@@ -33,25 +33,10 @@ class NewBookpage extends React.Component {
 
   async submit(e) {
     e.preventDefault();
-
     var formData = new FormData();
     formData.append('cover', this.refs.coverInput.files[0]);
-    $.ajax({
-                url: 'http://bookifyapi.azurewebsites.net/Files/1/UploadCover',
-                //url: 'http://localhost:13654/Files/5/UploadCover',
-                data: formData,
-                type: 'POST',
-                processData: false,
-                contentType: false,
-                headers: { 'Authorization': 'jwt ' + bookifyapi.getAuthToken() },
-                success: function(data){
-                    alert(data);
-                }
-            });
-
-    //var success = await this.model.submit(e);
-
-    //browserHistory.push('/book/1');
+    //var x = await bookifyapi.postBookCover(23, formData, (data) => { console.log(data); } );
+    this.model.submit(e);
   }
 
   render() {
@@ -90,7 +75,6 @@ class NewBookpage extends React.Component {
         <div>
             <label>Cover</label>
             <input type="file" name="coverInput" ref="coverInput" />
-            <p >Example block-level help text here.</p>
           </div>
 
         <div className="form-group">
