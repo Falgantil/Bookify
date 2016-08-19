@@ -75,7 +75,7 @@ namespace Bookify.App.Core.Initialization
         {
             this.kernel = new StandardKernel();
 
-            AppConfig.Website = "http://bookifyapi.azurewebsites.net/";
+            ApiConfig.Website = "http://bookifyapi.azurewebsites.net/";
 
             this.platformInitializer.BeforeInit(this.kernel);
 
@@ -83,11 +83,12 @@ namespace Bookify.App.Core.Initialization
             this.kernel.Bind<IUserDialogs>().ToMethod(c => UserDialogs.Instance);
             this.kernel.Bind<IFileSystem>().ToMethod(c => FileSystem.Current);
 
-            this.kernel.Bind<IBookApi>().To<BookApi>().InScope(context => this.kernel.Get<IAuthenticationService>().LoggedOnAccount);
+            this.kernel.Bind<IAuthenticationApi>().To<AuthenticationApi>().InSingletonScope();
+            this.kernel.Bind<IBookApi>().To<BookApi>().InSingletonScope();
 
+            this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
             this.kernel.Bind<ICachingRegionFactory>().To<CachingRegionFactory>().InSingletonScope();
             this.kernel.Bind<IShoppingCartService>().To<ShoppingCartService>().InSingletonScope();
-            this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
             this.kernel.Bind<IBookService>().To<BookService>().InSingletonScope();
             this.kernel.Bind<IReviewService>().To<ReviewService>().InSingletonScope();
             this.kernel.Bind<IGenreService>().To<GenreService>().InSingletonScope();

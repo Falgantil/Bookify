@@ -10,7 +10,7 @@ namespace Bookify.App.Sdk.Implementations
     public class BookApi : BaseApi, IBookApi
     {
         public BookApi()
-            : base(AppConfig.BooksRoot)
+            : base(ApiConfig.BooksRoot)
         {
         }
 

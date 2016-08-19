@@ -27,9 +27,9 @@ namespace Bookify.App.Core.ViewModels
 
         //public bool Borrowable => this.Book.Borrowable;
 
-        public async Task AddToBasket()
+        public async Task AddToCart()
         {
-            await this.shoppingCartService.AddToBasket(this.Book);
+            await this.shoppingCartService.AddToCart(this.Book);
         }
     }
 }

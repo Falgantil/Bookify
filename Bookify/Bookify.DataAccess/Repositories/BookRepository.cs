@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
 using Bookify.Common.Commands.Auth;
+using Bookify.Common.Exceptions;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
 using Bookify.Common.Repositories;
@@ -20,15 +21,22 @@ namespace Bookify.DataAccess.Repositories
 
         }
 
-        public async Task<BookDto> GetById(int id)
+        public async Task<DetailedBookDto> GetById(int id)
         {
-            var book = await this.Context.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Author).Include(x => x.Publisher).SingleAsync();
-            return book.ToDto();
+            var book =
+                await
+                    this.Context.Books.Where(b => b.Id == id)
+                        .Include(b => b.Genres)
+                        .Include(b => b.Author)
+                        .Include(x => x.Publisher)
+                        .Include(f => f.Feedback)
+                        .SingleAsync();
+            return book.ToDetailedDto();
         }
 
         public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)
         {
-            var search = filter.SearchText;
+            var search = filter.SearchText?.ToLower();
             var genres = filter.GenreIds;
             var orderBy = filter.OrderBy;
             var desc = filter.Descending;
@@ -42,10 +50,10 @@ namespace Bookify.DataAccess.Repositories
                 queryableBooks =
                     queryableBooks.Where(
                         b =>
-                            b.Author.Name.StartsWith(search) || b.Author.Name.EndsWith(search) ||
-                            b.Publisher.Name.StartsWith(search) || b.Publisher.Name.EndsWith(search) ||
-                            b.Title.StartsWith(search) || b.Title.EndsWith(search) ||
-                            b.ISBN.StartsWith(search) || b.ISBN.EndsWith(search));
+                            b.Author.Name.ToLower().Contains(search) ||
+                            b.Publisher.Name.ToLower().Contains(search) ||
+                            b.Title.ToLower().Contains(search) ||
+                            b.ISBN.ToLower().Contains(search));
             }
 
             if (genres != null && genres.Any())
@@ -78,7 +86,13 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<BookStatisticsDto> FindForStatistics(int id)
         {
-            var book = await this.Context.Books.Where(b => b.Id == id).Include(b => b.History).Include(b => b.Orders).Include(b => b.Feedback).SingleAsync();
+            var book =
+                await
+                    this.Context.Books.Where(b => b.Id == id)
+                        .Include(b => b.History)
+                        .Include(b => b.Orders)
+                        .Include(b => b.Feedback)
+                        .SingleAsync();
             var detailedBookDto = book.ToDetailedDto();
             return new BookStatisticsDto
             {
@@ -95,7 +109,7 @@ namespace Bookify.DataAccess.Repositories
                 genres = genres.Where(x => x.Id == genre1);
             }
             var dbGenres = await genres.ToListAsync();
-            
+
             var book = await this.Add(new Book
             {
                 Title = command.Title,
@@ -109,14 +123,48 @@ namespace Bookify.DataAccess.Repositories
                 PageCount = command.PageCount,
                 ViewCount = 0,
                 ISBN = command.ISBN,
-                Price = command.Price,
+                Price = command.Price
             });
             return book.ToDetailedDto();
         }
 
-        public Task<DetailedBookDto> EditBook(UpdateBookCommand command)
+        public async Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command)
         {
-            throw new NotImplementedException();
+            var book = await this.Find(id);
+            if (book == null) throw  new NotFoundException($"the requested item with id: {id} could not be found");
+            List<Genre> dbGenres = new List<Genre>();
+            if (command.Genres.Any())
+            {
+                IQueryable<Genre> genres = this.Context.Genres.AsQueryable();
+                foreach (var genre in command.Genres)
+                {
+                    var genre1 = genre;
+                    genres = genres.Where(x => x.Id == genre1);
+                }
+                dbGenres = await genres.ToListAsync();
+            }
+
+            // Commence updating book...
+            book.Title = string.IsNullOrEmpty(command.Title)? command.Title : book.Title;
+            book.Summary = string.IsNullOrEmpty(command.Summary)? command.Summary : book.Summary;
+            book.AuthorId = command.AuthorId > 0 ? command.AuthorId.Value : book.AuthorId;
+            book.PublishYear = command.PublishYear ?? book.PublishYear;
+            if (dbGenres.Any())
+            {
+                book.Genres = dbGenres.Select(genre => genre).ToList();
+            }
+            book.PublisherId = command.PublisherId > 0 ? command.PublisherId.Value : book.PublisherId;
+            book.Language = string.IsNullOrEmpty(command.Language)? command.Language : book.Language;
+            book.CopiesAvailable = command.CopiesAvailable ?? book.CopiesAvailable;
+            book.PageCount = command.PageCount ?? book.PageCount;
+            book.ViewCount = command.ViewCount ?? book.ViewCount;
+            book.ISBN = string.IsNullOrEmpty(command.ISBN)? command.ISBN : book.ISBN;
+            book.Price = command.Price ?? book.Price;
+            
+
+            //woah
+            var resultBook = await this.Update(book);
+            return resultBook.ToDetailedDto();
         }
     }
 }

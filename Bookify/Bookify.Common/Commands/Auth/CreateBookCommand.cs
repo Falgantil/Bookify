@@ -14,8 +14,8 @@ namespace Bookify.Common.Commands.Auth
         public int[] Genres { get; set; }
         public int PublisherId { get; set; }
         public string Language { get; set; }
-        public int? CopiesAvailable { get; set; }
-        public int? PageCount { get; set; }
+        public int? CopiesAvailable { get; set; } = 0;
+        public int? PageCount { get; set; } = 0;
         public decimal Price { get; set; }
     }
 }

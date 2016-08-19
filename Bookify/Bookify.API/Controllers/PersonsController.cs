@@ -9,12 +9,14 @@ namespace Bookify.API.Controllers
     public class PersonsController : BaseApiController
     {
         private readonly IPersonRepository personRepository;
+        private readonly IAuthenticationRepository _authenticationRepository;
 
-        public PersonsController(IPersonRepository personRepository)
+        public PersonsController(IPersonRepository personRepository, IAuthenticationRepository authenticationRepository)
         {
             this.personRepository = personRepository;
+            _authenticationRepository = authenticationRepository;
         }
-        
+
         [HttpPost]
         [Authorize]
         [Route("{id}")]
@@ -29,6 +31,15 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Get(int id)
         {
             return await this.Try(async () => await this.personRepository.GetById(id));
+        }
+
+        [HttpGet]
+        //[Authorize]
+        [Route("me")]
+        public async Task<IHttpActionResult> Me()
+        {
+            var t =this.Request.Headers.Authorization.Parameter;
+            return await this.Try(async () => await _authenticationRepository.VerifyToken(t));
         }
 
         [HttpPost]

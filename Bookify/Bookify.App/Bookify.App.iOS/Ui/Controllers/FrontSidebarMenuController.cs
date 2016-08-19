@@ -123,8 +123,8 @@ namespace Bookify.App.iOS.Ui.Controllers
             await this.CloseMenu();
 
             var storyboard = Storyboards.Storyboard.Main;
-            var vc = storyboard.InstantiateViewController(ShoppingBasketViewController.StoryboardIdentifier);
-            var vcShoppingCart = (ShoppingBasketViewController)vc;
+            var vc = storyboard.InstantiateViewController(ShoppingCartViewController.StoryboardIdentifier);
+            var vcShoppingCart = (ShoppingCartViewController)vc;
             var contentAreaController = (UINavigationController)this.SidebarController.ContentAreaController;
             contentAreaController.PushViewController(vcShoppingCart, true);
         }

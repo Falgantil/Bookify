@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\NameHelper.cs" />
+    <Compile Include="Services\JsonCachingRegion.cs" />
+    <Compile Include="Services\CachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IGenreService.cs" />
+    <Compile Include="Services\ShoppingCartService.cs" />
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Services\GenreService.cs" />
     <Compile Include="Interfaces\Services\ICachingRegion.cs" />
@@ -68,7 +71,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
-    <Compile Include="ViewModels\ShoppingBasketViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\SidebarViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

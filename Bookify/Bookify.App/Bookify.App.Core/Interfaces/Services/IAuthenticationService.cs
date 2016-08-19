@@ -25,10 +25,10 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <summary>
         /// Authenticates the user using the provided <see cref="username"/> and <see cref="password"/>.
         /// </summary>
-        /// <param name="username">The username.</param>
+        /// <param name="emailame">The email.</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        Task<PersonDto> Authenticate(string username, string password);
+        Task<PersonDto> Authenticate(string email, string password);
 
         /// <summary>
         /// Deauthenticates the user.

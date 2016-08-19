@@ -69,23 +69,26 @@ namespace Bookify.DataAccess.Repositories
 
         private const string SecretKey = "yuoypr3QeRZkwGcfj24y4XGODwnkXOy1";
 
-        public async Task<Person> VerifyToken(string accessToken)
+        public async Task<PersonDto> VerifyToken(string accessToken)
         {
             var obj = JWT.JsonWebToken.DecodeToObject<Dictionary<string, object>>(accessToken, SecretKey);
-            var issuedDate = DateTimeOffset.FromUnixTimeSeconds((long)obj["issdate"]);
+            var issDate = long.Parse(obj["issdate"].ToString());
+            var issuedDate = DateTimeOffset.FromUnixTimeSeconds(issDate);
             if (issuedDate > DateTimeOffset.Now)
             {
                 throw new InvalidAccessTokenException();
             }
 
-            var expirationDate = DateTimeOffset.FromUnixTimeSeconds((long)obj["expdate"]);
+            var expDate = long.Parse(obj["expdate"].ToString());
+            var expirationDate = DateTimeOffset.FromUnixTimeSeconds(expDate);
             if (expirationDate.ToLocalTime() < DateTimeOffset.Now)
             {
                 throw new InvalidAccessTokenException();
             }
 
             var userId = (int)obj["userid"];
-            return await this.Find(userId);
+            var verifyToken = await this.Find(userId);
+            return verifyToken.ToDto();
         }
     }
 }
