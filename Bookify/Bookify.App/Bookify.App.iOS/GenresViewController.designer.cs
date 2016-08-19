@@ -11,11 +11,19 @@ using UIKit;
 
 namespace Bookify.App.iOS
 {
-    [Register ("BrowseViewController")]
-    partial class BrowseViewController
+    [Register ("GenresViewController")]
+    partial class GenresViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView tblContent { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (tblContent != null) {
+                tblContent.Dispose ();
+                tblContent = null;
+            }
         }
     }
 }

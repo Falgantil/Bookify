@@ -101,9 +101,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="BrowseViewController.cs" />
-    <Compile Include="BrowseViewController.designer.cs">
-      <DependentUpon>BrowseViewController.cs</DependentUpon>
+    <Compile Include="GenresViewController.cs" />
+    <Compile Include="GenresViewController.designer.cs">
+      <DependentUpon>GenresViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenreTableCell.cs" />
+    <Compile Include="GenreTableCell.designer.cs">
+      <DependentUpon>GenreTableCell.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchTableViewController.cs" />
     <Compile Include="SearchTableViewController.designer.cs">
@@ -142,6 +146,7 @@
     </Compile>
     <Compile Include="Ui\DataSources\ReviewsDataSource.cs" />
     <Compile Include="Ui\Helpers\BindingHelper.cs" />
+    <Compile Include="Ui\Helpers\SharedMethods.cs" />
     <Compile Include="Ui\Storyboards\Storyboard.cs" />
     <Compile Include="Ui\Controllers\FrontTabBarController.cs" />
     <Compile Include="Ui\Controllers\FrontTabBarController.designer.cs">
@@ -205,6 +210,7 @@
     <BundleResource Include="Resources\Icons\Search.png" />
     <BundleResource Include="Resources\Icons\Search%402x.png" />
     <BundleResource Include="Resources\Icons\Search%403x.png" />
+    <Compile Include="Ui\TableCells\ExtendedTableViewCell.cs" />
     <Compile Include="Ui\Views\BookTableCell.cs" />
     <Compile Include="Ui\Views\BookTableCell.designer.cs">
       <DependentUpon>BookTableCell.cs</DependentUpon>

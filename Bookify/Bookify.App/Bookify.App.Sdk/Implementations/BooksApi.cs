@@ -7,31 +7,39 @@ using Newtonsoft.Json;
 
 namespace Bookify.App.Sdk.Implementations
 {
-    public class BookApi : BaseApi, IBookApi
+    public class BooksApi : BaseApi, IBooksApi
     {
-        public BookApi()
+        public BooksApi()
             : base(ApiConfig.BooksRoot)
         {
         }
 
-        public async Task<IEnumerable<BookDto>> GetAll(int index, int count, string searchText)
+        public async Task<IPaginatedEnumerable<BookDto>> GetItems(BookFilter filter)
         {
             var request = new RequestBuilder()
                 .BaseUri(this.Url)
-                .AddQuery("index", index)
-                .AddQuery("count", count);
+                .AddQuery(nameof(filter.Index), filter.Index)
+                .AddQuery(nameof(filter.Count), filter.Count);
 
-            if (!string.IsNullOrEmpty(searchText))
+            if (!string.IsNullOrEmpty(filter.SearchText))
             {
-                request.AddQuery("searchText", searchText);
+                request.AddQuery(nameof(filter.SearchText), filter.SearchText);
             }
-            
+
+            if (filter.GenreIds != null)
+            {
+                foreach (var genreId in filter.GenreIds)
+                {
+                    request.AddQuery(nameof(filter.GenreIds), genreId);
+                }
+            }
+
             var response = await this.ExecuteRequest(request);
             var json = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<PaginatedEnumerable<BookDto>>(json);
         }
 
-        public async Task<BookDto> Get(int id)
+        public async Task<DetailedBookDto> Get(int id)
         {
             var request = new RequestBuilder()
                 .BaseUri(this.CombineUrl("{id}"))
@@ -39,7 +47,7 @@ namespace Bookify.App.Sdk.Implementations
 
             var response = await this.ExecuteRequest(request);
             var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BookDto>(json);
+            return JsonConvert.DeserializeObject<DetailedBookDto>(json);
         }
     }
 }

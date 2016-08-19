@@ -3,8 +3,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-
+using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
+using Bookify.App.Sdk.Interfaces;
+using Bookify.Common.Filter;
 using Bookify.Common.Models;
 using Polly;
 
@@ -12,44 +14,23 @@ namespace Bookify.App.Core.ViewModels
 {
     public class FeaturedViewModel : BaseViewModel
     {
-        private readonly IBookService bookService;
+        private readonly IBooksApi booksApi;
 
-        public FeaturedViewModel(IBookService bookService)
+        public FeaturedViewModel(IBooksApi booksApi)
         {
-            this.bookService = bookService;
+            this.booksApi = booksApi;
+            var filter = new BookFilter
+            {
+                Count = 2
+            };
+            this.Books = new ObservableApiCollection<BookDto, BookFilter, IBooksApi>(this.booksApi, filter);
         }
 
-        public ObservableCollection<BookDto> Books { get; } = new ObservableCollection<BookDto>();
+        public ObservableApiCollection<BookDto, BookFilter, IBooksApi> Books { get; }
 
-        public async Task<IEnumerable<BookDto>> LoadBooks(int index, int count)
+        public async Task<DetailedBookDto> GetBook(int id)
         {
-            var result = await
-                         Policy.Handle<WebException>()
-                             .RetryAsync()
-                             .ExecuteAndCaptureAsync(async () => await this.bookService.GetBooks(index, count, string.Empty));
-            if (result.Outcome == OutcomeType.Failure)
-            {
-                return null;
-            }
-            var newBooks = result.Result.ToArray();
-            foreach (var book in newBooks)
-            {
-                this.Books.Add(book);
-            }
-            return newBooks;
-        }
-
-        public async Task<BookDto> GetBook(int id)
-        {
-            var result = await
-                         Policy.Handle<WebException>()
-                             .RetryAsync()
-                             .ExecuteAndCaptureAsync(async () => await this.bookService.GetBook(id));
-            if (result.Outcome == OutcomeType.Failure)
-            {
-                return null;
-            }
-            return result.Result;
+            return await this.booksApi.Get(id);
         }
     }
 }

@@ -42,10 +42,6 @@ namespace Bookify.App.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblComment { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblDate { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
             if (imgRating1 != null) {
@@ -81,11 +77,6 @@ namespace Bookify.App.iOS
             if (lblComment != null) {
                 lblComment.Dispose ();
                 lblComment = null;
-            }
-
-            if (lblDate != null) {
-                lblDate.Dispose ();
-                lblDate = null;
             }
         }
     }

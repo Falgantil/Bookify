@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 
 using Bookify.App.Sdk.Exceptions;
-
 using ModernHttpClient;
 
 namespace Bookify.App.Sdk.Implementations

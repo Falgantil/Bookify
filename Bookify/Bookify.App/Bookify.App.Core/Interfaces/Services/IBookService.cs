@@ -8,6 +8,6 @@ namespace Bookify.App.Core.Interfaces.Services
     {
         Task<IEnumerable<BookDto>> GetBooks(int index, int count, string searchText);
 
-        Task<BookDto> GetBook(int id);
+        Task<DetailedBookDto> GetBook(int id);
     }
 }

@@ -40,6 +40,7 @@
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\ObservableApiCollection.cs" />
     <Compile Include="Helpers\NameHelper.cs" />
     <Compile Include="Services\JsonCachingRegion.cs" />
     <Compile Include="Services\CachingRegionFactory.cs" />

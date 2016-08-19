@@ -42,10 +42,12 @@
     <Compile Include="Implementations\BaseApi.cs" />
     <Compile Include="ApiConfig.cs" />
     <Compile Include="Exceptions\HttpResponseException.cs" />
-    <Compile Include="Implementations\BookApi.cs" />
+    <Compile Include="Implementations\BooksApi.cs" />
+    <Compile Include="Implementations\GenresApi.cs" />
+    <Compile Include="Interfaces\IGenresApi.cs" />
     <Compile Include="Implementations\PersonApi.cs" />
     <Compile Include="Interfaces\IAuthenticationApi.cs" />
-    <Compile Include="Interfaces\IBookApi.cs" />
+    <Compile Include="Interfaces\IBooksApi.cs" />
     <Compile Include="Interfaces\IPersonApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,62 +3,39 @@ using System;
 using System.Collections.Generic;
 using Bookify.App.Core.Models;
 using Bookify.App.iOS.Ui.Helpers;
+using Bookify.App.iOS.Ui.TableCells;
+using Bookify.App.iOS.Ui.Views;
+using Bookify.Common.Models;
 using Rope.Net;
 using Rope.Net.iOS;
 using UIKit;
 
 namespace Bookify.App.iOS
 {
-    public partial class ReviewTableCell : UITableViewCell
+    public partial class ReviewTableCell : ExtendedTableViewCell<ReviewModel>
     {
         public const string ReuseIdentifier = "ReviewTblCell";
-
-        private ReviewModel model;
-
-        private readonly List<IBinding> bindings = new List<IBinding>();
-
-
+        
         public ReviewTableCell()
-            : base(UITableViewCellStyle.Default, ReuseIdentifier)
+            : base(ReuseIdentifier)
         {
         }
 
-        protected internal ReviewTableCell(IntPtr handle)
+        protected ReviewTableCell(IntPtr handle)
             : base(handle)
         {
         }
 
-        public void Initialize(ReviewModel book)
+        protected override IEnumerable<IBinding> Register()
         {
-            this.Unregister();
-            this.model = book;
-            this.Register();
+            yield return this.lblAuthor.BindText(this.Model, m => m.Author);
+            yield return this.lblComment.BindText(this.Model, m => m.Message);
+            yield return this.BindRating(this.Model, m => m.Rating, this.imgRating1, this.imgRating2, this.imgRating3, this.imgRating4, this.imgRating5);
         }
 
-        private void Unregister()
+        public static ReviewTableCell CreateCell(UITableView table, NSIndexPath index, ReviewModel review)
         {
-            if (this.model == null)
-            {
-                return;
-            }
-            this.bindings.ForEach(b => b.Dispose());
-            this.bindings.Clear();
-        }
-
-        private void Register()
-        {
-            this.bindings.Add(this.lblDate.Bind(this.model, m => m.CreatedTs, (lbl, date) => lbl.Text = date.ToShortDateString()));
-            this.bindings.Add(this.lblAuthor.BindText(this.model, m => m.Author));
-            this.bindings.Add(this.lblComment.BindText(this.model, m => m.Message));
-            this.bindings.Add(this.BindRating(this.model, m => m.Rating, this.imgRating1, this.imgRating2, this.imgRating3, this.imgRating4, this.imgRating5));
-        }
-
-        public static ReviewTableCell CreateCell(UITableView table, NSIndexPath index, ReviewModel book)
-        {
-            var cell = table.DequeueReusableCell(ReuseIdentifier, index);
-            var bookCell = cell as ReviewTableCell ?? new ReviewTableCell();
-            bookCell.Initialize(book);
-            return bookCell;
+            return CreateCell<ReviewTableCell, ReviewModel>(ReuseIdentifier, table, index, review);
         }
     }
 }
