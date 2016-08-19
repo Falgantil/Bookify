@@ -54,7 +54,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPut]
-            
+        [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, [FromBody]UpdateBookCommand command)
         {

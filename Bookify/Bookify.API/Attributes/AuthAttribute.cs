@@ -16,9 +16,9 @@ namespace Bookify.API.Attributes
             // get token from header
             var token = actionContext.Request.Headers.Authorization.Parameter;
             // validate token and return person
-            var personAuthDto = AuthenticationRepository.VerifyToken(token).Result;
+            var personAuthDto = AuthenticationRepository.VerifyToken(token);
             var rolesList = Roles.Split(',');
-            if (rolesList.Length == 0)
+            if (rolesList.Length == 0 || rolesList[0] == string.Empty)
                 return true;
             foreach (var role in personAuthDto.AuthTokenDto.Roles)
             {

@@ -1,7 +1,10 @@
-﻿using Bookify.Common.Commands.Auth;
+﻿using System;
+using System.Net;
+using Bookify.Common.Commands.Auth;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Bookify.API.Attributes;
+using Bookify.Common.Exceptions;
 using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
@@ -42,7 +45,29 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Me()
         {
             var token = this.Request.Headers.Authorization.Parameter;
-            return await this.Try(async () => await _authenticationRepository.VerifyToken(token));
+            try
+            {
+                return Ok(_authenticationRepository.VerifyToken(token));
+            }
+            catch (ApiException ex)
+            {
+                return this.Content((HttpStatusCode)ex.StatusCode, new
+                {
+                    Message = ex.Message,
+                    StatusCode = ex.StatusCode
+                });
+            }
+            catch (Exception e)
+            {
+                return this.Content(
+                    HttpStatusCode.InternalServerError,
+                    new
+                    {
+                        Message = "An unknown error occurred on the server.",
+                        ExceptionMessage = e.Message,
+                        ExceptionInnerMessage = e.InnerException?.Message
+                    });
+            }
         }
 
         [HttpPost]
