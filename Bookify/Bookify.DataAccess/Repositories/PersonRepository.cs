@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Linq;
 
@@ -79,6 +80,33 @@ namespace Bookify.DataAccess.Repositories
             }
             person = await this.Update(person);
             return person.ToDto();
+        }
+
+        public async Task Subscibe(int personId, decimal paid)
+        {
+            var subscription = new Subscription
+            {
+                PersonId = personId,
+                Created = DateTime.Now,
+                Expires = DateTime.Now.AddMonths(1),
+                Paid = paid
+            };
+
+            this.Context.Subscriptions.Add(subscription);
+            await this.Context.SaveChangesAsync();
+        }
+
+        public async Task<bool> HasSubscription(int personId)
+        {
+            var subscription =
+                await
+                    this.Context.Subscriptions.Where(x => x.PersonId == personId)
+                        .OrderByDescending(x => x.Id)
+                        .FirstOrDefaultAsync();
+            if (subscription == null)
+                throw new NullReferenceException();
+
+            return (subscription.Created > DateTime.Now && subscription.Expires < DateTime.Now);
         }
     }
 }

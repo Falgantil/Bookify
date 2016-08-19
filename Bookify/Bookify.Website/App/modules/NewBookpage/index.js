@@ -4,21 +4,21 @@ import {observable} from "mobx";
 import { Link, browserHistory } from 'react-router'
 import bookifyapi from '../util/bookifyapi';
 import NewBookViewModel from './newbook-view-model';
+import _ from 'lodash';
+import $ from 'jquery';
 
-const CheckBoxView = ({id, value}) => (
-    /*
-    <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-      <input type="checkbox" id="checkbox-1" className="mdl-checkbox__input" checked />
-      <span className="mdl-checkbox__label">Checkbox</span>
-    </label>
-    */
-
-   <div className="checkbox">
-    <label>
-      <input type="checkbox"/> Check me out
-    </label>
-  </div>
-)
+const CheckBoxView = observer(({model, genre}) => (
+    <div className="col-xs-3">
+        <label>
+            <input type="checkbox"
+                checked={model.genres.indexOf(genre.id) > -1}
+                onChange={(e) => {
+                    model.toggleGenre(genre.id, e.target.checked);
+                } }
+                /> {genre.name}
+        </label>
+    </div>
+))
 
 @observer
 class NewBookpage extends React.Component {
@@ -27,21 +27,23 @@ class NewBookpage extends React.Component {
     this.model = new NewBookViewModel();
     this.model.loadGenres();
     this.state = {
-      showError: false,
+      showError: false
     };
   }
 
   async submit(e) {
     e.preventDefault();
-    var success = await this.model.submit();
-    browserHistory.push('/book/1');
+    var formData = new FormData();
+    formData.append('cover', this.refs.coverInput.files[0]);
+    //var x = await bookifyapi.postBookCover(23, formData, (data) => { console.log(data); } );
+    this.model.submit(e);
   }
 
   render() {
     return (
       <div className="row">
 
-      <form onSubmit={(e) => this.submit(e)}>
+      <form ref="uploadForm" onSubmit={(e) => this.submit(e)}>
 <div className="form-horizontal">
         <h4>Ny bog</h4>
 
@@ -71,17 +73,24 @@ class NewBookpage extends React.Component {
         </div>
 <br/>
         <div>
-            <label htmlFor="exampleInputFile">Cover</label>
-            <input type="file" id="exampleInputFile" />
-            <p >Example block-level help text here.</p>
+            <label>Cover</label>
+            <input type="file" name="coverInput" ref="coverInput" />
           </div>
 
         <div className="form-group">
             <div className="col-md-6">
-                <select name="languageSelect" id="" className="form-control" value={this.model.language} onChange={(e) => this.model.language = e.target.value } required>
+                <select id="" className="form-control" value={this.model.language} onChange={(e) => this.model.language = e.target.value } required>
                   <option value="dansk">Dansk</option>
                   <option value="engelsk">Engelsk</option>
                 </select>
+            </div>
+        </div>
+
+        <div>
+        <label>Genre</label>
+            <br/>
+            <div className="row">
+            { this.model.availableGenres.map((genre) => <CheckBoxView key={genre.id} model={this.model} genre={genre} />) }
             </div>
         </div>
 
@@ -116,10 +125,6 @@ class NewBookpage extends React.Component {
         </div>
     </div>
       </form>
-
-
-{ this.model.genres.map((genre, index) => <CheckBoxView key={index} value={genre.name} />) }
-
 
       </div>
     )

@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Web.Http;
-
-using Bookify.API.Controllers;
-
+﻿using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -34,9 +30,6 @@ namespace Bookify.API
                     ContractResolver = new CamelCasePropertyNamesContractResolver()
                 }
             });
-
-            //config.Filters.Add(new AuthAttribute());
-
         }
     }
 }

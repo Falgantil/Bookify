@@ -57,6 +57,9 @@ namespace Bookify.DataAccess.Repositories
             if (file.Exists() && overWrite)
             {
                 await file.DeleteAsync();
+            }
+            else if (!file.Exists())
+            {
                 await file.UploadFromStreamAsync(source);
             }
             else

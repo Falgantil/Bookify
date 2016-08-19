@@ -1,39 +1,33 @@
 ﻿using Bookify.Common.Commands.Auth;
 using Bookify.Common.Enums;
-using Bookify.Common.Exceptions;
 using Bookify.Common.Filter;
-using Bookify.DataAccess.Models;
 using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.API.Attributes;
 using Bookify.Common.Repositories;
+using Bookify.DataAccess.Models;
 
 namespace Bookify.API.Controllers
 {
     [RoutePrefix("books")]
     public class BooksController : BaseApiController
     {
-        private readonly IBookRepository bookRepository;
-        private readonly IBookHistoryRepository bookHistoryRepository;
-        private readonly IPersonRepository personRepository;
-        private readonly IBookOrderRepository bookOrderRepository;
-        private readonly IBookFeedbackRepository bookFeedbackRepository;
-        private readonly IFileServerRepository fileServerRepository;
+        private readonly IBookRepository _bookRepository;
+        private readonly IBookHistoryRepository _bookHistoryRepository;
+        private readonly IPersonRepository _personRepository;
+        private readonly IBookOrderRepository _bookOrderRepository;
+        private readonly IBookFeedbackRepository _bookFeedbackRepository;
+        private readonly IFileServerRepository _fileServerRepository;
 
         public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
         {
-            this.bookRepository = bookRepository;
-            this.bookHistoryRepository = bookHistoryRepository;
-            this.personRepository = personRepository;
-            this.bookOrderRepository = bookOrderRepository;
-            this.bookFeedbackRepository = bookFeedbackRepository;
-            this.fileServerRepository = fileServerRepository;
+            this._bookRepository = bookRepository;
+            this._bookHistoryRepository = bookHistoryRepository;
+            this._personRepository = personRepository;
+            this._bookOrderRepository = bookOrderRepository;
+            this._bookFeedbackRepository = bookFeedbackRepository;
+            this._fileServerRepository = fileServerRepository;
         }
 
         [HttpGet]
@@ -41,35 +35,34 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Get([FromUri]BookFilter filter = null)
         {
             filter = filter ?? new BookFilter();
-            return await this.Try(() => this.bookRepository.GetByFilter(filter));
+            return await this.Try(() => this._bookRepository.GetByFilter(filter));
         }
 
         [HttpGet]
         [Route("{id}")]
         public async Task<IHttpActionResult> Get(int id)
         {
-            return await this.Try(() => this.bookRepository.GetById(id));
+            return await this.Try(() => this._bookRepository.GetById(id));
         }
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("")]
         public async Task<IHttpActionResult> Create([FromBody]CreateBookCommand command)
         {
-            return await this.Try(() => this.bookRepository.CreateBook(command));
+            return await this.Try(() => this._bookRepository.CreateBook(command));
         }
 
         [HttpPut]
-        [Authorize]
+            
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, [FromBody]UpdateBookCommand command)
         {
-            command.BookId = id;
-            return await this.Try(() => this.bookRepository.EditBook(command));
+            return await this.Try(() => this._bookRepository.EditBook(id, command));
         }
 
         [HttpDelete]
-        [Authorize]
+        [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Delete(int id)
         {
@@ -79,34 +72,18 @@ namespace Bookify.API.Controllers
                 Type = BookHistoryType.Deleted,
                 Created = DateTime.Now
             };
-            return await this.Try(() => this.bookHistoryRepository.AddHistory(command));
+            return await this.Try(() => this._bookHistoryRepository.AddHistory(command));
         }
 
         [HttpGet]
-        [Authorize]
+        [Auth]
         [Route("{id}/history")]
         public async Task<IHttpActionResult> History(int id)
         {
-            return await this.Try(() => this.bookHistoryRepository.GetHistoryForBook(id));
+            return await this.Try(() => this._bookHistoryRepository.GetHistoryForBook(id));
         }
 
-        [HttpPost]
-        //[Authorize]
-        [Route("{id}/Test")]
-        public async Task<IHttpActionResult> Test(int id)
-        {
-            return await this.Try(
-                async () =>
-                {
-                    HttpRequestMessage requestMessage = this.Request;
-                    if (!requestMessage.Content.IsMimeMultipartContent())
-                        throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
-
-
-
-                    //await this.fileServerRepository.SaveEpubFile(id, )
-                });
-        }
+       
 
         //[HttpPut]
         //[Route("{id}/buy")]
@@ -131,7 +108,7 @@ namespace Bookify.API.Controllers
         //}
 
         //[HttpGet]
-        //[Authorize]
+        //[Auth]
         //[Route("{id}/download")]
         //public async Task<IHttpActionResult> Download(int id)
         //{
@@ -144,15 +121,15 @@ namespace Bookify.API.Controllers
         //}
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("{id}/review")]
         public async Task<IHttpActionResult> Review(int id, CreateFeedbackCommand command)
         {
-            return await this.Try(() => this.bookFeedbackRepository.CreateFeedback(id, command));
+            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, command));
         }
 
         //[HttpGet]
-        //[Authorize]
+        //[Auth]
         //[Route("{id}/read")]
         //public async Task<IHttpActionResult> Read(int id)
         //{
@@ -161,48 +138,11 @@ namespace Bookify.API.Controllers
         //}
 
         [HttpGet]
-        [Authorize]
+        [Auth]
         [Route("{id}/statistics")]
         public async Task<IHttpActionResult> Statistics(int id)
         {
-            return await this.Try(async () => await this.bookRepository.FindForStatistics(id));
-        }
-
-        [HttpGet]
-        [Route("{id}/cover")]
-        public async Task<IHttpActionResult> Cover(int id, [FromUri]int? width = null, [FromUri]int? height = null)
-        {
-            return await this.TryRaw(
-                async () =>
-                    {
-                        var stream = await this.fileServerRepository.GetCoverFile(id);
-                        if (stream == null)
-                        {
-                            throw new NotFoundException("The specified book does not contain a cover image.");
-                        }
-
-                        using (var ms = new MemoryStream())
-                        using (var img = Image.FromStream(stream))
-                        {
-
-                            var thumbnail = img.GetThumbnailImage(
-                                width ?? img.Width,
-                                height ?? img.Height,
-                                null,
-                                new IntPtr());
-                            thumbnail.Save(ms, ImageFormat.Png);
-
-                            var response = new HttpResponseMessage(HttpStatusCode.OK)
-                            {
-                                Content =
-                                    new ByteArrayContent(ms.ToArray())
-                                    {
-                                        Headers = { ContentType = new MediaTypeHeaderValue("image/png") }
-                                    }
-                            };
-                            return this.ResponseMessage(response);
-                        }
-                    });
+            return await this.Try(async () => await this._bookRepository.FindForStatistics(id));
         }
     }
 }

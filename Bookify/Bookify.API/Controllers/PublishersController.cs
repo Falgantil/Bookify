@@ -2,11 +2,12 @@
 using Bookify.Common.Filter;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.API.Attributes;
 using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
-    [Authorize]
+    [Auth]
     [RoutePrefix("publishers")]
     public class PublishersController : BaseApiController
     {

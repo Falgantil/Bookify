@@ -2,6 +2,7 @@
 using Bookify.Common.Filter;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.API.Attributes;
 using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
@@ -24,7 +25,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPut]
-        [Authorize]
+        [Auth]
         [Route("")]
         public async Task<IHttpActionResult> Create([FromBody]CreateGenreCommand command)
         {
@@ -32,7 +33,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, UpdateGenreCommand command)
         {
