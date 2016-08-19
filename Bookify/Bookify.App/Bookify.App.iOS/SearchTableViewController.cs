@@ -9,7 +9,7 @@ using UIKit;
 
 namespace Bookify.App.iOS
 {
-    public partial class SearchTableViewController : BaseSearchTableViewController
+    public partial class SearchTableViewController : BaseSearchTableViewController, IUISearchResultsUpdating
     {
         private UISearchController searchController;
         private ResultsTableController resultsTableController;
@@ -30,7 +30,7 @@ namespace Bookify.App.iOS
             {
                 WeakDelegate = this,
                 DimsBackgroundDuringPresentation = false,
-                WeakSearchResultsUpdater = this
+                SearchResultsUpdater = this
             };
 
             this.searchController.SearchBar.SizeToFit();
@@ -71,8 +71,7 @@ namespace Bookify.App.iOS
         {
             searchBar.ResignFirstResponder();
         }
-
-        [Export("updateSearchResultsForSearchController:")]
+        
         public virtual void UpdateSearchResultsForSearchController(UISearchController searchController)
         {
             this.ViewModel.SearchText = searchController.SearchBar.Text;

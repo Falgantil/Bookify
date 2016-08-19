@@ -9,7 +9,7 @@ import NewBookpage from './modules/NewBookpage'
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <Route path="/booknew" component={NewBookpage}/>
+      <Route path="/book/new" component={NewBookpage}/>
       <Route path="/book/:bookId" component={Bookpage}/>
       <Route path="/loginpage" component={Loginpage}/>
     </Route>
