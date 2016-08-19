@@ -126,10 +126,9 @@ namespace Bookify.DataAccess.Repositories
             return book.ToDetailedDto();
         }
 
-        public async Task<DetailedBookDto> EditBook(UpdateBookCommand command)
+        public async Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command)
         {
-            if (!command.BookId.HasValue) return null;
-            var book = await this.Find(command.BookId.Value);
+            var book = await this.Find(id);
             List<Genre> dbGenres = new List<Genre>();
             if (command.Genres.Any())
             {
@@ -143,20 +142,20 @@ namespace Bookify.DataAccess.Repositories
             }
 
             // Commence updating book...
-            book.Title = command.Title ?? book.Title;
-            book.Summary = command.Summary ?? book.Title;
-            book.AuthorId = command.AuthorId ?? book.AuthorId;
+            book.Title = string.IsNullOrEmpty(command.Title)? command.Title : book.Title;
+            book.Summary = string.IsNullOrEmpty(command.Summary)? command.Summary : book.Summary;
+            book.AuthorId = command.AuthorId > 0 ? command.AuthorId.Value : book.AuthorId;
             book.PublishYear = command.PublishYear ?? book.PublishYear;
             if (dbGenres.Any())
             {
                 book.Genres = dbGenres.Select(genre => genre).ToList();
             }
-            book.PublisherId = command.PublisherId ?? book.PublisherId;
-            book.Language = command.Language ?? book.Language;
+            book.PublisherId = command.PublisherId > 0 ? command.PublisherId.Value : book.PublisherId;
+            book.Language = string.IsNullOrEmpty(command.Language)? command.Language : book.Language;
             book.CopiesAvailable = command.CopiesAvailable ?? book.CopiesAvailable;
             book.PageCount = command.PageCount ?? book.PageCount;
             book.ViewCount = command.ViewCount ?? book.ViewCount;
-            book.ISBN = command.ISBN ?? book.ISBN;
+            book.ISBN = string.IsNullOrEmpty(command.ISBN)? command.ISBN : book.ISBN;
             book.Price = command.Price ?? book.Price;
             
 

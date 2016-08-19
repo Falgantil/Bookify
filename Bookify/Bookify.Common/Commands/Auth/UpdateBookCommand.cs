@@ -5,7 +5,6 @@ namespace Bookify.Common.Commands.Auth
     public class UpdateBookCommand
     {
         public string ISBN;
-        public int? BookId { get; set; }
         public IEnumerable<int> Genres { get; set; }
         public string Title { get; set; }
         public string Summary { get; set; }
