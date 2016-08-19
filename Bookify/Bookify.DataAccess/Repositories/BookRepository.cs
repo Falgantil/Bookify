@@ -81,7 +81,7 @@ namespace Bookify.DataAccess.Repositories
                 g.Books = new Book[0];
             }
 
-            return new PaginatedEnumerable<BookDto>(collection.Select(b => b.ToDto()), totalCount, index, count);
+            return new PaginatedEnumerable<BookDto>(collection.Select(b => b.ToDto()), totalCount);
         }
 
         public async Task<BookStatisticsDto> FindForStatistics(int id)

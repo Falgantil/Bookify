@@ -33,10 +33,8 @@ namespace Bookify.App.Sdk.Implementations
                     request.AddQuery(nameof(filter.GenreIds), genreId);
                 }
             }
-
-            var response = await this.ExecuteRequest(request);
-            var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<PaginatedEnumerable<BookDto>>(json);
+            
+            return await this.ExecuteAndParse<PaginatedEnumerable<BookDto>>(request);
         }
 
         public async Task<DetailedBookDto> Get(int id)

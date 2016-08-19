@@ -1,9 +1,11 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 using Bookify.Common.Exceptions;
+using Bookify.Common.Filter;
 
 namespace Bookify.API.Controllers
 {
@@ -14,7 +16,9 @@ namespace Bookify.API.Controllers
             return await this.TryRaw(async () =>
             {
                 var content = await operation();
-                return this.Ok(content);
+                var response = this.Ok(content);
+                this.AddPaginationHeader(content as IPaginatedEnumerable);
+                return response;
             });
         }
 
@@ -53,11 +57,15 @@ namespace Bookify.API.Controllers
                     });
             }
         }
-
-
-        //public Task<IHttpActionResult> Try<T>(Task<T> operation)
-        //{
-        //    return this.Try(() => operation);
-        //}
+        
+        private void AddPaginationHeader(IPaginatedEnumerable paginated)
+        {
+            if (paginated != null)
+            {
+                const string HeaderTotalCount = "X-TotalCount";
+                var response = HttpContext.Current.Response;
+                response.Headers[HeaderTotalCount] = paginated.TotalCount.ToString();
+            }
+        }
     }
 }

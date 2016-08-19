@@ -23,9 +23,7 @@ namespace Bookify.App.Sdk.Implementations
             {
                 request.AddQuery(nameof(filter.SearchText), filter.SearchText);
             }
-            var response = await this.ExecuteRequest(request);
-            var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<PaginatedEnumerable<GenreDto>>(json);
+            return await this.ExecuteAndParse<PaginatedEnumerable<GenreDto>>(request);
         }
     }
 }

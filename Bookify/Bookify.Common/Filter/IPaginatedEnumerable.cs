@@ -6,8 +6,6 @@ namespace Bookify.Common.Filter
     public interface IPaginatedEnumerable : IEnumerable
     {
         int TotalCount { get; set; }
-        int Index { get; set; }
-        int Amount { get; set; }
     }
 
     public interface IPaginatedEnumerable<T> : IPaginatedEnumerable, IEnumerable<T>
@@ -17,19 +15,14 @@ namespace Bookify.Common.Filter
 
     public class PaginatedEnumerable<T> : List<T>, IPaginatedEnumerable<T>
     {
-        public PaginatedEnumerable(IEnumerable<T> collection, int totalCount, int index, int amount)
-            : base(collection)
+        public PaginatedEnumerable(IEnumerable<T> collection, int totalCount) : base(collection)
         {
             this.TotalCount = totalCount;
-            this.Index = index;
-            this.Amount = amount;
         }
 
-        public PaginatedEnumerable(int totalCount, int index, int amount)
+        public PaginatedEnumerable(int totalCount)
         {
             this.TotalCount = totalCount;
-            this.Index = index;
-            this.Amount = amount;
         }
 
         public PaginatedEnumerable()
@@ -38,9 +31,5 @@ namespace Bookify.Common.Filter
         }
 
         public int TotalCount { get; set; }
-
-        public int Index { get; set; }
-
-        public int Amount { get; set; }
     }
 }
