@@ -2,7 +2,8 @@ import $ from 'jquery';
 import http from './http';
 
 let baseUrl = 'http://bookifyapi.azurewebsites.net/';
-let authToken = '';
+//let baseUrl = 'http://localhost:13654/';
+let authToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3NkYXRlIjoxNDcxNjA5MTMyLCJleHBkYXRlIjoxNTAzMTQ1MTMyLCJ1c2VyaWQiOjV9.fyv68ofK4E8lyE7hJTVVG9QgY85dWC4YbwkAF7CN4yY';
 
 class BookifyAPI {
   getBaseUrl() { return baseUrl; }
@@ -15,8 +16,19 @@ class BookifyAPI {
   getBookThumbnailSrc(id) { return baseUrl + 'books/' + id + '/cover'; }
   getRelatedBooks(id) { return http.get(baseUrl + 'books?search' + id); }
 
-  postBook(book) { http.post('http://localhost:9180/books/create', book); }
-  postBookCover(bookId, data) { http.post(baseUrl + 'files/' + bookId + '/UploadCover', data, { processData: false, contentType: false, Authorization: 'jwt' + authToken }); }
+  postBook(book) { http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
+  postBookCover(bookId, data, callback) {
+    $.ajax({
+      url: 'http://localhost:13654/' + 'files/' + bookId + '/UploadCover',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      header: { 'Authorization': 'jwt ' + authToken },
+      data: data,
+      success: function () { callback(true); },
+      error: function() { callback(false); }
+    });
+  }
 
   getGenres() { return http.get('http://localhost:9180/books/genres'); }
 
