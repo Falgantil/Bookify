@@ -64,8 +64,7 @@ namespace Bookify.API.Controllers
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, [FromBody]UpdateBookCommand command)
         {
-            command.BookId = id;
-            return await this.Try(() => this.bookRepository.EditBook(command));
+            return await this.Try(() => this.bookRepository.EditBook(id, command));
         }
 
         [HttpDelete]

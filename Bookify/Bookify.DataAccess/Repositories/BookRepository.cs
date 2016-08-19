@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
 using Bookify.Common.Commands.Auth;
+using Bookify.Common.Exceptions;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
 using Bookify.Common.Repositories;
@@ -129,6 +130,7 @@ namespace Bookify.DataAccess.Repositories
         public async Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command)
         {
             var book = await this.Find(id);
+            if (book == null) throw  new NotFoundException($"the requested item with id: {id} could not be found");
             List<Genre> dbGenres = new List<Genre>();
             if (command.Genres.Any())
             {
