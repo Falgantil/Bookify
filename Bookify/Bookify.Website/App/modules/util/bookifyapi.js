@@ -1,12 +1,12 @@
 import $ from 'jquery';
 import http from './http';
 
-//let baseUrl = 'http://localhost:9180/';
 let baseUrl = 'http://bookifyapi.azurewebsites.net/';
 let authToken = '';
 
 class BookifyAPI {
   getBaseUrl() { return baseUrl; }
+  getAuthToken() { return authToken; }
 
   // Books
   getBooks() { return http.get(baseUrl + 'books');  }
@@ -16,6 +16,8 @@ class BookifyAPI {
   getRelatedBooks(id) { return http.get(baseUrl + 'books?search' + id); }
 
   postBook(book) { http.post('http://localhost:9180/books/create', book); }
+  postBookCover(bookId, data) { http.post(baseUrl + 'files/' + bookId + '/UploadCover', data, { processData: false, contentType: false, Authorization: 'jwt' + authToken }); }
+
   getGenres() { return http.get('http://localhost:9180/books/genres'); }
 
   // Auth

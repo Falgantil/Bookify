@@ -19,6 +19,7 @@ class Loginpage extends React.Component {
   async submit(e) {
     e.preventDefault();
     var success = await this.model.submit();
+    console.log(bookifyapi.getAuthToken());
     if (!success) {
       this.setState({ showError: true });
     }
