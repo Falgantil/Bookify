@@ -7,7 +7,7 @@ import bookifyapi from '../util/bookifyapi';
 
 const BookView = ({ model, book }) => (
   <Link className="col-lg-2 col-md-2 col-sm-2 col-xs-4" to={"/book/" + book.Id}>
-      <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" />
+      <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" width="100" height="145" />
   </Link>
 )
 
