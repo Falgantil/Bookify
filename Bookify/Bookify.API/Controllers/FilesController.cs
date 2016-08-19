@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.API.Attributes;
 using Bookify.API.Provider;
 using Bookify.Common.Repositories;
 
@@ -22,9 +23,7 @@ namespace Bookify.API.Controllers
         #region Epub
 
         [HttpPost]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/UploadEpub")]
         public async Task<IHttpActionResult> UploadEpub(int id)
         {
@@ -51,9 +50,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpGet]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/DownloadEpub")]
         public async Task<IHttpActionResult> DownloadEpub(int id)
         {
@@ -75,9 +72,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpDelete]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/DeleteEpub")]
         public async Task<IHttpActionResult> DeleteEpub(int id)
         {
@@ -88,9 +83,7 @@ namespace Bookify.API.Controllers
                 });
         }
         [HttpPut]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/ReplaceEpub")]
         public async Task<IHttpActionResult> ReplaceEpub(int id)
         {
@@ -121,9 +114,7 @@ namespace Bookify.API.Controllers
         #region Cover
 
         [HttpPost]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/UploadCover")]
         public async Task<IHttpActionResult> UploadCover(int id)
         {
@@ -153,9 +144,7 @@ namespace Bookify.API.Controllers
 
 
         [HttpGet]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/DownloadCover")]
         public async Task<IHttpActionResult> DownloadCover(int id)
         {
@@ -179,9 +168,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpDelete]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/DeleteCover")]
         public async Task<IHttpActionResult> DeleteCover(int id)
         {
@@ -193,9 +180,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPut]
-#if !DEBUG
         [Auth]
-#endif
         [Route("{id}/ReplaceCover")]
         public async Task<IHttpActionResult> ReplaceCover(int id)
         {

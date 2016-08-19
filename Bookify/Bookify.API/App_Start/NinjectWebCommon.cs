@@ -71,7 +71,7 @@ namespace Bookify.API
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<BookifyContext>().To<BookifyContext>().InRequestScope();
+            kernel.Bind<BookifyContext>().ToSelf().InRequestScope();
             kernel.Bind<IAuthenticationRepository>().To<AuthenticationRepository>().InRequestScope();
             kernel.Bind<IBookFeedbackRepository>().To<BookFeedbackRepository>().InRequestScope();
             kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();

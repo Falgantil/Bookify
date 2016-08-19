@@ -1,7 +1,10 @@
-﻿using Bookify.Common.Commands.Auth;
+﻿using System;
+using System.Net;
+using Bookify.Common.Commands.Auth;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Bookify.API.Attributes;
+using Bookify.Common.Exceptions;
 using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
@@ -42,7 +45,8 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Me()
         {
             var token = this.Request.Headers.Authorization.Parameter;
-            return await this.Try(async () => await _authenticationRepository.VerifyToken(token));
+            return await this.Try(async
+                () => await _authenticationRepository.VerifyToken(token));
         }
 
         [HttpPost]

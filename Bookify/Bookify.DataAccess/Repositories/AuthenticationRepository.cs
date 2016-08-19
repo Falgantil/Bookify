@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Bookify.Common.Commands.Auth;
@@ -87,8 +88,10 @@ namespace Bookify.DataAccess.Repositories
                 throw new InvalidAccessTokenException();
             }
 
-            var userId = (int)obj[UserId];
-            var user = await this.Context.Persons.Where(x => x.Id == userId).Include(x => x.Roles).SingleAsync();
+            var userId = (int) obj[UserId];
+            var userQuery = await this.Get(x => x.Id == userId);
+            userQuery = userQuery.Include(x => x.Roles);
+            var user = userQuery.Single();
             if (user == null)
                 throw new NullReferenceException();
             return new PersonAuthDto
@@ -100,6 +103,7 @@ namespace Bookify.DataAccess.Repositories
                     Roles = user.Roles.Select(x => x.ToPersonRoleDto())
                 }
             };
+                
         }
     }
 }
