@@ -46,7 +46,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("")]
         public async Task<IHttpActionResult> Create([FromBody]CreateBookCommand command)
         {
@@ -54,7 +54,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPut]
-        [Authorize]
+            
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, [FromBody]UpdateBookCommand command)
         {
@@ -62,7 +62,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpDelete]
-        [Authorize]
+        [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Delete(int id)
         {
@@ -76,7 +76,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Auth]
         [Route("{id}/history")]
         public async Task<IHttpActionResult> History(int id)
         {
@@ -108,7 +108,7 @@ namespace Bookify.API.Controllers
         //}
 
         //[HttpGet]
-        //[Authorize]
+        //[Auth]
         //[Route("{id}/download")]
         //public async Task<IHttpActionResult> Download(int id)
         //{
@@ -121,7 +121,7 @@ namespace Bookify.API.Controllers
         //}
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("{id}/review")]
         public async Task<IHttpActionResult> Review(int id, CreateFeedbackCommand command)
         {
@@ -129,7 +129,7 @@ namespace Bookify.API.Controllers
         }
 
         //[HttpGet]
-        //[Authorize]
+        //[Auth]
         //[Route("{id}/read")]
         //public async Task<IHttpActionResult> Read(int id)
         //{
@@ -138,7 +138,7 @@ namespace Bookify.API.Controllers
         //}
 
         [HttpGet]
-        [Authorize]
+        [Auth]
         [Route("{id}/statistics")]
         public async Task<IHttpActionResult> Statistics(int id)
         {

@@ -1,6 +1,7 @@
 ﻿using Bookify.Common.Commands.Auth;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.API.Attributes;
 using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
@@ -20,7 +21,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, [FromBody]UpdatePersonCommand command)
         {
@@ -28,7 +29,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Get(int id)
         {
@@ -36,7 +37,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Auth]
         [Route("me")]
         public async Task<IHttpActionResult> Me()
         {
@@ -45,7 +46,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("{id}/subscribe")]
         public async Task<IHttpActionResult> Subscribe(int id, decimal paid)
         {
@@ -53,7 +54,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Auth]
         [Route("{id}/subscribe")]
         public async Task<IHttpActionResult> HasSubscribe(int id)
         {
