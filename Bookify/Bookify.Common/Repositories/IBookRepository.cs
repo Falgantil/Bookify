@@ -7,7 +7,7 @@ namespace Bookify.Common.Repositories
 {
     public interface IBookRepository
     {
-        Task<BookDto> GetById(int id);
+        Task<DetailedBookDto> GetById(int id);
 
         Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter);
 

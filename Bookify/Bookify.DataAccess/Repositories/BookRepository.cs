@@ -21,7 +21,7 @@ namespace Bookify.DataAccess.Repositories
 
         }
 
-        public async Task<BookDto> GetById(int id)
+        public async Task<DetailedBookDto> GetById(int id)
         {
             var book =
                 await
@@ -29,8 +29,9 @@ namespace Bookify.DataAccess.Repositories
                         .Include(b => b.Genres)
                         .Include(b => b.Author)
                         .Include(x => x.Publisher)
+                        .Include(f => f.Feedback)
                         .SingleAsync();
-            return book.ToDto();
+            return book.ToDetailedDto();
         }
 
         public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)
