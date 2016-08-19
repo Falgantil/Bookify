@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Net;
 using System.Reactive.Linq;
-using System.Text;
-
 using Akavache;
-
-using Bookify.App.Core.Models;
 using Bookify.App.Sdk;
 using Rope.Net;
 using Rope.Net.iOS;
@@ -46,7 +41,7 @@ namespace Bookify.App.iOS.Ui.Helpers
                 getVal,
                 async (i, bookId) =>
                 {
-                    var url = AppConfig.GetThumbnail(bookId, (int)img.Frame.Width, (int)img.Frame.Height);
+                    var url = ApiConfig.GetThumbnail(bookId, (int)img.Frame.Width, (int)img.Frame.Height);
 
                     UIImage uiImage;
                     try

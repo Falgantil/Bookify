@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\NameHelper.cs" />
+    <Compile Include="Services\JsonCachingRegion.cs" />
+    <Compile Include="Services\CachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IGenreService.cs" />
+    <Compile Include="Services\ShoppingCartService.cs" />
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Services\GenreService.cs" />
     <Compile Include="Interfaces\Services\ICachingRegion.cs" />
@@ -68,7 +71,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
-    <Compile Include="ViewModels\ShoppingBasketViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\SidebarViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -137,9 +140,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bookify.Models\Bookify.Models.csproj">
-      <Project>{490cd2d0-19dd-4991-9cc6-9909be9a1fcb}</Project>
-      <Name>Bookify.Models</Name>
+    <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
+      <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
+      <Name>Bookify.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Sdk\Bookify.App.Sdk.csproj">
       <Project>{04efb456-acc8-4627-a7ab-9b9fc76a49c6}</Project>

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using Bookify.App.Core.Models;
 using Bookify.App.iOS.Ui.Helpers;
-using Bookify.App.iOS.Ui.TableCells;
 using Rope.Net;
 using Rope.Net.iOS;
 using UIKit;

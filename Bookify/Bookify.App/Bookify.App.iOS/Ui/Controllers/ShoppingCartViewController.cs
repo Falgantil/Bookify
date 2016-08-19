@@ -6,11 +6,11 @@ using Bookify.App.iOS.Ui.DataSources;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
-    public partial class ShoppingBasketViewController : ExtendedViewController<ShoppingBasketViewModel>
+    public partial class ShoppingCartViewController : ExtendedViewController<ShoppingCartViewModel>
     {
-        public const string StoryboardIdentifier = "ShoppingBasketViewController";
+        public const string StoryboardIdentifier = "ShoppingCartViewController";
 
-        public ShoppingBasketViewController (IntPtr handle) : base (handle)
+        public ShoppingCartViewController (IntPtr handle) : base (handle)
         {
         }
 
@@ -18,7 +18,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             base.ViewDidLoad();
 
-            this.tblContent.Source = new ShoppingBasketDataSource(this.ViewModel);
+            this.tblContent.Source = new ShoppingCartDataSource(this.ViewModel);
             this.tblContent.RowHeight = 100;
             this.ViewModel.CartItems.CollectionChanged += async (sender, args) =>
             {

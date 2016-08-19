@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
 
 namespace Bookify.App.Sdk
 {
-    public sealed class AppConfig
+    public sealed class ApiConfig
     {
         public static string Website { get; set; } = "http://localhost:8080/";
 
         public static string BooksRoot => Path.Combine(Website, "books");
 
         public static string ThumbnailUrl => Path.Combine(BooksRoot, "cover/{bookId}");
+
+        public static string AuthRoot => Path.Combine(Website, "auth");
+
+        public static string PersonRoot => Path.Combine(Website, "person");
 
         public static string GetThumbnail(int bookId, int? width = null, int? height = null)
         {

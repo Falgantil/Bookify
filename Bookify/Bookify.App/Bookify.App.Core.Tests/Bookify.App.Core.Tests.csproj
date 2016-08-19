@@ -81,11 +81,16 @@
     <Compile Include="Initialization\BootstrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
+      <Project>{C8674475-1CCB-4D3C-A455-471EEA08198F}</Project>
+      <Name>Bookify.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Core\Bookify.App.Core.csproj">
       <Project>{5f7bb490-7bd9-430f-b961-9ee772dc5d0f}</Project>
       <Name>Bookify.App.Core</Name>

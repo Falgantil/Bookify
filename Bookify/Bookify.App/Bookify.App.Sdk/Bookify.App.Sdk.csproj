@@ -38,11 +38,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\BaseApi.cs" />
-    <Compile Include="AppConfig.cs" />
+    <Compile Include="Implementations\AuthenticationApi.cs" />
+    <Compile Include="Implementations\BaseApi.cs" />
+    <Compile Include="ApiConfig.cs" />
     <Compile Include="Exceptions\HttpResponseException.cs" />
     <Compile Include="Implementations\BookApi.cs" />
+    <Compile Include="Implementations\PersonApi.cs" />
+    <Compile Include="Interfaces\IAuthenticationApi.cs" />
     <Compile Include="Interfaces\IBookApi.cs" />
+    <Compile Include="Interfaces\IPersonApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +70,12 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
+      <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
+      <Name>Bookify.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

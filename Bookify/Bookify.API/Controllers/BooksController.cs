@@ -90,6 +90,24 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this.bookHistoryRepository.GetHistoryForBook(id));
         }
 
+        [HttpPost]
+        //[Authorize]
+        [Route("{id}/Test")]
+        public async Task<IHttpActionResult> Test(int id)
+        {
+            return await this.Try(
+                async () =>
+                {
+                    HttpRequestMessage requestMessage = this.Request;
+                    if (!requestMessage.Content.IsMimeMultipartContent())
+                        throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+
+
+
+                    //await this.fileServerRepository.SaveEpubFile(id, )
+                });
+        }
+
         //[HttpPut]
         //[Route("{id}/buy")]
         //public async Task<IHttpActionResult> Buy(int id, string email)
@@ -155,10 +173,9 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Cover(int id, [FromUri]int? width = null, [FromUri]int? height = null)
         {
             return await this.TryRaw(
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
                 async () =>
                     {
-                        var stream = this.fileServerRepository.GetCoverFile(id);
+                        var stream = await this.fileServerRepository.GetCoverFile(id);
                         if (stream == null)
                         {
                             throw new NotFoundException("The specified book does not contain a cover image.");
@@ -186,7 +203,6 @@ namespace Bookify.API.Controllers
                             return this.ResponseMessage(response);
                         }
                     });
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         }
     }
 }

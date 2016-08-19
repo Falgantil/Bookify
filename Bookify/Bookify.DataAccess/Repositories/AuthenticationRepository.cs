@@ -20,13 +20,13 @@ namespace Bookify.DataAccess.Repositories
         {
         }
 
-        public async Task<string> Login(AuthenticateCommand command)
+        public async Task<AuthTokenDto> Login(AuthenticateCommand command)
         {
             var queryable = await this.Get(p => p.Email == command.Email);
             var person = await queryable.SingleOrDefaultAsync();
             if (person == null || !EncryptSha512.VerifyPassword(command.Password, person.Password))
             {
-                throw new AuthenticationException("Invalid email & password");
+                throw new InvalidCredentialsException("Invalid email & password");
             }
 
             var now = DateTimeOffset.Now.ToUniversalTime();
@@ -38,7 +38,12 @@ namespace Bookify.DataAccess.Repositories
                 { "expdate", unixExpired },
                 { "userid", person.Id }
             };
-            return JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            var token = JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
+            return new AuthTokenDto
+            {
+                Token = token,
+                Role = person.Roles.Select(x=>x.ToPersonRoleDto())
+            };
         }
 
         public async Task<PersonDto> Register(CreateAccountCommand command)

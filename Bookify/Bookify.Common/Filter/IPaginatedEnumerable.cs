@@ -32,6 +32,11 @@ namespace Bookify.Common.Filter
             this.Amount = amount;
         }
 
+        public PaginatedEnumerable()
+        {
+            
+        }
+
         public int TotalCount { get; set; }
 
         public int Index { get; set; }

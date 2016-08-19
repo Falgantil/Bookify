@@ -1,9 +1,9 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
-
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
@@ -42,10 +42,10 @@ namespace Bookify.DataAccess.Repositories
                 queryableBooks =
                     queryableBooks.Where(
                         b =>
-                        string.Equals(b.Author.Name, search, StringComparison.CurrentCultureIgnoreCase)
-                        || b.ISBN == search
-                        || string.Equals(b.Publisher.Name, search, StringComparison.CurrentCultureIgnoreCase)
-                        || string.Equals(b.Title, search, StringComparison.CurrentCultureIgnoreCase));
+                            b.Author.Name.StartsWith(search) || b.Author.Name.EndsWith(search) ||
+                            b.Publisher.Name.StartsWith(search) || b.Publisher.Name.EndsWith(search) ||
+                            b.Title.StartsWith(search) || b.Title.EndsWith(search) ||
+                            b.ISBN.StartsWith(search) || b.ISBN.EndsWith(search));
             }
 
             if (genres != null && genres.Any())
@@ -56,6 +56,8 @@ namespace Bookify.DataAccess.Repositories
                     queryableBooks = queryableBooks.Where(book => book.Genres.Any(k => k.Id == genreId1));
                 }
             }
+
+
 
             queryableBooks = queryableBooks.Include(x => x.Genres);
             queryableBooks = queryableBooks.OrderBy(orderBy, desc);
@@ -83,10 +85,33 @@ namespace Bookify.DataAccess.Repositories
                 Book = detailedBookDto
             };
         }
-        
-        public Task<DetailedBookDto> CreateBook(CreateBookCommand command)
+
+        public async Task<DetailedBookDto> CreateBook(CreateBookCommand command)
         {
-            throw new NotImplementedException();
+            IQueryable<Genre> genres = this.Context.Genres.AsQueryable();
+            foreach (var genre in command.Genres)
+            {
+                var genre1 = genre;
+                genres = genres.Where(x => x.Id == genre1);
+            }
+            var dbGenres = await genres.ToListAsync();
+            
+            var book = await this.Add(new Book
+            {
+                Title = command.Title,
+                Summary = command.Summary,
+                AuthorId = command.AuthorId,
+                PublishYear = command.PublishYear,
+                Genres = dbGenres.Select(genre => genre).ToList(),
+                PublisherId = command.PublisherId,
+                Language = command.Language,
+                CopiesAvailable = command.CopiesAvailable,
+                PageCount = command.PageCount,
+                ViewCount = 0,
+                ISBN = command.ISBN,
+                Price = command.Price,
+            });
+            return book.ToDetailedDto();
         }
 
         public Task<DetailedBookDto> EditBook(UpdateBookCommand command)

@@ -4,16 +4,28 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Bookify.App.Core.Annotations;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.Models;
+using Bookify.App.Sdk.Implementations;
+using Bookify.App.Sdk.Interfaces;
+using Bookify.Common.Commands.Auth;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
     public class AuthenticationService : IAuthenticationService, INotifyPropertyChanged
     {
+        private AuthenticationApi api;
+
+        private IPersonApi personApi;
+
+        public AuthenticationService(AuthenticationApi api)
+        {
+            this.api = api;
+        }
+
         /// <summary>
         /// Occurs when the authentication state changed (Logged in or out).
         /// </summary>
-        public event EventHandler<Person> AuthChanged;
+        public event EventHandler<PersonDto> AuthChanged;
 
         /// <summary>
         /// Gets the logged on account. Returns null if not currently logged on.
@@ -21,7 +33,7 @@ namespace Bookify.App.Core.Services
         /// <value>
         /// The logged on account.
         /// </value>
-        public Person LoggedOnAccount { get; private set; }
+        public PersonDto LoggedOnAccount { get; private set; }
 
         /// <summary>
         /// Called when <see cref="LoggedOnAccount"/> has changed.
@@ -32,22 +44,22 @@ namespace Bookify.App.Core.Services
         }
 
         /// <summary>
-        /// Authenticates the user using the provided <see cref="username" /> and <see cref="password" />.
+        /// Authenticates the user using the provided <see cref="email" /> and <see cref="password" />.
         /// </summary>
-        /// <param name="username">The username.</param>
+        /// <param name="email">The email</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        public async Task<Person> Authenticate(string username, string password)
+        public async Task<PersonDto> Authenticate(string email, string password)
         {
-            await Task.Delay(1500);
-
-            var person = new Person
+            var token = await this.api.Authenticate(new AuthenticateCommand
             {
-                Firstname = "Bjarke",
-                Lastname = "Søgaard"
-            };
-            this.LoggedOnAccount = person;
-            return person;
+                Email = email,
+                Password = password
+            });
+            var myself = await this.personApi.GetMyself();
+            
+            this.LoggedOnAccount = myself;
+            return myself;
         }
 
         /// <summary>

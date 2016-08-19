@@ -65,7 +65,9 @@
     <Compile Include="Exceptions\ApiException.cs" />
     <Compile Include="Exceptions\AuthenticationRequiredException.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
+    <Compile Include="Exceptions\FileAlreadyExistsException.cs" />
     <Compile Include="Exceptions\InvalidAccessTokenException.cs" />
+    <Compile Include="Exceptions\InvalidCredentialsException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filter\BaseFilter.cs" />
     <Compile Include="Filter\BookFilter.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Filter\IPaginatedEnumerable.cs" />
     <Compile Include="Filter\PublisherFilter.cs" />
     <Compile Include="Models\AuthorDto.cs" />
+    <Compile Include="Models\AuthTokenDto.cs" />
     <Compile Include="Models\BaseDto.cs" />
     <Compile Include="Models\BookDto.cs" />
     <Compile Include="Models\BookFeedbackDto.cs" />
@@ -82,6 +85,7 @@
     <Compile Include="Models\DetailedBookDto.cs" />
     <Compile Include="Models\GenreDto.cs" />
     <Compile Include="Models\PersonDto.cs" />
+    <Compile Include="Models\PersonRoleDto.cs" />
     <Compile Include="Models\PublisherDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAddressRepository.cs" />

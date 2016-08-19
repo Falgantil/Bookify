@@ -6,11 +6,11 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.DataSources
 {
-    public class ShoppingBasketDataSource : UITableViewSource
+    public class ShoppingCartDataSource : UITableViewSource
     {
-        private readonly ShoppingBasketViewModel viewModel;
+        private readonly ShoppingCartViewModel viewModel;
 
-        public ShoppingBasketDataSource(ShoppingBasketViewModel viewModel)
+        public ShoppingCartDataSource(ShoppingCartViewModel viewModel)
         {
             this.viewModel = viewModel;
         }

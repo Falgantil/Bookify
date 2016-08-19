@@ -1,16 +1,11 @@
 using Foundation;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers;
-using Bookify.Models;
+using Bookify.Common.Models;
 using Rope.Net.iOS;
 using UIKit;
-using Book = Bookify.Models.Book;
 
 namespace Bookify.App.iOS
 {
@@ -66,7 +61,7 @@ namespace Bookify.App.iOS
             return this.ViewModel.Filtered.Count;
         }
 
-        protected override Book GetBookModel(int index)
+        protected override BookDto GetBookModel(int index)
         {
             return this.ViewModel.Filtered[index];
         }
@@ -98,7 +93,7 @@ namespace Bookify.App.iOS
             return this.viewModel.Filtered.Count;
         }
 
-        protected override Book GetBookModel(int index)
+        protected override BookDto GetBookModel(int index)
         {
             return this.viewModel.Filtered[index];
         }

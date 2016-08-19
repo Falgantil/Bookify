@@ -123,10 +123,10 @@
     <Compile Include="ReviewTableCell.designer.cs">
       <DependentUpon>ReviewTableCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\DataSources\ShoppingBasketDataSource.cs" />
-    <Compile Include="Ui\Controllers\ShoppingBasketViewController.cs" />
-    <Compile Include="Ui\Controllers\ShoppingBasketViewController.designer.cs">
-      <DependentUpon>ShoppingBasketViewController.cs</DependentUpon>
+    <Compile Include="Ui\DataSources\ShoppingCartDataSource.cs" />
+    <Compile Include="Ui\Controllers\ShoppingCartViewController.cs" />
+    <Compile Include="Ui\Controllers\ShoppingCartViewController.designer.cs">
+      <DependentUpon>ShoppingCartViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Controllers\BookSummaryViewController.cs" />
     <Compile Include="Ui\Controllers\BookSummaryViewController.designer.cs">
@@ -323,6 +323,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
+      <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
+      <Name>Bookify.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bookify.App.Core\Bookify.App.Core.csproj">
       <Project>{5f7bb490-7bd9-430f-b961-9ee772dc5d0f}</Project>
       <Name>Bookify.App.Core</Name>

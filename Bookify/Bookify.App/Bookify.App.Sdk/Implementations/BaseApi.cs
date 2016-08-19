@@ -1,13 +1,18 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+
 using Bookify.App.Sdk.Exceptions;
+
 using ModernHttpClient;
 
-namespace Bookify.App.Sdk.Interfaces
+namespace Bookify.App.Sdk.Implementations
 {
     public abstract class BaseApi
     {
+        protected static IDictionary<string, object> DefaultHeaders = new Dictionary<string, object>(); 
+
         protected string Url { get; private set; }
 
         protected BaseApi(string url)
@@ -24,6 +29,8 @@ namespace Bookify.App.Sdk.Interfaces
         {
             using (var client = new HttpClient(new NativeMessageHandler()))
             {
+                message.AddHeaders(DefaultHeaders);
+
                 var httpRequestMessage = message.ToHttpRequestMessage();
 
                 var response = await client.SendAsync(httpRequestMessage);

@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
 
 namespace Bookify.App.Core.ViewModels
 {
-    public class ShoppingBasketViewModel : BaseViewModel
+    public class ShoppingCartViewModel : BaseViewModel
     {
         private readonly IShoppingCartService shoppingCartService;
 
-        public ShoppingBasketViewModel(IShoppingCartService shoppingCartService)
+        public ShoppingCartViewModel(IShoppingCartService shoppingCartService)
         {
             this.shoppingCartService = shoppingCartService;
         }
 
         public ObservableCollection<CartItemModel> CartItems => this.shoppingCartService.CartItems;
 
-        public async void RemoveOne(CartItemModel cartItem)
+        public async Task RemoveOne(CartItemModel cartItem)
         {
-            await this.shoppingCartService.RemoveFromBasket(cartItem.Book);
+            await this.shoppingCartService.RemoveFromCart(cartItem.Book);
         }
     }
 }

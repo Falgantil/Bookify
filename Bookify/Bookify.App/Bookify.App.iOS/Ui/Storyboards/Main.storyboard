@@ -417,7 +417,7 @@
         </scene>
         <scene sceneID="3164">
             <objects>
-                <viewController id="3165" sceneMemberID="viewController" customClass="ShoppingBasketViewController" storyboardIdentifier="ShoppingBasketViewController">
+                <viewController id="3165" sceneMemberID="viewController" customClass="ShoppingCartViewController" storyboardIdentifier="ShoppingCartViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3162"/>
                         <viewControllerLayoutGuide type="bottom" id="3163"/>

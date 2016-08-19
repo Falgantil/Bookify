@@ -1,19 +1,19 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace Bookify.Common.Repositories
 {
     public interface IFileServerRepository
     {
-        void SaveEpubFile(int bookId, Stream file);
-        void ReplaceEpubFile(int bookId, Stream file);
-        void DeleteEpubFile(int bookId);
+        Task SaveEpubFile(int bookId, Stream source);
+        Task ReplaceEpubFile(int bookId, Stream source);
+        Task DeleteEpubFile(int bookId);
+        Task<MemoryStream> GetEpubFile(int bookId);
 
-
-        void SaveCoverFile(int bookId, Stream file);
-        void ReplaceCoverFile(int bookId, Stream file);
-        void DeleteCoverFile(int bookId);
-
-        MemoryStream GetCoverFile(int bookId);
+        Task SaveCoverFile(int bookId, Stream source);
+        Task ReplaceCoverFile(int bookId, Stream source);
+        Task DeleteCoverFile(int bookId);
+        Task<MemoryStream> GetCoverFile(int bookId);
 
     }
 }

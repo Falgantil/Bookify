@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bookify.App.Core.Models;
+using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Helpers;
-using Bookify.Models;
+using Bookify.Common.Models;
 using Foundation;
-using ObjCRuntime;
 using Rope.Net;
 using Rope.Net.iOS;
 using UIKit;
-using Book = Bookify.Models.Book;
 
 namespace Bookify.App.iOS.Ui.Views
 {
@@ -31,14 +29,14 @@ namespace Bookify.App.iOS.Ui.Views
         {
         }
 
-        private Book model;
+        private BookDtoViewModel model;
 
         private readonly List<IBinding> bindings = new List<IBinding>();
         
-        public void Initialize(Book book)
+        public void Initialize(BookDto book)
         {
             this.Unregister();
-            this.model = book;
+            this.model = new BookDtoViewModel(book);
             this.Register();
         }
 
@@ -54,16 +52,26 @@ namespace Bookify.App.iOS.Ui.Views
 
         private void Register()
         {
-            this.bindings.Add(this.lblBookTitle.BindText(this.model, m => m.Title));
-            this.bindings.Add(this.imgThumbnail.BindImageUrl(this.model, m => m.Id));
+            this.bindings.Add(this.lblBookTitle.BindText(this.model, m => m.Book.Title));
+            this.bindings.Add(this.imgThumbnail.BindImageUrl(this.model, m => m.Book.Id));
         }
 
-        public static BookTableCell CreateCell(UITableView table, NSIndexPath index, Book book)
+        public static BookTableCell CreateCell(UITableView table, NSIndexPath index, BookDto book)
         {
             var cell = table.DequeueReusableCell(Key, index);
             var bookCell = cell as BookTableCell ?? new BookTableCell();
             bookCell.Initialize(book);
             return bookCell;
         }
+    }
+
+    public class BookDtoViewModel : BaseViewModel
+    {
+        public BookDtoViewModel(BookDto book)
+        {
+            this.Book = book;
+        }
+
+        public BookDto Book { get; }
     }
 }

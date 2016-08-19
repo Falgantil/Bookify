@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-
 using Bookify.App.Core.Initialization;
-using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.Helpers;
-using Bookify.Models;
+using Bookify.Common.Models;
 using CoreAnimation;
 using CoreGraphics;
 using Rope.Net.iOS;
@@ -22,7 +19,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
-        public Book Book { get; set; }
+        public BookDto Book { get; set; }
 
         public override void ViewDidLoad()
         {
@@ -51,11 +48,11 @@ namespace Bookify.App.iOS.Ui.Controllers
             const string MsgTitle = "Valgmuligheder";
 
             const string OptCancel = "Annuller";
-            const string OptAddToBasket = "Tilføj til indkøbskurv";
+            const string OptAddToCart = "Tilføj til indkøbskurv";
             const string OptReadBook = "Læs bog";
             const string OptBorrowBook = "Lån bog";
 
-            List<string> options = new List<string> { OptAddToBasket };
+            List<string> options = new List<string> { OptAddToCart };
             //if (this.ViewModel.OwnsBook)
             //{
             //    options.Add(OptReadBook);
@@ -69,8 +66,8 @@ namespace Bookify.App.iOS.Ui.Controllers
             {
                 case OptCancel:
                     return;
-                case OptAddToBasket:
-                    this.AddToBasket_Clicked();
+                case OptAddToCart:
+                    this.AddToCart_Clicked();
                     break;
                 case OptReadBook:
                     this.ReadBook_Clicked();
@@ -81,9 +78,9 @@ namespace Bookify.App.iOS.Ui.Controllers
             }
         }
 
-        private async void AddToBasket_Clicked()
+        private async void AddToCart_Clicked()
         {
-            await this.ViewModel.AddToBasket();
+            await this.ViewModel.AddToCart();
         }
 
         private void ReadBook_Clicked()
@@ -103,7 +100,7 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.lblAuthor.BindText(this.ViewModel, vm => vm.Book.Author.Name, "af {0}");
             this.lblChapters.Bind(
                 this.ViewModel,
-                vm => vm.Book.PageCount,
+                vm => vm.Book.PublishYear,
                 (lbl, val) =>
                     {
                         switch (val)
