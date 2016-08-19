@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Bookify.API.Attributes;
 using Bookify.API.Provider;
 using Bookify.Common.Repositories;
 
