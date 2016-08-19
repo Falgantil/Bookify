@@ -41,11 +41,16 @@ namespace Bookify.API.Controllers
                     StatusCode = ex.StatusCode
                 });
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return this.Content(
                     HttpStatusCode.InternalServerError,
-                    new { Message = "An unknown error occurred on the server." });
+                    new
+                    {
+                        Message = "An unknown error occurred on the server.", 
+                        ExceptionMessage = e.Message,
+                        ExceptionInnerMessage = e.InnerException?.Message
+                    });
             }
         }
 

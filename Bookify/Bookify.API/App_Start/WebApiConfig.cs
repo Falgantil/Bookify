@@ -34,9 +34,6 @@ namespace Bookify.API
                     ContractResolver = new CamelCasePropertyNamesContractResolver()
                 }
             });
-
-            //config.Filters.Add(new AuthAttribute());
-
         }
     }
 }
