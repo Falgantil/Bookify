@@ -28,7 +28,7 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)
         {
-            var search = filter.SearchText;
+            var search = filter.SearchText?.ToLower();
             var genres = filter.GenreIds;
             var orderBy = filter.OrderBy;
             var desc = filter.Descending;
@@ -42,10 +42,10 @@ namespace Bookify.DataAccess.Repositories
                 queryableBooks =
                     queryableBooks.Where(
                         b =>
-                            b.Author.Name.StartsWith(search) || b.Author.Name.EndsWith(search) ||
-                            b.Publisher.Name.StartsWith(search) || b.Publisher.Name.EndsWith(search) ||
-                            b.Title.StartsWith(search) || b.Title.EndsWith(search) ||
-                            b.ISBN.StartsWith(search) || b.ISBN.EndsWith(search));
+                            b.Author.Name.ToLower().Contains(search) ||
+                            b.Publisher.Name.ToLower().Contains(search) ||
+                            b.Title.ToLower().Contains(search) ||
+                            b.ISBN.ToLower().Contains(search));
             }
 
             if (genres != null && genres.Any())
@@ -95,7 +95,7 @@ namespace Bookify.DataAccess.Repositories
                 genres = genres.Where(x => x.Id == genre1);
             }
             var dbGenres = await genres.ToListAsync();
-            
+
             var book = await this.Add(new Book
             {
                 Title = command.Title,
