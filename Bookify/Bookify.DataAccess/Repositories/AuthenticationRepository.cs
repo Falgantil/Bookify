@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Authentication;
 using System.Threading.Tasks;
-
 using Bookify.Common.Commands.Auth;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
@@ -15,6 +13,11 @@ namespace Bookify.DataAccess.Repositories
 {
     public class AuthenticationRepository : GenericRepository<Person>, IAuthenticationRepository
     {
+        private const string SecretKey = "yuoypr3QeRZkwGcfj24y4XGODwnkXOy1";
+        private const string Issdate = "issdate";
+        private const string Expiredate = "expdate";
+        private const string UserId = "userid";
+
         public AuthenticationRepository(BookifyContext context)
             : base(context)
         {
@@ -34,9 +37,9 @@ namespace Bookify.DataAccess.Repositories
             var unixExpired = now.AddYears(1).ToUnixTimeSeconds();
             var payload = new Dictionary<string, object>
             {
-                { "issdate", unixNow },
-                { "expdate", unixExpired },
-                { "userid", person.Id }
+                { Issdate, unixNow },
+                { Expiredate, unixExpired },
+                { UserId, person.Id }
             };
             var token = JWT.JsonWebToken.Encode(payload, SecretKey, JWT.JwtHashAlgorithm.HS256);
             return new AuthTokenDto
@@ -67,28 +70,26 @@ namespace Bookify.DataAccess.Repositories
             return entity.ToDto();
         }
 
-        private const string SecretKey = "yuoypr3QeRZkwGcfj24y4XGODwnkXOy1";
-
         public async Task<PersonDto> VerifyToken(string accessToken)
         {
             var obj = JWT.JsonWebToken.DecodeToObject<Dictionary<string, object>>(accessToken, SecretKey);
-            var issDate = long.Parse(obj["issdate"].ToString());
+            var issDate = long.Parse(obj[Issdate].ToString());
             var issuedDate = DateTimeOffset.FromUnixTimeSeconds(issDate);
             if (issuedDate > DateTimeOffset.Now)
             {
                 throw new InvalidAccessTokenException();
             }
 
-            var expDate = long.Parse(obj["expdate"].ToString());
+            var expDate = long.Parse(obj[Expiredate].ToString());
             var expirationDate = DateTimeOffset.FromUnixTimeSeconds(expDate);
             if (expirationDate.ToLocalTime() < DateTimeOffset.Now)
             {
                 throw new InvalidAccessTokenException();
             }
 
-            var userId = (int)obj["userid"];
-            var verifyToken = await this.Find(userId);
-            return verifyToken.ToDto();
+            var userId = (int)obj[UserId];
+            var user = await this.Find(userId);
+            return user.ToDto();
         }
     }
 }
