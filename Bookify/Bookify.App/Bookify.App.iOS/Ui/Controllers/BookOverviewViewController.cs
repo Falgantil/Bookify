@@ -7,11 +7,13 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class BookOverviewViewController : UITabBarController
     {
+        public const string StoryboardIdentifier = "ShowBook";
+
         public BookOverviewViewController (IntPtr handle) : base (handle)
         {
         }
 
-        public BookDto Book { get; set; }
+        public DetailedBookDto Book { get; set; }
 
         public override void ViewDidLoad()
         {

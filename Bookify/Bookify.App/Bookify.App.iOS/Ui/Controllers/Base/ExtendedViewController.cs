@@ -1,17 +1,20 @@
 using System;
-
+using System.Net;
+using System.Threading.Tasks;
 using Acr.UserDialogs;
 
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
-
+using Bookify.App.iOS.Ui.Helpers;
+using Bookify.App.Sdk.Exceptions;
+using Bookify.Common.Exceptions;
 using Foundation;
 
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers.Base
 {
-    public abstract class ExtendedViewController<T> : UIViewController 
+    public abstract class ExtendedViewController<T> : UIViewController
         where T : BaseViewModel
     {
         private readonly Lazy<IUserDialogs> dialogService = new Lazy<IUserDialogs>(() => AppDelegate.Root.Resolve<IUserDialogs>());
@@ -56,6 +59,30 @@ namespace Bookify.App.iOS.Ui.Controllers.Base
         protected virtual T CreateViewModel()
         {
             return AppDelegate.Root.Resolve<T>();
+        }
+
+        protected async Task<T> TryTask<T>(Func<Task<T>> operation, string badRequest = null, string unauthorized = null, string notFound = null, string defaultMsg = null)
+        {
+            return await SharedMethods.TryTask(
+                this.DialogService,
+                operation,
+                badRequest,
+                unauthorized,
+                notFound,
+                defaultMsg);
+        }
+
+        protected async Task TryTask(Func<Task> operation, string badRequest = null, string unauthorized = null, string notFound = null, string defaultMsg = null)
+        {
+            await this.TryTask(async () =>
+                {
+                    await operation();
+                    return true;
+                },
+                badRequest,
+                unauthorized,
+                notFound,
+                defaultMsg);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Bookify.App.Core.ViewModels
     public class ReviewsViewModel : BaseViewModel
     {
         private readonly IReviewService reviewService;
-        private readonly BookDto book;
+        private readonly DetailedBookDto book;
 
-        public ReviewsViewModel(BookDto book, IReviewService reviewService)
+        public ReviewsViewModel(DetailedBookDto book, IReviewService reviewService)
         {
             this.book = book;
             this.reviewService = reviewService;
@@ -23,24 +23,15 @@ namespace Bookify.App.Core.ViewModels
 
         public ObservableCollection<ReviewModel> Reviews { get; } = new ObservableCollection<ReviewModel>();
 
-        public async Task<IEnumerable<ReviewModel>> LoadReviews()
+        public async Task LoadReviews()
         {
-            var result = await
-                         Policy.Handle<WebException>()
-                             .RetryAsync()
-                             .ExecuteAndCaptureAsync(async () => await this.reviewService.GetReviews(this.book.Id));
-            if (result.Outcome == OutcomeType.Failure)
-            {
-                return null;
-            }
+            var result = await this.reviewService.GetReviews(this.book);
 
-            var models = result.Result.ToArray();
+            var models = result.ToArray();
             foreach (var m in models)
             {
                 this.Reviews.Add(m);
             }
-
-            return models;
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Net;
 using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.Common.Models;
+using Polly;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -12,14 +14,20 @@ namespace Bookify.App.Core.ViewModels
         public SearchViewModel(IBookService bookService)
         {
             this.bookService = bookService;
-            this.OnSearchTextChanged();
         }
 
         public ObservableCollection<BookDto> Filtered { get; } = new ObservableCollection<BookDto>();
 
         public string SearchText { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         private int delays;
+
+        public void RefreshContent()
+        {
+            this.OnSearchTextChanged();
+        } 
 
         private async void OnSearchTextChanged()
         {
@@ -46,6 +54,19 @@ namespace Bookify.App.Core.ViewModels
             {
                 this.Filtered.Add(book);
             }
+        }
+
+        public async Task<DetailedBookDto> GetBook(int id)
+        {
+            var result = await
+                         Policy.Handle<WebException>()
+                             .RetryAsync()
+                             .ExecuteAndCaptureAsync(async () => await this.bookService.GetBook(id));
+            if (result.Outcome == OutcomeType.Failure)
+            {
+                return null;
+            }
+            return result.Result;
         }
     }
 }

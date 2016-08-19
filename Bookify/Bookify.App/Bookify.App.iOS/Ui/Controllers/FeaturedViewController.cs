@@ -7,6 +7,7 @@ using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
 using Bookify.App.iOS.Ui.Views;
 using Bookify.Common.Models;
+using Rope.Net.iOS;
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
@@ -32,25 +33,17 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected override void CreateBindings()
         {
+            this.View.Bind(
+                this.ViewModel.Books,
+                collection => collection.IsLoading,
+                (v, isLoading) => UIApplication.SharedApplication.NetworkActivityIndicatorVisible = isLoading);
         }
 
-        public override void ViewDidAppear(bool animated)
+        public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            this.LoadMore();
-        }
-
-        public async Task LoadMore()
-        {
-            UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-            var books = await this.ViewModel.LoadBooks(this.booksCount, 10);
-            UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-            if (books == null)
-            {
-                return;
-            }
-            this.booksCount += books.Count();
+            await this.TryTask(async () => await this.ViewModel.Books.LoadMore());
         }
 
         private void BooksCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
@@ -60,17 +53,22 @@ namespace Bookify.App.iOS.Ui.Controllers
         
         public async void CellTapped(BookDto model)
         {
-            BookDto book;
+            DetailedBookDto book;
             using (this.DialogService.Loading("Henter bog..."))
             {
-                book = await this.ViewModel.GetBook(model.Id);
+                book =
+                    await
+                        this.TryTask(
+                            async () => await this.ViewModel.GetBook(model.Id),
+                            null, 
+                            null,
+                            "Bogen kunne ikke hentes");
                 if (book == null)
                 {
-                    this.DialogService.Alert("Bogen kunne ikke hentes", "Fejl");
                     return;
                 }
             }
-            var viewController = (BookOverviewViewController)this.Storyboard.InstantiateViewController("ShowBook");
+            var viewController = (BookOverviewViewController)this.Storyboard.InstantiateViewController(BookOverviewViewController.StoryboardIdentifier);
             viewController.Book = book;
             this.NavigationController.PushViewController(viewController, true);
         }

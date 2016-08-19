@@ -5,6 +5,7 @@ using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
+using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
 using UIKit;
 
@@ -16,7 +17,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
-        public BookDto Book { get; set; }
+        public DetailedBookDto Book { get; set; }
 
         public override void ViewDidLoad()
         {
@@ -38,7 +39,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         private async void LoadReviews()
         {
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-            await this.ViewModel.LoadReviews();
+            await this.TryTask(async () => await this.ViewModel.LoadReviews());
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
         }
 

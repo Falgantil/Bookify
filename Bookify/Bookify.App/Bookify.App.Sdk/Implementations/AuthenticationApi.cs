@@ -26,7 +26,7 @@ namespace Bookify.App.Sdk.Implementations
             var json = await response.Content.ReadAsStringAsync();
             var authToken = JsonConvert.DeserializeObject<AuthTokenDto>(json);
 
-            DefaultHeaders["Authentication"] = authToken.Token;
+            DefaultHeaders["Authentication"] = $"JWT {authToken.Token}";
 
             return authToken;
         }

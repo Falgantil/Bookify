@@ -14,6 +14,8 @@ namespace Bookify.App.Sdk
 
         public static string BooksRoot => Path.Combine(Website, "books");
 
+        public static string GenresRoot => Path.Combine(Website, "genres");
+
         public static string ThumbnailUrl => Path.Combine(BooksRoot, "cover/{bookId}");
 
         public static string AuthRoot => Path.Combine(Website, "auth");

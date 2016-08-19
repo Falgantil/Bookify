@@ -19,7 +19,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
         }
 
-        public BookDto Book { get; set; }
+        public DetailedBookDto Book { get; set; }
 
         public override void ViewDidLoad()
         {
