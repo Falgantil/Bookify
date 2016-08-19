@@ -26,6 +26,9 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Test' ">
     <OutputPath>bin\Test\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'WebsiteBuild' ">
+    <OutputPath>bin\WebsiteBuild\</OutputPath>
+  </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
     <Content Include="DataModel.classdiagram">

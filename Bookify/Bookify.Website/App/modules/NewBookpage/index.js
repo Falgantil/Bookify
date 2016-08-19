@@ -5,17 +5,10 @@ import { Link, browserHistory } from 'react-router'
 import bookifyapi from '../util/bookifyapi';
 import NewBookViewModel from './newbook-view-model';
 
-const CheckBoxView = ({id, value}) => (
-    /*
-    <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-      <input type="checkbox" id="checkbox-1" className="mdl-checkbox__input" checked />
-      <span className="mdl-checkbox__label">Checkbox</span>
-    </label>
-    */
-
-   <div className="checkbox">
+const CheckBoxView = ({model, genre}) => (
+   <div className="col-xs-3">
     <label>
-      <input type="checkbox"/> Check me out
+      <input type="checkbox" id={genre.id}  /> {genre.name}
     </label>
   </div>
 )
@@ -85,6 +78,14 @@ class NewBookpage extends React.Component {
             </div>
         </div>
 
+        <div>
+        <label>Genre</label>
+            <br/>
+            <div className="row">
+            { this.model.availableGenres.map((genre) => <CheckBoxView key={genre.id} model={this.model} genre={genre} />) }
+            </div>
+        </div>
+
         <div className="form-group">
             <div className="col-md-6">
                 <input type="text" className="form-control" placeholder="Pris" value={this.model.price} onChange={(e) => this.model.price = e.target.value } />
@@ -116,10 +117,6 @@ class NewBookpage extends React.Component {
         </div>
     </div>
       </form>
-
-
-{ this.model.genres.map((genre, index) => <CheckBoxView key={index} value={genre.name} />) }
-
 
       </div>
     )
