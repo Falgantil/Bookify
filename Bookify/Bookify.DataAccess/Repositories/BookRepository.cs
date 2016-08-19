@@ -22,7 +22,13 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<BookDto> GetById(int id)
         {
-            var book = await this.Context.Books.Where(b => b.Id == id).Include(b => b.Genres).Include(b => b.Author).Include(x => x.Publisher).SingleAsync();
+            var book =
+                await
+                    this.Context.Books.Where(b => b.Id == id)
+                        .Include(b => b.Genres)
+                        .Include(b => b.Author)
+                        .Include(x => x.Publisher)
+                        .SingleAsync();
             return book.ToDto();
         }
 
@@ -78,7 +84,13 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<BookStatisticsDto> FindForStatistics(int id)
         {
-            var book = await this.Context.Books.Where(b => b.Id == id).Include(b => b.History).Include(b => b.Orders).Include(b => b.Feedback).SingleAsync();
+            var book =
+                await
+                    this.Context.Books.Where(b => b.Id == id)
+                        .Include(b => b.History)
+                        .Include(b => b.Orders)
+                        .Include(b => b.Feedback)
+                        .SingleAsync();
             var detailedBookDto = book.ToDetailedDto();
             return new BookStatisticsDto
             {
@@ -95,7 +107,7 @@ namespace Bookify.DataAccess.Repositories
                 genres = genres.Where(x => x.Id == genre1);
             }
             var dbGenres = await genres.ToListAsync();
-            
+
             var book = await this.Add(new Book
             {
                 Title = command.Title,
@@ -109,14 +121,48 @@ namespace Bookify.DataAccess.Repositories
                 PageCount = command.PageCount,
                 ViewCount = 0,
                 ISBN = command.ISBN,
-                Price = command.Price,
+                Price = command.Price
             });
             return book.ToDetailedDto();
         }
 
-        public Task<DetailedBookDto> EditBook(UpdateBookCommand command)
+        public async Task<DetailedBookDto> EditBook(UpdateBookCommand command)
         {
-            throw new NotImplementedException();
+            if (!command.BookId.HasValue) return null;
+            var book = await this.Find(command.BookId.Value);
+            List<Genre> dbGenres = new List<Genre>();
+            if (command.Genres.Any())
+            {
+                IQueryable<Genre> genres = this.Context.Genres.AsQueryable();
+                foreach (var genre in command.Genres)
+                {
+                    var genre1 = genre;
+                    genres = genres.Where(x => x.Id == genre1);
+                }
+                dbGenres = await genres.ToListAsync();
+            }
+
+            // Commence updating book...
+            book.Title = command.Title ?? book.Title;
+            book.Summary = command.Summary ?? book.Title;
+            book.AuthorId = command.AuthorId ?? book.AuthorId;
+            book.PublishYear = command.PublishYear ?? book.PublishYear;
+            if (dbGenres.Any())
+            {
+                book.Genres = dbGenres.Select(genre => genre).ToList();
+            }
+            book.PublisherId = command.PublisherId ?? book.PublisherId;
+            book.Language = command.Language ?? book.Language;
+            book.CopiesAvailable = command.CopiesAvailable ?? book.CopiesAvailable;
+            book.PageCount = command.PageCount ?? book.PageCount;
+            book.ViewCount = command.ViewCount ?? book.ViewCount;
+            book.ISBN = command.ISBN ?? book.ISBN;
+            book.Price = command.Price ?? book.Price;
+            
+
+            //woah
+            var resultBook = await this.Update(book);
+            return resultBook.ToDetailedDto();
         }
     }
 }
