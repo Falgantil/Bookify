@@ -149,42 +149,5 @@ namespace Bookify.API.Controllers
         {
             return await this.Try(async () => await this._bookRepository.FindForStatistics(id));
         }
-
-        [HttpGet]
-        [Route("{id}/cover")]
-        public async Task<IHttpActionResult> Cover(int id, [FromUri]int? width = null, [FromUri]int? height = null)
-        {
-            return await this.TryRaw(
-                async () =>
-                    {
-                        var stream = await this._fileServerRepository.GetCoverFile(id);
-                        if (stream == null)
-                        {
-                            throw new NotFoundException("The specified book does not contain a cover image.");
-                        }
-
-                        using (var ms = new MemoryStream())
-                        using (var img = Image.FromStream(stream))
-                        {
-
-                            var thumbnail = img.GetThumbnailImage(
-                                width ?? img.Width,
-                                height ?? img.Height,
-                                null,
-                                new IntPtr());
-                            thumbnail.Save(ms, ImageFormat.Png);
-
-                            var response = new HttpResponseMessage(HttpStatusCode.OK)
-                            {
-                                Content =
-                                    new ByteArrayContent(ms.ToArray())
-                                    {
-                                        Headers = { ContentType = new MediaTypeHeaderValue("image/png") }
-                                    }
-                            };
-                            return this.ResponseMessage(response);
-                        }
-                    });
-        }
     }
 }
