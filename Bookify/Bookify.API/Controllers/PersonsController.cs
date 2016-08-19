@@ -36,7 +36,7 @@ namespace Bookify.API.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         [Route("me")]
         public async Task<IHttpActionResult> Me()
         {
