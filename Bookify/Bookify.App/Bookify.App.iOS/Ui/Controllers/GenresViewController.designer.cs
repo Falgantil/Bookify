@@ -11,8 +11,8 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
-    [Register ("ShoppingCartViewController")]
-    partial class ShoppingCartViewController
+    [Register ("GenresViewController")]
+    partial class GenresViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

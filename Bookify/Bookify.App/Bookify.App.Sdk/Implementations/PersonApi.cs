@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Models;
 
+using Newtonsoft.Json;
+
 namespace Bookify.App.Sdk.Implementations
 {
     public class PersonApi : BaseApi, IPersonApi
@@ -15,7 +17,12 @@ namespace Bookify.App.Sdk.Implementations
 
         public async Task<PersonDto> GetMyself()
         {
-            throw new NotImplementedException();
+            var request = new RequestBuilder()
+                .BaseUri(this.CombineUrl("me"));
+
+            var response = await this.ExecuteRequest(request);
+            var json = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<PersonDto>(json);
         }
     }
 }

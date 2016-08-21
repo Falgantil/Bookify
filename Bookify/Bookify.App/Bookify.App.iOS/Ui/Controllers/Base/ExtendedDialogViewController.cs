@@ -1,10 +1,14 @@
 using System;
+
 using Acr.UserDialogs;
+
 using Bookify.App.iOS.Initialization;
+
 using MonoTouch.Dialog;
+
 using UIKit;
 
-namespace Bookify.App.iOS.Ui.Controllers
+namespace Bookify.App.iOS.Ui.Controllers.Base
 {
     public class ExtendedDialogViewController : DialogViewController
     {

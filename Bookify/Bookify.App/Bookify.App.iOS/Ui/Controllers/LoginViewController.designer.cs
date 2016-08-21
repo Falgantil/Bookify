@@ -32,11 +32,11 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField txtPassword { get; set; }
+        UIKit.UITextField txtEmail { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField txtUsername { get; set; }
+        UIKit.UITextField txtPassword { get; set; }
 
         [Action ("BtnLogin_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -64,14 +64,14 @@ namespace Bookify.App.iOS.Ui.Controllers
                 lblAppTitle = null;
             }
 
+            if (txtEmail != null) {
+                txtEmail.Dispose ();
+                txtEmail = null;
+            }
+
             if (txtPassword != null) {
                 txtPassword.Dispose ();
                 txtPassword = null;
-            }
-
-            if (txtUsername != null) {
-                txtUsername.Dispose ();
-                txtUsername = null;
             }
         }
     }

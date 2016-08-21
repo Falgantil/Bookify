@@ -10,10 +10,10 @@ namespace Bookify.App.Sdk.Implementations
     {
         public GenresApi() : base(ApiConfig.GenresRoot)
         {
-            
+
         }
 
-        public async Task<IPaginatedEnumerable<GenreDto>> GetItems(GenreFilter filter)
+        public async Task<IPaginatedEnumerable<GenreDto>> GetGenres(GenreFilter filter)
         {
             var request = new RequestBuilder()
                 .BaseUri(this.Url)

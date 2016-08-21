@@ -1,16 +1,17 @@
-using Foundation;
 using System;
 using System.Collections.Generic;
+
 using Bookify.App.Core.Models;
 using Bookify.App.iOS.Ui.Helpers;
-using Bookify.App.iOS.Ui.TableCells;
-using Bookify.App.iOS.Ui.Views;
-using Bookify.Common.Models;
+
+using Foundation;
+
 using Rope.Net;
 using Rope.Net.iOS;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.TableCells
 {
     public partial class ReviewTableCell : ExtendedTableViewCell<ReviewModel>
     {

@@ -1,14 +1,18 @@
 using System;
 using System.Threading.Tasks;
+
 using Acr.UserDialogs;
+
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Helpers;
 using Bookify.App.iOS.Ui.Views;
 using Bookify.Common.Models;
+
 using Foundation;
+
 using UIKit;
 
-namespace Bookify.App.iOS.Ui.Controllers
+namespace Bookify.App.iOS.Ui.Controllers.Base
 {
     public abstract class BaseSearchTableViewController : ExtendedTableViewController
     {

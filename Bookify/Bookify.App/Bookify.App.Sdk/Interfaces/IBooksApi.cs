@@ -5,8 +5,10 @@ using Bookify.Common.Models;
 
 namespace Bookify.App.Sdk.Interfaces
 {
-    public interface IBooksApi : IGetByFilterApi<BookDto, BookFilter>
+    public interface IBooksApi
     {
         Task<DetailedBookDto> Get(int id);
+
+        Task<IPaginatedEnumerable<BookDto>> GetBooks(BookFilter filter);
     }
 }

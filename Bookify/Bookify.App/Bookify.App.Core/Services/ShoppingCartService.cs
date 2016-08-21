@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Bookify.App.Core.Annotations;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
 using Bookify.Common.Models;
@@ -15,7 +14,7 @@ namespace Bookify.App.Core.Services
     {
         private readonly ICachingRegion<IEnumerable<CartItemModel>> cachingRegion;
 
-        public ShoppingCartService([NotNull] ICachingRegionFactory cachingRegionFactory)
+        public ShoppingCartService(ICachingRegionFactory cachingRegionFactory)
         {
             if (cachingRegionFactory == null)
                 throw new ArgumentNullException(nameof(cachingRegionFactory));
@@ -39,7 +38,7 @@ namespace Bookify.App.Core.Services
 
         public ObservableCollection<CartItemModel> CartItems { get; } = new ObservableCollection<CartItemModel>();
 
-        public async Task AddToCart([NotNull] BookDto book)
+        public async Task AddToCart(BookDto book)
         {
             if (book == null)
                 throw new ArgumentNullException(nameof(book));
@@ -58,7 +57,7 @@ namespace Bookify.App.Core.Services
             await this.cachingRegion.UpdateItem(this.CartItems);
         }
 
-        public async Task RemoveFromCart([NotNull] BookDto book)
+        public async Task RemoveFromCart(BookDto book)
         {
             if (book == null)
                 throw new ArgumentNullException(nameof(book));

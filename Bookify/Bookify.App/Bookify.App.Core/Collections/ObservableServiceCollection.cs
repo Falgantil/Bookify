@@ -4,31 +4,32 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
-using Bookify.App.Core.Annotations;
+
+using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
 
 namespace Bookify.App.Core.Collections
 {
-    public class ObservableApiCollection<TModel, TFilter, IApi> : ObservableCollection<TModel>
+    public class ObservableServiceCollection<TModel, TFilter, IService> : ObservableCollection<TModel>
         where TFilter : BaseFilter, new()
-        where IApi : IGetByFilterApi<TModel, TFilter>
+        where IService : IGetByFilterService<TModel, TFilter>
     {
-        private readonly IApi api;
+        private readonly IService service;
 
-        public ObservableApiCollection([NotNull] IApi api, TFilter filter = null)
+        public ObservableServiceCollection(IService service, TFilter filter = null)
         {
-            if (api == null)
-                throw new ArgumentNullException(nameof(api));
-            this.api = api;
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+            this.service = service;
             this.Filter = filter ?? new TFilter();
         }
 
-        public ObservableApiCollection([NotNull] IApi api, IEnumerable<TModel> collection, TFilter filter = null) : base(collection)
+        public ObservableServiceCollection(IService service, IEnumerable<TModel> collection, TFilter filter = null) : base(collection)
         {
-            if (api == null)
-                throw new ArgumentNullException(nameof(api));
-            this.api = api;
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+            this.service = service;
             this.Filter = filter ?? new TFilter();
         }
 
@@ -50,7 +51,7 @@ namespace Bookify.App.Core.Collections
             try
             {
                 this.Filter.Index = this.Count;
-                var items = await this.api.GetItems(this.Filter);
+                var items = await this.service.GetItems(this.Filter);
                 var list = items.ToList();
                 foreach (var model in list)
                 {
@@ -67,6 +68,13 @@ namespace Bookify.App.Core.Collections
             {
                 this.IsLoading = false;
             }
+        }
+
+        public async Task Restart()
+        {
+            this.Filter.Index = 0;
+            this.Items.Clear();
+            await this.LoadMore();
         }
     }
 }

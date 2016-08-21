@@ -14,7 +14,7 @@ namespace Bookify.App.Sdk.Implementations
         {
         }
 
-        public async Task<IPaginatedEnumerable<BookDto>> GetItems(BookFilter filter)
+        public async Task<IPaginatedEnumerable<BookDto>> GetBooks(BookFilter filter)
         {
             var request = new RequestBuilder()
                 .BaseUri(this.Url)

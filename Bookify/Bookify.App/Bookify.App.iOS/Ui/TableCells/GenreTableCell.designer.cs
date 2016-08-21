@@ -9,21 +9,13 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.TableCells
 {
-    [Register ("GenresViewController")]
-    partial class GenresViewController
+    [Register ("GenreTableCell")]
+    partial class GenreTableCell
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView tblContent { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
-            if (tblContent != null) {
-                tblContent.Dispose ();
-                tblContent = null;
-            }
         }
     }
 }

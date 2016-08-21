@@ -1,13 +1,17 @@
-using Foundation;
 using System;
+
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
-using Bookify.App.iOS.Ui.Controllers;
+using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.Common.Models;
+
+using Foundation;
+
 using Rope.Net.iOS;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class SearchTableViewController : BaseSearchTableViewController, IUISearchResultsUpdating
     {

@@ -1,20 +1,23 @@
-using Foundation;
 using System;
 using System.Collections.Generic;
+
 using Bookify.App.Core.ViewModels;
-using Bookify.App.iOS.Ui.TableCells;
 using Bookify.Common.Models;
+
+using Foundation;
+
 using Rope.Net;
 using Rope.Net.iOS;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.TableCells
 {
-    public partial class GenreTableCell : ExtendedTableViewCell<GenreDtoViewModel>
+    public partial class GenreTableCell : ExtendedTableViewCell<GenreTableCell.GenreDtoViewModel>
     {
         public const string Reuseidentifier = "GenreTableCell";
 
-        public GenreTableCell (IntPtr handle) : base (handle)
+        public GenreTableCell(IntPtr handle) : base(handle)
         {
         }
 
@@ -32,15 +35,15 @@ namespace Bookify.App.iOS
             return CreateCell<GenreTableCell, GenreDtoViewModel>(Reuseidentifier, tableView, index,
                 new GenreDtoViewModel(dto));
         }
-    }
-    
-    public class GenreDtoViewModel : BaseViewModel
-    {
-        public GenreDtoViewModel(GenreDto genre)
-        {
-            this.Genre = genre;
-        }
 
-        public GenreDto Genre { get; }
+        public class GenreDtoViewModel : BaseViewModel
+        {
+            public GenreDtoViewModel(GenreDto genre)
+            {
+                this.Genre = genre;
+            }
+
+            public GenreDto Genre { get; }
+        }
     }
 }
