@@ -2,7 +2,7 @@
 // - Bookify.App.Core.Tests
 // -- BootstrapperTests.cs
 // -------------------------------------------
-// Author: Bjarke Søgaard <sogaardbjarke@gmail.com>
+// PersonName: Bjarke Søgaard <sogaardbjarke@gmail.com>
 
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.Interfaces.Initialization;

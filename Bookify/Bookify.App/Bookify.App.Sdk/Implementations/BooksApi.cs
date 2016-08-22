@@ -18,19 +18,19 @@ namespace Bookify.App.Sdk.Implementations
         {
             var request = new RequestBuilder()
                 .BaseUri(this.Url)
-                .AddQuery(nameof(filter.Index), filter.Index)
-                .AddQuery(nameof(filter.Count), filter.Count);
+                .AddQuery(nameof(filter.Skip), filter.Skip)
+                .AddQuery(nameof(filter.Take), filter.Take);
 
-            if (!string.IsNullOrEmpty(filter.SearchText))
+            if (!string.IsNullOrEmpty(filter.Search))
             {
-                request.AddQuery(nameof(filter.SearchText), filter.SearchText);
+                request.AddQuery(nameof(filter.Search), filter.Search);
             }
 
-            if (filter.GenreIds != null)
+            if (filter.Genres != null)
             {
-                foreach (var genreId in filter.GenreIds)
+                foreach (var genreId in filter.Genres)
                 {
-                    request.AddQuery(nameof(filter.GenreIds), genreId);
+                    request.AddQuery(nameof(filter.Genres), genreId);
                 }
             }
             

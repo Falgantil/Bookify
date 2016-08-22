@@ -183,7 +183,7 @@
                             <constraint id="4276" firstItem="650" firstAttribute="top" secondItem="4265" secondAttribute="bottom"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Kategorier" id="665" image="Icons/Compass.png"/>
+                    <tabBarItem key="tabBarItem" title="Genre" id="665" image="Icons/Compass.png"/>
                     <connections>
                         <outlet property="tblContent" destination="4265" id="name-outlet-4265"/>
                     </connections>
@@ -332,14 +332,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3068" rowHeight="167" customClass="ReviewTableCell" reuseIdentifier="ReviewTblCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="167"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3068" rowHeight="152" customClass="ReviewTableCell" reuseIdentifier="ReviewTblCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3068" id="3069">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="166.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="151.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="af Bjarke Søgaard" lineBreakMode="tailTruncation" minimumFontSize="10" id="3078" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="af Bjarke Søgaard" lineBreakMode="tailTruncation" minimumFontSize="10" id="3078" translatesAutoresizingMaskIntoConstraints="NO">
                                                     <rect key="frame" x="468" y="85" width="112" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -376,8 +376,8 @@
                                                         <constraint id="3088" firstAttribute="width" secondItem="3087" secondAttribute="height" multiplier="1:1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lorem Ipsum etc." lineBreakMode="wordWrap" minimumFontSize="18" id="3090" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" misplaced="YES">
-                                                    <rect key="frame" x="20" y="110" width="141" height="36.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lorem Ipsum etc." lineBreakMode="wordWrap" minimumFontSize="18" id="3090" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                                    <rect key="frame" x="20" y="110" width="141" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
@@ -403,7 +403,7 @@
                                                 <constraint id="3108" firstItem="3078" firstAttribute="top" secondItem="3081" secondAttribute="bottom" constant="20"/>
                                                 <constraint id="3109" firstItem="3069" firstAttribute="trailing" secondItem="3078" secondAttribute="trailing" constant="20"/>
                                                 <constraint id="3114" firstItem="3090" firstAttribute="leading" secondItem="3069" secondAttribute="leading" constant="20"/>
-                                                <constraint id="3116" firstItem="3069" firstAttribute="bottom" secondItem="3090" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="3116" firstItem="3069" firstAttribute="bottom" secondItem="3090" secondAttribute="bottom" constant="20" relation="greaterThanOrEqual"/>
                                                 <constraint id="3118" firstItem="3090" firstAttribute="top" secondItem="3078" secondAttribute="bottom" constant="8"/>
                                                 <constraint id="3141" firstItem="3069" firstAttribute="trailing" secondItem="3090" secondAttribute="trailing" constant="20" relation="greaterThanOrEqual"/>
                                             </constraints>

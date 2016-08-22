@@ -2,14 +2,16 @@
 // - Bookify.App.Core.Tests
 // -- LoginViewModelTests.cs
 // -------------------------------------------
-// Author: Bjarke Søgaard <sogaardbjarke@gmail.com>
+// PersonName: Bjarke Søgaard <sogaardbjarke@gmail.com>
 
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Services;
 using Bookify.App.Core.ViewModels;
+using Bookify.App.Sdk.Exceptions;
 using Bookify.Common.Models;
 using Moq;
 
@@ -28,18 +30,20 @@ namespace Bookify.App.Core.Tests.ViewModels
         [Fact]
         public async Task VerifyLoginCallsAuthenticationOnAuthService()
         {
-            var authenticationService = new Mock<IAuthenticationService>();
-            authenticationService.Setup(service => service.Authenticate(It.IsAny<string>(), It.IsAny<string>()))
+            var authService = new Mock<IAuthenticationService>();
+            authService.Setup(service => service.Authenticate(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(
                     async (string email, string password) => new PersonDto { Id = 5, Email = email });
 
-            var viewModel = new LoginViewModel(authenticationService.Object)
+            var viewModel = new LoginViewModel(authService.Object)
             {
                 Email = "test",
                 Password = "test"
             };
 
+            authService.Verify(s => s.Authenticate("test", "test"), Times.Never);
             var account = await viewModel.Authenticate();
+            authService.Verify(s => s.Authenticate("test", "test"), Times.Once);
             account.ShouldNotBeNull();
             account.Id.ShouldBe(5);
             account.Email.ShouldBe("test");
@@ -53,29 +57,29 @@ namespace Bookify.App.Core.Tests.ViewModels
         public async Task VerifyIfInitialCallFailsThatItRetries()
         {
             bool firstCall = true;
-            var authenticationService = new Mock<IAuthenticationService>();
-            authenticationService.Setup(service => service.Authenticate(It.IsAny<string>(), It.IsAny<string>()))
+            var authService = new Mock<IAuthenticationService>();
+            authService.Setup(service => service.Authenticate(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(
                     async (string email, string password) =>
                         {
                             if (firstCall)
                             {
                                 firstCall = false;
-                                throw new WebException("First call");
+                                throw await HttpResponseException.CreateException(new HttpResponseMessage());
                             }
                             return new PersonDto { Id = 5, Email = email };
                         });
 
-            var viewModel = new LoginViewModel(authenticationService.Object)
+            var viewModel = new LoginViewModel(authService.Object)
             {
                 Email = "test",
                 Password = "test"
             };
 
+            authService.Verify(s => s.Authenticate("test", "test"), Times.Never);
             var account = await viewModel.Authenticate();
+            authService.Verify(s => s.Authenticate("test", "test"), Times.Exactly(2)); // Twice cause the first time it throws, but it's still technically called.
             account.ShouldNotBeNull();
-            account.Id.ShouldBe(5);
-            account.Email.ShouldBe("test");
         }
 
         /// <summary>
@@ -90,7 +94,7 @@ namespace Bookify.App.Core.Tests.ViewModels
                 .Returns(
                     async (string email, string password) =>
                     {
-                        throw new WebException("Should be thrown");
+                        throw await HttpResponseException.CreateException(new HttpResponseMessage());
                     });
 
             var viewModel = new LoginViewModel(authenticationService.Object)
@@ -99,7 +103,7 @@ namespace Bookify.App.Core.Tests.ViewModels
                 Password = "test"
             };
 
-            await Should.ThrowAsync<WebException>(async () => await viewModel.Authenticate());
+            await Should.ThrowAsync<HttpResponseException>(async () => await viewModel.Authenticate());
         }
     }
 }

@@ -106,6 +106,7 @@
     <Compile Include="Ui\Controllers\GenresViewController.designer.cs">
       <DependentUpon>GenresViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Controllers\RegistrationViewController.cs" />
     <Compile Include="Ui\DataSources\GenresDataSource.cs" />
     <Compile Include="Ui\TableCells\GenreTableCell.cs" />
     <Compile Include="Ui\TableCells\GenreTableCell.designer.cs">
@@ -290,6 +291,10 @@
     <Reference Include="Rope.Net">
       <HintPath>..\Libraries\Rope.Net\Rope.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Rope.Net.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Rope.Net\iOS\Rope.Net.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
       <Private>True</Private>
@@ -332,12 +337,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Rope.Net\Rope.Net.iOS\Rope.Net.iOS.csproj">
-      <Project>{86edc4d2-21cc-4699-a52f-2388659d4409}</Project>
-      <Name>Rope.Net.iOS</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
-    </ProjectReference>
     <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
       <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
       <Name>Bookify.Common</Name>

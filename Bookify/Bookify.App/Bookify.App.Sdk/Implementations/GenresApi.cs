@@ -17,11 +17,11 @@ namespace Bookify.App.Sdk.Implementations
         {
             var request = new RequestBuilder()
                 .BaseUri(this.Url)
-                .AddQuery(nameof(filter.Index), filter.Index)
-                .AddQuery(nameof(filter.Count), filter.Count);
-            if (!string.IsNullOrEmpty(filter.SearchText))
+                .AddQuery(nameof(filter.Skip), filter.Skip)
+                .AddQuery(nameof(filter.Take), filter.Take);
+            if (!string.IsNullOrEmpty(filter.Search))
             {
-                request.AddQuery(nameof(filter.SearchText), filter.SearchText);
+                request.AddQuery(nameof(filter.Search), filter.Search);
             }
             return await this.ExecuteAndParse<PaginatedEnumerable<GenreDto>>(request);
         }

@@ -13,7 +13,7 @@ namespace Bookify.App.Sdk.Implementations
 {
     public abstract class BaseApi
     {
-        protected static IDictionary<string, object> DefaultHeaders = new Dictionary<string, object>(); 
+        protected static readonly IDictionary<string, object> DefaultHeaders = new Dictionary<string, object>();
 
         protected string Url { get; private set; }
 

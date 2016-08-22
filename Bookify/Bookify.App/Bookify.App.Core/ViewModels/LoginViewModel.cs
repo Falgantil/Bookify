@@ -23,19 +23,14 @@ namespace Bookify.App.Core.ViewModels
 
         public string Password { get; set; }
 
-        public async Task<PersonDto> Authenticate()
+        public async Task Authenticate()
         {
-            Func<Task<PersonDto>> op = async () => await this.authService.Authenticate(this.Email, this.Password);
-            var result = await Policy.Handle<WebException>()
+            Func<Task> op = async () => await this.authService.Authenticate(this.Email, this.Password);
+            await Policy
+                .Handle<WebException>()
                 .Or<HttpResponseException>()
                 .RetryAsync()
-                .ExecuteAndCaptureAsync(op);
-            if (result.Outcome == OutcomeType.Failure)
-            {
-                throw result.FinalException;
-            }
-
-            return result.Result;
+                .ExecuteAsync(op);
         }
     }
 }

@@ -19,28 +19,25 @@ namespace Bookify.App.Core.Services
 
         private readonly IAuthenticationService authService;
 
-        private readonly Lazy<ICachingRegion<AccountModel>> getAccount;
+        private readonly ICachingRegion<AccountModel> getAccount;
 
         public Config(ICachingRegionFactory cachingFactory, IAuthenticationService authService)
         {
             this.cachingFactory = cachingFactory;
             this.authService = authService;
-            this.getAccount =
-                new Lazy<ICachingRegion<AccountModel>>(
-                    () => this.cachingFactory.CreateRegion<AccountModel>("config.dat"));
+            this.getAccount = this.cachingFactory.CreateRegion<AccountModel>("config.dat");
 
             this.authService.AuthChanged += this.SaveAuthState;
         }
 
         private async void SaveAuthState(object sender, AccountModel e)
         {
-            await this.getAccount.Value.UpdateItem(e);
+            await this.getAccount.UpdateItem(e);
         }
 
         public async Task<AccountModel> LoadAccount()
         {
-            var cachingRegion = this.getAccount.Value;
-            return await cachingRegion.GetItem();
+            return await this.getAccount.GetItem();
         }
 
         public async Task<bool> RestoreAccount()

@@ -21,9 +21,10 @@ namespace Bookify.App.Sdk.Exceptions
 
         public static async Task<HttpResponseException> CreateException(HttpResponseMessage message)
         {
+            var content = message.Content != null ? await message.Content.ReadAsStringAsync() : null;
             var httpResponseException = new HttpResponseException(message)
             {
-                Content = await message.Content.ReadAsStringAsync()
+                Content = content
             };
             return httpResponseException;
         }

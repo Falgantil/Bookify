@@ -2,7 +2,7 @@
 // - Bookify.App.Core.Tests
 // -- ShoppingBasketViewModelTests.cs
 // -------------------------------------------
-// Author: Bjarke Søgaard <sogaardbjarke@gmail.com>
+// PersonName: Bjarke Søgaard <sogaardbjarke@gmail.com>
 
 using System.Threading.Tasks;
 
