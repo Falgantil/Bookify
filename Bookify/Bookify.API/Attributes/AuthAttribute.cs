@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using Bookify.Common.Exceptions;
 using Bookify.DataAccess;
 using Bookify.DataAccess.Repositories;
 using Ninject;
@@ -18,7 +19,8 @@ namespace Bookify.API.Attributes
         protected override bool IsAuthorized(HttpActionContext actionContext)
         {
             // get token from header
-            var token = actionContext.Request.Headers.Authorization.Parameter;
+            var token = actionContext.Request.Headers.Authorization?.Parameter;
+            if (token == null) throw new AuthenticationRequiredException("Authenication missing...");
             // validate token and return person
             var personAuthDto = AuthenticationRepository.VerifyToken(token).Result;
             var rolesList = Roles.Split(',');
