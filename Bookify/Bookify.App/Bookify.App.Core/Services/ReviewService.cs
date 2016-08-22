@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
+using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
@@ -17,7 +20,6 @@ namespace Bookify.App.Core.Services
                 new ReviewModel
                 {
                     Id = 1,
-                    CreatedTs = DateTime.Now.AddHours(-5),
                     Author = "Bjarke Søgaard",
                     Rating = 3,
                     Message = "This is a pretty decent book. Just kidding, I haven't actually read it. Sorry :("
@@ -25,7 +27,6 @@ namespace Bookify.App.Core.Services
                 new ReviewModel
                 {
                     Id = 2,
-                    CreatedTs = DateTime.Now.AddDays(-50),
                     Author = "Jonas Thorsen",
                     Rating = 1,
                     Message = "Wat teh fak is dis, I don't read books! U FGT"
@@ -33,7 +34,6 @@ namespace Bookify.App.Core.Services
                 new ReviewModel
                 {
                     Id = 3,
-                    CreatedTs = DateTime.Now.AddDays(-50),
                     Author = "Andreas Hansen",
                     Rating = 5,
                     Message = "I really like this book! This is a really good book. Like, wow! So amazing. More!"
@@ -41,12 +41,21 @@ namespace Bookify.App.Core.Services
                 new ReviewModel
                 {
                     Id = 4,
-                    CreatedTs = DateTime.Now.AddDays(-50),
                     Author = "Rick Boysen",
                     Rating = 2,
                     Message = "Erh... Sure, it's alright. Could be better, could be worse. But could definitely be better."
                 }
             };
+        }
+
+        public async Task<IEnumerable<ReviewModel>> GetReviews(DetailedBookDto book)
+        {
+            return book.Feedback.Select(dto => new ReviewModel()
+            {
+                Author = dto.PersonName,
+                Message = dto.Text,
+                Rating = dto.Rating
+            });
         }
     }
 }

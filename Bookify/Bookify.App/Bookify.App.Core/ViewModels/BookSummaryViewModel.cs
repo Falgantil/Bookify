@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
+using Bookify.App.Core.Services;
 using Bookify.Common.Models;
 
 namespace Bookify.App.Core.ViewModels

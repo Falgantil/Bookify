@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
+using Bookify.App.Core.Services;
 using Bookify.App.Core.ViewModels;
 using Bookify.Common.Models;
 using Moq;

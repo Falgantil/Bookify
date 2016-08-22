@@ -1,5 +1,7 @@
 using System;
 using Bookify.App.Core.ViewModels;
+using Bookify.App.iOS.Ui.TableCells;
+
 using Foundation;
 using UIKit;
 

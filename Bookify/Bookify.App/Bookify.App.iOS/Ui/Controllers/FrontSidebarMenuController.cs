@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
+using Bookify.App.iOS.Ui.Controllers.Base;
 
 using MonoTouch.Dialog;
 using SidebarNavigation;
@@ -42,7 +43,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void CreateLoggedInMenuItems()
         {
-            this.Root = new RootElement($"Velkommen {this.ViewModel.Account.FirstName}")
+            this.Root = new RootElement($"Velkommen {this.ViewModel.Account.Person.FirstName}")
             {
                 new Section
                 {

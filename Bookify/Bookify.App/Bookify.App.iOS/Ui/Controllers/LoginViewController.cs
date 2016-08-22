@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -30,7 +31,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             base.ViewDidLoad();
 
-            this.txtUsername.ShouldReturn = field =>
+            this.txtEmail.ShouldReturn = field =>
             {
                 this.txtPassword.BecomeFirstResponder();
                 return true;
@@ -57,7 +58,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected override void CreateBindings()
         {
-            this.txtUsername.BindText(this.ViewModel, vm => vm.Email);
+            this.txtEmail.BindText(this.ViewModel, vm => vm.Email);
             this.txtPassword.BindText(this.ViewModel, vm => vm.Password);
         }
 
@@ -94,7 +95,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private void KeyboardManagerOnKeyboardWillShow(object sender, KeyboardNotificationManager.KeyboardNotificationEventArgs args)
         {
-            this.shouldHide = this.txtUsername.Frame.Top - args.KeyboardSize.Height < this.imgLogo.Frame.Bottom;
+            this.shouldHide = this.txtEmail.Frame.Top - args.KeyboardSize.Height < this.imgLogo.Frame.Bottom;
 
             UIView.Animate(
                 args.Duration.TotalSeconds,

@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+using Bookify.App.Core.Services;
+using Bookify.App.Sdk.Interfaces;
+
 namespace Bookify.App.Core.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged

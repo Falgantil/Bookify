@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using Bookify.Common.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {
-    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity>, IDisposable where TEntity : class
     {
         protected BookifyContext Context { get; }
 
@@ -59,6 +60,12 @@ namespace Bookify.DataAccess.Repositories
             dbEntityEntry.State = EntityState.Modified;
             await this.Context.SaveChangesAsync();
             return dbEntityEntry.Entity;
+        }
+
+        public void Dispose()
+        {
+            Debug.WriteLine("AuthenticationRepository has been disposed");
+            this.Context.Dispose();
         }
     }
 }

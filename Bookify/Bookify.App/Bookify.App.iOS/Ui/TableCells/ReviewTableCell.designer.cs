@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.TableCells
 {
     [Register ("ReviewTableCell")]
     partial class ReviewTableCell
@@ -41,10 +41,6 @@ namespace Bookify.App.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblComment { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblDate { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -81,11 +77,6 @@ namespace Bookify.App.iOS
             if (lblComment != null) {
                 lblComment.Dispose ();
                 lblComment = null;
-            }
-
-            if (lblDate != null) {
-                lblDate.Dispose ();
-                lblDate = null;
             }
         }
     }

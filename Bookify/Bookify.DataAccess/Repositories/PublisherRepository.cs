@@ -47,7 +47,7 @@ namespace Bookify.DataAccess.Repositories
             query = query.Skip(filter.Index);
             query = query.Take(filter.Count);
             var collection = await query.ToListAsync();
-            return new PaginatedEnumerable<PublisherDto>(collection.Select(g => g.ToDto()), totalCount, filter.Index, filter.Count);
+            return new PaginatedEnumerable<PublisherDto>(collection.Select(g => g.ToDto()), totalCount);
         }
 
         public async Task<PublisherDto> GetById(int id)

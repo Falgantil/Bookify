@@ -23,6 +23,10 @@ namespace Bookify.App.iOS.Ui.DataSources
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
+            if (indexPath.Row >= this.viewModel.Books.Count - 1)
+            {
+                this.viewModel.Books.LoadMore();
+            }
             return BookTableCell.CreateCell(tableView, indexPath, this.viewModel.Books[indexPath.Row]);
         }
 

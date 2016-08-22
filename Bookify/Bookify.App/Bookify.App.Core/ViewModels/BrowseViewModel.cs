@@ -1,6 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+
+using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
+using Bookify.App.Core.Services;
+using Bookify.Common.Filter;
 using Bookify.Common.Models;
 
 namespace Bookify.App.Core.ViewModels
@@ -12,17 +16,9 @@ namespace Bookify.App.Core.ViewModels
         public BrowseViewModel(IGenreService genreService)
         {
             this.genreService = genreService;
+            this.Categories = new ObservableServiceCollection<GenreDto, GenreFilter, IGenreService>(this.genreService);
         }
 
-        public ObservableCollection<GenreDto> Categories { get; } = new ObservableCollection<GenreDto>();
-
-        public async Task LoadItems()
-        {
-            var genres = await this.genreService.GetGenres();
-            foreach (var genre in genres)
-            {
-                this.Categories.Add(genre);
-            }
-        }
+        public ObservableServiceCollection<GenreDto, GenreFilter, IGenreService> Categories { get; }
     }
 }

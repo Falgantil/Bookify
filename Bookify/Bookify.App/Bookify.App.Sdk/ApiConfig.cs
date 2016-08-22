@@ -14,11 +14,15 @@ namespace Bookify.App.Sdk
 
         public static string BooksRoot => Path.Combine(Website, "books");
 
-        public static string ThumbnailUrl => Path.Combine(BooksRoot, "cover/{bookId}");
+        public static string FilesRoot => Path.Combine(Website, "files");
+
+        public static string GenresRoot => Path.Combine(Website, "genres");
+
+        public static string ThumbnailUrl => Path.Combine(FilesRoot, "{bookId}/downloadcover");
 
         public static string AuthRoot => Path.Combine(Website, "auth");
 
-        public static string PersonRoot => Path.Combine(Website, "person");
+        public static string PersonRoot => Path.Combine(Website, "persons");
 
         public static string GetThumbnail(int bookId, int? width = null, int? height = null)
         {
@@ -301,7 +305,7 @@ namespace Bookify.App.Sdk
         public RequestBuilder JsonContent<T>(T objToSerialize, JsonSerializerSettings serializerSettings = null)
         {
             var json = JsonConvert.SerializeObject(objToSerialize, serializerSettings);
-            this.RequestMessage.Content = new StringContent(json);
+            this.RequestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
             return this;
         }
 
@@ -408,7 +412,7 @@ namespace Bookify.App.Sdk
 
         #endregion
     }
-    
+
     /// <summary>
     ///     URL Helper.
     /// </summary>

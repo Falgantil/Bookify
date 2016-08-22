@@ -8,5 +8,9 @@ namespace Bookify.App.Sdk.Interfaces
     public interface IAuthenticationApi
     {
         Task<AuthTokenDto> Authenticate(AuthenticateCommand command);
+
+        Task Deauthenticate();
+
+        Task Authenticate(AuthTokenDto authToken);
     }
 }

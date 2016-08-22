@@ -9,10 +9,10 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.TableCells
 {
-    [Register ("BrowseViewController")]
-    partial class BrowseViewController
+    [Register ("GenreTableCell")]
+    partial class GenreTableCell
     {
         void ReleaseDesignerOutlets ()
         {

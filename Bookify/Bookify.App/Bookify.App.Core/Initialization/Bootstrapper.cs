@@ -84,14 +84,18 @@ namespace Bookify.App.Core.Initialization
             this.kernel.Bind<IFileSystem>().ToMethod(c => FileSystem.Current);
 
             this.kernel.Bind<IAuthenticationApi>().To<AuthenticationApi>().InSingletonScope();
-            this.kernel.Bind<IBookApi>().To<BookApi>().InSingletonScope();
+            this.kernel.Bind<IBooksApi>().To<BooksApi>().InSingletonScope();
+            this.kernel.Bind<IGenresApi>().To<GenresApi>().InSingletonScope();
+            this.kernel.Bind<IPersonApi>().To<PersonApi>().InSingletonScope();
 
             this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
             this.kernel.Bind<ICachingRegionFactory>().To<CachingRegionFactory>().InSingletonScope();
             this.kernel.Bind<IShoppingCartService>().To<ShoppingCartService>().InSingletonScope();
-            this.kernel.Bind<IBookService>().To<BookService>().InSingletonScope();
+            this.kernel.Bind<IBooksService>().To<BooksService>().InSingletonScope();
             this.kernel.Bind<IReviewService>().To<ReviewService>().InSingletonScope();
             this.kernel.Bind<IGenreService>().To<GenreService>().InSingletonScope();
+
+            this.kernel.Bind<IConfig>().To<Config>().InSingletonScope();
 
             this.platformInitializer.AfterInit(this.kernel);
         }

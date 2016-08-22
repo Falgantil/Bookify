@@ -1,25 +1,40 @@
 ﻿using System.Collections.ObjectModel;
+using System.Net;
 using System.Threading.Tasks;
+
+using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
+using Bookify.App.Core.Services;
+using Bookify.App.Sdk.Interfaces;
+using Bookify.Common.Filter;
 using Bookify.Common.Models;
+using Polly;
 
 namespace Bookify.App.Core.ViewModels
 {
     public class SearchViewModel : BaseViewModel
     {
-        private readonly IBookService bookService;
-
-        public SearchViewModel(IBookService bookService)
+        private readonly IBooksService booksService;
+        
+        public SearchViewModel(IBooksService booksService)
         {
-            this.bookService = bookService;
-            this.OnSearchTextChanged();
+            this.booksService = booksService;
+
+            this.Filtered = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this.booksService);
         }
 
-        public ObservableCollection<BookDto> Filtered { get; } = new ObservableCollection<BookDto>();
+        public ObservableServiceCollection<BookDto, BookFilter, IBooksService> Filtered { get; }
 
         public string SearchText { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         private int delays;
+
+        public void RefreshContent()
+        {
+            this.OnSearchTextChanged();
+        }
 
         private async void OnSearchTextChanged()
         {
@@ -34,18 +49,26 @@ namespace Bookify.App.Core.ViewModels
                 return;
             }
 
-            await this.PerformSearch();
+            if (this.Genre != null)
+            {
+                this.Filtered.Filter.GenreIds = new[] { this.Genre.Id };
+            }
+
+            this.Filtered.Filter.SearchText = this.SearchText;
+            await this.Filtered.Restart();
         }
 
-        private async Task PerformSearch()
+        public async Task<DetailedBookDto> GetBook(int id)
         {
-            var books = await this.bookService.GetBooks(0, 10, this.SearchText);
-
-            this.Filtered.Clear();
-            foreach (var book in books)
+            var result = await
+                         Policy.Handle<WebException>()
+                             .RetryAsync()
+                             .ExecuteAndCaptureAsync(async () => await this.booksService.GetBook(id));
+            if (result.Outcome == OutcomeType.Failure)
             {
-                this.Filtered.Add(book);
+                return null;
             }
+            return result.Result;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Bookify.App.Core.Initialization;
+using Bookify.App.Core.Services;
 using Bookify.App.iOS.Ui.Controllers;
 using Foundation;
 
@@ -24,15 +25,20 @@ namespace Bookify.App.iOS.Initialization
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             Root = Bootstrapper.Initialize(new IosPlatformInitializer());
+            var resolve = Root.Resolve<IConfig>();
+            var restoreAccount = resolve.RestoreAccount();
 
             // create a new window instance based on the screen size
             this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
             // If you have defined a root view controller, set it here:
-            this.Window.RootViewController = new FrontSidebarController();
+            this.Window.RootViewController = new LaunchViewController();
 
             // make the window visible
             this.Window.MakeKeyAndVisible();
+
+            restoreAccount.ContinueWith(
+                op => this.InvokeOnMainThread(() => this.Window.RootViewController = new FrontSidebarController()));
 
             return true;
         }
