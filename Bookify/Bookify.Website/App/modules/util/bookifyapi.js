@@ -23,7 +23,7 @@ class BookifyAPI {
       type: 'POST',
       processData: false,
       contentType: false,
-      header: { 'Authorization': 'jwt ' + authToken },
+      headers: { 'Authorization': 'jwt ' + authToken },
       data: data
     });
   }

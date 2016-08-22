@@ -52,6 +52,7 @@ class NewBookViewModel {
     };
     var result = await bookifyapi.postBook(book);
     await bookifyapi.postBookCover(result.Id, cover);
+    return result;
   }
 }
 

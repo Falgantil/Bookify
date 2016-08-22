@@ -36,8 +36,7 @@ class NewBookpage extends React.Component {
     var formData = new FormData();
     formData.append('cover', this.refs.coverInput.files[0]);
     var result = await this.model.submit(e, formData);
-    console.log(result);
-    //await bookifyapi.postBookCover(23, formData, (data) => { console.log(data); } );
+    browserHistory.push('/book/' + result.Id);
   }
 
   render() {
