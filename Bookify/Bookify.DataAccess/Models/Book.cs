@@ -35,6 +35,7 @@ namespace Bookify.DataAccess.Models
             {
                 Id = Id,
                 Publisher = Publisher?.ToDto(),
+                ISBN = ISBN,
                 Author = Author?.ToDto(),
                 Genres = Genres.Select(x => x.ToDto()).ToList(),
                 Price = Price,
@@ -50,6 +51,7 @@ namespace Bookify.DataAccess.Models
             {
                 Id = Id,
                 Publisher = Publisher?.ToDto(),
+                ISBN = ISBN,
                 Author = Author?.ToDto(),
                 Genres = Genres.Select(x => x.ToDto()).ToList(),
                 Price = Price,

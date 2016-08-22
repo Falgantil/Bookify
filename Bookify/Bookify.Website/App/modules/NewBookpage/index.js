@@ -33,11 +33,12 @@ class NewBookpage extends React.Component {
 
   async submit(e) {
     e.preventDefault();
-    var formData = new FormData();
-    formData.append('cover', this.refs.coverInput.files[0]);
-
-    var result = await this.model.submit(e, formData);
-    //await bookifyapi.postBookCover(23, formData, (data) => { console.log(data); } );
+    var coverData = new FormData();
+    coverData.append('cover', this.refs.coverInput.files[0]);
+    var epubData = new FormData();
+    epubData.append('cover', this.refs.epubInput.files[0]);
+    var result = await this.model.submit(e, coverData, epubData);
+    browserHistory.push('/book/' + result.Id);
   }
 
   render() {
@@ -76,6 +77,11 @@ class NewBookpage extends React.Component {
         <div>
             <label>Cover</label>
             <input type="file" name="coverInput" ref="coverInput" />
+          </div>
+          <br />
+          <div>
+            <label>Epub</label>
+            <input type="file" name="epubInput" ref="epubInput" />
           </div>
 
         <div className="form-group">

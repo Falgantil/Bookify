@@ -14,6 +14,7 @@ class BookpageViewModel {
     }
     this.bookId = bookId;
     this.book = await bookifyapi.getBook(bookId);
+    console.log(this.book);
   }
 }
 

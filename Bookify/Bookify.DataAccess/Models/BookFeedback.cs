@@ -8,6 +8,7 @@ namespace Bookify.DataAccess.Models
         public int PersonId { get; set; }
         public int Rating { get; set; }
         public string Text { get; set; }
+        public Book Book { get; set; }
 
         public BookFeedbackDto ToDto()
         {

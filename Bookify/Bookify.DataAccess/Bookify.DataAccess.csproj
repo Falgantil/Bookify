@@ -111,13 +111,9 @@
     <Compile Include="Configuration\BookFeedbackConfiguration.cs" />
     <Compile Include="EncryptSha512.cs" />
     <Compile Include="Extensions\Extensions.cs" />
-    <Compile Include="Migrations\201608171253405_BookContent_Removed.cs" />
-    <Compile Include="Migrations\201608171253405_BookContent_Removed.Designer.cs">
-      <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608181050518_RemovedBookContentTable.cs" />
-    <Compile Include="Migrations\201608181050518_RemovedBookContentTable.Designer.cs">
-      <DependentUpon>201608181050518_RemovedBookContentTable.cs</DependentUpon>
+    <Compile Include="Migrations\201608220843030_Initial.cs" />
+    <Compile Include="Migrations\201608220843030_Initial.Designer.cs">
+      <DependentUpon>201608220843030_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -164,15 +160,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608171253405_BookContent_Removed.resx">
-      <DependentUpon>201608171253405_BookContent_Removed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608181050518_RemovedBookContentTable.resx">
-      <DependentUpon>201608181050518_RemovedBookContentTable.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <EmbeddedResource Include="Migrations\201608220843030_Initial.resx">
+      <DependentUpon>201608220843030_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

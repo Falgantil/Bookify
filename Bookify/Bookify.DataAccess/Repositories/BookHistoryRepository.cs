@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Bookify.Common.Commands.Auth;
+using Bookify.Common.Enums;
 using Bookify.Common.Models;
 using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
@@ -20,9 +21,11 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task AddHistory(CreateHistoryCommand command)
         {
-            var history = await this.Add(new BookHistory
+            await this.Add(new BookHistory
             {
-                // TODO: Implement me
+                BookId = command.BookId,
+                Created = command.Created,
+                Type = command.Type
             });
         }
 

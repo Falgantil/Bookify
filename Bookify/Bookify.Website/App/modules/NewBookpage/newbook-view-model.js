@@ -12,7 +12,7 @@ class NewBookViewModel {
   @observable publishYear = '';
   @observable pageCount = '';
   @observable availableCopies = '';
-  @observable language = '';
+  @observable language = 'dansk';
   @observable cover = '';
   @observable genres = [];
 
@@ -36,7 +36,7 @@ class NewBookViewModel {
     }
   }
 
-  async submit(e) {
+  async submit(e, cover, epub) {
     var book = {
       title: this.title,
       isbn: this.isbn,
@@ -48,9 +48,12 @@ class NewBookViewModel {
       publishYear: this.publishYear,
       pageCount: this.pageCount,
       copiesAvailable: this.availableCopies,
-      genres: this.genres.map((e) => { return { id: e } })
+      genres: this.genres
     };
-    return await bookifyapi.postBook(book);
+    var result = await bookifyapi.postBook(book);
+    bookifyapi.postBookCover(result.Id, cover);
+    bookifyapi.postBookEPub(result.Id, epub);
+    return result;
   }
 }
 

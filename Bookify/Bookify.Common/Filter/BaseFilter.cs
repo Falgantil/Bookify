@@ -2,10 +2,10 @@ namespace Bookify.Common.Filter
 {
     public abstract class BaseFilter
     {
-        public int Index { get; set; }
+        public int Skip { get; set; }
 
-        public int Count { get; set; } = 10;
+        public int Take { get; set; } = 10;
 
-        public string SearchText { get; set; }
+        public string Search { get; set; }
     }
 }

@@ -144,7 +144,6 @@ namespace Bookify.API.Controllers
 
 
         [HttpGet]
-        [Auth]
         [Route("{id}/DownloadCover")]
         public async Task<IHttpActionResult> DownloadCover(int id)
         {

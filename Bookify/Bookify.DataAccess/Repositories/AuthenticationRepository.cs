@@ -27,7 +27,7 @@ namespace Bookify.DataAccess.Repositories
         public async Task<AuthTokenDto> Login(AuthenticateCommand command)
         {
             var queryable = await this.Get(p => p.Email == command.Email);
-            var person = await queryable.SingleOrDefaultAsync();
+            var person = await queryable.Include(x => x.Roles).SingleOrDefaultAsync();
             if (person == null || !EncryptSha512.VerifyPassword(command.Password, person.Password))
             {
                 throw new InvalidCredentialsException("Invalid email & password");
@@ -46,7 +46,7 @@ namespace Bookify.DataAccess.Repositories
             return new AuthTokenDto
             {
                 Token = token,
-                Roles = person.Roles.Select(x=>x.ToPersonRoleDto()),
+                Roles = person.Roles.Select(x => x.ToPersonRoleDto().Name).ToArray()
                 Alias = person.Alias
             };
         }
@@ -89,7 +89,7 @@ namespace Bookify.DataAccess.Repositories
                 throw new InvalidAccessTokenException();
             }
 
-            var userId = (int) obj[UserId];
+            var userId = (int)obj[UserId];
             var userQuery = await this.Get(x => x.Id == userId);
             userQuery = userQuery.Include(x => x.Roles);
             var user = userQuery.Single();
@@ -101,10 +101,10 @@ namespace Bookify.DataAccess.Repositories
                 AuthTokenDto = new AuthTokenDto
                 {
                     Token = accessToken,
-                    Roles = user.Roles.Select(x => x.ToPersonRoleDto())
+                    Roles = user.Roles.Select(x => x.ToPersonRoleDto().Name).ToArray()
                 }
             };
-                
+
         }
     }
 }

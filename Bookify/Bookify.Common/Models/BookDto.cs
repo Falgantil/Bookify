@@ -8,6 +8,8 @@ namespace Bookify.Common.Models
 
         public string Summary { get; set; }
 
+        public string ISBN { get; set; }
+
         public decimal Price { get; set; }
 
         public int PublishYear { get; set; }
