@@ -19,7 +19,18 @@ class BookifyAPI {
   postBook(book) { return http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
   postBookCover(bookId, data) {
     $.ajax({
-      url: 'http://localhost:13654/' + 'files/' + bookId + '/UploadCover',
+      url: baseUrl + 'files/' + bookId + '/uploadcover',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      headers: { 'Authorization': 'jwt ' + authToken },
+      data: data
+    });
+  }
+
+  postBookEPub(bookId, data) {
+    $.ajax({
+      url: baseUrl + 'files/' + bookId + '/uploadepub',
       type: 'POST',
       processData: false,
       contentType: false,
