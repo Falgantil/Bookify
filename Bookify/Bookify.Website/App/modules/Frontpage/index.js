@@ -6,9 +6,13 @@ import { Link } from 'react-router'
 import bookifyapi from '../util/bookifyapi';
 
 const BookView = ({ model, book }) => (
-  <Link className="col-lg-2 col-md-2 col-sm-2 col-xs-4" to={"/book/" + book.Id}>
-      <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" width="100" height="145" />
-  </Link>
+  <div className="book col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <Link  to={"/book/" + book.Id}>
+        <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" width="100" height="145" />
+    </Link>
+    <div>
+    </div>
+    </div>
 )
 
 /**
@@ -22,20 +26,26 @@ class Frontpage extends React.Component {
     this.model.loadBooks();
   }
 
+  async submit(e) {
+    e.preventDefault();
+    console.log(e);
+    var result = await this.model.submit(e);
+  }
+
   render() {
     return (
       <div>
       <div className="row">
         <div className="col-xs-12">
 
-        <form className="searchForm">
-              <div className="input-group">
-                <input type="text" className="form-control" aria-label="..." placeholder="Søg" />
-                <div className="input-group-btn">
-                  <button className="btn btn-raised btn-primary"><i className="material-icons">search</i></button>
-                </div>
+        <form ref="searchForm" onSubmit={(e) => this.submit(e)} className="searchForm">
+            <div className="input-group">
+              <input type="text" className="form-control" aria-label="..." placeholder="Søg" value={this.model.search} onChange={(e) => this.model.search = e.target.value}/>
+              <div className="input-group-btn">
+                <button type="submit" className="btn btn-raised btn-primary"><i className="material-icons">search</i></button>
               </div>
-          </form>
+            </div>
+        </form>
 
         </div>
       </div>
