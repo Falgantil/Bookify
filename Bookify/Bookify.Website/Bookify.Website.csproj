@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="App\index.html" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\bookifyweb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
