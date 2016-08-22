@@ -16,17 +16,15 @@ class BookifyAPI {
   getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }
   getRelatedBooks(id) { return http.get(baseUrl + 'books?search' + id); }
 
-  postBook(book) { http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
-  postBookCover(bookId, data, callback) {
+  postBook(book) { return http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
+  postBookCover(bookId, data) {
     $.ajax({
       url: 'http://localhost:13654/' + 'files/' + bookId + '/UploadCover',
       type: 'POST',
       processData: false,
       contentType: false,
       header: { 'Authorization': 'jwt ' + authToken },
-      data: data,
-      success: function () { callback(true); },
-      error: function() { callback(false); }
+      data: data
     });
   }
 
