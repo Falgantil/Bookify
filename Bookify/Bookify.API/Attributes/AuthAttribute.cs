@@ -28,7 +28,7 @@ namespace Bookify.API.Attributes
                 return true;
             foreach (var role in personAuthDto.AuthTokenDto.Roles)
             {
-                if (rolesList.Any(x => x == role.Name))
+                if (rolesList.Any(x => x == role))
                 {
                     return true;
                 }

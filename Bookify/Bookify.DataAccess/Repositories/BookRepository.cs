@@ -24,14 +24,19 @@ namespace Bookify.DataAccess.Repositories
         public async Task<DetailedBookDto> GetById(int id)
         {
             var book =
-                await
-                    this.Context.Books.Where(b => b.Id == id)
-                        .Include(b => b.Genres)
-                        .Include(b => b.Author)
-                        .Include(x => x.Publisher)
-                        .Include(f => f.Feedback)
-                        .SingleAsync();
-            return book.ToDetailedDto();
+                this.Context.Books.Where(b => b.Id == id)
+                    .Include(b => b.Genres)
+                    .Include(b => b.Author)
+                    .Include(x => x.Publisher)
+                    .Include(f => f.Feedback);
+
+            await book.ForEachAsync(x =>
+            {
+                x.Feedback = x.Feedback.Take(10).ToList();
+            });
+
+            var result = await book.SingleAsync();
+            return result.ToDetailedDto();
         }
 
         public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)
@@ -108,18 +113,12 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<DetailedBookDto> CreateBook(CreateBookCommand command)
         {
+            var availableGenres = this.Context.Genres.ToList();
             List<Genre> genres = new List<Genre>();
             foreach (var genreId in command.Genres)
             {
-                genres.Add(new Genre { Id = genreId });
+                genres.Add(availableGenres.Where(x => x.Id == genreId).Single());
             }
-            //IQueryable<Genre> genres = this.Context.Genres.AsQueryable();
-            //foreach (var genre in command.Genres)
-            //{
-            //    var genre1 = genre;
-            //    genres = genres.Where(x => x.Id == genre1);
-            //}
-            //var dbGenres = await genres.ToListAsync();
 
             var book = await this.Add(new Book
             {
@@ -127,7 +126,7 @@ namespace Bookify.DataAccess.Repositories
                 Summary = command.Summary,
                 AuthorId = command.AuthorId,
                 PublishYear = command.PublishYear,
-                Genres = genres, //dbGenres.Select(genre => genre).ToList(),
+                Genres = genres,
                 PublisherId = command.PublisherId,
                 Language = command.Language,
                 CopiesAvailable = command.CopiesAvailable,

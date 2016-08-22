@@ -6,6 +6,7 @@ namespace Bookify.DataAccess.Models
     {
         public int BookId { get; set; }
         public int PersonId { get; set; }
+        public Person Person { get; set; }
         public int Rating { get; set; }
         public string Text { get; set; }
         public Book Book { get; set; }
@@ -16,7 +17,7 @@ namespace Bookify.DataAccess.Models
             {
                 BookId = BookId,
                 PersonId = PersonId,
-                PersonName = "Unknown",
+                Person = Person.ToDto(),
                 Rating = Rating,
                 Text = Text
             };
