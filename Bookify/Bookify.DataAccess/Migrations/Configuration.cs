@@ -40,48 +40,27 @@ namespace Bookify.DataAccess.Migrations
             ctx.SaveChanges();
 
 
-            var personRoles = new[]
-            {
-                new PersonRole() { Id = 1, Name = "Member" },
-                new PersonRole() {Id = 2, Name = "Employee"},
-                new PersonRole() { Id = 3, Name = "Publisher" }
-            };
-            ctx.PersonRoles.AddOrUpdate(x => x.Id, personRoles);
-            ctx.SaveChanges();
-
             ctx.Persons.AddOrUpdate(x => x.Id,
             #region Person1
                 new Person()
                 {
                     Id = 1,
-                    Addresses =
-                        new List<Address>()
-                        {
-                            new Address() {Country = "Denmark", Street = "KarstenGade 10", ZipCode = 8293}
-                        },
                     Alias = "xXxBjarkeBål69xXx",
-                    Email = "test@test.com",
+                    Email = "admin@test.com",
                     Firstname = "Bjarka",
                     Lastname = "Søgaarde",
-                    Password = EncryptSha512.GetPassword("test"),
-                    Roles = new List<PersonRole>() { personRoles[0], personRoles[1], personRoles[2] }
+                    Password = EncryptSha512.GetPassword("test")
                 },
             #endregion
             #region Person2
                 new Person()
                 {
                     Id = 2,
-                    Addresses =
-                        new List<Address>()
-                        {
-                            new Address() {Country = "Denmark2", Street = "KarstenGade 13", ZipCode = 6548}
-                        },
                     Alias = "Medlem guy",
                     Email = "medlem@test.com",
                     Firstname = "Med",
                     Lastname = "Lem",
-                    Password = EncryptSha512.GetPassword("test"),
-                    Roles = new List<PersonRole>() { personRoles[0] }
+                    Password = EncryptSha512.GetPassword("test")
                 },
             #endregion
             #region Person3
@@ -91,35 +70,44 @@ namespace Bookify.DataAccess.Migrations
                     Addresses =
                         new List<Address>()
                         {
-                            new Address() {Country = "Denmark3", Street = "KarstenGade 16", ZipCode = 5548}
                         },
                     Alias = "Medarbejder#56",
                     Email = "medarbejder@test.com",
                     Firstname = "Medarbejder",
                     Lastname = "#57",
-                    Password = EncryptSha512.GetPassword("test"),
-                    Roles = new List<PersonRole>() { personRoles[1] }
+                    Password = EncryptSha512.GetPassword("test")
                 },
             #endregion
             #region Person4
                 new Person()
                 {
                     Id = 4,
-                    Addresses =
-                        new List<Address>()
-                        {
-                            new Address() {Country = "Denmark4", Street = "KarstenGade 17", ZipCode = 5664}
-                        },
                     Alias = "udgiver vognen",
                     Email = "test@test.com",
                     Firstname = "udgiver",
                     Lastname = "gyldendaal",
-                    Password = EncryptSha512.GetPassword("test"),
-                    Roles = new List<PersonRole>() { personRoles[2] }
+                    Password = EncryptSha512.GetPassword("test")
                 }
                 #endregion
             );
-            
+            ctx.SaveChanges();
+
+            ctx.Addresses.AddOrUpdate(x => x.Id,
+                            new Address() { Country = "Denmark", Street = "KarstenGade 10", ZipCode = 8293, PersonId = 1 },
+                            new Address() { Country = "Denmark2", Street = "KarstenGade 13", ZipCode = 6548, PersonId = 2 },
+                            new Address() { Country = "Denmark3", Street = "KarstenGade 16", ZipCode = 5548, PersonId = 3 },
+                            new Address() { Country = "Denmark4", Street = "KarstenGade 17", ZipCode = 5664, PersonId = 4 }
+                            );
+
+            ctx.PersonRoles.AddOrUpdate(x => x.Id,
+                new PersonRole() { Id = 1, PersonId = 1, Name = "Member" },
+                new PersonRole() { Id = 2, PersonId = 1, Name = "Employee" },
+                new PersonRole() { Id = 3, PersonId = 1, Name = "Publisher" },
+                new PersonRole() { Id = 4, PersonId = 2, Name = "Member" },
+                new PersonRole() { Id = 5, PersonId = 3, Name = "Employee" },
+                new PersonRole() { Id = 6, PersonId = 4, Name = "Publisher" });
+            ctx.SaveChanges();
+
             ctx.Books.AddOrUpdate(x => x.Id,
             #region Book1
                 new Book
@@ -224,7 +212,7 @@ namespace Bookify.DataAccess.Migrations
                     Language = "Engelsk",
                     PublishYear = 2014,
                     ViewCount = 0,
-                    Genres = { genres[1], genres[3], genres[7] },
+                    Genres = { genres[1], genres[3], genres[4] },
                     CopiesAvailable = 4,
                     History = new List<BookHistory>()
                     {
@@ -375,19 +363,19 @@ namespace Bookify.DataAccess.Migrations
                     #endregion
                 );
 
-            ctx.BookFeedback.AddOrUpdate(x => x.Id,
+            ctx.BookFeedback.AddOrUpdate(x => new { x.BookId, x.PersonId },
             #region BookFeedback
               new BookFeedback() { PersonId = 1, Rating = 5, Text = "woah oh my gawd diz book sooo for realz 5/7 - westside", BookId = 4 },
               new BookFeedback() { PersonId = 2, Rating = 0, Text = "Hvordan starter mand? Den her bog er mega dårlig\nDen har ikke engang en instruktions manual med...", BookId = 2 },
               new BookFeedback() { PersonId = 3, Rating = 3, Text = "Meh... den indeholder bogstaver... :|", BookId = 3 },
-              new BookFeedback() { PersonId = 1, Rating = 5, Text = "I can't live without this", BookId = 4 },
-              new BookFeedback() { PersonId = 1, Rating = 5, Text = "This is it, I see the light... from this book :O", BookId = 4 },
+              new BookFeedback() { PersonId = 1, Rating = 5, Text = "I can't live without this", BookId = 2 },
+              new BookFeedback() { PersonId = 4, Rating = 5, Text = "This is it, I see the light... from this book :O", BookId = 4 },
               new BookFeedback() { PersonId = 3, Rating = 2, Text = "Den indeholder masser af bogstaver!", BookId = 1 },
-              new BookFeedback() { PersonId = 1, Rating = 1, Text = "Nah this aint what I'm lookin fo", BookId = 2 },
-              new BookFeedback() { PersonId = 2, Rating = 4, Text = "Ret god, fine farver", BookId = 1 },
+              new BookFeedback() { PersonId = 4, Rating = 1, Text = "Nah this aint what I'm lookin fo", BookId = 3},
+              new BookFeedback() { PersonId = 2, Rating = 4, Text = "Ret god, fine farver", BookId = 3 },
               new BookFeedback() { PersonId = 2, Rating = 4, Text = "Min mad brændte på!", BookId = 1 },
-              new BookFeedback() { PersonId = 2, Rating = 1, Text = "Kunne endelig læse bogen efter jeg snakkede med support i 139 timer >:(", BookId = 2 },
-              new BookFeedback() { PersonId = 1, Rating = 0, Text = "Mah lord diz book make me sick!", BookId = 2 },
+              new BookFeedback() { PersonId = 4, Rating = 1, Text = "Kunne endelig læse bogen efter jeg snakkede med support i 139 timer >:(", BookId = 1 },
+              new BookFeedback() { PersonId = 4, Rating = 0, Text = "Mah lord diz book make me sick!", BookId = 2 },
               new BookFeedback() { PersonId = 3, Rating = 0, Text = "Den levede desværre ikke op til mine forventninger", BookId = 2 }
               );
             #endregion
