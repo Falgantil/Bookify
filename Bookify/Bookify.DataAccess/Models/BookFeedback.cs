@@ -4,6 +4,7 @@ namespace Bookify.DataAccess.Models
 {
     public class BookFeedback
     {
+        public int Id { get; set; }
         public int BookId { get; set; }
         public int PersonId { get; set; }
         public int Rating { get; set; }

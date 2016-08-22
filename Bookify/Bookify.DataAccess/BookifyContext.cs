@@ -23,7 +23,6 @@ namespace Bookify.DataAccess
         public BookifyContext() : base("DefaultConnection")
         {
             Database.Log = s => Debug.WriteLine(s);
-            Debug.WriteLine("Fisk!");
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
