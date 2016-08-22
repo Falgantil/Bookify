@@ -40,8 +40,11 @@
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\ObservableApiCollection.cs" />
+    <Compile Include="Collections\ObservableServiceCollection.cs" />
     <Compile Include="Helpers\NameHelper.cs" />
+    <Compile Include="Interfaces\Services\IGetByFilterService.cs" />
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Services\IConfig.cs" />
     <Compile Include="Services\JsonCachingRegion.cs" />
     <Compile Include="Services\CachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IGenreService.cs" />
@@ -51,24 +54,23 @@
     <Compile Include="Interfaces\Services\ICachingRegion.cs" />
     <Compile Include="Interfaces\Services\ICachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IShoppingCartService.cs" />
-    <Compile Include="Interfaces\Services\IBookService.cs" />
+    <Compile Include="Interfaces\Services\IBooksService.cs" />
     <Compile Include="Interfaces\Services\IReviewService.cs" />
     <Compile Include="Models\BaseDataModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
-    <Compile Include="Properties\Annotations1.cs" />
-    <Compile Include="Properties\Annotations2.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Initialization\Bootstrapper.cs" />
     <Compile Include="Initialization\Parameter.cs" />
     <Compile Include="Interfaces\Initialization\IPlatformInitializer.cs" />
     <Compile Include="Interfaces\Services\IAuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\BooksService.cs" />
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookSummaryViewModel.cs" />
     <Compile Include="ViewModels\BrowseViewModel.cs" />
     <Compile Include="ViewModels\FeaturedViewModel.cs" />
+    <Compile Include="ViewModels\GenresViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
@@ -86,6 +88,12 @@
     <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Acr.UserDialogs.6.1.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="eBdb.EpubReader">
+      <HintPath>..\Libraries\EPub Reader\eBdb.EpubReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libraries\EPub Reader\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wp8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>

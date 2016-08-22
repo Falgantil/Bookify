@@ -2,8 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Bookify.App.Core.Annotations;
+
 using Bookify.App.Core.Interfaces.Services;
+using Bookify.App.Core.Models;
 using Bookify.App.Sdk.Implementations;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Commands.Auth;
@@ -11,21 +12,22 @@ using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
-    public class AuthenticationService : IAuthenticationService, INotifyPropertyChanged
+    public class AuthenticationService : BaseModel, IAuthenticationService
     {
-        private AuthenticationApi api;
+        private readonly IAuthenticationApi authApi;
 
-        private IPersonApi personApi;
+        private readonly IPersonApi personApi;
 
-        public AuthenticationService(AuthenticationApi api)
+        public AuthenticationService(IAuthenticationApi authApi, IPersonApi personApi)
         {
-            this.api = api;
+            this.authApi = authApi;
+            this.personApi = personApi;
         }
 
         /// <summary>
         /// Occurs when the authentication state changed (Logged in or out).
         /// </summary>
-        public event EventHandler<PersonDto> AuthChanged;
+        public event EventHandler<AccountModel> AuthChanged;
 
         /// <summary>
         /// Gets the logged on account. Returns null if not currently logged on.
@@ -33,7 +35,7 @@ namespace Bookify.App.Core.Services
         /// <value>
         /// The logged on account.
         /// </value>
-        public PersonDto LoggedOnAccount { get; private set; }
+        public AccountModel LoggedOnAccount { get; private set; }
 
         /// <summary>
         /// Called when <see cref="LoggedOnAccount"/> has changed.
@@ -51,14 +53,14 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<PersonDto> Authenticate(string email, string password)
         {
-            var token = await this.api.Authenticate(new AuthenticateCommand
+            var token = await this.authApi.Authenticate(new AuthenticateCommand
             {
                 Email = email,
                 Password = password
             });
             var myself = await this.personApi.GetMyself();
-            
-            this.LoggedOnAccount = myself;
+
+            this.LoggedOnAccount = new AccountModel(token, myself);
             return myself;
         }
 
@@ -69,21 +71,20 @@ namespace Bookify.App.Core.Services
         public async Task Deauthenticate()
         {
             this.LoggedOnAccount = null;
+            await this.authApi.Deauthenticate();
         }
 
         /// <summary>
-        /// Occurs when a property value changes.
+        /// Restores from account.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Called when [property changed].
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        /// <param name="account">The account.</param>
+        /// <returns></returns>
+        public async Task RestoreFromAccount(AccountModel account)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.LoggedOnAccount = account;
+            await this.authApi.Authenticate(account.Token);
+            var myself = await this.personApi.GetMyself();
+            this.LoggedOnAccount.Person = myself;
         }
     }
 }

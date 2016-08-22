@@ -14,23 +14,19 @@ namespace Bookify.App.Core.ViewModels
 {
     public class FeaturedViewModel : BaseViewModel
     {
-        private readonly IBooksApi booksApi;
+        private readonly IBooksService booksService;
 
-        public FeaturedViewModel(IBooksApi booksApi)
+        public FeaturedViewModel(IBooksService booksService)
         {
-            this.booksApi = booksApi;
-            var filter = new BookFilter
-            {
-                Count = 2
-            };
-            this.Books = new ObservableApiCollection<BookDto, BookFilter, IBooksApi>(this.booksApi, filter);
+            this.booksService = booksService;
+            this.Books = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this.booksService);
         }
 
-        public ObservableApiCollection<BookDto, BookFilter, IBooksApi> Books { get; }
+        public ObservableServiceCollection<BookDto, BookFilter, IBooksService> Books { get; }
 
         public async Task<DetailedBookDto> GetBook(int id)
         {
-            return await this.booksApi.Get(id);
+            return await this.booksService.GetBook(id);
         }
     }
 }

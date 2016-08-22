@@ -4,12 +4,8 @@ using Bookify.Common.Models;
 
 namespace Bookify.App.Sdk.Interfaces
 {
-    public interface IGenresApi : IGetByFilterApi<GenreDto, GenreFilter>
+    public interface IGenresApi
     {
-    }
-
-    public interface IGetByFilterApi<TDto, TFilter>
-    {
-        Task<IPaginatedEnumerable<TDto>> GetItems(TFilter filter);
+        Task<IPaginatedEnumerable<GenreDto>> GetGenres(GenreFilter filter);
     }
 }

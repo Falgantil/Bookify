@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.TableCells
 {
     [Register ("ReviewTableCell")]
     partial class ReviewTableCell

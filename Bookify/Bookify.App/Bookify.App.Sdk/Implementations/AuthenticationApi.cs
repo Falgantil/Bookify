@@ -11,6 +11,8 @@ namespace Bookify.App.Sdk.Implementations
 {
     public class AuthenticationApi : BaseApi, IAuthenticationApi
     {
+        private const string AuthenticationHeader = "Authentication";
+
         public AuthenticationApi()
             : base(ApiConfig.AuthRoot)
         {
@@ -26,9 +28,25 @@ namespace Bookify.App.Sdk.Implementations
             var json = await response.Content.ReadAsStringAsync();
             var authToken = JsonConvert.DeserializeObject<AuthTokenDto>(json);
 
-            DefaultHeaders["Authentication"] = $"JWT {authToken.Token}";
+            DefaultHeaders[AuthenticationHeader] = $"JWT {authToken.Token}";
 
             return authToken;
+        }
+
+        public async Task Deauthenticate()
+        {
+            if (DefaultHeaders.ContainsKey(AuthenticationHeader))
+            {
+                DefaultHeaders.Remove(AuthenticationHeader);
+            }
+        }
+
+        public async Task Authenticate(AuthTokenDto authToken)
+        {
+            if (!DefaultHeaders.ContainsKey(AuthenticationHeader))
+            {
+                DefaultHeaders.Add(AuthenticationHeader, $"JWT {authToken.Token}");
+            }
         }
     }
 }

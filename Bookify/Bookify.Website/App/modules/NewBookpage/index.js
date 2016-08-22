@@ -11,11 +11,11 @@ const CheckBoxView = observer(({model, genre}) => (
     <div className="col-xs-3">
         <label>
             <input type="checkbox"
-                checked={model.genres.indexOf(genre.id) > -1}
+                checked={model.genres.indexOf(genre.Id) > -1}
                 onChange={(e) => {
-                    model.toggleGenre(genre.id, e.target.checked);
+                    model.toggleGenre(genre.Id, e.target.checked);
                 } }
-                /> {genre.name}
+                /> {genre.Name}
         </label>
     </div>
 ))
@@ -35,8 +35,9 @@ class NewBookpage extends React.Component {
     e.preventDefault();
     var formData = new FormData();
     formData.append('cover', this.refs.coverInput.files[0]);
-    //var x = await bookifyapi.postBookCover(23, formData, (data) => { console.log(data); } );
-    this.model.submit(e);
+
+    var result = await this.model.submit(e, formData);
+    //await bookifyapi.postBookCover(23, formData, (data) => { console.log(data); } );
   }
 
   render() {
@@ -90,7 +91,7 @@ class NewBookpage extends React.Component {
         <label>Genre</label>
             <br/>
             <div className="row">
-            { this.model.availableGenres.map((genre) => <CheckBoxView key={genre.id} model={this.model} genre={genre} />) }
+            { this.model.availableGenres.map((genre) => <CheckBoxView key={genre.Id} model={this.model} genre={genre} />) }
             </div>
         </div>
 

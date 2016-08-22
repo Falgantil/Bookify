@@ -1,5 +1,7 @@
 using System;
 using System.Threading.Tasks;
+
+using Bookify.App.Core.Services;
 using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Interfaces.Services
@@ -12,7 +14,7 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <summary>
         /// Occurs when the authentication state changed (Logged in or out).
         /// </summary>
-        event EventHandler<PersonDto> AuthChanged;
+        event EventHandler<AccountModel> AuthChanged;
 
         /// <summary>
         /// Gets the logged on account. Returns null if not currently logged on.
@@ -20,7 +22,7 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <value>
         /// The logged on account.
         /// </value>
-        PersonDto LoggedOnAccount { get; }
+        AccountModel LoggedOnAccount { get; }
 
         /// <summary>
         /// Authenticates the user using the provided <see cref="username"/> and <see cref="password"/>.
@@ -36,5 +38,11 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <returns></returns>
         Task Deauthenticate();
 
+        /// <summary>
+        /// Restores from account.
+        /// </summary>
+        /// <param name="account">The account.</param>
+        /// <returns></returns>
+        Task RestoreFromAccount(AccountModel account);
     }
 }

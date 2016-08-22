@@ -12,44 +12,44 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bjarke Søgaard, Andreas Hansen, Jonas Thorsen &amp; Rick Boysen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye" numberOfLines="0">
-                    <rect key="frame" x="20" y="422" width="440" height="38"/>
+                    <rect key="frame" x="24" y="422" width="432" height="38"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bookify" lineBreakMode="tailTruncation" minimumFontSize="10" id="17" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="192" y="84" width="96" height="35.5"/>
+                    <rect key="frame" x="192" y="60" width="96" height="35.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="16" translatesAutoresizingMaskIntoConstraints="NO" image="Icon-Logo.png">
-                    <rect key="frame" x="120" y="139.5" width="240" height="240"/>
-                    <constraints>
-                        <constraint id="23" firstItem="16" firstAttribute="height" constant="240"/>
-                        <constraint id="24" firstAttribute="width" secondItem="16" secondAttribute="height" multiplier="1:1"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Af Programmør Gruppen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="29" numberOfLines="0">
                     <rect key="frame" x="20" y="401" width="440" height="17"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="16" translatesAutoresizingMaskIntoConstraints="NO" image="Icon-Logo.png">
+                    <rect key="frame" x="120" y="115.5" width="240" height="240"/>
+                    <constraints>
+                        <constraint id="23" firstItem="16" firstAttribute="height" constant="240"/>
+                        <constraint id="24" firstAttribute="width" secondItem="16" secondAttribute="height" multiplier="1:1"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint id="25" firstItem="17" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="84"/>
+                <constraint id="25" firstItem="17" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60"/>
                 <constraint id="26" firstItem="17" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX"/>
-                <constraint id="27" firstItem="16" firstAttribute="top" secondItem="17" secondAttribute="bottom" constant="20"/>
-                <constraint id="28" firstItem="16" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX"/>
                 <constraint id="30" firstItem="iN0-l3-epB" firstAttribute="trailing" secondItem="29" secondAttribute="trailing" constant="20"/>
                 <constraint id="31" firstItem="29" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20"/>
                 <constraint id="32" firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="29" secondAttribute="bottom" constant="4"/>
+                <constraint id="35" firstItem="16" firstAttribute="top" secondItem="17" secondAttribute="bottom" constant="20"/>
+                <constraint id="36" firstItem="16" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX"/>
+                <constraint id="38" firstItem="iN0-l3-epB" firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20"/>
+                <constraint id="39" firstItem="8ie-xW-0ye" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -58,12 +58,21 @@
     </objects>
     <resources>
         <image name="Icons/Compass.png" width="25" height="25"/>
-        <image name="Icon-Logo.png" width="512" height="512"/>
         <image name="Icons/Menu.png" width="25" height="25"/>
         <image name="Icons/More.png" width="25" height="25"/>
         <image name="Icons/News.png" width="25" height="25"/>
         <image name="Icons/Play.png" width="25" height="25"/>
         <image name="Icons/Reviews.png" width="25" height="25"/>
         <image name="Icons/Star.png" width="25" height="25"/>
+        <image name="Icon-Logo.png" width="512" height="509"/>
+        <image name="Icons/Cart.png" width="25" height="25"/>
+        <image name="Icons/Heart.png" width="25" height="25"/>
+        <image name="Icons/HeartFilled.png" width="25" height="25"/>
+        <image name="Icons/Login.png" width="25" height="25"/>
+        <image name="Icons/Logout.png" width="25" height="25"/>
+        <image name="Icons/Register.png" width="25" height="25"/>
+        <image name="Icons/Search.png" width="25" height="25"/>
+        <image name="Icons/Subscribe.png" width="25" height="25"/>
+        <image name="Icons/UnknownImage.png" width="100" height="100"/>
     </resources>
 </document>
