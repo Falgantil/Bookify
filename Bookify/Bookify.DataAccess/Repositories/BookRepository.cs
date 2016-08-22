@@ -102,13 +102,18 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<DetailedBookDto> CreateBook(CreateBookCommand command)
         {
-            IQueryable<Genre> genres = this.Context.Genres.AsQueryable();
-            foreach (var genre in command.Genres)
+            List<Genre> genres = new List<Genre>();
+            foreach (var genreId in command.Genres)
             {
-                var genre1 = genre;
-                genres = genres.Where(x => x.Id == genre1);
+                genres.Add(new Genre { Id = genreId });
             }
-            var dbGenres = await genres.ToListAsync();
+            //IQueryable<Genre> genres = this.Context.Genres.AsQueryable();
+            //foreach (var genre in command.Genres)
+            //{
+            //    var genre1 = genre;
+            //    genres = genres.Where(x => x.Id == genre1);
+            //}
+            //var dbGenres = await genres.ToListAsync();
 
             var book = await this.Add(new Book
             {
@@ -116,7 +121,7 @@ namespace Bookify.DataAccess.Repositories
                 Summary = command.Summary,
                 AuthorId = command.AuthorId,
                 PublishYear = command.PublishYear,
-                Genres = dbGenres.Select(genre => genre).ToList(),
+                Genres = genres, //dbGenres.Select(genre => genre).ToList(),
                 PublisherId = command.PublisherId,
                 Language = command.Language,
                 CopiesAvailable = command.CopiesAvailable,
