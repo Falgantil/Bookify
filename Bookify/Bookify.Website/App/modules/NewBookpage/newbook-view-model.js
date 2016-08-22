@@ -51,8 +51,8 @@ class NewBookViewModel {
       genres: this.genres
     };
     var result = await bookifyapi.postBook(book);
-    bookifyapi.postBookCover(result.Id, cover);
-    bookifyapi.postBookEPub(result.Id, epub);
+    await bookifyapi.postBookCover(result.Id, cover);
+    await bookifyapi.postBookEPub(result.Id, epub);
     return result;
   }
 }

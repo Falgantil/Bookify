@@ -14,6 +14,20 @@ const GenreList = ({ genre, isLast }) => (
   </span>
   )
 
+const Feedback  = ({name, rating, text}) => (
+    <div className="row">
+      <div className="bookFeedback">
+         <div className="col-xs-3">
+          <b>{name}</b>
+          <RatingView value={rating} />
+        </div>
+        <div className="col-xs-9">
+          <p>{text}</p>
+        </div>
+      </div>
+    </div>
+  )
+
 /**
  * The Bookpage.
  */
@@ -26,7 +40,6 @@ class Bookpage extends React.Component {
 
   render() {
     this.model.loadItem(this.props.params.bookId);
-
     if (!this.model.book) return (<div></div>);
     return (
       <div>
@@ -73,15 +86,10 @@ class Bookpage extends React.Component {
    <div className="row">
     <h4 className="col-xs-12">Bedømmelser</h4>
     <div className="col-xs-12">
-        <div className="row">
-                  <div className="col-xs-3">
-                      <b>Mette Jacobsen</b>
-                     <RatingView value="4" />
-                  </div>
-                  <div className="col-xs-9">
-                    <p>Ikke ligefrem er litterært mesterværk, men den er lummer og letlæselig.</p>
-                  </div>
-        </div>
+        {this.model.book.Feedback.map((feedback, index) =>
+          <Feedback key={index} name={feedback.PersonName} rating={feedback.Rating} text={feedback.Text} />
+          )}
+      <Feedback name="Klaus" rating="4" text="Ikke ligefrem er litterært mesterværk, men den er lummer og letlæselig." />
     </div>
   </div>
   </div>
