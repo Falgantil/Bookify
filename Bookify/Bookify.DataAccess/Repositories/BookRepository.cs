@@ -46,10 +46,10 @@ namespace Bookify.DataAccess.Repositories
             var genres = filter.Genres;
             var orderBy = filter.OrderBy;
             var desc = filter.Descending;
-            var index = filter.Skip;
-            var count = filter.Take;
+            var skip = filter.Skip;
+            var take = filter.Take;
 
-            var queryableBooks = await this.GetAll();
+            var queryableBooks = this.Context.Books.Include(x => x.Author).Include(x => x.Feedback);
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -83,8 +83,8 @@ namespace Bookify.DataAccess.Repositories
 
             var totalCount = queryableBooks.Count();
 
-            queryableBooks = queryableBooks.Skip(index);
-            queryableBooks = queryableBooks.Take(count);
+            queryableBooks = queryableBooks.Skip(skip);
+            queryableBooks = queryableBooks.Take(take);
 
             var collection = await queryableBooks.ToListAsync();
             foreach (var g in collection.SelectMany(b => b.Genres))
@@ -117,7 +117,7 @@ namespace Bookify.DataAccess.Repositories
             List<Genre> genres = new List<Genre>();
             foreach (var genreId in command.Genres)
             {
-                genres.Add(availableGenres.Where(x => x.Id == genreId).Single());
+                genres.Add(availableGenres.Single(x => x.Id == genreId));
             }
 
             var book = await this.Add(new Book

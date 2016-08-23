@@ -15,19 +15,13 @@ namespace Bookify.API.Controllers
     {
         private readonly IBookRepository _bookRepository;
         private readonly IBookHistoryRepository _bookHistoryRepository;
-        private readonly IPersonRepository _personRepository;
-        private readonly IBookOrderRepository _bookOrderRepository;
         private readonly IBookFeedbackRepository _bookFeedbackRepository;
-        private readonly IFileServerRepository _fileServerRepository;
 
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository, IBookFeedbackRepository bookFeedbackRepository, IFileServerRepository fileServerRepository)
+        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IBookFeedbackRepository bookFeedbackRepository)
         {
             this._bookRepository = bookRepository;
             this._bookHistoryRepository = bookHistoryRepository;
-            this._personRepository = personRepository;
-            this._bookOrderRepository = bookOrderRepository;
             this._bookFeedbackRepository = bookFeedbackRepository;
-            this._fileServerRepository = fileServerRepository;
         }
 
         [HttpGet]

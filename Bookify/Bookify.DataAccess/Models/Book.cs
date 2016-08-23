@@ -39,6 +39,7 @@ namespace Bookify.DataAccess.Models
                 Author = Author?.ToDto(),
                 Genres = Genres.Select(x => x.ToDto()).ToList(),
                 Price = Price,
+                AverageRating = AverageRating,
                 PublishYear = PublishYear,
                 Summary = Summary,
                 Title = Title
@@ -55,6 +56,7 @@ namespace Bookify.DataAccess.Models
                 Author = Author?.ToDto(),
                 Genres = Genres.Select(x => x.ToDto()).ToList(),
                 Price = Price,
+                AverageRating = AverageRating,
                 PublishYear = PublishYear,
                 Summary = Summary,
                 Title = Title,
