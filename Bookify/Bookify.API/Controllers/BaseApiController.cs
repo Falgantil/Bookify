@@ -6,6 +6,8 @@ using System.Web.Http;
 
 using Bookify.Common.Exceptions;
 using Bookify.Common.Filter;
+using Bookify.Common.Models;
+using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
@@ -66,6 +68,13 @@ namespace Bookify.API.Controllers
                 var response = HttpContext.Current.Response;
                 response.Headers[HeaderTotalCount] = paginated.TotalCount.ToString();
             }
+        }
+
+        protected async Task<PersonAuthDto> GetAuthorizedMember(IAuthenticationRepository authRepo)
+        {
+            var token = this.Request.Headers.Authorization.Parameter;
+            var personAuthDto = await authRepo.VerifyToken(token);
+            return personAuthDto;
         }
     }
 }

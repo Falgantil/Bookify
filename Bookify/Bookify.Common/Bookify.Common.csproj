@@ -95,6 +95,7 @@
     <Compile Include="Models\BookStatisticsDto.cs" />
     <Compile Include="Models\DetailedBookDto.cs" />
     <Compile Include="Models\GenreDto.cs" />
+    <Compile Include="Models\PersonAuthDto.cs" />
     <Compile Include="Models\PersonDto.cs" />
     <Compile Include="Models\PersonRoleDto.cs" />
     <Compile Include="Models\PublisherDto.cs" />

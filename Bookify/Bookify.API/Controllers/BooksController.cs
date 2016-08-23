@@ -119,7 +119,7 @@ namespace Bookify.API.Controllers
         [Route("{id}/review")]
         public async Task<IHttpActionResult> Review(int id, CreateFeedbackCommand command)
         {
-            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, command));
+            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, TODO, command));
         }
 
         //[HttpGet]

@@ -17,7 +17,7 @@ namespace Bookify.DataAccess.Repositories
         {
         }
 
-        public async Task<BookFeedbackDto> CreateFeedback(int bookid, CreateFeedbackCommand command)
+        public async Task<BookFeedbackDto> CreateFeedback(int bookid, int personId, CreateFeedbackCommand command)
         {
             var bookFeedback = new BookFeedback
             {
@@ -49,10 +49,10 @@ namespace Bookify.DataAccess.Repositories
             return new PaginatedEnumerable<BookFeedbackDto>(feedbacksList.Select(x => x.ToDto()), feedbackAmount);
         }
 
-        public async Task<BookFeedbackDto> EditFeedback(int id, UpdateFeedbackCommand command)
+        public async Task<BookFeedbackDto> EditFeedback(int bookId, int personId, UpdateFeedbackCommand command)
         {
-            var feedback = await this.Find(id);
-            if (feedback == null) throw new NotFoundException($"the requested item with id: {id} could not be found");
+            var feedback = await this.Find(bookId);
+            if (feedback == null) throw new NotFoundException($"the requested item with id: {bookId} could not be found");
 
             // All units, concentrate all available resources to the target that needs amending...
             feedback.Rating = command.Rating > 0 ? command.Rating.Value : feedback.Rating;
@@ -62,9 +62,9 @@ namespace Bookify.DataAccess.Repositories
             return updatedFeedback.ToDto();
         }
 
-        public async Task DeleteFeedback(int id)
+        public async Task DeleteFeedback(int bookId, int personId)
         {
-            var feedback = await this.Find(id);
+            var feedback = await this.Find(bookId);
             await this.Remove(feedback);
 
         }

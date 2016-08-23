@@ -12,11 +12,4 @@
 
         public string PublisherName { get; set; }
     }
-
-    public class PersonAuthDto : BaseDto
-    {
-        public PersonDto PersonDto { get; set; }
-
-        public AuthTokenDto AuthTokenDto { get; set; }
-    }
 }
