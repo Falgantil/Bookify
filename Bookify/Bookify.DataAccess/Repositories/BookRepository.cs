@@ -49,7 +49,7 @@ namespace Bookify.DataAccess.Repositories
             var skip = filter.Skip;
             var take = filter.Take;
 
-            var queryableBooks = this.Context.Books.Include(x => x.Author).Include(x => x.Feedback);
+            var queryableBooks = this.Context.Books.Include(x => x.Author).Include(x => x.Feedback.Select(y => y.Person));
 
             if (!string.IsNullOrEmpty(search))
             {
