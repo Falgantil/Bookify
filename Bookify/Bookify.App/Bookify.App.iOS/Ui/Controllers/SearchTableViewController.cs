@@ -92,7 +92,7 @@ namespace Bookify.App.iOS.Ui.Controllers
                     return;
                 }
             }
-            var storyboard = Ui.Storyboards.Storyboard.Main;
+            var storyboard = Storyboards.Storyboard.Main;
             var viewController = (BookOverviewViewController)storyboard.InstantiateViewController(BookOverviewViewController.StoryboardIdentifier);
             viewController.Book = book;
             this.NavigationController.PushViewController(viewController, true);

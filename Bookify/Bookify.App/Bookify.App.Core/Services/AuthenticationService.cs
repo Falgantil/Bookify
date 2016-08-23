@@ -51,7 +51,7 @@ namespace Bookify.App.Core.Services
         /// <param name="email">The email</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        public async Task<PersonDto> Authenticate(string email, string password)
+        public async Task Authenticate(string email, string password)
         {
             var token = await this.authApi.Authenticate(new AuthenticateCommand
             {
@@ -61,7 +61,6 @@ namespace Bookify.App.Core.Services
             var myself = await this.personApi.GetMyself();
 
             this.LoggedOnAccount = new AccountModel(token, myself);
-            return myself;
         }
 
         /// <summary>
@@ -85,6 +84,26 @@ namespace Bookify.App.Core.Services
             await this.authApi.Authenticate(account.Token);
             var myself = await this.personApi.GetMyself();
             this.LoggedOnAccount.Person = myself;
+        }
+
+        /// <summary>
+        /// Registers the user using the data in the command.
+        /// </summary>
+        /// <param name="command">The create account command.</param>
+        /// <returns></returns>
+        public async Task Register(string firstName, string lastName, string email, string password, string username)
+        {
+            var token = await this.authApi.Register(new CreateAccountCommand
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Password = password,
+                Email = email,
+                Username = username,
+            });
+            var myself = await this.personApi.GetMyself();
+
+            this.LoggedOnAccount = new AccountModel(token, myself);
         }
     }
 }

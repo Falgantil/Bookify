@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201608220843030_Initial.Designer.cs">
       <DependentUpon>201608220843030_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608221312412_PersonInBookFeedback.cs" />
+    <Compile Include="Migrations\201608221312412_PersonInBookFeedback.Designer.cs">
+      <DependentUpon>201608221312412_PersonInBookFeedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Author.cs" />
@@ -165,6 +169,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608220843030_Initial.resx">
       <DependentUpon>201608220843030_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221312412_PersonInBookFeedback.resx">
+      <DependentUpon>201608221312412_PersonInBookFeedback.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

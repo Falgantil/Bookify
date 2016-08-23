@@ -1,24 +1,21 @@
-﻿using System.Collections.ObjectModel;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Services;
-using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
-using Polly;
 
 namespace Bookify.App.Core.ViewModels
 {
     public class SearchViewModel : BaseViewModel
     {
         private readonly IBooksService booksService;
-        
-        public SearchViewModel(IBooksService booksService)
+        private readonly IDelayService delayService;
+
+        public SearchViewModel(IBooksService booksService, IDelayService delayService)
         {
             this.booksService = booksService;
+            this.delayService = delayService;
 
             this.Filtered = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this.booksService);
         }
@@ -40,7 +37,7 @@ namespace Bookify.App.Core.ViewModels
         {
             this.delays++;
 
-            await Task.Delay(1000);
+            await this.delayService.Delay(1000);
 
             this.delays--;
 
@@ -49,26 +46,15 @@ namespace Bookify.App.Core.ViewModels
                 return;
             }
 
-            if (this.Genre != null)
-            {
-                this.Filtered.Filter.GenreIds = new[] { this.Genre.Id };
-            }
+            this.Filtered.Filter.Genres = this.Genre != null ? new[] { this.Genre.Id } : null;
+            this.Filtered.Filter.Search = !string.IsNullOrEmpty(this.SearchText) ? this.SearchText : null;
 
-            this.Filtered.Filter.SearchText = this.SearchText;
             await this.Filtered.Restart();
         }
 
         public async Task<DetailedBookDto> GetBook(int id)
         {
-            var result = await
-                         Policy.Handle<WebException>()
-                             .RetryAsync()
-                             .ExecuteAndCaptureAsync(async () => await this.booksService.GetBook(id));
-            if (result.Outcome == OutcomeType.Failure)
-            {
-                return null;
-            }
-            return result.Result;
+            return await this.booksService.GetBook(id);
         }
     }
 }

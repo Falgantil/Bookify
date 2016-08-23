@@ -11,7 +11,25 @@ class BookifyAPI {
   //getRoles() { return roles; }
 
   // Books
-  getBooks() { return http.get(baseUrl + 'books'); }
+  getBooks(args) {
+    if (args!= null) {
+      var argumentbuilder = '?';
+      var first = true;
+
+      $.each( args, function( key, value) {
+          if (first) {
+          argumentbuilder += key + "=" + value;
+          first = false;
+        } else {
+          argumentbuilder += "&"+ key + "=" + value;
+        }
+      });
+      
+      return http.get(baseUrl + 'books'+ argumentbuilder); 
+    } else {
+      return http.get(baseUrl + 'books'); 
+    }
+  }
   getBook(id) { return http.get(baseUrl + 'books/' + id); }
   getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
   getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }

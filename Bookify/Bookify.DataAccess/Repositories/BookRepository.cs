@@ -24,14 +24,19 @@ namespace Bookify.DataAccess.Repositories
         public async Task<DetailedBookDto> GetById(int id)
         {
             var book =
-                await
-                    this.Context.Books.Where(b => b.Id == id)
-                        .Include(b => b.Genres)
-                        .Include(b => b.Author)
-                        .Include(x => x.Publisher)
-                        .Include(f => f.Feedback)
-                        .SingleAsync();
-            return book.ToDetailedDto();
+                this.Context.Books.Where(b => b.Id == id)
+                    .Include(b => b.Genres)
+                    .Include(b => b.Author)
+                    .Include(x => x.Publisher)
+                    .Include(f => f.Feedback);
+
+            await book.ForEachAsync(x =>
+            {
+                x.Feedback = x.Feedback.Take(10).ToList();
+            });
+
+            var result = await book.SingleAsync();
+            return result.ToDetailedDto();
         }
 
         public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)

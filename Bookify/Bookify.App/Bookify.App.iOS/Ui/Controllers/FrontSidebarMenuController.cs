@@ -117,6 +117,10 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             await this.CloseMenu();
 
+            var viewController = new RegistrationViewController();
+            var navVc = new UINavigationController(viewController);
+            viewController.Parent = this;
+            await this.SidebarController.ParentViewController.PresentViewControllerAsync(navVc, true);
         }
 
         private async void BtnShoppingCart_Clicked()

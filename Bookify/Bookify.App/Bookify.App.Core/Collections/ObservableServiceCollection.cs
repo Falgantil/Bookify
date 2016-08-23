@@ -50,15 +50,16 @@ namespace Bookify.App.Core.Collections
 
             try
             {
-                this.Filter.Index = this.Count;
+                this.Filter.Skip = this.Count;
                 var items = await this.service.GetItems(this.Filter);
+                if (items == null) throw new ArgumentNullException(nameof(items));
                 var list = items.ToList();
                 foreach (var model in list)
                 {
                     this.Items.Add(model);
                 }
                 this.ReachedBottom = this.Count == items.TotalCount;
-                this.Filter.Index = this.Count;
+                this.Filter.Skip = this.Count;
 
                 this.IsLoading = false;
 
@@ -72,7 +73,7 @@ namespace Bookify.App.Core.Collections
 
         public async Task Restart()
         {
-            this.Filter.Index = 0;
+            this.Filter.Skip = 0;
             this.Items.Clear();
             await this.LoadMore();
         }

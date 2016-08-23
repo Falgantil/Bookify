@@ -25,7 +25,7 @@ class NewBookViewModel {
   }
 
   async loadGenres() {
-    return this.availableGenres = await bookifyapi.getGenres();
+    this.availableGenres = await bookifyapi.getGenres();
   }
 
   toggleGenre(id, value) {

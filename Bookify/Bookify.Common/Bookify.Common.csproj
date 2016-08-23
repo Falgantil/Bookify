@@ -80,6 +80,7 @@
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filter\BaseFilter.cs" />
     <Compile Include="Filter\BookFilter.cs" />
+    <Compile Include="Filter\FeedbackFilter.cs" />
     <Compile Include="Filter\GenreFilter.cs" />
     <Compile Include="Filter\IPaginatedEnumerable.cs" />
     <Compile Include="Filter\PublisherFilter.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Models\BookOrderDto.cs" />
     <Compile Include="Models\BookStatisticsDto.cs" />
     <Compile Include="Models\DetailedBookDto.cs" />
+    <Compile Include="Models\FeedbackDto.cs" />
     <Compile Include="Models\GenreDto.cs" />
     <Compile Include="Models\PersonDto.cs" />
     <Compile Include="Models\PersonRoleDto.cs" />

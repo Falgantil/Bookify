@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Specialized;
+using System.Threading.Tasks;
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
@@ -7,6 +8,7 @@ using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
+using Rope.Net.iOS;
 using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
@@ -29,18 +31,11 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.ViewModel.Reviews.CollectionChanged += this.ReviewsCollectionChanged;
         }
 
-        public override void ViewDidAppear(bool animated)
+        public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            this.LoadReviews();
-        }
-
-        private async void LoadReviews()
-        {
-            UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-            await this.TryTask(async () => await this.ViewModel.LoadReviews());
-            UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+            await this.ViewModel.Reviews.LoadMore();
         }
 
         private void ReviewsCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
@@ -55,7 +50,10 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         protected override void CreateBindings()
         {
-
+            this.View.Bind(
+                this.ViewModel.Reviews,
+                collection => collection.IsLoading,
+                (view, isLoading) => UIApplication.SharedApplication.NetworkActivityIndicatorVisible = isLoading);
         }
     }
 }
