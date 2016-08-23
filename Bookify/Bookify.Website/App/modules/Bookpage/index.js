@@ -52,6 +52,7 @@ class Bookpage extends React.Component {
             </div>
             <h1>{this.model.book.Title}</h1>
             <small>af <a href="#">{this.model.book.Author.Name}</a></small>
+            <h4><RatingView value="3" /></h4>
             <p><Link className="btn btn-primary btn-lg btn-raised" to="/">KØB</Link></p>
         </div>
       <div className="col-xs-12">
@@ -79,7 +80,7 @@ class Bookpage extends React.Component {
   <div className="row">
     <h4 className="col-xs-12">Bøger af samme forfatter</h4>
     <div className="col-xs-12">
-      <BookListView type="related" bookId={this.model.book.Id} />
+      <BookListView type="sameAuthor" book={this.model.book} />
     </div>
   </div>
   <hr/>

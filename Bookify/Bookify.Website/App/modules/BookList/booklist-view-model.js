@@ -7,10 +7,10 @@ class BookListViewModel {
   constructor() {
   }
 
- async loadBooks(type, bookId) {
+ async loadBooks(type, book) {
     switch(type) {
-      case "related":
-          this.books = await  bookifyapi.getRelatedBooks(bookId);
+      case "sameAuthor":
+          this.books = await  bookifyapi.getRelatedBooksByAuthor(book.Author.Id);
           break;
       default:
     }
