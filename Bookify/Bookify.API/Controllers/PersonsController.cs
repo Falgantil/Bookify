@@ -45,7 +45,11 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> Me()
         {
             var token = this.Request.Headers.Authorization.Parameter;
-            return await this.Try(async () => await _authenticationRepository.VerifyToken(token));
+            return await this.Try(async () =>
+            {
+                var personAuthDto = await _authenticationRepository.VerifyToken(token);
+                return personAuthDto.PersonDto;
+            });
         }
 
         [HttpPost]

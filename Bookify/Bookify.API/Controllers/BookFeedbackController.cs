@@ -27,7 +27,7 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this._bookFeedbackRepository.GetByFilter(filter));
         }
 
-        [HttpGet]
+        [HttpPut]
         [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Create(int id, CreateFeedbackCommand command)
@@ -35,7 +35,7 @@ namespace Bookify.API.Controllers
             var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
             return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, personAuthDto.PersonDto.Id, command));
         }
-        [HttpGet]
+        [HttpPost]
         [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, UpdateFeedbackCommand command)

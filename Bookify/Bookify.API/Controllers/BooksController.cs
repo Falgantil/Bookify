@@ -16,12 +16,14 @@ namespace Bookify.API.Controllers
         private readonly IBookRepository _bookRepository;
         private readonly IBookHistoryRepository _bookHistoryRepository;
         private readonly IBookFeedbackRepository _bookFeedbackRepository;
+        private readonly IAuthenticationRepository _authRepo;
 
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IBookFeedbackRepository bookFeedbackRepository)
+        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IBookFeedbackRepository bookFeedbackRepository, IAuthenticationRepository authRepo)
         {
             this._bookRepository = bookRepository;
             this._bookHistoryRepository = bookHistoryRepository;
             this._bookFeedbackRepository = bookFeedbackRepository;
+            this._authRepo = authRepo;
         }
 
         [HttpGet]
@@ -119,7 +121,8 @@ namespace Bookify.API.Controllers
         [Route("{id}/review")]
         public async Task<IHttpActionResult> Review(int id, CreateFeedbackCommand command)
         {
-            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, TODO, command));
+            var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
+            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, personAuthDto.PersonDto.Id, command));
         }
 
         //[HttpGet]
