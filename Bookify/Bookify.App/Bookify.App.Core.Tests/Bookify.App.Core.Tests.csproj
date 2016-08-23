@@ -98,11 +98,13 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Collections\ObservableServiceCollectionTests.cs" />
     <Compile Include="Initialization\BootstrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationServiceTests.cs" />
     <Compile Include="Services\EpubReaderTests.cs" />
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
+    <Compile Include="ViewModels\RegistrationViewModelTests.cs" />
     <Compile Include="ViewModels\SearchViewModelTests.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModelTests.cs" />
   </ItemGroup>

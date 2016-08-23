@@ -42,11 +42,8 @@ namespace Bookify.App.Core.Tests.ViewModels
             };
 
             authService.Verify(s => s.Authenticate("test", "test"), Times.Never);
-            var account = await viewModel.Authenticate();
+            await viewModel.Authenticate();
             authService.Verify(s => s.Authenticate("test", "test"), Times.Once);
-            account.ShouldNotBeNull();
-            account.Id.ShouldBe(5);
-            account.Email.ShouldBe("test");
         }
 
         /// <summary>
@@ -67,7 +64,6 @@ namespace Bookify.App.Core.Tests.ViewModels
                                 firstCall = false;
                                 throw await HttpResponseException.CreateException(new HttpResponseMessage());
                             }
-                            return new PersonDto { Id = 5, Email = email };
                         });
 
             var viewModel = new LoginViewModel(authService.Object)
@@ -77,9 +73,8 @@ namespace Bookify.App.Core.Tests.ViewModels
             };
 
             authService.Verify(s => s.Authenticate("test", "test"), Times.Never);
-            var account = await viewModel.Authenticate();
+            await viewModel.Authenticate();
             authService.Verify(s => s.Authenticate("test", "test"), Times.Exactly(2)); // Twice cause the first time it throws, but it's still technically called.
-            account.ShouldNotBeNull();
         }
 
         /// <summary>

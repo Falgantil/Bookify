@@ -27,11 +27,11 @@ namespace Bookify.App.Core.Tests.Services
             personApi.Setup(api => api.GetMyself()).ReturnsAsync(myself);
             var authService = new AuthenticationService(authApi.Object, personApi.Object);
             
-            var person = await authService.Authenticate("email", "password");
+            await authService.Authenticate("email", "password");
             authApi.Verify(api => api.Authenticate(It.IsAny<AuthenticateCommand>()), Times.Once);
             personApi.Verify(api => api.GetMyself(), Times.Once);
-            person.ShouldNotBeNull();
-            person.ShouldBe(myself);
+            authService.LoggedOnAccount.ShouldNotBeNull();
+            authService.LoggedOnAccount.Person.ShouldBe(myself);
             authService.LoggedOnAccount.ShouldNotBeNull();
 
             await authService.Deauthenticate();
