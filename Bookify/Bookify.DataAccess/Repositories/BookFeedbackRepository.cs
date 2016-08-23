@@ -53,7 +53,7 @@ namespace Bookify.DataAccess.Repositories
         public async Task<BookFeedbackDto> EditFeedback(int bookId, int personId, UpdateFeedbackCommand command)
         {
             var feedback = await this.Context.BookFeedback.Where(x => x.BookId == bookId && x.PersonId == personId).SingleAsync();
-            if (feedback == null) throw new NotFoundException($"the requested item with bookId: {bookId} and personId: {personId} could not be found");
+            //if (feedback == null) throw new NotFoundException($"the requested item with bookId: {bookId} and personId: {personId} could not be found");
 
             // All units, concentrate all available resources to the target that needs amending...
             feedback.Rating = command.Rating > 0 ? command.Rating.Value : feedback.Rating;
