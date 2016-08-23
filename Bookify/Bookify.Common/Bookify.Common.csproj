@@ -66,6 +66,7 @@
     <Compile Include="Commands\Auth\CreateHistoryCommand.cs" />
     <Compile Include="Commands\Auth\CreatePublisherCommand.cs" />
     <Compile Include="Commands\Auth\UpdateBookCommand.cs" />
+    <Compile Include="Commands\Auth\UpdateFeedbackCommand.cs" />
     <Compile Include="Commands\Auth\UpdateGenreCommand.cs" />
     <Compile Include="Commands\Auth\UpdatePersonCommand.cs" />
     <Compile Include="Commands\Auth\UpdatePublisherCommand.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="Models\BookOrderDto.cs" />
     <Compile Include="Models\BookStatisticsDto.cs" />
     <Compile Include="Models\DetailedBookDto.cs" />
-    <Compile Include="Models\FeedbackDto.cs" />
     <Compile Include="Models\GenreDto.cs" />
     <Compile Include="Models\PersonDto.cs" />
     <Compile Include="Models\PersonRoleDto.cs" />

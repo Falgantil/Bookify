@@ -4,15 +4,23 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import { Link } from 'react-router'
 import bookifyapi from '../util/bookifyapi';
+import RatingView from '../Shared/rating-view';
 
 const BookView = ({ model, book }) => (
-  <div className="book col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <Link  to={"/book/" + book.Id}>
-        <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" width="100" height="145" />
+    <div className="book col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <img className="cover" src={bookifyapi.getBookThumbnailSrc(book.Id)} alt="" width="100" height="145" />
+        <div className="book-text-wrap">
+            <div>
+              <strong>{book.Title}</strong>
+            </div>
+            <div>{book.Author.Name} </div>
+            <div>
+              <RatingView value={book.AverageRating} />
+            </div>
+        </div>
+      </div>
     </Link>
-    <div>
-    </div>
-    </div>
 )
 
 /**
