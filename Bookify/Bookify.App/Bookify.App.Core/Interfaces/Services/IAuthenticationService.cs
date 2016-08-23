@@ -8,7 +8,7 @@ using Bookify.Common.Models;
 namespace Bookify.App.Core.Interfaces.Services
 {
     /// <summary>
-    /// The <see cref="IAuthenticationService"/> interface
+    /// The Authentication Service interface
     /// </summary>
     public interface IAuthenticationService
     {
@@ -47,7 +47,7 @@ namespace Bookify.App.Core.Interfaces.Services
         Task RestoreFromAccount(AccountModel account);
 
         /// <summary>
-        /// Registers the user using the data in the command.
+        /// Registers the user using the provided parameters.
         /// </summary>
         /// <param name="firstName">The first name.</param>
         /// <param name="lastName">The last name.</param>

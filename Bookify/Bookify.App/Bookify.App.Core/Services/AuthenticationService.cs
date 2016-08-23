@@ -1,23 +1,35 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
-using Bookify.App.Sdk.Implementations;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Commands.Auth;
-using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
+    /// <summary>
+    /// The Authentication Service implementation.
+    /// </summary>
+    /// <seealso cref="BaseModel" />
+    /// <seealso cref="IAuthenticationService" />
     public class AuthenticationService : BaseModel, IAuthenticationService
     {
+        /// <summary>
+        /// The authentication API
+        /// </summary>
         private readonly IAuthenticationApi authApi;
 
+        /// <summary>
+        /// The person API
+        /// </summary>
         private readonly IPersonApi personApi;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
+        /// </summary>
+        /// <param name="authApi">The authentication API.</param>
+        /// <param name="personApi">The person API.</param>
         public AuthenticationService(IAuthenticationApi authApi, IPersonApi personApi)
         {
             this.authApi = authApi;
@@ -87,9 +99,13 @@ namespace Bookify.App.Core.Services
         }
 
         /// <summary>
-        /// Registers the user using the data in the command.
+        /// Registers the user using the provided parameters.
         /// </summary>
-        /// <param name="command">The create account command.</param>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="username">The username.</param>
         /// <returns></returns>
         public async Task Register(string firstName, string lastName, string email, string password, string username)
         {

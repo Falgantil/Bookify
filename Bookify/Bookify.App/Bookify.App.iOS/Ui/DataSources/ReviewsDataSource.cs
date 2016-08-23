@@ -1,4 +1,5 @@
 using System;
+using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Models;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.TableCells;
@@ -23,8 +24,8 @@ namespace Bookify.App.iOS.Ui.DataSources
             var reviewModel = new ReviewModel
             {
                 Id = dto.BookId,
-                PersonName = dto.PersonName,
-                Message = dto.Message,
+                PersonName = dto.Person?.GetFullName() ?? "Ukendt",
+                Text = dto.Text,
                 Rating = dto.Rating,
                 PersonId = dto.PersonId
             };

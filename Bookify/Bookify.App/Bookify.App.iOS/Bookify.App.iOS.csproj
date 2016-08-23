@@ -101,7 +101,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="CreateReviewViewController.cs" />
+    <Compile Include="CreateReviewViewController.designer.cs">
+      <DependentUpon>CreateReviewViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Initialization\LaunchViewController.cs" />
+    <Compile Include="Ui\Controls\PlaceholderTextView.cs" />
+    <Compile Include="Ui\Controls\PlaceholderTextView.designer.cs">
+      <DependentUpon>PlaceholderTextView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Controllers\GenresViewController.cs" />
     <Compile Include="Ui\Controllers\GenresViewController.designer.cs">
       <DependentUpon>GenresViewController.cs</DependentUpon>
