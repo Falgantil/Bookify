@@ -11,8 +11,6 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Bookify.ModelingProject", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Website", "Bookify.Website\Bookify.Website.csproj", "{F3F49E05-46F9-42E2-8C09-84203A2D5B20}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DB802A1B-2CBC-4093-81DA-6652DB096ACF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Common", "Bookify.Common\Bookify.Common.csproj", "{C8674475-1CCB-4D3C-A455-471EEA08198F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.API.Test", "Bookify.API.Test\Bookify.API.Test.csproj", "{2E6E2890-DBD7-4C9D-A3CB-37A423E59DC1}"
