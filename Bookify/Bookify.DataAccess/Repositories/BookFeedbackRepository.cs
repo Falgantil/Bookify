@@ -57,7 +57,7 @@ namespace Bookify.DataAccess.Repositories
 
             // All units, concentrate all available resources to the target that needs amending...
             feedback.Rating = command.Rating > 0 ? command.Rating.Value : feedback.Rating;
-            feedback.Text = string.IsNullOrEmpty(command.Text) ? command.Text : feedback.Text;
+            feedback.Text = string.IsNullOrEmpty(command.Text) ? feedback.Text : command.Text;
             // Mission succesfull
             var updatedFeedback = await this.Update(feedback);
             return updatedFeedback.ToDto();

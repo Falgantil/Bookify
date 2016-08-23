@@ -34,7 +34,7 @@ namespace Bookify.DataAccess.Repositories
             {
                 x.Feedback = x.Feedback.Take(10).ToList();
             });
-
+            // TODO: update book viewcount
             var result = await book.SingleAsync();
             return result.ToDetailedDto();
         }
@@ -155,8 +155,8 @@ namespace Bookify.DataAccess.Repositories
             }
 
             // Commence updating book...
-            book.Title = string.IsNullOrEmpty(command.Title)? command.Title : book.Title;
-            book.Summary = string.IsNullOrEmpty(command.Summary)? command.Summary : book.Summary;
+            book.Title = string.IsNullOrEmpty(command.Title)? book.Title : command.Title;
+            book.Summary = string.IsNullOrEmpty(command.Summary)? book.Summary : command.Summary;
             book.AuthorId = command.AuthorId > 0 ? command.AuthorId.Value : book.AuthorId;
             book.PublishYear = command.PublishYear ?? book.PublishYear;
             if (dbGenres.Any())
@@ -164,7 +164,7 @@ namespace Bookify.DataAccess.Repositories
                 book.Genres = dbGenres.Select(genre => genre).ToList();
             }
             book.PublisherId = command.PublisherId > 0 ? command.PublisherId.Value : book.PublisherId;
-            book.Language = string.IsNullOrEmpty(command.Language)? command.Language : book.Language;
+            book.Language = string.IsNullOrEmpty(command.Language)? book.Language : command.Language;
             book.CopiesAvailable = command.CopiesAvailable ?? book.CopiesAvailable;
             book.PageCount = command.PageCount ?? book.PageCount;
             book.ViewCount = command.ViewCount ?? book.ViewCount;
