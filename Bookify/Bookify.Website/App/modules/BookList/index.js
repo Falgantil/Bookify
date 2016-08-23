@@ -17,7 +17,7 @@ class BookListView extends React.Component {
   constructor(args) {
     super(...arguments);
     this.model = new BookListViewModel();
-    this.model.loadBooks(args.type, args.bookId);
+    this.model.loadBooks(args.type, args.book);
   }
 
   render() {

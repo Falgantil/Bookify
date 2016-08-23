@@ -24,16 +24,16 @@ class BookifyAPI {
           argumentbuilder += "&"+ key + "=" + value;
         }
       });
-      
-      return http.get(baseUrl + 'books'+ argumentbuilder); 
+
+      return http.get(baseUrl + 'books'+ argumentbuilder);
     } else {
-      return http.get(baseUrl + 'books'); 
+      return http.get(baseUrl + 'books');
     }
   }
   getBook(id) { return http.get(baseUrl + 'books/' + id); }
   getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
   getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }
-  getRelatedBooks(id) { return http.get(baseUrl + 'books?search' + id); }
+  getRelatedBooksByAuthor(authorId) { return http.get(baseUrl + 'books?author=' + authorId); }
 
   postBook(book) { return http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
   postBookCover(bookId, data) {
