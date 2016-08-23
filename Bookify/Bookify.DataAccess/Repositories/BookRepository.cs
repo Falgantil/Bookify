@@ -28,7 +28,7 @@ namespace Bookify.DataAccess.Repositories
                     .Include(b => b.Genres)
                     .Include(b => b.Author)
                     .Include(x => x.Publisher)
-                    .Include(f => f.Feedback);
+                    .Include(f => f.Feedback.Select(y => y.Person));
 
             await book.ForEachAsync(x =>
             {

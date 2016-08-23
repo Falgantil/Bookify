@@ -25,6 +25,8 @@ const Feedback  = ({name, rating, text}) => (
           <p>{text}</p>
         </div>
       </div>
+      <br />
+      <br />
     </div>
   )
 
@@ -88,11 +90,11 @@ class Bookpage extends React.Component {
     <h4 className="col-xs-12">Bedømmelser</h4>
     <div className="col-xs-12">
         {this.model.book.Feedback.map((feedback, index) =>
-          <Feedback key={index} name={feedback.PersonName} rating={feedback.Rating} text={feedback.Text} />
+          <Feedback key={index} name={feedback.Person.FirstName + ' ' + feedback.Person.LastName} rating={feedback.Rating} text={feedback.Text} />
           )}
-      <Feedback name="Klaus" rating="4" text="Ikke ligefrem er litterært mesterværk, men den er lummer og letlæselig." />
     </div>
   </div>
+  <hr />
   </div>
     )
   }

@@ -64,7 +64,8 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task DeleteFeedback(int bookId, int personId)
         {
-            var feedback = await this.Find(bookId);
+            var feedback = await this.Context.BookFeedback.Where(x => x.BookId == bookId && x.PersonId == personId).SingleAsync();
+            //var fb2 = this.Context.BookFeedback.Find(new { BookId = bookId, PersonId = personId });
             await this.Remove(feedback);
 
         }
