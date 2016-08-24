@@ -30,8 +30,8 @@ namespace Bookify.DataAccess.Repositories
             query = query.OrderBy(g => g.Id);
 
             var totalCount = query.Count();
-            query = query.Skip(filter.Skip);
-            query = query.Take(filter.Take);
+            //query = query.Skip(filter.Skip);
+            //query = query.Take(filter.Take);
             var collection = await query.ToListAsync();
             return new PaginatedEnumerable<GenreDto>(collection.Select(g => g.ToDto()), totalCount);
         }
