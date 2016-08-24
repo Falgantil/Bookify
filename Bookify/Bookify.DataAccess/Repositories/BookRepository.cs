@@ -34,8 +34,9 @@ namespace Bookify.DataAccess.Repositories
             {
                 x.Feedback = x.Feedback.Take(10).ToList();
             });
-            // TODO: update book viewcount
             var result = await book.SingleAsync();
+            result.ViewCount++;
+            await this.Update(result);
             return result.ToDetailedDto();
         }
 
