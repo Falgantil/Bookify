@@ -72,9 +72,11 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookSummaryViewModel.cs" />
     <Compile Include="ViewModels\BrowseViewModel.cs" />
+    <Compile Include="ViewModels\CreateReviewViewModel.cs" />
     <Compile Include="ViewModels\FeaturedViewModel.cs" />
     <Compile Include="ViewModels\GenresViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyBooksViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />

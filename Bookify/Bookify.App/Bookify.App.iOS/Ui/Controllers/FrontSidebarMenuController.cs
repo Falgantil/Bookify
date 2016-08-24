@@ -50,12 +50,14 @@ namespace Bookify.App.iOS.Ui.Controllers
                     new StyledStringElement("Køb abonnement", this.BtnBuySubscription_Clicked)
                     {
                         Accessory = UITableViewCellAccessory.DisclosureIndicator,
-                        Image = UIImage.FromBundle("Icons/Subscribe.png")
+                        Image = UIImage.FromBundle("Icons/Subscribe.png"),
+                        BackgroundColor = UIColor.White
                     },
                     new StyledStringElement("Indkøbs kurv", this.BtnShoppingCart_Clicked)
                     {
                         Accessory = UITableViewCellAccessory.DisclosureIndicator,
-                        Image = UIImage.FromBundle("Icons/Cart.png")
+                        Image = UIImage.FromBundle("Icons/Cart.png"),
+                        BackgroundColor = UIColor.White
                     }
                 },
                 new Section
@@ -63,7 +65,8 @@ namespace Bookify.App.iOS.Ui.Controllers
                     new StyledStringElement("Log ud", this.BtnLogout_Clicked)
                     {
                         Accessory = UITableViewCellAccessory.DisclosureIndicator,
-                        Image = UIImage.FromBundle("Icons/Logout.png")
+                        Image = UIImage.FromBundle("Icons/Logout.png"),
+                        BackgroundColor = UIColor.White
                     }
                 }
             };
@@ -83,7 +86,8 @@ namespace Bookify.App.iOS.Ui.Controllers
                     new StyledStringElement("Indkøbs kurv", this.BtnShoppingCart_Clicked)
                     {
                         Accessory = UITableViewCellAccessory.DisclosureIndicator,
-                        Image = UIImage.FromBundle("Icons/Cart.png")
+                        Image = UIImage.FromBundle("Icons/Cart.png"),
+                        BackgroundColor = UIColor.White
                     }
                 },
                 new Section
@@ -91,13 +95,15 @@ namespace Bookify.App.iOS.Ui.Controllers
                     new StyledStringElement("Log ind", this.BtnLogin_Clicked)
                     {
                         Accessory = UITableViewCellAccessory.DisclosureIndicator,
-                        Image = UIImage.FromBundle("Icons/Login.png")
+                        Image = UIImage.FromBundle("Icons/Login.png"),
+                        BackgroundColor = UIColor.White
 
                     },
                     new StyledStringElement("Registrer", this.BtnRegister_Clicked)
                     {
                         Accessory = UITableViewCellAccessory.DisclosureIndicator,
-                        Image = UIImage.FromBundle("Icons/Register.png")
+                        Image = UIImage.FromBundle("Icons/Register.png"),
+                        BackgroundColor = UIColor.White
                     }
                 }
             };

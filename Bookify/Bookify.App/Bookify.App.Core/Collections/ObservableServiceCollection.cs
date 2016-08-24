@@ -139,6 +139,7 @@ namespace Bookify.App.Core.Collections
         /// <returns></returns>
         public async Task Restart()
         {
+            this.ReachedBottom = false;
             this.Filter.Skip = 0;
             this.Items.Clear();
             await this.LoadMore();

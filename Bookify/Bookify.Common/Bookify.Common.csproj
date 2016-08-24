@@ -64,6 +64,7 @@
     <Compile Include="Commands\Auth\CreateFeedbackCommand.cs" />
     <Compile Include="Commands\Auth\CreateGenreCommand.cs" />
     <Compile Include="Commands\Auth\CreateHistoryCommand.cs" />
+    <Compile Include="Commands\Auth\CreateOrderCommand.cs" />
     <Compile Include="Commands\Auth\CreatePublisherCommand.cs" />
     <Compile Include="Commands\Auth\UpdateBookCommand.cs" />
     <Compile Include="Commands\Auth\UpdateFeedbackCommand.cs" />

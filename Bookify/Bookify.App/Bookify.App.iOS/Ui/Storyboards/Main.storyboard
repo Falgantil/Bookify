@@ -100,6 +100,7 @@
                         <segue destination="654" kind="relationship" relationship="viewControllers" id="653"/>
                         <segue destination="656" kind="relationship" relationship="viewControllers" id="655"/>
                         <segue id="4253" destination="3859" kind="relationship" relationship="viewControllers"/>
+                        <segue id="5254" destination="4483" kind="relationship" relationship="viewControllers"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="658" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="662" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="-340"/>
+            <point key="canvasLocation" x="1688" y="-1095"/>
         </scene>
         <scene sceneID="663">
             <objects>
@@ -190,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="666" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="369"/>
+            <point key="canvasLocation" x="1688" y="-386"/>
         </scene>
         <scene sceneID="1929">
             <objects>
@@ -539,7 +540,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3865" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689" y="1056"/>
+            <point key="canvasLocation" x="1689" y="301"/>
         </scene>
         <scene sceneID="4306">
             <objects>
@@ -636,6 +637,39 @@
             </objects>
             <point key="canvasLocation" x="3831" y="82"/>
         </scene>
+        <scene sceneID="4482">
+            <objects>
+                <viewController id="4483" sceneMemberID="viewController" customClass="MyBooksViewController" storyboardIdentifier="MyBooksViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4480"/>
+                        <viewControllerLayoutGuide type="bottom" id="4481"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4484">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5256" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="5263" firstItem="5256" firstAttribute="top" secondItem="4484" secondAttribute="top"/>
+                            <constraint id="5264" firstItem="5256" firstAttribute="leading" secondItem="4484" secondAttribute="leading"/>
+                            <constraint id="5265" firstItem="5256" firstAttribute="leading" secondItem="4484" secondAttribute="leading"/>
+                            <constraint id="5266" firstItem="5256" firstAttribute="trailing" secondItem="4484" secondAttribute="trailing"/>
+                            <constraint id="5267" firstItem="4481" firstAttribute="top" secondItem="5256" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Mine bøger" id="5253" image="Icons/User.png"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4485" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688" y="988"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Icon-Logo.png" width="512" height="509"/>
@@ -655,5 +689,6 @@
         <image name="Icons/HeartFilled.png" width="25" height="25"/>
         <image name="Icons/Search.png" width="25" height="25"/>
         <image name="Icons/UnknownImage.png" width="100" height="100"/>
+        <image name="Icons/User.png" width="25" height="25"/>
     </resources>
 </document>

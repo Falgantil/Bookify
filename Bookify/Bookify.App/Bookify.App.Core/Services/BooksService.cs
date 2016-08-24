@@ -44,7 +44,14 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<IPaginatedEnumerable<BookDto>> GetItems(BookFilter filter)
         {
-            return await this.api.GetBooks(filter);
+            if (filter.MyBooks)
+            {
+                return await this.api.GetMyBooks(filter);
+            }
+            else
+            {
+                return await this.api.GetBooks(filter);
+            }
         }
     }
 }

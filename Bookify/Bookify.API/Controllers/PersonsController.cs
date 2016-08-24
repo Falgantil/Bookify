@@ -54,10 +54,14 @@ namespace Bookify.API.Controllers
 
         [HttpPost]
         [Auth]
-        [Route("{id}/subscribe")]
-        public async Task<IHttpActionResult> Subscribe(int id, decimal paid)
+        [Route("subscribe")]
+        public async Task<IHttpActionResult> Subscribe(decimal paid)
         {
-            return await this.Try(async () => await _personRepository.Subscibe(id, paid));
+            return await this.Try(async () =>
+            {
+                var personAuthDto = await this.GetAuthorizedMember(this._authenticationRepository);
+                await this._personRepository.Subscibe(personAuthDto.PersonDto.Id, paid);
+            });
         }
 
         [HttpPost]

@@ -25,12 +25,7 @@ namespace Bookify.App.Core.ViewModels
 
         public async Task Authenticate()
         {
-            Func<Task> op = async () => await this.authService.Authenticate(this.Email, this.Password);
-            await Policy
-                .Handle<WebException>()
-                .Or<HttpResponseException>()
-                .RetryAsync()
-                .ExecuteAsync(op);
+            await this.TryTask(async () => await this.authService.Authenticate(this.Email, this.Password));
         }
     }
 }

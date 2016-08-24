@@ -5,6 +5,8 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Bookify.API.Attributes;
+using Bookify.Common.Exceptions;
+using Bookify.Common.Models;
 using Bookify.Common.Repositories;
 using Bookify.DataAccess.Models;
 
@@ -17,13 +19,17 @@ namespace Bookify.API.Controllers
         private readonly IBookHistoryRepository _bookHistoryRepository;
         private readonly IBookFeedbackRepository _bookFeedbackRepository;
         private readonly IAuthenticationRepository _authRepo;
+        private readonly IPersonRepository _personRepository;
+        private readonly IBookOrderRepository _bookOrderRepository;
 
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IBookFeedbackRepository bookFeedbackRepository, IAuthenticationRepository authRepo)
+        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IBookFeedbackRepository bookFeedbackRepository, IAuthenticationRepository authRepo, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository)
         {
             this._bookRepository = bookRepository;
             this._bookHistoryRepository = bookHistoryRepository;
             this._bookFeedbackRepository = bookFeedbackRepository;
             this._authRepo = authRepo;
+            this._personRepository = personRepository;
+            this._bookOrderRepository = bookOrderRepository;
         }
 
         [HttpGet]
@@ -79,29 +85,35 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this._bookHistoryRepository.GetHistoryForBook(id));
         }
 
-       
 
-        //[HttpPut]
-        //[Route("{id}/buy")]
-        //public async Task<IHttpActionResult> Buy(int id, string email)
-        //{
-        //    return await this.Try(
-        //        async () =>
-        //            {
-        //                var person = this.personRepository.CreatePersonIfNotExists(email);
 
-        //                return
-        //                    await
-        //                    this.bookOrderRepository.Add(
-        //                        new BookOrder()
-        //                        {
-        //                            BookId = id,
-        //                            Created = DateTime.Now,
-        //                            Status = BookOrderStatus.Sold,
-        //                            PersonId = person.Id
-        //                        });
-        //            });
-        //}
+        [HttpPut]
+        [Route("{id}/buy")]
+        public async Task<IHttpActionResult> Buy(int id, string email)
+        {
+            return await this.Try(
+                async () =>
+                    {
+                        PersonDto dto;
+                        try
+                        {
+                            var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
+                            dto = personAuthDto.PersonDto;
+                        }
+                        catch (Exception ex) when (ex is InvalidAccessTokenException)
+                        {
+                            dto = await this._personRepository.CreatePersonIfNotExists(email);
+                        }
+
+                        var command = new CreateOrderCommand
+                        {
+                            BookId = id,
+                            Status = BookOrderStatus.Sold,
+                            PersonId = dto.Id
+                        };
+                        await this._bookOrderRepository.CreateOrder(command);
+                    });
+        }
 
         //[HttpGet]
         //[Auth]

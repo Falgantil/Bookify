@@ -10,5 +10,7 @@ namespace Bookify.App.Sdk.Interfaces
         Task<DetailedBookDto> Get(int id);
 
         Task<IPaginatedEnumerable<BookDto>> GetBooks(BookFilter filter);
+
+        Task<IPaginatedEnumerable<BookDto>> GetMyBooks(BookFilter filter);
     }
 }

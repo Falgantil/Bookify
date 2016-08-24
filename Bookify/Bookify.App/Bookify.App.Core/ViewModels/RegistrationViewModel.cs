@@ -37,14 +37,9 @@ namespace Bookify.App.Core.ViewModels
             {
                 throw new ArgumentException("Invalid input!");
             }
-            Func<Task> op =
-                async () =>
-                    await this.service.Register(this.FirstName, this.LastName, this.Email, this.Password, this.Username);
-            await Policy
-                .Handle<WebException>()
-                .Or<HttpResponseException>()
-                .RetryAsync()
-                .ExecuteAsync(op);
+            Func<Task> op = async () =>
+                await this.service.Register(this.FirstName, this.LastName, this.Email, this.Password, this.Username);
+            await this.TryTask(op);
         }
 
         public bool ValidInput => !this.GetInvalidFields().Any();
