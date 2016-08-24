@@ -18,23 +18,23 @@ namespace Bookify.App.iOS.Ui.Helpers
             }
             catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.BadRequest)
             {
-                await userDialogs.AlertAsync(badRequest ?? "Der var fejl i det angivne data", "Data fejl");
+                userDialogs.Alert(badRequest ?? "Der var fejl i det angivne data", "Data fejl");
             }
             catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
             {
-                await userDialogs.AlertAsync(unauthorized ?? "Login er krævet for at bruge denne funktion. Log venligst ind", "Login mangler");
+                userDialogs.Alert(unauthorized ?? "Login er krævet for at bruge denne funktion. Log venligst ind", "Login mangler");
             }
             catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
             {
-                await userDialogs.AlertAsync(notFound ?? "Det anmodne data kunne ikke findes på serveren", "Ikke fundet");
+                userDialogs.Alert(notFound ?? "Det anmodne data kunne ikke findes på serveren", "Ikke fundet");
             }
             catch (HttpResponseException)
             {
-                await userDialogs.AlertAsync(defaultMsg ?? "En ukendt fejl opstod på serveren. Prøv igen senere", "Fejl");
+                userDialogs.Alert(defaultMsg ?? "En ukendt fejl opstod på serveren. Prøv igen senere", "Fejl");
             }
             catch (Exception)
             {
-                await userDialogs.AlertAsync("En ukendt fejl opstod. Prøv igen senere", "Fejl");
+                userDialogs.Alert("En ukendt fejl opstod. Prøv igen senere", "Fejl");
             }
             return default(T);
         }

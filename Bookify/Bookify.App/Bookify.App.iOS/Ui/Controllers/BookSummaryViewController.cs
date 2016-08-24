@@ -15,6 +15,8 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class BookSummaryViewController : ExtendedViewController<BookSummaryViewModel>
     {
+        private UIBarButtonItem btnMore;
+
         public BookSummaryViewController(IntPtr handle) : base(handle)
         {
         }
@@ -38,9 +40,13 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.lblSummary.UserInteractionEnabled = true;
             this.lblSummary.Enabled = true;
 
-            var iconMore = UIImage.FromBundle("Icons/More.png");
-            var btnMore = new UIBarButtonItem(iconMore, UIBarButtonItemStyle.Plain, this.BtnMore_Click);
-            this.ParentViewController.NavigationItem.SetRightBarButtonItem(btnMore, false);
+            this.btnMore = new UIBarButtonItem(UIImage.FromBundle("Icons/More.png"), UIBarButtonItemStyle.Plain, this.BtnMore_Click);
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            this.ParentViewController.NavigationItem.SetRightBarButtonItem(this.btnMore, false);
         }
 
         private async void BtnMore_Click(object sender, EventArgs e)

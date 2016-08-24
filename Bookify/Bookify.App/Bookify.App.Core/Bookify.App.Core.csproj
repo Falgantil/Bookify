@@ -42,11 +42,12 @@
   <ItemGroup>
     <Compile Include="Collections\ObservableServiceCollection.cs" />
     <Compile Include="Helpers\NameHelper.cs" />
+    <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Interfaces\Services\IDelayService.cs" />
     <Compile Include="Interfaces\Services\IGetByFilterService.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Services\Config.cs" />
     <Compile Include="Services\DelayService.cs" />
-    <Compile Include="Services\IConfig.cs" />
     <Compile Include="Services\JsonCachingRegion.cs" />
     <Compile Include="Services\CachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IGenreService.cs" />

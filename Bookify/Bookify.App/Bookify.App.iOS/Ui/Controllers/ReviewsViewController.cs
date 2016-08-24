@@ -15,6 +15,9 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class ReviewsViewController : ExtendedViewController<ReviewsViewModel>
     {
+        private UIBarButtonItem btnAddReview;
+        private bool rendered;
+
         public ReviewsViewController(IntPtr handle) : base(handle)
         {
         }
@@ -29,13 +32,38 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.tblContent.RowHeight = UITableView.AutomaticDimension;
             this.tblContent.EstimatedRowHeight = 170;
             this.ViewModel.Reviews.CollectionChanged += this.ReviewsCollectionChanged;
+
+            if (this.ViewModel.IsLoggedIn)
+            {
+                this.btnAddReview = new UIBarButtonItem(UIBarButtonSystemItem.Add, this.BtnAddReview_Click);
+            }
         }
 
-        public override async void ViewDidAppear(bool animated)
+        private void BtnAddReview_Click(object sender, EventArgs e)
         {
-            base.ViewDidAppear(animated);
+            var storyboard = Storyboards.Storyboard.Main;
+            var vc = (CreateReviewViewController)storyboard.InstantiateViewController(CreateReviewViewController.StoryboardIdentifier);
+            vc.Book = this.Book;
+            vc.CreatedReview += (o, dto) => this.ViewModel.Reviews.Insert(0, dto);
+            this.NavigationController.PushViewController(vc, true);
+        }
 
-            await this.ViewModel.Reviews.LoadMore();
+        public override async void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            // If not logged in, the button will be null. Cause calling SetRightBarButtonItem
+            // to null, removes any other button. Which is what we want.
+            this.ParentViewController.NavigationItem.SetRightBarButtonItem(this.btnAddReview, false);
+
+            if (this.rendered)
+            {
+                return;
+            }
+            this.rendered = true;
+
+            this.ViewModel.Reviews.AddRange(this.Book.Feedback);
+            await this.TryTask(async () => await this.ViewModel.Reviews.LoadMore());
         }
 
         private void ReviewsCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)

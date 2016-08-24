@@ -8,7 +8,7 @@ namespace Bookify.App.Core.Models
 
         public int PersonId { get; set; }
 
-        public string Message { get; set; }
+        public string Text { get; set; }
 
         public int Rating { get; set; }
     }
