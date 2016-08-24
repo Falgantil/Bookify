@@ -35,6 +35,16 @@ namespace Bookify.API.Controllers
         }
 
         [HttpGet]
+        [Auth]
+        [Route("mybooks")]
+        public async Task<IHttpActionResult> MyBooks([FromUri]BookFilter filter = null)
+        {
+            filter = filter ?? new BookFilter();
+            var person = await this.GetAuthorizedMember(_authRepo);
+            return await this.Try(() => this._bookRepository.GetByFilter(filter, person.PersonDto.Id));
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public async Task<IHttpActionResult> Get(int id)
         {
