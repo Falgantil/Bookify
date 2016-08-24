@@ -11,25 +11,37 @@ class BookifyAPI {
   //getRoles() { return roles; }
 
   // Books
-  getBooks(args) {
-    if (args!= null) {
-      var argumentbuilder = '?';
-      var first = true;
-
-      $.each( args, function( key, value) {
-          if (first) {
-          argumentbuilder += key + "=" + value;
-          first = false;
-        } else {
-          argumentbuilder += "&"+ key + "=" + value;
-        }
-      });
-
-      return http.get(baseUrl + 'books'+ argumentbuilder);
-    } else {
-      return http.get(baseUrl + 'books');
-    }
-  }
+getBooks(args) {
+	if (args != null) {
+		var argumentbuilder = '?';
+		var first = true;
+		$.each(args, function(key, value) {
+      var maybeArray = value.slice();
+			if (Array.isArray(maybeArray)) {
+				$.each(maybeArray, function(index, item) {
+					if (first) {
+						argumentbuilder += key + "[]=" + item;
+						first = false;
+					} else {
+						argumentbuilder += "&" + key + "[]=" + item;
+					}
+				});
+			} else {
+				if (first) {
+					argumentbuilder += key + "=" + value;
+					first = false;
+				} else {
+					argumentbuilder += "&" + key + "=" + value;
+				}
+			}
+		});
+    console.log(baseUrl + 'books' + argumentbuilder);
+		return http.get(baseUrl + 'books' + argumentbuilder);
+	} else {
+    console.log(baseUrl + 'books' + argumentbuilder);
+		return http.get(baseUrl + 'books');
+	}
+}
   getBook(id) { return http.get(baseUrl + 'books/' + id); }
   getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
   getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }

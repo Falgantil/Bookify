@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Bookify.App.Sdk.Interfaces;
+using Bookify.Common.Commands.Auth;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
 
@@ -13,7 +14,7 @@ namespace Bookify.App.Sdk.Implementations
         {
         }
 
-        public async Task<IPaginatedEnumerable<FeedbackDto>> GetFeedback(FeedbackFilter filter)
+        public async Task<IPaginatedEnumerable<BookFeedbackDto>> GetFeedback(FeedbackFilter filter)
         {
             if (filter.BookId == 0)
             {
@@ -21,15 +22,32 @@ namespace Bookify.App.Sdk.Implementations
             }
 
             var request = new RequestBuilder()
-                .BaseUri(UrlHelper.Combine(this.Url, "{bookid}"))
-                .AddUriSegment("{bookid}", filter.BookId)
+                .BaseUri(this.Url)
+                .AddQuery(nameof(filter.BookId), filter.BookId)
                 .AddQuery(nameof(filter.Skip), filter.Skip)
                 .AddQuery(nameof(filter.Take), filter.Take);
             if (!string.IsNullOrEmpty(filter.Search))
             {
                 request.AddQuery(nameof(filter.Search), filter.Search);
             }
-            return await this.ExecuteAndParse<PaginatedEnumerable<FeedbackDto>>(request);
+
+            return await this.ExecuteAndParse<PaginatedEnumerable<BookFeedbackDto>>(request);
+        }
+
+        public async Task<BookFeedbackDto> CreateFeedback(int bookId, CreateFeedbackCommand command)
+        {
+            if (bookId == 0)
+            {
+                throw new ArgumentException("Missing Book ID!", nameof(bookId));
+            }
+
+            var request = new RequestBuilder()
+                .BaseUri(this.CombineUrl("{id}"))
+                .AddUriSegment("id", bookId)
+                .AddQuery(nameof(command.Text), command.Text)
+                .AddQuery(nameof(command.Rating), command.Rating);
+
+            return await this.ExecuteAndParse<BookFeedbackDto>(request);
         }
     }
 }

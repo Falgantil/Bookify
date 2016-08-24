@@ -14,7 +14,7 @@ body
   padding 0
 
 .book-text-wrap
-  width 90px
+  min-width 125px
   padding 5px
   display inline-block
   text-align left
@@ -32,6 +32,9 @@ body
 
 .book-thumbnail:hover
     background-color #dedede
+
+.genre-dropdown
+  list-style none
 
 .icon-ratings > div
   display inline-block
@@ -62,3 +65,26 @@ body
   padding-bottom 35px
 .bookFeedback p
   margin-top 10px
+
+.toggle-content
+  position absolute 
+  z-index  1000 
+  float  left 
+  min-width  160px 
+  padding  10px 10px 
+  margin  -22px 0 0 
+  font-size  14px 
+  text-align  left 
+  background-color  #fff 
+  -webkit-background-clip  padding-box 
+  background-clip  padding-box 
+  border  1px solid #ccc 
+  border  1px solid rgba(0,0,0,.15) 
+  border-radius  4px 
+  -webkit-box-shadow  0 6px 12px rgba(0,0,0,.175) 
+  box-shadow  0 6px 12px rgba(0,0,0,.175) 
+  display inline-block
+  list-style none
+
+.clickable
+  cursor pointer
