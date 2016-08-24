@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import http from './http';
 
-//let baseUrl = 'http://bookifyapi.azurewebsites.net/';
-let baseUrl = 'http://localhost:13654/';
+let baseUrl = 'http://bookifyapi.azurewebsites.net/';
+//let baseUrl = 'http://localhost:13654/';
 //let authToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3NkYXRlIjoxNDcxNjA5MTMyLCJleHBkYXRlIjoxNTAzMTQ1MTMyLCJ1c2VyaWQiOjV9.fyv68ofK4E8lyE7hJTVVG9QgY85dWC4YbwkAF7CN4yY';
 
 class BookifyAPI {
@@ -16,9 +16,8 @@ getBooks(args) {
 		var argumentbuilder = '?';
 		var first = true;
 		$.each(args, function(key, value) {
-      var maybeArray = value.slice();
-			if (Array.isArray(maybeArray)) {
-				$.each(maybeArray, function(index, item) {
+			if (typeof value === 'object') {
+				$.each(value.slice(), function(index, item) {
 					if (first) {
 						argumentbuilder += key + "[]=" + item;
 						first = false;
@@ -45,7 +44,6 @@ getBooks(args) {
   getBook(id) { return http.get(baseUrl + 'books/' + id); }
   getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
   getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }
-  getRelatedBooksByAuthor(authorId) { return http.get(baseUrl + 'books?author=' + authorId); }
 
   postBook(book) { return http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
   postBookCover(bookId, data) {
