@@ -29,7 +29,6 @@ namespace Bookify.App.Core.Services
             {
                 MyBooks = true
             });
-            this.MyBooks.LoadMore();
         }
 
         /// <summary>

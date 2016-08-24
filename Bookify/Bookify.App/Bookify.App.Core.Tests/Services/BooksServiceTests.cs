@@ -12,6 +12,7 @@ namespace Bookify.App.Core.Tests.Services
         /// <summary>
         /// Verifies getting books by filter calls the right API method depending on filter.
         /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task VerifyGettingBooksByFilterCallsTheRightApiMethodDependingOnFilter()
         {
@@ -21,12 +22,12 @@ namespace Bookify.App.Core.Tests.Services
             booksApi.Verify(api => api.GetBooks(It.IsAny<BookFilter>()), Times.Never);
             booksApi.Verify(api => api.GetMyBooks(It.IsAny<BookFilter>()), Times.Never);
 
-            await service.GetItems(new BookFilter());
+            await service.GetItems(new BookFilter { MyBooks = false });
 
             booksApi.Verify(api => api.GetBooks(It.IsAny<BookFilter>()), Times.Once);
             booksApi.Verify(api => api.GetMyBooks(It.IsAny<BookFilter>()), Times.Never);
 
-            await service.GetItems(new BookFilter {MyBooks = true});
+            await service.GetItems(new BookFilter { MyBooks = true });
 
             booksApi.Verify(api => api.GetBooks(It.IsAny<BookFilter>()), Times.Once);
             booksApi.Verify(api => api.GetMyBooks(It.IsAny<BookFilter>()), Times.Once);

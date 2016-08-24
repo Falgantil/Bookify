@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Specialized;
+using System.Threading.Tasks;
+
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
@@ -12,6 +14,8 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class MyBooksViewController : ExtendedViewController<MyBooksViewModel>
     {
+        private bool hasRendered;
+
         public const string StoryboardIdentifier = "MyBooksViewController";
 
         public MyBooksViewController(IntPtr handle) : base(handle)
@@ -27,10 +31,19 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.tblContent.Source = new MyBooksDataSource(this, this.ViewModel);
         }
 
-        public override void ViewWillAppear(bool animated)
+        public override async void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
             this.ViewModel.Books.CollectionChanged += this.BooksCollectionChanged;
+
+            if (this.hasRendered)
+            {
+                return;
+            }
+
+            this.hasRendered = true;
+
+            await this.ViewModel.Books.LoadMore();
         }
 
         public override void ViewDidDisappear(bool animated)
