@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-
+using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
@@ -25,7 +25,20 @@ namespace Bookify.App.Core.Services
         public BooksService(IBooksApi api)
         {
             this.api = api;
+            this.MyBooks = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this, new BookFilter
+            {
+                MyBooks = true
+            });
+            this.MyBooks.LoadMore();
         }
+
+        /// <summary>
+        /// Gets my books.
+        /// </summary>
+        /// <value>
+        /// My books.
+        /// </value>
+        public ObservableServiceCollection<BookDto, BookFilter, IBooksService> MyBooks { get; }
 
         /// <summary>
         /// Gets the book with the specified ID.
@@ -44,14 +57,11 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<IPaginatedEnumerable<BookDto>> GetItems(BookFilter filter)
         {
-            if (filter.MyBooks)
-            {
-                return await this.api.GetMyBooks(filter);
-            }
-            else
+            if (!filter.MyBooks)
             {
                 return await this.api.GetBooks(filter);
             }
+            return await this.api.GetMyBooks(filter);
         }
     }
 }

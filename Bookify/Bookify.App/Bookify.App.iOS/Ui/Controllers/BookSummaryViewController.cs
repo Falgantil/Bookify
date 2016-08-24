@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
@@ -63,10 +64,11 @@ namespace Bookify.App.iOS.Ui.Controllers
             //{
             //    options.Add(OptReadBook);
             //}
-            //else if (this.ViewModel.Borrowable)
-            //{
-            //    options.Add(OptBorrowBook);
-            //}
+            //else 
+            if (this.ViewModel.IsLoggedIn)
+            {
+                options.Add(OptBorrowBook);
+            }
             var result = await this.DialogService.ActionSheetAsync(MsgTitle, OptCancel, null, null, options.ToArray());
             switch (result)
             {
@@ -94,9 +96,15 @@ namespace Bookify.App.iOS.Ui.Controllers
             
         }
 
-        private void BorrowBook_Clicked()
+        private async Task BorrowBook_Clicked()
         {
-            
+            var yes = await this.DialogService.ConfirmAsync("Er du sikker på at du ønsker at låne denne bog i 30 dage?", "Godkend lån", "OK");
+            if (!yes)
+            {
+                return;
+            }
+
+            await this.ViewModel.BorrowBook();
         }
 
         protected override void CreateBindings()

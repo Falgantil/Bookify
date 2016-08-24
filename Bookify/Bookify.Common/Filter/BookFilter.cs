@@ -9,5 +9,7 @@ namespace Bookify.Common.Filter
         public string OrderBy { get; set; } = "Price";
 
         public bool Descending { get; set; } = false;
+
+        public bool MyBooks { get; set; }
     }
 }

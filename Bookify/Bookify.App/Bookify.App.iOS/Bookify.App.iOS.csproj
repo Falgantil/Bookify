@@ -106,10 +106,11 @@
       <DependentUpon>CreateReviewViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Initialization\LaunchViewController.cs" />
-    <Compile Include="MyBooksViewController.cs" />
-    <Compile Include="MyBooksViewController.designer.cs">
+    <Compile Include="Ui\Controllers\MyBooksViewController.cs" />
+    <Compile Include="Ui\Controllers\MyBooksViewController.designer.cs">
       <DependentUpon>MyBooksViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Controllers\PaymentViewController.cs" />
     <Compile Include="Ui\Controls\PlaceholderTextView.cs" />
     <Compile Include="Ui\Controls\PlaceholderTextView.designer.cs">
       <DependentUpon>PlaceholderTextView.cs</DependentUpon>
@@ -120,6 +121,7 @@
     </Compile>
     <Compile Include="Ui\Controllers\RegistrationViewController.cs" />
     <Compile Include="Ui\DataSources\GenresDataSource.cs" />
+    <Compile Include="Ui\DataSources\MyBooksDataSource.cs" />
     <Compile Include="Ui\TableCells\GenreTableCell.cs" />
     <Compile Include="Ui\TableCells\GenreTableCell.designer.cs">
       <DependentUpon>GenreTableCell.cs</DependentUpon>

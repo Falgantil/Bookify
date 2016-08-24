@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Threading.Tasks;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
@@ -12,11 +10,11 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
-    public partial class FeaturedViewController : ExtendedViewController<FeaturedViewModel>
+    public partial class MyBooksViewController : ExtendedViewController<MyBooksViewModel>
     {
-        private int booksCount;
+        public const string StoryboardIdentifier = "MyBooksViewController";
 
-        public FeaturedViewController(IntPtr handle) : base(handle)
+        public MyBooksViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -26,17 +24,24 @@ namespace Bookify.App.iOS.Ui.Controllers
 
             this.tblContent.RowHeight = 100;
             this.tblContent.RegisterNibForCellReuse(BookTableCell.Nib, BookTableCell.Key);
-            this.tblContent.Source = new FeaturedDataSource(this, this.ViewModel);
+            this.tblContent.Source = new MyBooksDataSource(this, this.ViewModel);
+        }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
             this.ViewModel.Books.CollectionChanged += this.BooksCollectionChanged;
         }
 
-        protected override void CreateBindings()
+        public override void ViewDidDisappear(bool animated)
         {
-            this.View.Bind(
-                this.ViewModel.Books,
-                collection => collection.IsLoading,
-                (v, isLoading) => UIApplication.SharedApplication.NetworkActivityIndicatorVisible = isLoading);
+            this.ViewModel.Books.CollectionChanged -= this.BooksCollectionChanged;
+            base.ViewDidDisappear(animated);
+        }
+
+        private void BooksCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            this.tblContent.ReloadData();
         }
 
         public override async void ViewDidAppear(bool animated)
@@ -51,11 +56,14 @@ namespace Bookify.App.iOS.Ui.Controllers
             await this.TryTask(async () => await this.ViewModel.Books.LoadMore());
         }
 
-        private void BooksCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        protected override void CreateBindings()
         {
-            this.tblContent.ReloadData();
+            this.View.Bind(
+                this.ViewModel.Books,
+                collection => collection.IsLoading,
+                (v, isLoading) => UIApplication.SharedApplication.NetworkActivityIndicatorVisible = isLoading);
         }
-        
+
         public async void CellTapped(BookDto model)
         {
             DetailedBookDto book;
@@ -65,7 +73,7 @@ namespace Bookify.App.iOS.Ui.Controllers
                     await
                         this.TryTask(
                             async () => await this.ViewModel.GetBook(model.Id),
-                            null, 
+                            null,
                             null,
                             "Bogen kunne ikke hentes");
                 if (book == null)

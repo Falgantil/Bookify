@@ -45,12 +45,14 @@
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Interfaces\Services\IDelayService.cs" />
     <Compile Include="Interfaces\Services\IGetByFilterService.cs" />
+    <Compile Include="Interfaces\Services\IPersonService.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Services\Config.cs" />
     <Compile Include="Services\DelayService.cs" />
     <Compile Include="Services\JsonCachingRegion.cs" />
     <Compile Include="Services\CachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IGenreService.cs" />
+    <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\ShoppingCartService.cs" />
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Services\GenreService.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="ViewModels\GenresViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MyBooksViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />

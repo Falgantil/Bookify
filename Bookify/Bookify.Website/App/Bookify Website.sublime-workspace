@@ -4,62 +4,22 @@
 		"selected_items":
 		[
 			[
-				"auth",
-				"authToken"
+				"imp",
+				"importd	ES6 Import Decorators"
 			],
 			[
-				"aut",
-				"authToken"
-			],
-			[
-				"get",
-				"getInitialState"
-			],
-			[
-				"lo",
-				"loginOK"
-			],
-			[
-				"backgrou",
-				"background-color"
-			],
-			[
-				"ba",
-				"baseUrl"
-			],
-			[
-				"booki",
-				"bookifyapi"
-			],
-			[
-				"backround",
-				"background-color"
-			],
-			[
-				"rating",
-				"RatingView"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"book",
-				"BookpageViewModel"
-			],
-			[
-				"Bok",
-				"BookListViewModel"
+				"mn",
+				"mnclass	Marionette ES6 Class"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "modules/util/bookifyapi.js",
+			"file": "index.js",
 			"settings":
 			{
-				"buffer_size": 2272,
+				"buffer_size": 619,
 				"line_ending": "Windows"
 			}
 		},
@@ -72,10 +32,20 @@
 			}
 		},
 		{
-			"file": "modules/BookList/booklist-view-model.js",
+			"contents": "Searching 12319 files for \"bootstrap-material-design\" (case sensitive)\n\nC:\\Projects\\Bookify\\Bookify\\Bookify.Website\\App\\bundle.js:\n 84413  /***/ function(module, exports, __webpack_require__) {\n 84414  \n 84415: 	/* WEBPACK VAR INJECTION */(function(jQuery) {/* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */\n 84416  	/* globals jQuery, navigator */\n 84417  \n .....\n 85103  /***/ function(module, exports, __webpack_require__) {\n 85104  \n 85105: 	/* WEBPACK VAR INJECTION */(function(jQuery) {/* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */\n 85106  	/* globals jQuery, navigator */\n 85107  \n .....\n 85465  \n 85466  	// module\n 85467: 	exports.push([module.id, \"/*\\n\\nTo get this list of colors inject jQuery at http://www.google.com/design/spec/style/color.html#color-color-palette\\n\\nThen, run this script to get the list.\\n\\n\\n(function() {\\n  var colors = {}, main = {};\\n  $(\\\".color-group\\\").each(function() {\\n    var color = $(this).find(\\\".name\\\").text().trim().toLowerCase().replace(\\\" \\\", \\\"-\\\");\\n    colors[color] = {};\\n\\n    $(this).find(\\\".color\\\").not(\\\".main-color\\\").each(function() {\\n      var shade = $(this).find(\\\".shade\\\").text().trim(),\\n          hex   = $(this).find(\\\".hex\\\").text().trim();\\n\\n      colors[color][shade] = hex;\\n    });\\n    main[color] = color + \\\"-\\\" + $(this).find(\\\".main-color .shade\\\").text().trim();\\n\\n  });\\n  var LESS = \\\"\\\";\\n  $.each(colors, function(name, shades) {\\n    LESS += \\\"\\\\n\\\\n\\\";\\n    $.each(shades, function(shade, hex) {\\n      LESS += \\\"@\\\" + name + \\\"-\\\" + shade + \\\": \\\" + hex + \\\";\\\\n\\\";\\n    });\\n    if (main[name]) {\\n      LESS += \\\"@\\\" + name + \\\": \\\" + main[name] + \\\";\\\\n\\\";\\n    }\\n  });\\n  console.log(LESS);\\n})();\\n\\n\\n*/\\n/* ANIMATION */\\n/* SHADOWS */\\n/* Shadows (from mdl http://www.getmdl.io/) */\\nbody {\\n  background-color: #EEEEEE;\\n}\\nbody.inverse {\\n  background: #333333;\\n}\\nbody.inverse,\\nbody.inverse .form-control {\\n  color: rgba(255,255,255, 0.84);\\n}\\nbody.inverse .modal,\\nbody.inverse .panel-default,\\nbody.inverse .card,\\nbody.inverse .modal .form-control,\\nbody.inverse .panel-default .form-control,\\nbody.inverse .card .form-control {\\n  background-color: initial;\\n  color: initial;\\n}\\nbody,\\nh1,\\nh2,\\nh3,\\nh4,\\nh5,\\nh6,\\n.h1,\\n.h2,\\n.h3,\\n.h4 {\\n  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;\\n  font-weight: 300;\\n}\\nh5,\\nh6 {\\n  font-weight: 400;\\n}\\na,\\na:hover,\\na:focus {\\n  color: #009688;\\n}\\na .material-icons,\\na:hover .material-icons,\\na:focus .material-icons {\\n  vertical-align: middle;\\n}\\n.form-horizontal .radio,\\n.form-horizontal .checkbox,\\n.form-horizontal .radio-inline,\\n.form-horizontal .checkbox-inline {\\n  padding-top: 0;\\n}\\n.form-horizontal .radio {\\n  margin-bottom: 10px;\\n}\\n.form-horizontal label {\\n  text-align: right;\\n}\\n.form-horizontal label.control-label {\\n  margin: 0;\\n}\\nbody .container .well.well-sm,\\nbody .container-fluid .well.well-sm {\\n  padding: 10px;\\n}\\nbody .container .well.well-lg,\\nbody .container-fluid .well.well-lg {\\n  padding: 26px;\\n}\\nbody .container .well,\\nbody .container-fluid .well,\\nbody .container .jumbotron,\\nbody .container-fluid .jumbotron {\\n  background-color: #fff;\\n  padding: 19px;\\n  margin-bottom: 20px;\\n  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\\n          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\\n  border-radius: 2px;\\n  border: 0;\\n}\\nbody .container .well p,\\nbody .container-fluid .well p,\\nbody .container .jumbotron p,\\nbody .container-fluid .jumbotron p {\\n  font-weight: 300;\\n}\\nbody .container .well,\\nbody .container-fluid .well,\\nbody .container .jumbotron,\\nbody .container-fluid .jumbotron,\\nbody .container .well-default,\\nbody .container-fluid .well-default,\\nbody .container .jumbotron-default,\\nbody .container-fluid .jumbotron-default {\\n  background-color: #ffffff;\\n}\\nbody .container .well-inverse,\\nbody .container-fluid .well-inverse,\\nbody .container .jumbotron-inverse,\\nbody .container-fluid .jumbotron-inverse {\\n  background-color: #3f51b5;\\n}\\nbody .container .well-primary,\\nbody .container-fluid .well-primary,\\nbody .container .jumbotron-primary,\\nbody .container-fluid .jumbotron-primary {\\n  background-color: #009688;\\n}\\nbody .container .well-success,\\nbody .container-fluid .well-success,\\nbody .container .jumbotron-success,\\nbody .container-fluid .jumbotron-success {\\n  background-color: #4caf50;\\n}\\nbody .container .well-info,\\nbody .container-fluid .well-info,\\nbody .container .jumbotron-info,\\nbody .container-fluid .jumbotron-info {\\n  background-color: #03a9f4;\\n}\\nbody .container .well-warning,\\nbody .container-fluid .well-warning,\\nbody .container .jumbotron-warning,\\nbody .container-fluid .jumbotron-warning {\\n  background-color: #ff5722;\\n}\\nbody .container .well-danger,\\nbody .container-fluid .well-danger,\\nbody .container .jumbotron-danger,\\nbody .container-fluid .jumbotron-danger {\\n  background-color: #f44336;\\n}\\n.btn,\\n.input-group-btn .btn {\\n  border: none;\\n  border-radius: 2px;\\n  position: relative;\\n  padding: 8px 30px;\\n  margin: 10px 1px;\\n  font-size: 14px;\\n  font-weight: 500;\\n  text-transform: uppercase;\\n  letter-spacing: 0;\\n  will-change: box-shadow, transform;\\n  -webkit-transition: -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);\\n       -o-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);\\n          transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);\\n  outline: 0;\\n  cursor: pointer;\\n  text-decoration: none;\\n  background: transparent;\\n}\\n.btn::-moz-focus-inner,\\n.input-group-btn .btn::-moz-focus-inner {\\n  border: 0;\\n}\\n.btn:not(.btn-raised),\\n.input-group-btn .btn:not(.btn-raised) {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.btn:not(.btn-raised),\\n.input-group-btn .btn:not(.btn-raised),\\n.btn:not(.btn-raised).btn-default,\\n.input-group-btn .btn:not(.btn-raised).btn-default {\\n  color: rgba(0,0,0, 0.87);\\n}\\n.btn:not(.btn-raised).btn-inverse,\\n.input-group-btn .btn:not(.btn-raised).btn-inverse {\\n  color: #3f51b5;\\n}\\n.btn:not(.btn-raised).btn-primary,\\n.input-group-btn .btn:not(.btn-raised).btn-primary {\\n  color: #009688;\\n}\\n.btn:not(.btn-raised).btn-success,\\n.input-group-btn .btn:not(.btn-raised).btn-success {\\n  color: #4caf50;\\n}\\n.btn:not(.btn-raised).btn-info,\\n.input-group-btn .btn:not(.btn-raised).btn-info {\\n  color: #03a9f4;\\n}\\n.btn:not(.btn-raised).btn-warning,\\n.input-group-btn .btn:not(.btn-raised).btn-warning {\\n  color: #ff5722;\\n}\\n.btn:not(.btn-raised).btn-danger,\\n.input-group-btn .btn:not(.btn-raised).btn-danger {\\n  color: #f44336;\\n}\\n.btn:not(.btn-raised):not(.btn-link):hover,\\n.input-group-btn .btn:not(.btn-raised):not(.btn-link):hover,\\n.btn:not(.btn-raised):not(.btn-link):focus,\\n.input-group-btn .btn:not(.btn-raised):not(.btn-link):focus {\\n  background-color: rgba(153, 153, 153, 0.2);\\n}\\n.theme-dark .btn:not(.btn-raised):not(.btn-link):hover,\\n.theme-dark .input-group-btn .btn:not(.btn-raised):not(.btn-link):hover,\\n.theme-dark .btn:not(.btn-raised):not(.btn-link):focus,\\n.theme-dark .input-group-btn .btn:not(.btn-raised):not(.btn-link):focus {\\n  background-color: rgba(204, 204, 204, 0.15);\\n}\\n.btn.btn-raised,\\n.input-group-btn .btn.btn-raised,\\n.btn.btn-fab,\\n.input-group-btn .btn.btn-fab,\\n.btn-group-raised .btn,\\n.btn-group-raised .input-group-btn .btn,\\n.btn.btn-raised.btn-default,\\n.input-group-btn .btn.btn-raised.btn-default,\\n.btn.btn-fab.btn-default,\\n.input-group-btn .btn.btn-fab.btn-default,\\n.btn-group-raised .btn.btn-default,\\n.btn-group-raised .input-group-btn .btn.btn-default {\\n  background-color: #EEEEEE;\\n  color: rgba(0,0,0, 0.87);\\n}\\n.btn.btn-raised.btn-inverse,\\n.input-group-btn .btn.btn-raised.btn-inverse,\\n.btn.btn-fab.btn-inverse,\\n.input-group-btn .btn.btn-fab.btn-inverse,\\n.btn-group-raised .btn.btn-inverse,\\n.btn-group-raised .input-group-btn .btn.btn-inverse {\\n  background-color: #3f51b5;\\n  color: #ffffff;\\n}\\n.btn.btn-raised.btn-primary,\\n.input-group-btn .btn.btn-raised.btn-primary,\\n.btn.btn-fab.btn-primary,\\n.input-group-btn .btn.btn-fab.btn-primary,\\n.btn-group-raised .btn.btn-primary,\\n.btn-group-raised .input-group-btn .btn.btn-primary {\\n  background-color: #009688;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.btn.btn-raised.btn-success,\\n.input-group-btn .btn.btn-raised.btn-success,\\n.btn.btn-fab.btn-success,\\n.input-group-btn .btn.btn-fab.btn-success,\\n.btn-group-raised .btn.btn-success,\\n.btn-group-raised .input-group-btn .btn.btn-success {\\n  background-color: #4caf50;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.btn.btn-raised.btn-info,\\n.input-group-btn .btn.btn-raised.btn-info,\\n.btn.btn-fab.btn-info,\\n.input-group-btn .btn.btn-fab.btn-info,\\n.btn-group-raised .btn.btn-info,\\n.btn-group-raised .input-group-btn .btn.btn-info {\\n  background-color: #03a9f4;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.btn.btn-raised.btn-warning,\\n.input-group-btn .btn.btn-raised.btn-warning,\\n.btn.btn-fab.btn-warning,\\n.input-group-btn .btn.btn-fab.btn-warning,\\n.btn-group-raised .btn.btn-warning,\\n.btn-group-raised .input-group-btn .btn.btn-warning {\\n  background-color: #ff5722;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.btn.btn-raised.btn-danger,\\n.input-group-btn .btn.btn-raised.btn-danger,\\n.btn.btn-fab.btn-danger,\\n.input-group-btn .btn.btn-fab.btn-danger,\\n.btn-group-raised .btn.btn-danger,\\n.btn-group-raised .input-group-btn .btn.btn-danger {\\n  background-color: #f44336;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.btn.btn-raised:not(.btn-link),\\n.input-group-btn .btn.btn-raised:not(.btn-link),\\n.btn-group-raised .btn:not(.btn-link),\\n.btn-group-raised .input-group-btn .btn:not(.btn-link) {\\n  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\\n          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\\n}\\n.btn.btn-raised:not(.btn-link):hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover,\\n.btn-group-raised .btn:not(.btn-link):hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover,\\n.btn.btn-raised:not(.btn-link):focus,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus,\\n.btn-group-raised .btn:not(.btn-link):focus,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus,\\n.btn.btn-raised:not(.btn-link).active,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active,\\n.btn-group-raised .btn:not(.btn-link).active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active,\\n.btn.btn-raised:not(.btn-link):active,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active,\\n.btn-group-raised .btn:not(.btn-link):active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active {\\n  outline: 0;\\n}\\n.btn.btn-raised:not(.btn-link):hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover,\\n.btn-group-raised .btn:not(.btn-link):hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover,\\n.btn.btn-raised:not(.btn-link):focus,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus,\\n.btn-group-raised .btn:not(.btn-link):focus,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus,\\n.btn.btn-raised:not(.btn-link).active,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active,\\n.btn-group-raised .btn:not(.btn-link).active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active,\\n.btn.btn-raised:not(.btn-link):active,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active,\\n.btn-group-raised .btn:not(.btn-link):active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active,\\n.btn.btn-raised:not(.btn-link):hover.btn-default,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-default,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-default,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-default,\\n.btn.btn-raised:not(.btn-link):focus.btn-default,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-default,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-default,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-default,\\n.btn.btn-raised:not(.btn-link).active.btn-default,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-default,\\n.btn-group-raised .btn:not(.btn-link).active.btn-default,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-default,\\n.btn.btn-raised:not(.btn-link):active.btn-default,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-default,\\n.btn-group-raised .btn:not(.btn-link):active.btn-default,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-default {\\n  background-color: #e4e4e4;\\n}\\n.btn.btn-raised:not(.btn-link):hover.btn-inverse,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-inverse,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-inverse,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-inverse,\\n.btn.btn-raised:not(.btn-link):focus.btn-inverse,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-inverse,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-inverse,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-inverse,\\n.btn.btn-raised:not(.btn-link).active.btn-inverse,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-inverse,\\n.btn-group-raised .btn:not(.btn-link).active.btn-inverse,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-inverse,\\n.btn.btn-raised:not(.btn-link):active.btn-inverse,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-inverse,\\n.btn-group-raised .btn:not(.btn-link):active.btn-inverse,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-inverse {\\n  background-color: #495bc0;\\n}\\n.btn.btn-raised:not(.btn-link):hover.btn-primary,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-primary,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-primary,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-primary,\\n.btn.btn-raised:not(.btn-link):focus.btn-primary,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-primary,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-primary,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-primary,\\n.btn.btn-raised:not(.btn-link).active.btn-primary,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-primary,\\n.btn-group-raised .btn:not(.btn-link).active.btn-primary,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-primary,\\n.btn.btn-raised:not(.btn-link):active.btn-primary,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-primary,\\n.btn-group-raised .btn:not(.btn-link):active.btn-primary,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-primary {\\n  background-color: #00aa9a;\\n}\\n.btn.btn-raised:not(.btn-link):hover.btn-success,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-success,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-success,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-success,\\n.btn.btn-raised:not(.btn-link):focus.btn-success,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-success,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-success,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-success,\\n.btn.btn-raised:not(.btn-link).active.btn-success,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-success,\\n.btn-group-raised .btn:not(.btn-link).active.btn-success,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-success,\\n.btn.btn-raised:not(.btn-link):active.btn-success,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-success,\\n.btn-group-raised .btn:not(.btn-link):active.btn-success,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-success {\\n  background-color: #59b75c;\\n}\\n.btn.btn-raised:not(.btn-link):hover.btn-info,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-info,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-info,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-info,\\n.btn.btn-raised:not(.btn-link):focus.btn-info,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-info,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-info,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-info,\\n.btn.btn-raised:not(.btn-link).active.btn-info,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-info,\\n.btn-group-raised .btn:not(.btn-link).active.btn-info,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-info,\\n.btn.btn-raised:not(.btn-link):active.btn-info,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-info,\\n.btn-group-raised .btn:not(.btn-link):active.btn-info,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-info {\\n  background-color: #0fb2fc;\\n}\\n.btn.btn-raised:not(.btn-link):hover.btn-warning,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-warning,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-warning,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-warning,\\n.btn.btn-raised:not(.btn-link):focus.btn-warning,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-warning,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-warning,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-warning,\\n.btn.btn-raised:not(.btn-link).active.btn-warning,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-warning,\\n.btn-group-raised .btn:not(.btn-link).active.btn-warning,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-warning,\\n.btn.btn-raised:not(.btn-link):active.btn-warning,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-warning,\\n.btn-group-raised .btn:not(.btn-link):active.btn-warning,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-warning {\\n  background-color: #ff6736;\\n}\\n.btn.btn-raised:not(.btn-link):hover.btn-danger,\\n.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-danger,\\n.btn-group-raised .btn:not(.btn-link):hover.btn-danger,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-danger,\\n.btn.btn-raised:not(.btn-link):focus.btn-danger,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-danger,\\n.btn-group-raised .btn:not(.btn-link):focus.btn-danger,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-danger,\\n.btn.btn-raised:not(.btn-link).active.btn-danger,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-danger,\\n.btn-group-raised .btn:not(.btn-link).active.btn-danger,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-danger,\\n.btn.btn-raised:not(.btn-link):active.btn-danger,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-danger,\\n.btn-group-raised .btn:not(.btn-link):active.btn-danger,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-danger {\\n  background-color: #f55549;\\n}\\n.btn.btn-raised:not(.btn-link).active,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active,\\n.btn-group-raised .btn:not(.btn-link).active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active,\\n.btn.btn-raised:not(.btn-link):active,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active,\\n.btn-group-raised .btn:not(.btn-link):active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active,\\n.btn.btn-raised:not(.btn-link).active:hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link).active:hover,\\n.btn-group-raised .btn:not(.btn-link).active:hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link).active:hover,\\n.btn.btn-raised:not(.btn-link):active:hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link):active:hover,\\n.btn-group-raised .btn:not(.btn-link):active:hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):active:hover {\\n  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);\\n          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);\\n}\\n.btn.btn-raised:not(.btn-link):focus,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus,\\n.btn-group-raised .btn:not(.btn-link):focus,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus,\\n.btn.btn-raised:not(.btn-link):focus.active,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.active,\\n.btn-group-raised .btn:not(.btn-link):focus.active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.active,\\n.btn.btn-raised:not(.btn-link):focus:active,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus:active,\\n.btn-group-raised .btn:not(.btn-link):focus:active,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus:active,\\n.btn.btn-raised:not(.btn-link):focus:hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus:hover,\\n.btn-group-raised .btn:not(.btn-link):focus:hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus:hover,\\n.btn.btn-raised:not(.btn-link):focus.active:hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus.active:hover,\\n.btn-group-raised .btn:not(.btn-link):focus.active:hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.active:hover,\\n.btn.btn-raised:not(.btn-link):focus:active:hover,\\n.input-group-btn .btn.btn-raised:not(.btn-link):focus:active:hover,\\n.btn-group-raised .btn:not(.btn-link):focus:active:hover,\\n.btn-group-raised .input-group-btn .btn:not(.btn-link):focus:active:hover {\\n  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);\\n          box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);\\n}\\n.btn.btn-fab,\\n.input-group-btn .btn.btn-fab {\\n  border-radius: 50%;\\n  font-size: 24px;\\n  height: 56px;\\n  margin: auto;\\n  min-width: 56px;\\n  width: 56px;\\n  padding: 0;\\n  overflow: hidden;\\n  -webkit-box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);\\n          box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);\\n  position: relative;\\n  line-height: normal;\\n}\\n.btn.btn-fab .ripple-container,\\n.input-group-btn .btn.btn-fab .ripple-container {\\n  border-radius: 50%;\\n}\\n.btn.btn-fab.btn-fab-mini,\\n.input-group-btn .btn.btn-fab.btn-fab-mini,\\n.btn-group-sm .btn.btn-fab,\\n.btn-group-sm .input-group-btn .btn.btn-fab {\\n  height: 40px;\\n  min-width: 40px;\\n  width: 40px;\\n}\\n.btn.btn-fab.btn-fab-mini.material-icons,\\n.input-group-btn .btn.btn-fab.btn-fab-mini.material-icons,\\n.btn-group-sm .btn.btn-fab.material-icons,\\n.btn-group-sm .input-group-btn .btn.btn-fab.material-icons {\\n  top: 0px;\\n  left: 0px;\\n}\\n.btn.btn-fab i.material-icons,\\n.input-group-btn .btn.btn-fab i.material-icons {\\n  position: absolute;\\n  top: 50%;\\n  left: 50%;\\n  -webkit-transform: translate(-12px, -12px);\\n      -ms-transform: translate(-12px, -12px);\\n       -o-transform: translate(-12px, -12px);\\n          transform: translate(-12px, -12px);\\n  line-height: 24px;\\n  width: 24px;\\n}\\n.btn i.material-icons,\\n.input-group-btn .btn i.material-icons {\\n  vertical-align: middle;\\n}\\n.btn.btn-lg,\\n.input-group-btn .btn.btn-lg,\\n.btn-group-lg .btn,\\n.btn-group-lg .input-group-btn .btn {\\n  font-size: 16px;\\n}\\n.btn.btn-sm,\\n.input-group-btn .btn.btn-sm,\\n.btn-group-sm .btn,\\n.btn-group-sm .input-group-btn .btn {\\n  padding: 5px 20px;\\n  font-size: 12px;\\n}\\n.btn.btn-xs,\\n.input-group-btn .btn.btn-xs,\\n.btn-group-xs .btn,\\n.btn-group-xs .input-group-btn .btn {\\n  padding: 4px 15px;\\n  font-size: 10px;\\n}\\nfieldset[disabled][disabled] .btn,\\nfieldset[disabled][disabled] .input-group-btn .btn,\\nfieldset[disabled][disabled] .btn-group,\\nfieldset[disabled][disabled] .btn-group-vertical,\\n.btn.disabled,\\n.input-group-btn .btn.disabled,\\n.btn-group.disabled,\\n.btn-group-vertical.disabled,\\n.btn:disabled,\\n.input-group-btn .btn:disabled,\\n.btn-group:disabled,\\n.btn-group-vertical:disabled,\\n.btn[disabled][disabled],\\n.input-group-btn .btn[disabled][disabled],\\n.btn-group[disabled][disabled],\\n.btn-group-vertical[disabled][disabled] {\\n  color: rgba(0, 0, 0, 0.26);\\n  background: transparent;\\n}\\n.theme-dark fieldset[disabled][disabled] .btn,\\n.theme-dark fieldset[disabled][disabled] .input-group-btn .btn,\\n.theme-dark fieldset[disabled][disabled] .btn-group,\\n.theme-dark fieldset[disabled][disabled] .btn-group-vertical,\\n.theme-dark .btn.disabled,\\n.theme-dark .input-group-btn .btn.disabled,\\n.theme-dark .btn-group.disabled,\\n.theme-dark .btn-group-vertical.disabled,\\n.theme-dark .btn:disabled,\\n.theme-dark .input-group-btn .btn:disabled,\\n.theme-dark .btn-group:disabled,\\n.theme-dark .btn-group-vertical:disabled,\\n.theme-dark .btn[disabled][disabled],\\n.theme-dark .input-group-btn .btn[disabled][disabled],\\n.theme-dark .btn-group[disabled][disabled],\\n.theme-dark .btn-group-vertical[disabled][disabled] {\\n  color: rgba(255, 255, 255, 0.3);\\n}\\nfieldset[disabled][disabled] .btn.btn-raised,\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-raised,\\nfieldset[disabled][disabled] .btn-group.btn-raised,\\nfieldset[disabled][disabled] .btn-group-vertical.btn-raised,\\n.btn.disabled.btn-raised,\\n.input-group-btn .btn.disabled.btn-raised,\\n.btn-group.disabled.btn-raised,\\n.btn-group-vertical.disabled.btn-raised,\\n.btn:disabled.btn-raised,\\n.input-group-btn .btn:disabled.btn-raised,\\n.btn-group:disabled.btn-raised,\\n.btn-group-vertical:disabled.btn-raised,\\n.btn[disabled][disabled].btn-raised,\\n.input-group-btn .btn[disabled][disabled].btn-raised,\\n.btn-group[disabled][disabled].btn-raised,\\n.btn-group-vertical[disabled][disabled].btn-raised,\\nfieldset[disabled][disabled] .btn.btn-group-raised,\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-group-raised,\\nfieldset[disabled][disabled] .btn-group.btn-group-raised,\\nfieldset[disabled][disabled] .btn-group-vertical.btn-group-raised,\\n.btn.disabled.btn-group-raised,\\n.input-group-btn .btn.disabled.btn-group-raised,\\n.btn-group.disabled.btn-group-raised,\\n.btn-group-vertical.disabled.btn-group-raised,\\n.btn:disabled.btn-group-raised,\\n.input-group-btn .btn:disabled.btn-group-raised,\\n.btn-group:disabled.btn-group-raised,\\n.btn-group-vertical:disabled.btn-group-raised,\\n.btn[disabled][disabled].btn-group-raised,\\n.input-group-btn .btn[disabled][disabled].btn-group-raised,\\n.btn-group[disabled][disabled].btn-group-raised,\\n.btn-group-vertical[disabled][disabled].btn-group-raised,\\nfieldset[disabled][disabled] .btn.btn-raised.active,\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-raised.active,\\nfieldset[disabled][disabled] .btn-group.btn-raised.active,\\nfieldset[disabled][disabled] .btn-group-vertical.btn-raised.active,\\n.btn.disabled.btn-raised.active,\\n.input-group-btn .btn.disabled.btn-raised.active,\\n.btn-group.disabled.btn-raised.active,\\n.btn-group-vertical.disabled.btn-raised.active,\\n.btn:disabled.btn-raised.active,\\n.input-group-btn .btn:disabled.btn-raised.active,\\n.btn-group:disabled.btn-raised.active,\\n.btn-group-vertical:disabled.btn-raised.active,\\n.btn[disabled][disabled].btn-raised.active,\\n.input-group-btn .btn[disabled][disabled].btn-raised.active,\\n.btn-group[disabled][disabled].btn-raised.active,\\n.btn-group-vertical[disabled][disabled].btn-raised.active,\\nfieldset[disabled][disabled] .btn.btn-group-raised.active,\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-group-raised.active,\\nfieldset[disabled][disabled] .btn-group.btn-group-raised.active,\\nfieldset[disabled][disabled] .btn-group-vertical.btn-group-raised.active,\\n.btn.disabled.btn-group-raised.active,\\n.input-group-btn .btn.disabled.btn-group-raised.active,\\n.btn-group.disabled.btn-group-raised.active,\\n.btn-group-vertical.disabled.btn-group-raised.active,\\n.btn:disabled.btn-group-raised.active,\\n.input-group-btn .btn:disabled.btn-group-raised.active,\\n.btn-group:disabled.btn-group-raised.active,\\n.btn-group-vertical:disabled.btn-group-raised.active,\\n.btn[disabled][disabled].btn-group-raised.active,\\n.input-group-btn .btn[disabled][disabled].btn-group-raised.active,\\n.btn-group[disabled][disabled].btn-group-raised.active,\\n.btn-group-vertical[disabled][disabled].btn-group-raised.active,\\nfieldset[disabled][disabled] .btn.btn-raised:active,\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-raised:active,\\nfieldset[disabled][disabled] .btn-group.btn-raised:active,\\nfieldset[disabled][disabled] .btn-group-vertical.btn-raised:active,\\n.btn.disabled.btn-raised:active,\\n.input-group-btn .btn.disabled.btn-raised:active,\\n.btn-group.disabled.btn-raised:active,\\n.btn-group-vertical.disabled.btn-raised:active,\\n.btn:disabled.btn-raised:active,\\n.input-group-btn .btn:disabled.btn-raised:active,\\n.btn-group:disabled.btn-raised:active,\\n.btn-group-vertical:disabled.btn-raised:active,\\n.btn[disabled][disabled].btn-raised:active,\\n.input-group-btn .btn[disabled][disabled].btn-raised:active,\\n.btn-group[disabled][disabled].btn-raised:active,\\n.btn-group-vertical[disabled][disabled].btn-raised:active,\\nfieldset[disabled][disabled] .btn.btn-group-raised:active,\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-group-raised:active,\\nfieldset[disabled][disabled] .btn-group.btn-group-raised:active,\\nfieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:active,\\n.btn.disabled.btn-group-raised:active,\\n.input-group-btn .btn.disabled.btn-group-raised:active,\\n.btn-group.disabled.btn-group-raised:active,\\n.btn-group-vertical.disabled.btn-group-raised:active,\\n.btn:disabled.btn-group-raised:active,\\n.input-group-btn .btn:disabled.btn-group-raised:active,\\n.btn-group:disabled.btn-group-raised:active,\\n.btn-group-vertical:disabled.btn-group-raised:active,\\n.btn[disabled][disabled].btn-group-raised:active,\\n.input-group-btn .btn[disabled][disabled].btn-group-raised:active,\\n.btn-group[disabled][disabled].btn-group-raised:active,\\n.btn-group-vertical[disabled][disabled].btn-group-raised:active,\\nfieldset[disabled][disabled] .btn.btn-raised:focus:not(:active),\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-raised:focus:not(:active),\\nfieldset[disabled][disabled] .btn-group.btn-raised:focus:not(:active),\\nfieldset[disabled][disabled] .btn-group-vertical.btn-raised:focus:not(:active),\\n.btn.disabled.btn-raised:focus:not(:active),\\n.input-group-btn .btn.disabled.btn-raised:focus:not(:active),\\n.btn-group.disabled.btn-raised:focus:not(:active),\\n.btn-group-vertical.disabled.btn-raised:focus:not(:active),\\n.btn:disabled.btn-raised:focus:not(:active),\\n.input-group-btn .btn:disabled.btn-raised:focus:not(:active),\\n.btn-group:disabled.btn-raised:focus:not(:active),\\n.btn-group-vertical:disabled.btn-raised:focus:not(:active),\\n.btn[disabled][disabled].btn-raised:focus:not(:active),\\n.input-group-btn .btn[disabled][disabled].btn-raised:focus:not(:active),\\n.btn-group[disabled][disabled].btn-raised:focus:not(:active),\\n.btn-group-vertical[disabled][disabled].btn-raised:focus:not(:active),\\nfieldset[disabled][disabled] .btn.btn-group-raised:focus:not(:active),\\nfieldset[disabled][disabled] .input-group-btn .btn.btn-group-raised:focus:not(:active),\\nfieldset[disabled][disabled] .btn-group.btn-group-raised:focus:not(:active),\\nfieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:focus:not(:active),\\n.btn.disabled.btn-group-raised:focus:not(:active),\\n.input-group-btn .btn.disabled.btn-group-raised:focus:not(:active),\\n.btn-group.disabled.btn-group-raised:focus:not(:active),\\n.btn-group-vertical.disabled.btn-group-raised:focus:not(:active),\\n.btn:disabled.btn-group-raised:focus:not(:active),\\n.input-group-btn .btn:disabled.btn-group-raised:focus:not(:active),\\n.btn-group:disabled.btn-group-raised:focus:not(:active),\\n.btn-group-vertical:disabled.btn-group-raised:focus:not(:active),\\n.btn[disabled][disabled].btn-group-raised:focus:not(:active),\\n.input-group-btn .btn[disabled][disabled].btn-group-raised:focus:not(:active),\\n.btn-group[disabled][disabled].btn-group-raised:focus:not(:active),\\n.btn-group-vertical[disabled][disabled].btn-group-raised:focus:not(:active) {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.btn-group,\\n.btn-group-vertical {\\n  position: relative;\\n  margin: 10px 1px;\\n}\\n.btn-group.open > .dropdown-toggle.btn,\\n.btn-group-vertical.open > .dropdown-toggle.btn,\\n.btn-group.open > .dropdown-toggle.btn.btn-default,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-default {\\n  background-color: #EEEEEE;\\n}\\n.btn-group.open > .dropdown-toggle.btn.btn-inverse,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-inverse {\\n  background-color: #3f51b5;\\n}\\n.btn-group.open > .dropdown-toggle.btn.btn-primary,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-primary {\\n  background-color: #009688;\\n}\\n.btn-group.open > .dropdown-toggle.btn.btn-success,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-success {\\n  background-color: #4caf50;\\n}\\n.btn-group.open > .dropdown-toggle.btn.btn-info,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-info {\\n  background-color: #03a9f4;\\n}\\n.btn-group.open > .dropdown-toggle.btn.btn-warning,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-warning {\\n  background-color: #ff5722;\\n}\\n.btn-group.open > .dropdown-toggle.btn.btn-danger,\\n.btn-group-vertical.open > .dropdown-toggle.btn.btn-danger {\\n  background-color: #f44336;\\n}\\n.btn-group .dropdown-menu,\\n.btn-group-vertical .dropdown-menu {\\n  border-radius: 0 0 2px 2px;\\n}\\n.btn-group.btn-group-raised,\\n.btn-group-vertical.btn-group-raised {\\n  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\\n          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\\n}\\n.btn-group .btn + .btn,\\n.btn-group-vertical .btn + .btn,\\n.btn-group .btn,\\n.btn-group-vertical .btn,\\n.btn-group .btn:active,\\n.btn-group-vertical .btn:active,\\n.btn-group .btn-group,\\n.btn-group-vertical .btn-group {\\n  margin: 0;\\n}\\n.checkbox label,\\nlabel.checkbox-inline {\\n  cursor: pointer;\\n  padding-left: 0;\\n  color: rgba(0,0,0, 0.26);\\n}\\n.form-group.is-focused .checkbox label,\\n.form-group.is-focused label.checkbox-inline {\\n  color: rgba(0,0,0, 0.26);\\n}\\n.form-group.is-focused .checkbox label:hover,\\n.form-group.is-focused label.checkbox-inline:hover,\\n.form-group.is-focused .checkbox label:focus,\\n.form-group.is-focused label.checkbox-inline:focus {\\n  color: rgba(0,0,0, .54);\\n}\\nfieldset[disabled] .form-group.is-focused .checkbox label,\\nfieldset[disabled] .form-group.is-focused label.checkbox-inline {\\n  color: rgba(0,0,0, 0.26);\\n}\\n.checkbox input[type=checkbox],\\nlabel.checkbox-inline input[type=checkbox] {\\n  opacity: 0;\\n  position: absolute;\\n  margin: 0;\\n  z-index: -1;\\n  width: 0;\\n  height: 0;\\n  overflow: hidden;\\n  left: 0;\\n  pointer-events: none;\\n}\\n.checkbox .checkbox-material,\\nlabel.checkbox-inline .checkbox-material {\\n  vertical-align: middle;\\n  position: relative;\\n  top: 3px;\\n}\\n.checkbox .checkbox-material:before,\\nlabel.checkbox-inline .checkbox-material:before {\\n  display: block;\\n  position: absolute;\\n  top: -5px;\\n  left: 0;\\n  content: \\\"\\\";\\n  background-color: rgba(0, 0, 0, 0.84);\\n  height: 20px;\\n  width: 20px;\\n  border-radius: 100%;\\n  z-index: 1;\\n  opacity: 0;\\n  margin: 0;\\n  -webkit-transform: scale3d(2.3, 2.3, 1);\\n          transform: scale3d(2.3, 2.3, 1);\\n}\\n.checkbox .checkbox-material .check,\\nlabel.checkbox-inline .checkbox-material .check {\\n  position: relative;\\n  display: inline-block;\\n  width: 20px;\\n  height: 20px;\\n  border: 2px solid rgba(0,0,0, .54);\\n  border-radius: 2px;\\n  overflow: hidden;\\n  z-index: 1;\\n}\\n.checkbox .checkbox-material .check:before,\\nlabel.checkbox-inline .checkbox-material .check:before {\\n  position: absolute;\\n  content: \\\"\\\";\\n  -webkit-transform: rotate(45deg);\\n      -ms-transform: rotate(45deg);\\n       -o-transform: rotate(45deg);\\n          transform: rotate(45deg);\\n  display: block;\\n  margin-top: -4px;\\n  margin-left: 6px;\\n  width: 0;\\n  height: 0;\\n  -webkit-box-shadow: 0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0 inset;\\n          box-shadow: 0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0,\\n        0 0 0 0 inset;\\n}\\n.checkbox input[type=checkbox]:focus + .checkbox-material .check:after,\\nlabel.checkbox-inline input[type=checkbox]:focus + .checkbox-material .check:after {\\n  opacity: 0.2;\\n}\\n.checkbox input[type=checkbox]:focus:checked + .checkbox-material:before,\\nlabel.checkbox-inline input[type=checkbox]:focus:checked + .checkbox-material:before {\\n  -webkit-animation: rippleOn 500ms;\\n       -o-animation: rippleOn 500ms;\\n          animation: rippleOn 500ms;\\n}\\n.checkbox input[type=checkbox]:focus:checked + .checkbox-material .check:before,\\nlabel.checkbox-inline input[type=checkbox]:focus:checked + .checkbox-material .check:before {\\n  -webkit-animation: checkbox-on 0.3s forwards;\\n       -o-animation: checkbox-on 0.3s forwards;\\n          animation: checkbox-on 0.3s forwards;\\n}\\n.checkbox input[type=checkbox]:focus:checked + .checkbox-material .check:after,\\nlabel.checkbox-inline input[type=checkbox]:focus:checked + .checkbox-material .check:after {\\n  -webkit-animation: rippleOn 500ms forwards;\\n       -o-animation: rippleOn 500ms forwards;\\n          animation: rippleOn 500ms forwards;\\n}\\n.checkbox input[type=checkbox]:focus:not(:checked) + .checkbox-material:before,\\nlabel.checkbox-inline input[type=checkbox]:focus:not(:checked) + .checkbox-material:before {\\n  -webkit-animation: rippleOff 500ms;\\n       -o-animation: rippleOff 500ms;\\n          animation: rippleOff 500ms;\\n}\\n.checkbox input[type=checkbox]:focus:not(:checked) + .checkbox-material .check:before,\\nlabel.checkbox-inline input[type=checkbox]:focus:not(:checked) + .checkbox-material .check:before {\\n  -webkit-animation: checkbox-off 0.3s forwards;\\n       -o-animation: checkbox-off 0.3s forwards;\\n          animation: checkbox-off 0.3s forwards;\\n}\\n.checkbox input[type=checkbox]:focus:not(:checked) + .checkbox-material .check:after,\\nlabel.checkbox-inline input[type=checkbox]:focus:not(:checked) + .checkbox-material .check:after {\\n  -webkit-animation: rippleOff 500ms forwards;\\n       -o-animation: rippleOff 500ms forwards;\\n          animation: rippleOff 500ms forwards;\\n}\\n.checkbox input[type=checkbox]:checked + .checkbox-material .check,\\nlabel.checkbox-inline input[type=checkbox]:checked + .checkbox-material .check {\\n  color: #009688;\\n  border-color: #009688;\\n}\\n.checkbox input[type=checkbox]:checked + .checkbox-material .check:before,\\nlabel.checkbox-inline input[type=checkbox]:checked + .checkbox-material .check:before {\\n  color: #009688;\\n  -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n          box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n}\\nfieldset[disabled] .checkbox,\\nfieldset[disabled] label.checkbox-inline,\\nfieldset[disabled] .checkbox input[type=checkbox],\\nfieldset[disabled] label.checkbox-inline input[type=checkbox],\\n.checkbox input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check:before,\\nlabel.checkbox-inline input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check:before,\\n.checkbox input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check,\\nlabel.checkbox-inline input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check,\\n.checkbox input[type=checkbox][disabled] + .circle,\\nlabel.checkbox-inline input[type=checkbox][disabled] + .circle {\\n  opacity: 0.5;\\n}\\n.checkbox input[type=checkbox][disabled] + .checkbox-material .check:after,\\nlabel.checkbox-inline input[type=checkbox][disabled] + .checkbox-material .check:after {\\n  background-color: rgba(0,0,0, 0.87);\\n  -webkit-transform: rotate(-45deg);\\n      -ms-transform: rotate(-45deg);\\n       -o-transform: rotate(-45deg);\\n          transform: rotate(-45deg);\\n}\\n@-webkit-keyframes checkbox-on {\\n  0% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;\\n  }\\n  50% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;\\n  }\\n  100% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n  }\\n}\\n@-o-keyframes checkbox-on {\\n  0% {\\n    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;\\n  }\\n  50% {\\n    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;\\n  }\\n  100% {\\n    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n  }\\n}\\n@keyframes checkbox-on {\\n  0% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;\\n  }\\n  50% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;\\n  }\\n  100% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;\\n  }\\n}\\n@-webkit-keyframes checkbox-off {\\n  0% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n  }\\n  25% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n  }\\n  50% {\\n    -webkit-transform: rotate(45deg);\\n            transform: rotate(45deg);\\n    margin-top: -4px;\\n    margin-left: 6px;\\n    width: 0;\\n    height: 0;\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;\\n  }\\n  51% {\\n    -webkit-transform: rotate(0deg);\\n            transform: rotate(0deg);\\n    margin-top: -2px;\\n    margin-left: -2px;\\n    width: 20px;\\n    height: 20px;\\n    -webkit-box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 10px inset;\\n            box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 10px inset;\\n  }\\n  100% {\\n    -webkit-transform: rotate(0deg);\\n            transform: rotate(0deg);\\n    margin-top: -2px;\\n    margin-left: -2px;\\n    width: 20px;\\n    height: 20px;\\n    -webkit-box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 0 inset;\\n            box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 0 inset;\\n  }\\n}\\n@-o-keyframes checkbox-off {\\n  0% {\\n    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n  }\\n  25% {\\n    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n  }\\n  50% {\\n    -o-transform: rotate(45deg);\\n       transform: rotate(45deg);\\n    margin-top: -4px;\\n    margin-left: 6px;\\n    width: 0;\\n    height: 0;\\n    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;\\n  }\\n  51% {\\n    -o-transform: rotate(0deg);\\n       transform: rotate(0deg);\\n    margin-top: -2px;\\n    margin-left: -2px;\\n    width: 20px;\\n    height: 20px;\\n    box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 10px inset;\\n  }\\n  100% {\\n    -o-transform: rotate(0deg);\\n       transform: rotate(0deg);\\n    margin-top: -2px;\\n    margin-left: -2px;\\n    width: 20px;\\n    height: 20px;\\n    box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 0 inset;\\n  }\\n}\\n@keyframes checkbox-off {\\n  0% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n  }\\n  25% {\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;\\n  }\\n  50% {\\n    -webkit-transform: rotate(45deg);\\n         -o-transform: rotate(45deg);\\n            transform: rotate(45deg);\\n    margin-top: -4px;\\n    margin-left: 6px;\\n    width: 0;\\n    height: 0;\\n    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;\\n            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;\\n  }\\n  51% {\\n    -webkit-transform: rotate(0deg);\\n         -o-transform: rotate(0deg);\\n            transform: rotate(0deg);\\n    margin-top: -2px;\\n    margin-left: -2px;\\n    width: 20px;\\n    height: 20px;\\n    -webkit-box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 10px inset;\\n            box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 10px inset;\\n  }\\n  100% {\\n    -webkit-transform: rotate(0deg);\\n         -o-transform: rotate(0deg);\\n            transform: rotate(0deg);\\n    margin-top: -2px;\\n    margin-left: -2px;\\n    width: 20px;\\n    height: 20px;\\n    -webkit-box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 0 inset;\\n            box-shadow: 0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0 0 0 0,\\n      0px 0 0 0 inset;\\n  }\\n}\\n@-webkit-keyframes rippleOn {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n@-o-keyframes rippleOn {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n@keyframes rippleOn {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n@-webkit-keyframes rippleOff {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n@-o-keyframes rippleOff {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n@keyframes rippleOff {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n.togglebutton {\\n  vertical-align: middle;\\n}\\n.togglebutton,\\n.togglebutton label,\\n.togglebutton input,\\n.togglebutton .toggle {\\n  -webkit-user-select: none;\\n     -moz-user-select: none;\\n      -ms-user-select: none;\\n          user-select: none;\\n}\\n.togglebutton label {\\n  cursor: pointer;\\n  color: rgba(0,0,0, 0.26);\\n}\\n.form-group.is-focused .togglebutton label {\\n  color: rgba(0,0,0, 0.26);\\n}\\n.form-group.is-focused .togglebutton label:hover,\\n.form-group.is-focused .togglebutton label:focus {\\n  color: rgba(0,0,0, .54);\\n}\\nfieldset[disabled] .form-group.is-focused .togglebutton label {\\n  color: rgba(0,0,0, 0.26);\\n}\\n.togglebutton label input[type=checkbox] {\\n  opacity: 0;\\n  width: 0;\\n  height: 0;\\n}\\n.togglebutton label .toggle {\\n  text-align: left;\\n}\\n.togglebutton label .toggle,\\n.togglebutton label input[type=checkbox][disabled] + .toggle {\\n  content: \\\"\\\";\\n  display: inline-block;\\n  width: 30px;\\n  height: 15px;\\n  background-color: rgba(80, 80, 80, 0.7);\\n  border-radius: 15px;\\n  margin-right: 15px;\\n  -webkit-transition: background 0.3s ease;\\n       -o-transition: background 0.3s ease;\\n          transition: background 0.3s ease;\\n  vertical-align: middle;\\n}\\n.togglebutton label .toggle:after {\\n  content: \\\"\\\";\\n  display: inline-block;\\n  width: 20px;\\n  height: 20px;\\n  background-color: #F1F1F1;\\n  border-radius: 20px;\\n  position: relative;\\n  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);\\n          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);\\n  left: -5px;\\n  top: -2px;\\n  -webkit-transition: left 0.3s ease, background 0.3s ease, -webkit-box-shadow 0.1s ease;\\n       -o-transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;\\n          transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;\\n}\\n.togglebutton label input[type=checkbox][disabled] + .toggle:after,\\n.togglebutton label input[type=checkbox][disabled]:checked + .toggle:after {\\n  background-color: #BDBDBD;\\n}\\n.togglebutton label input[type=checkbox] + .toggle:active:after,\\n.togglebutton label input[type=checkbox][disabled] + .toggle:active:after {\\n  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);\\n          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);\\n}\\n.togglebutton label input[type=checkbox]:checked + .toggle:after {\\n  left: 15px;\\n}\\n.togglebutton label input[type=checkbox]:checked + .toggle {\\n  background-color: rgba(0, 150, 136, 0.5);\\n}\\n.togglebutton label input[type=checkbox]:checked + .toggle:after {\\n  background-color: #009688;\\n}\\n.togglebutton label input[type=checkbox]:checked + .toggle:active:after {\\n  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);\\n          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);\\n}\\n.radio label,\\nlabel.radio-inline {\\n  cursor: pointer;\\n  padding-left: 45px;\\n  position: relative;\\n  color: rgba(0,0,0, 0.26);\\n}\\n.form-group.is-focused .radio label,\\n.form-group.is-focused label.radio-inline {\\n  color: rgba(0,0,0, 0.26);\\n}\\n.form-group.is-focused .radio label:hover,\\n.form-group.is-focused label.radio-inline:hover,\\n.form-group.is-focused .radio label:focus,\\n.form-group.is-focused label.radio-inline:focus {\\n  color: rgba(0,0,0, .54);\\n}\\nfieldset[disabled] .form-group.is-focused .radio label,\\nfieldset[disabled] .form-group.is-focused label.radio-inline {\\n  color: rgba(0,0,0, 0.26);\\n}\\n.radio span,\\nlabel.radio-inline span {\\n  display: block;\\n  position: absolute;\\n  left: 10px;\\n  top: 2px;\\n  -webkit-transition-duration: 0.2s;\\n       -o-transition-duration: 0.2s;\\n          transition-duration: 0.2s;\\n}\\n.radio .circle,\\nlabel.radio-inline .circle {\\n  border: 2px solid rgba(0,0,0, .54);\\n  height: 15px;\\n  width: 15px;\\n  border-radius: 100%;\\n}\\n.radio .check,\\nlabel.radio-inline .check {\\n  height: 15px;\\n  width: 15px;\\n  border-radius: 100%;\\n  background-color: #009688;\\n  -webkit-transform: scale3d(0, 0, 0);\\n          transform: scale3d(0, 0, 0);\\n}\\n.radio .check:after,\\nlabel.radio-inline .check:after {\\n  display: block;\\n  position: absolute;\\n  content: \\\"\\\";\\n  background-color: rgba(0,0,0, 0.87);\\n  left: -18px;\\n  top: -18px;\\n  height: 50px;\\n  width: 50px;\\n  border-radius: 100%;\\n  z-index: 1;\\n  opacity: 0;\\n  margin: 0;\\n  -webkit-transform: scale3d(1.5, 1.5, 1);\\n          transform: scale3d(1.5, 1.5, 1);\\n}\\n.radio input[type=radio]:focus:not(:checked) ~ .check:after,\\nlabel.radio-inline input[type=radio]:focus:not(:checked) ~ .check:after {\\n  -webkit-animation: rippleOff 500ms;\\n       -o-animation: rippleOff 500ms;\\n          animation: rippleOff 500ms;\\n}\\n.radio input[type=radio]:focus:checked ~ .check:after,\\nlabel.radio-inline input[type=radio]:focus:checked ~ .check:after {\\n  -webkit-animation: rippleOn 500ms;\\n       -o-animation: rippleOn 500ms;\\n          animation: rippleOn 500ms;\\n}\\n.radio input[type=radio],\\nlabel.radio-inline input[type=radio] {\\n  opacity: 0;\\n  height: 0;\\n  width: 0;\\n  overflow: hidden;\\n}\\n.radio input[type=radio]:checked ~ .check,\\nlabel.radio-inline input[type=radio]:checked ~ .check,\\n.radio input[type=radio]:checked ~ .circle,\\nlabel.radio-inline input[type=radio]:checked ~ .circle {\\n  opacity: 1;\\n}\\n.radio input[type=radio]:checked ~ .check,\\nlabel.radio-inline input[type=radio]:checked ~ .check {\\n  background-color: #009688;\\n}\\n.radio input[type=radio]:checked ~ .circle,\\nlabel.radio-inline input[type=radio]:checked ~ .circle {\\n  border-color: #009688;\\n}\\n.radio input[type=radio]:checked ~ .check,\\nlabel.radio-inline input[type=radio]:checked ~ .check {\\n  -webkit-transform: scale3d(0.55, 0.55, 1);\\n          transform: scale3d(0.55, 0.55, 1);\\n}\\n.radio input[type=radio][disabled] ~ .check,\\nlabel.radio-inline input[type=radio][disabled] ~ .check,\\n.radio input[type=radio][disabled] ~ .circle,\\nlabel.radio-inline input[type=radio][disabled] ~ .circle {\\n  opacity: 0.26;\\n}\\n.radio input[type=radio][disabled] ~ .check,\\nlabel.radio-inline input[type=radio][disabled] ~ .check {\\n  background-color: #000000;\\n}\\n.radio input[type=radio][disabled] ~ .circle,\\nlabel.radio-inline input[type=radio][disabled] ~ .circle {\\n  border-color: #000000;\\n}\\n.theme-dark .radio input[type=radio][disabled] ~ .check,\\n.theme-dark label.radio-inline input[type=radio][disabled] ~ .check,\\n.theme-dark .radio input[type=radio][disabled] ~ .circle,\\n.theme-dark label.radio-inline input[type=radio][disabled] ~ .circle {\\n  opacity: 0.3;\\n}\\n.theme-dark .radio input[type=radio][disabled] ~ .check,\\n.theme-dark label.radio-inline input[type=radio][disabled] ~ .check {\\n  background-color: #ffffff;\\n}\\n.theme-dark .radio input[type=radio][disabled] ~ .circle,\\n.theme-dark label.radio-inline input[type=radio][disabled] ~ .circle {\\n  border-color: #ffffff;\\n}\\n@keyframes rippleOn {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\n@keyframes rippleOff {\\n  0% {\\n    opacity: 0;\\n  }\\n  50% {\\n    opacity: 0.2;\\n  }\\n  100% {\\n    opacity: 0;\\n  }\\n}\\nlegend {\\n  margin-bottom: 22px;\\n  font-size: 24px;\\n}\\noutput {\\n  padding-top: 8px;\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n}\\n.form-control {\\n  height: 38px;\\n  padding: 7px 0;\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n}\\n@media screen and (-webkit-min-device-pixel-ratio: 0) {\\n  input[type=\\\"date\\\"].form-control,\\n  input[type=\\\"time\\\"].form-control,\\n  input[type=\\\"datetime-local\\\"].form-control,\\n  input[type=\\\"month\\\"].form-control {\\n    line-height: 38px;\\n  }\\n  input[type=\\\"date\\\"].input-sm,\\n  input[type=\\\"time\\\"].input-sm,\\n  input[type=\\\"datetime-local\\\"].input-sm,\\n  input[type=\\\"month\\\"].input-sm,\\n  .input-group-sm input[type=\\\"date\\\"],\\n  .input-group-sm input[type=\\\"time\\\"],\\n  .input-group-sm input[type=\\\"datetime-local\\\"],\\n  .input-group-sm input[type=\\\"month\\\"] {\\n    line-height: 24px;\\n  }\\n  input[type=\\\"date\\\"].input-lg,\\n  input[type=\\\"time\\\"].input-lg,\\n  input[type=\\\"datetime-local\\\"].input-lg,\\n  input[type=\\\"month\\\"].input-lg,\\n  .input-group-lg input[type=\\\"date\\\"],\\n  .input-group-lg input[type=\\\"time\\\"],\\n  .input-group-lg input[type=\\\"datetime-local\\\"],\\n  .input-group-lg input[type=\\\"month\\\"] {\\n    line-height: 44px;\\n  }\\n}\\n.radio label,\\n.checkbox label {\\n  min-height: 22px;\\n}\\n.form-control-static {\\n  padding-top: 8px;\\n  padding-bottom: 8px;\\n  min-height: 38px;\\n}\\n.input-sm .input-sm {\\n  height: 24px;\\n  padding: 3px 0;\\n  font-size: 11px;\\n  line-height: 1.5;\\n  border-radius: 0;\\n}\\n.input-sm select.input-sm {\\n  height: 24px;\\n  line-height: 24px;\\n}\\n.input-sm textarea.input-sm,\\n.input-sm select[multiple].input-sm {\\n  height: auto;\\n}\\n.form-group-sm .form-control {\\n  height: 24px;\\n  padding: 3px 0;\\n  font-size: 11px;\\n  line-height: 1.5;\\n}\\n.form-group-sm select.form-control {\\n  height: 24px;\\n  line-height: 24px;\\n}\\n.form-group-sm textarea.form-control,\\n.form-group-sm select[multiple].form-control {\\n  height: auto;\\n}\\n.form-group-sm .form-control-static {\\n  height: 24px;\\n  min-height: 33px;\\n  padding: 4px 0;\\n  font-size: 11px;\\n  line-height: 1.5;\\n}\\n.input-lg .input-lg {\\n  height: 44px;\\n  padding: 9px 0;\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n  border-radius: 0;\\n}\\n.input-lg select.input-lg {\\n  height: 44px;\\n  line-height: 44px;\\n}\\n.input-lg textarea.input-lg,\\n.input-lg select[multiple].input-lg {\\n  height: auto;\\n}\\n.form-group-lg .form-control {\\n  height: 44px;\\n  padding: 9px 0;\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n}\\n.form-group-lg select.form-control {\\n  height: 44px;\\n  line-height: 44px;\\n}\\n.form-group-lg textarea.form-control,\\n.form-group-lg select[multiple].form-control {\\n  height: auto;\\n}\\n.form-group-lg .form-control-static {\\n  height: 44px;\\n  min-height: 40px;\\n  padding: 10px 0;\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n}\\n.form-horizontal .radio,\\n.form-horizontal .checkbox,\\n.form-horizontal .radio-inline,\\n.form-horizontal .checkbox-inline {\\n  padding-top: 8px;\\n}\\n.form-horizontal .radio,\\n.form-horizontal .checkbox {\\n  min-height: 30px;\\n}\\n@media (min-width: 768px) {\\n  .form-horizontal .control-label {\\n    padding-top: 8px;\\n  }\\n}\\n@media (min-width: 768px) {\\n  .form-horizontal .form-group-lg .control-label {\\n    padding-top: 12.9999997px;\\n    font-size: 18px;\\n  }\\n}\\n@media (min-width: 768px) {\\n  .form-horizontal .form-group-sm .control-label {\\n    padding-top: 4px;\\n    font-size: 11px;\\n  }\\n}\\n.label {\\n  border-radius: 1px;\\n  padding: .3em .6em;\\n}\\n.label,\\n.label.label-default {\\n  background-color: #9e9e9e;\\n}\\n.label.label-inverse {\\n  background-color: #3f51b5;\\n}\\n.label.label-primary {\\n  background-color: #009688;\\n}\\n.label.label-success {\\n  background-color: #4caf50;\\n}\\n.label.label-info {\\n  background-color: #03a9f4;\\n}\\n.label.label-warning {\\n  background-color: #ff5722;\\n}\\n.label.label-danger {\\n  background-color: #f44336;\\n}\\n.form-control,\\n.form-group .form-control {\\n  border: 0;\\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));\\n  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);\\n  -webkit-background-size: 0 2px, 100% 1px;\\n          background-size: 0 2px, 100% 1px;\\n  background-repeat: no-repeat;\\n  background-position: center bottom, center -webkit-calc(100% - 1px);\\n  background-position: center bottom, center calc(100% - 1px);\\n  background-color: rgba(0, 0, 0, 0);\\n  -webkit-transition: background 0s ease-out;\\n       -o-transition: background 0s ease-out;\\n          transition: background 0s ease-out;\\n  float: none;\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n  border-radius: 0;\\n}\\n.form-control::-moz-placeholder,\\n.form-group .form-control::-moz-placeholder {\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-control:-ms-input-placeholder,\\n.form-group .form-control:-ms-input-placeholder {\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-control::-webkit-input-placeholder,\\n.form-group .form-control::-webkit-input-placeholder {\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-control[readonly],\\n.form-group .form-control[readonly],\\n.form-control[disabled],\\n.form-group .form-control[disabled],\\nfieldset[disabled] .form-control,\\nfieldset[disabled] .form-group .form-control {\\n  background-color: rgba(0, 0, 0, 0);\\n}\\n.form-control[disabled],\\n.form-group .form-control[disabled],\\nfieldset[disabled] .form-control,\\nfieldset[disabled] .form-group .form-control {\\n  background-image: none;\\n  border-bottom: 1px dotted #D2D2D2;\\n}\\n.form-group {\\n  position: relative;\\n}\\n.form-group.label-static label.control-label,\\n.form-group.label-placeholder label.control-label,\\n.form-group.label-floating label.control-label {\\n  position: absolute;\\n  pointer-events: none;\\n  -webkit-transition: 0.3s ease all;\\n       -o-transition: 0.3s ease all;\\n          transition: 0.3s ease all;\\n}\\n.form-group.label-floating label.control-label {\\n  will-change: left, top, contents;\\n}\\n.form-group.label-placeholder:not(.is-empty) label.control-label {\\n  display: none;\\n}\\n.form-group .help-block {\\n  position: absolute;\\n  display: none;\\n}\\n.form-group.is-focused .form-control {\\n  outline: none;\\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));\\n  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);\\n  -webkit-background-size: 100% 2px, 100% 1px;\\n          background-size: 100% 2px, 100% 1px;\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n  -webkit-transition-duration: 0.3s;\\n       -o-transition-duration: 0.3s;\\n          transition-duration: 0.3s;\\n}\\n.form-group.is-focused .form-control .material-input:after {\\n  background-color: #009688;\\n}\\n.form-group.is-focused label,\\n.form-group.is-focused label.control-label {\\n  color: #009688;\\n}\\n.form-group.is-focused.label-placeholder label,\\n.form-group.is-focused.label-placeholder label.control-label {\\n  color: #BDBDBD;\\n}\\n.form-group.is-focused .help-block {\\n  display: block;\\n}\\n.form-group.has-warning .form-control {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.form-group.has-warning.is-focused .form-control {\\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff5722), to(#ff5722)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));\\n  background-image: -webkit-linear-gradient(#ff5722, #ff5722), -webkit-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: -o-linear-gradient(#ff5722, #ff5722), -o-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);\\n}\\n.form-group.has-warning label.control-label,\\n.form-group.has-warning .help-block {\\n  color: #ff5722;\\n}\\n.form-group.has-error .form-control {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.form-group.has-error.is-focused .form-control {\\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#f44336), to(#f44336)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));\\n  background-image: -webkit-linear-gradient(#f44336, #f44336), -webkit-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: -o-linear-gradient(#f44336, #f44336), -o-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);\\n}\\n.form-group.has-error label.control-label,\\n.form-group.has-error .help-block {\\n  color: #f44336;\\n}\\n.form-group.has-success .form-control {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.form-group.has-success.is-focused .form-control {\\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#4caf50), to(#4caf50)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));\\n  background-image: -webkit-linear-gradient(#4caf50, #4caf50), -webkit-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: -o-linear-gradient(#4caf50, #4caf50), -o-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);\\n}\\n.form-group.has-success label.control-label,\\n.form-group.has-success .help-block {\\n  color: #4caf50;\\n}\\n.form-group.has-info .form-control {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.form-group.has-info.is-focused .form-control {\\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#03a9f4)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));\\n  background-image: -webkit-linear-gradient(#03a9f4, #03a9f4), -webkit-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: -o-linear-gradient(#03a9f4, #03a9f4), -o-linear-gradient(#D2D2D2, #D2D2D2);\\n  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);\\n}\\n.form-group.has-info label.control-label,\\n.form-group.has-info .help-block {\\n  color: #03a9f4;\\n}\\n.form-group textarea {\\n  resize: none;\\n}\\n.form-group textarea ~ .form-control-highlight {\\n  margin-top: -11px;\\n}\\n.form-group select {\\n  -webkit-appearance: none;\\n     -moz-appearance: none;\\n          appearance: none;\\n}\\n.form-group select ~ .material-input:after {\\n  display: none;\\n}\\n.form-control {\\n  margin-bottom: 7px;\\n}\\n.form-control::-moz-placeholder {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-control:-ms-input-placeholder {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-control::-webkit-input-placeholder {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.checkbox label,\\n.radio label,\\nlabel {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\nlabel.control-label {\\n  font-size: 12px;\\n  line-height: 1.07142857;\\n  font-weight: 400;\\n  margin: 16px 0 0 0;\\n}\\n.help-block {\\n  margin-top: 0;\\n  font-size: 12px;\\n}\\n.form-group {\\n  padding-bottom: 7px;\\n  margin: 28px 0 0 0;\\n}\\n.form-group .form-control {\\n  margin-bottom: 7px;\\n}\\n.form-group .form-control::-moz-placeholder {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group .form-control:-ms-input-placeholder {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group .form-control::-webkit-input-placeholder {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group .checkbox label,\\n.form-group .radio label,\\n.form-group label {\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group label.control-label {\\n  font-size: 12px;\\n  line-height: 1.07142857;\\n  font-weight: 400;\\n  margin: 16px 0 0 0;\\n}\\n.form-group .help-block {\\n  margin-top: 0;\\n  font-size: 12px;\\n}\\n.form-group.label-floating label.control-label,\\n.form-group.label-placeholder label.control-label {\\n  top: -7px;\\n  font-size: 16px;\\n  line-height: 1.42857143;\\n}\\n.form-group.label-static label.control-label,\\n.form-group.label-floating.is-focused label.control-label,\\n.form-group.label-floating:not(.is-empty) label.control-label {\\n  top: -30px;\\n  left: 0;\\n  font-size: 12px;\\n  line-height: 1.07142857;\\n}\\n.form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {\\n  top: -30px;\\n  left: 0;\\n  font-size: 12px;\\n  line-height: 1.07142857;\\n}\\n.form-group.form-group-sm {\\n  padding-bottom: 3px;\\n  margin: 21px 0 0 0;\\n}\\n.form-group.form-group-sm .form-control {\\n  margin-bottom: 3px;\\n}\\n.form-group.form-group-sm .form-control::-moz-placeholder {\\n  font-size: 11px;\\n  line-height: 1.5;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-sm .form-control:-ms-input-placeholder {\\n  font-size: 11px;\\n  line-height: 1.5;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-sm .form-control::-webkit-input-placeholder {\\n  font-size: 11px;\\n  line-height: 1.5;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-sm .checkbox label,\\n.form-group.form-group-sm .radio label,\\n.form-group.form-group-sm label {\\n  font-size: 11px;\\n  line-height: 1.5;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-sm label.control-label {\\n  font-size: 9px;\\n  line-height: 1.125;\\n  font-weight: 400;\\n  margin: 16px 0 0 0;\\n}\\n.form-group.form-group-sm .help-block {\\n  margin-top: 0;\\n  font-size: 9px;\\n}\\n.form-group.form-group-sm.label-floating label.control-label,\\n.form-group.form-group-sm.label-placeholder label.control-label {\\n  top: -11px;\\n  font-size: 11px;\\n  line-height: 1.5;\\n}\\n.form-group.form-group-sm.label-static label.control-label,\\n.form-group.form-group-sm.label-floating.is-focused label.control-label,\\n.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {\\n  top: -25px;\\n  left: 0;\\n  font-size: 9px;\\n  line-height: 1.125;\\n}\\n.form-group.form-group-sm.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {\\n  top: -25px;\\n  left: 0;\\n  font-size: 9px;\\n  line-height: 1.125;\\n}\\n.form-group.form-group-lg {\\n  padding-bottom: 9px;\\n  margin: 30px 0 0 0;\\n}\\n.form-group.form-group-lg .form-control {\\n  margin-bottom: 9px;\\n}\\n.form-group.form-group-lg .form-control::-moz-placeholder {\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-lg .form-control:-ms-input-placeholder {\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-lg .form-control::-webkit-input-placeholder {\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-lg .checkbox label,\\n.form-group.form-group-lg .radio label,\\n.form-group.form-group-lg label {\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n  color: #BDBDBD;\\n  font-weight: 400;\\n}\\n.form-group.form-group-lg label.control-label {\\n  font-size: 14px;\\n  line-height: 0.99999998;\\n  font-weight: 400;\\n  margin: 16px 0 0 0;\\n}\\n.form-group.form-group-lg .help-block {\\n  margin-top: 0;\\n  font-size: 14px;\\n}\\n.form-group.form-group-lg.label-floating label.control-label,\\n.form-group.form-group-lg.label-placeholder label.control-label {\\n  top: -5px;\\n  font-size: 18px;\\n  line-height: 1.3333333;\\n}\\n.form-group.form-group-lg.label-static label.control-label,\\n.form-group.form-group-lg.label-floating.is-focused label.control-label,\\n.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label {\\n  top: -32px;\\n  left: 0;\\n  font-size: 14px;\\n  line-height: 0.99999998;\\n}\\n.form-group.form-group-lg.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {\\n  top: -32px;\\n  left: 0;\\n  font-size: 14px;\\n  line-height: 0.99999998;\\n}\\nselect.form-control {\\n  border: 0;\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n  border-radius: 0;\\n}\\n.form-group.is-focused select.form-control {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n  border-color: #D2D2D2;\\n}\\nselect.form-control[multiple],\\n.form-group.is-focused select.form-control[multiple] {\\n  height: 85px;\\n}\\n.input-group-btn .btn {\\n  margin: 0 0 7px 0;\\n}\\n.form-group.form-group-sm .input-group-btn .btn {\\n  margin: 0 0 3px 0;\\n}\\n.form-group.form-group-lg .input-group-btn .btn {\\n  margin: 0 0 9px 0;\\n}\\n.input-group .input-group-btn {\\n  padding: 0 12px;\\n}\\n.input-group .input-group-addon {\\n  border: 0;\\n  background: transparent;\\n}\\n.form-group input[type=file] {\\n  opacity: 0;\\n  position: absolute;\\n  top: 0;\\n  right: 0;\\n  bottom: 0;\\n  left: 0;\\n  width: 100%;\\n  height: 100%;\\n  z-index: 100;\\n}\\nlegend {\\n  border-bottom: 0;\\n}\\n.list-group {\\n  border-radius: 0;\\n}\\n.list-group .list-group-item {\\n  background-color: transparent;\\n  overflow: hidden;\\n  border: 0;\\n  border-radius: 0;\\n  padding: 0 16px;\\n}\\n.list-group .list-group-item.baseline {\\n  border-bottom: 1px solid #cecece;\\n}\\n.list-group .list-group-item.baseline:last-child {\\n  border-bottom: none;\\n}\\n.list-group .list-group-item .row-picture,\\n.list-group .list-group-item .row-action-primary {\\n  display: inline-block;\\n  padding-right: 16px;\\n}\\n.list-group .list-group-item .row-picture img,\\n.list-group .list-group-item .row-action-primary img,\\n.list-group .list-group-item .row-picture i,\\n.list-group .list-group-item .row-action-primary i,\\n.list-group .list-group-item .row-picture label,\\n.list-group .list-group-item .row-action-primary label {\\n  display: block;\\n  width: 56px;\\n  height: 56px;\\n}\\n.list-group .list-group-item .row-picture img,\\n.list-group .list-group-item .row-action-primary img {\\n  background: rgba(0, 0, 0, 0.1);\\n  padding: 1px;\\n}\\n.list-group .list-group-item .row-picture img.circle,\\n.list-group .list-group-item .row-action-primary img.circle {\\n  border-radius: 100%;\\n}\\n.list-group .list-group-item .row-picture i,\\n.list-group .list-group-item .row-action-primary i {\\n  background: rgba(0, 0, 0, 0.25);\\n  border-radius: 100%;\\n  text-align: center;\\n  line-height: 56px;\\n  font-size: 20px;\\n  color: white;\\n}\\n.list-group .list-group-item .row-picture label,\\n.list-group .list-group-item .row-action-primary label {\\n  margin-left: 7px;\\n  margin-right: -7px;\\n  margin-top: 5px;\\n  margin-bottom: -5px;\\n}\\n.list-group .list-group-item .row-picture label .checkbox-material,\\n.list-group .list-group-item .row-action-primary label .checkbox-material {\\n  left: -10px;\\n}\\n.list-group .list-group-item .row-content {\\n  display: inline-block;\\n  width: -webkit-calc(100% - 92px);\\n  width: calc(100% - 92px);\\n  min-height: 66px;\\n}\\n.list-group .list-group-item .row-content .action-secondary {\\n  position: absolute;\\n  right: 16px;\\n  top: 16px;\\n}\\n.list-group .list-group-item .row-content .action-secondary i {\\n  font-size: 20px;\\n  color: rgba(0, 0, 0, 0.25);\\n  cursor: pointer;\\n}\\n.list-group .list-group-item .row-content .action-secondary ~ * {\\n  max-width: -webkit-calc(100% - 30px);\\n  max-width: calc(100% - 30px);\\n}\\n.list-group .list-group-item .row-content .least-content {\\n  position: absolute;\\n  right: 16px;\\n  top: 0;\\n  color: rgba(0, 0, 0, 0.54);\\n  font-size: 14px;\\n}\\n.list-group .list-group-item .list-group-item-heading {\\n  color: rgba(0, 0, 0, 0.77);\\n  font-size: 20px;\\n  line-height: 29px;\\n}\\n.list-group .list-group-item.active:hover,\\n.list-group .list-group-item.active:focus {\\n  background: rgba(0, 0, 0, 0.15);\\n  outline: 10px solid rgba(0, 0, 0, 0.15);\\n}\\n.list-group .list-group-item.active .list-group-item-heading,\\n.list-group .list-group-item.active .list-group-item-text {\\n  color: rgba(0,0,0, 0.87);\\n}\\n.list-group .list-group-separator {\\n  clear: both;\\n  overflow: hidden;\\n  margin-top: 10px;\\n  margin-bottom: 10px;\\n}\\n.list-group .list-group-separator:before {\\n  content: \\\"\\\";\\n  width: -webkit-calc(100% - 90px);\\n  width: calc(100% - 90px);\\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\\n  float: right;\\n}\\n.navbar {\\n  background-color: #009688;\\n  border: 0;\\n  border-radius: 0;\\n}\\n.navbar .navbar-brand {\\n  position: relative;\\n  height: 60px;\\n  line-height: 30px;\\n  color: inherit;\\n}\\n.navbar .navbar-brand:hover,\\n.navbar .navbar-brand:focus {\\n  color: inherit;\\n  background-color: transparent;\\n}\\n.navbar .navbar-text {\\n  color: inherit;\\n  margin-top: 20px;\\n  margin-bottom: 20px;\\n}\\n.navbar .navbar-nav > li > a {\\n  color: inherit;\\n  padding-top: 20px;\\n  padding-bottom: 20px;\\n}\\n.navbar .navbar-nav > li > a:hover,\\n.navbar .navbar-nav > li > a:focus {\\n  color: inherit;\\n  background-color: transparent;\\n}\\n.navbar .navbar-nav > .active > a,\\n.navbar .navbar-nav > .active > a:hover,\\n.navbar .navbar-nav > .active > a:focus {\\n  color: inherit;\\n  background-color: rgba(255, 255, 255, 0.1);\\n}\\n.navbar .navbar-nav > .disabled > a,\\n.navbar .navbar-nav > .disabled > a:hover,\\n.navbar .navbar-nav > .disabled > a:focus {\\n  color: inherit;\\n  background-color: transparent;\\n  opacity: 0.9;\\n}\\n.navbar .navbar-toggle {\\n  border: 0;\\n}\\n.navbar .navbar-toggle:hover,\\n.navbar .navbar-toggle:focus {\\n  background-color: transparent;\\n}\\n.navbar .navbar-toggle .icon-bar {\\n  background-color: inherit;\\n  border: 1px solid;\\n}\\n.navbar .navbar-default .navbar-toggle,\\n.navbar .navbar-inverse .navbar-toggle {\\n  border-color: transparent;\\n}\\n.navbar .navbar-collapse,\\n.navbar .navbar-form {\\n  border-color: rgba(0, 0, 0, 0.1);\\n}\\n.navbar .navbar-nav > .open > a,\\n.navbar .navbar-nav > .open > a:hover,\\n.navbar .navbar-nav > .open > a:focus {\\n  background-color: transparent;\\n  color: inherit;\\n}\\n@media (max-width: 767px) {\\n  .navbar .navbar-nav .navbar-text {\\n    color: inherit;\\n    margin-top: 15px;\\n    margin-bottom: 15px;\\n  }\\n  .navbar .navbar-nav .open .dropdown-menu > .dropdown-header {\\n    border: 0;\\n    color: inherit;\\n  }\\n  .navbar .navbar-nav .open .dropdown-menu .divider {\\n    border-bottom: 1px solid;\\n    opacity: 0.08;\\n  }\\n  .navbar .navbar-nav .open .dropdown-menu > li > a {\\n    color: inherit;\\n  }\\n  .navbar .navbar-nav .open .dropdown-menu > li > a:hover,\\n  .navbar .navbar-nav .open .dropdown-menu > li > a:focus {\\n    color: inherit;\\n    background-color: transparent;\\n  }\\n  .navbar .navbar-nav .open .dropdown-menu > .active > a,\\n  .navbar .navbar-nav .open .dropdown-menu > .active > a:hover,\\n  .navbar .navbar-nav .open .dropdown-menu > .active > a:focus {\\n    color: inherit;\\n    background-color: transparent;\\n  }\\n  .navbar .navbar-nav .open .dropdown-menu > .disabled > a,\\n  .navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,\\n  .navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {\\n    color: inherit;\\n    background-color: transparent;\\n  }\\n}\\n.navbar .navbar-link {\\n  color: inherit;\\n}\\n.navbar .navbar-link:hover {\\n  color: inherit;\\n}\\n.navbar .btn-link {\\n  color: inherit;\\n}\\n.navbar .btn-link:hover,\\n.navbar .btn-link:focus {\\n  color: inherit;\\n}\\n.navbar .btn-link[disabled]:hover,\\nfieldset[disabled] .navbar .btn-link:hover,\\n.navbar .btn-link[disabled]:focus,\\nfieldset[disabled] .navbar .btn-link:focus {\\n  color: inherit;\\n}\\n.navbar .navbar-form {\\n  margin-top: 16px;\\n}\\n.navbar .navbar-form .form-group {\\n  margin: 0;\\n  padding: 0;\\n}\\n.navbar .navbar-form .form-group .material-input:before,\\n.navbar .navbar-form .form-group.is-focused .material-input:after {\\n  background-color: inherit;\\n}\\n.navbar .navbar-form .form-group .form-control,\\n.navbar .navbar-form .form-control {\\n  border-color: inherit;\\n  color: inherit;\\n  padding: 0;\\n  margin: 0;\\n  height: 28px;\\n  font-size: 14px;\\n  line-height: 1.42857143;\\n}\\n.navbar,\\n.navbar.navbar-default {\\n  background-color: #009688;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-default .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar .navbar-form input.form-control::-moz-placeholder,\\n.navbar.navbar-default .navbar-form input.form-control::-moz-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-default .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar .navbar-form input.form-control:-ms-input-placeholder,\\n.navbar.navbar-default .navbar-form input.form-control:-ms-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-default .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar .navbar-form input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-default .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar .dropdown-menu,\\n.navbar.navbar-default .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar .dropdown-menu li > a,\\n.navbar.navbar-default .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar .dropdown-menu li > a:hover,\\n.navbar.navbar-default .dropdown-menu li > a:hover,\\n.navbar .dropdown-menu li > a:focus,\\n.navbar.navbar-default .dropdown-menu li > a:focus {\\n  color: #009688;\\n  background-color: #eeeeee;\\n}\\n.navbar .dropdown-menu .active > a,\\n.navbar.navbar-default .dropdown-menu .active > a {\\n  background-color: #009688;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar .dropdown-menu .active > a:hover,\\n.navbar.navbar-default .dropdown-menu .active > a:hover,\\n.navbar .dropdown-menu .active > a:focus,\\n.navbar.navbar-default .dropdown-menu .active > a:focus {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-inverse {\\n  background-color: #3f51b5;\\n  color: #ffffff;\\n}\\n.navbar.navbar-inverse .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-inverse .navbar-form input.form-control::-moz-placeholder {\\n  color: #ffffff;\\n}\\n.navbar.navbar-inverse .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-inverse .navbar-form input.form-control:-ms-input-placeholder {\\n  color: #ffffff;\\n}\\n.navbar.navbar-inverse .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-inverse .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: #ffffff;\\n}\\n.navbar.navbar-inverse .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar.navbar-inverse .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar.navbar-inverse .dropdown-menu li > a:hover,\\n.navbar.navbar-inverse .dropdown-menu li > a:focus {\\n  color: #3f51b5;\\n  background-color: #eeeeee;\\n}\\n.navbar.navbar-inverse .dropdown-menu .active > a {\\n  background-color: #3f51b5;\\n  color: #ffffff;\\n}\\n.navbar.navbar-inverse .dropdown-menu .active > a:hover,\\n.navbar.navbar-inverse .dropdown-menu .active > a:focus {\\n  color: #ffffff;\\n}\\n.navbar.navbar-primary {\\n  background-color: #009688;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-primary .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-primary .navbar-form input.form-control::-moz-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-primary .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-primary .navbar-form input.form-control:-ms-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-primary .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-primary .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-primary .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar.navbar-primary .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar.navbar-primary .dropdown-menu li > a:hover,\\n.navbar.navbar-primary .dropdown-menu li > a:focus {\\n  color: #009688;\\n  background-color: #eeeeee;\\n}\\n.navbar.navbar-primary .dropdown-menu .active > a {\\n  background-color: #009688;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-primary .dropdown-menu .active > a:hover,\\n.navbar.navbar-primary .dropdown-menu .active > a:focus {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-success {\\n  background-color: #4caf50;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-success .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-success .navbar-form input.form-control::-moz-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-success .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-success .navbar-form input.form-control:-ms-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-success .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-success .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-success .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar.navbar-success .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar.navbar-success .dropdown-menu li > a:hover,\\n.navbar.navbar-success .dropdown-menu li > a:focus {\\n  color: #4caf50;\\n  background-color: #eeeeee;\\n}\\n.navbar.navbar-success .dropdown-menu .active > a {\\n  background-color: #4caf50;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-success .dropdown-menu .active > a:hover,\\n.navbar.navbar-success .dropdown-menu .active > a:focus {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-info {\\n  background-color: #03a9f4;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-info .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-info .navbar-form input.form-control::-moz-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-info .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-info .navbar-form input.form-control:-ms-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-info .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-info .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-info .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar.navbar-info .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar.navbar-info .dropdown-menu li > a:hover,\\n.navbar.navbar-info .dropdown-menu li > a:focus {\\n  color: #03a9f4;\\n  background-color: #eeeeee;\\n}\\n.navbar.navbar-info .dropdown-menu .active > a {\\n  background-color: #03a9f4;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-info .dropdown-menu .active > a:hover,\\n.navbar.navbar-info .dropdown-menu .active > a:focus {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-warning {\\n  background-color: #ff5722;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-warning .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-warning .navbar-form input.form-control::-moz-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-warning .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-warning .navbar-form input.form-control:-ms-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-warning .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-warning .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-warning .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar.navbar-warning .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar.navbar-warning .dropdown-menu li > a:hover,\\n.navbar.navbar-warning .dropdown-menu li > a:focus {\\n  color: #ff5722;\\n  background-color: #eeeeee;\\n}\\n.navbar.navbar-warning .dropdown-menu .active > a {\\n  background-color: #ff5722;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-warning .dropdown-menu .active > a:hover,\\n.navbar.navbar-warning .dropdown-menu .active > a:focus {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-danger {\\n  background-color: #f44336;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-danger .navbar-form .form-group input.form-control::-moz-placeholder,\\n.navbar.navbar-danger .navbar-form input.form-control::-moz-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-danger .navbar-form .form-group input.form-control:-ms-input-placeholder,\\n.navbar.navbar-danger .navbar-form input.form-control:-ms-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-danger .navbar-form .form-group input.form-control::-webkit-input-placeholder,\\n.navbar.navbar-danger .navbar-form input.form-control::-webkit-input-placeholder {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-danger .dropdown-menu {\\n  border-radius: 2px;\\n}\\n.navbar.navbar-danger .dropdown-menu li > a {\\n  font-size: 16px;\\n  padding: 13px 16px;\\n}\\n.navbar.navbar-danger .dropdown-menu li > a:hover,\\n.navbar.navbar-danger .dropdown-menu li > a:focus {\\n  color: #f44336;\\n  background-color: #eeeeee;\\n}\\n.navbar.navbar-danger .dropdown-menu .active > a {\\n  background-color: #f44336;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar.navbar-danger .dropdown-menu .active > a:hover,\\n.navbar.navbar-danger .dropdown-menu .active > a:focus {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.navbar-inverse {\\n  background-color: #3f51b5;\\n}\\n@media (max-width: 1199px) {\\n  .navbar .navbar-brand {\\n    height: 50px;\\n    padding: 10px 15px;\\n  }\\n  .navbar .navbar-form {\\n    margin-top: 10px;\\n  }\\n  .navbar .navbar-nav > li > a {\\n    padding-top: 15px;\\n    padding-bottom: 15px;\\n  }\\n}\\n.dropdown-menu {\\n  border: 0;\\n  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\\n          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\\n}\\n.dropdown-menu .divider {\\n  background-color: rgba(0, 0, 0, 0.12);\\n}\\n.dropdown-menu li {\\n  overflow: hidden;\\n  position: relative;\\n}\\n.dropdown-menu li a:hover {\\n  background-color: transparent;\\n  color: #009688;\\n}\\n.alert {\\n  border: 0;\\n  border-radius: 0;\\n}\\n.alert,\\n.alert.alert-default {\\n  background-color: rgba(255,255,255, 0.84);\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert a,\\n.alert.alert-default a,\\n.alert .alert-link,\\n.alert.alert-default .alert-link {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-inverse {\\n  background-color: #3f51b5;\\n  color: #ffffff;\\n}\\n.alert.alert-inverse a,\\n.alert.alert-inverse .alert-link {\\n  color: #ffffff;\\n}\\n.alert.alert-primary {\\n  background-color: #009688;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-primary a,\\n.alert.alert-primary .alert-link {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-success {\\n  background-color: #4caf50;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-success a,\\n.alert.alert-success .alert-link {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-info {\\n  background-color: #03a9f4;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-info a,\\n.alert.alert-info .alert-link {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-warning {\\n  background-color: #ff5722;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-warning a,\\n.alert.alert-warning .alert-link {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-danger {\\n  background-color: #f44336;\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert.alert-danger a,\\n.alert.alert-danger .alert-link {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert-info,\\n.alert-danger,\\n.alert-warning,\\n.alert-success {\\n  color: rgba(255,255,255, 0.84);\\n}\\n.alert-default a,\\n.alert-default .alert-link {\\n  color: rgba(0,0,0, 0.87);\\n}\\n.progress {\\n  height: 4px;\\n  border-radius: 0;\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n  background: #c8c8c8;\\n}\\n.progress .progress-bar {\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n}\\n.progress .progress-bar,\\n.progress .progress-bar.progress-bar-default {\\n  background-color: #009688;\\n}\\n.progress .progress-bar.progress-bar-inverse {\\n  background-color: #3f51b5;\\n}\\n.progress .progress-bar.progress-bar-primary {\\n  background-color: #009688;\\n}\\n.progress .progress-bar.progress-bar-success {\\n  background-color: #4caf50;\\n}\\n.progress .progress-bar.progress-bar-info {\\n  background-color: #03a9f4;\\n}\\n.progress .progress-bar.progress-bar-warning {\\n  background-color: #ff5722;\\n}\\n.progress .progress-bar.progress-bar-danger {\\n  background-color: #f44336;\\n}\\n.text-warning {\\n  color: #ff5722;\\n}\\n.text-primary {\\n  color: #009688;\\n}\\n.text-danger {\\n  color: #f44336;\\n}\\n.text-success {\\n  color: #4caf50;\\n}\\n.text-info {\\n  color: #03a9f4;\\n}\\n.nav-tabs {\\n  background: #009688;\\n}\\n.nav-tabs > li > a {\\n  color: #FFFFFF;\\n  border: 0;\\n  margin: 0;\\n}\\n.nav-tabs > li > a:hover {\\n  background-color: transparent;\\n  border: 0;\\n}\\n.nav-tabs > li > a,\\n.nav-tabs > li > a:hover,\\n.nav-tabs > li > a:focus {\\n  background-color: transparent !important;\\n  border: 0 !important;\\n  color: #FFFFFF !important;\\n  font-weight: 500;\\n}\\n.nav-tabs > li.disabled > a,\\n.nav-tabs > li.disabled > a:hover {\\n  color: rgba(255, 255, 255, 0.5);\\n}\\n.popover,\\n.tooltip-inner {\\n  color: #ececec;\\n  line-height: 1em;\\n  background: rgba(101, 101, 101, 0.9);\\n  border: none;\\n  border-radius: 2px;\\n  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);\\n          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);\\n}\\n.tooltip,\\n.tooltip.in {\\n  opacity: 1;\\n}\\n.popover .arrow,\\n.tooltip .arrow,\\n.popover .tooltip-arrow,\\n.tooltip .tooltip-arrow {\\n  display: none;\\n}\\n.card {\\n  /***** Make height equal to width (http://stackoverflow.com/a/6615994) ****/\\n  display: inline-block;\\n  position: relative;\\n  width: 100%;\\n  /**************************************************************************/\\n  border-radius: 2px;\\n  color: rgba(0,0,0, 0.87);\\n  background: #fff;\\n  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\\n          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\\n}\\n.card .card-height-indicator {\\n  margin-top: 100%;\\n}\\n.card .card-content {\\n  position: absolute;\\n  top: 0;\\n  bottom: 0;\\n  left: 0;\\n  right: 0;\\n}\\n.card .card-image {\\n  height: 60%;\\n  position: relative;\\n  overflow: hidden;\\n}\\n.card .card-image img {\\n  width: 100%;\\n  height: 100%;\\n  border-top-left-radius: 2px;\\n  border-top-right-radius: 2px;\\n  pointer-events: none;\\n}\\n.card .card-image .card-image-headline {\\n  position: absolute;\\n  bottom: 16px;\\n  left: 18px;\\n  color: #fff;\\n  font-size: 2em;\\n}\\n.card .card-body {\\n  height: 30%;\\n  padding: 18px;\\n}\\n.card .card-footer {\\n  height: 10%;\\n  padding: 18px;\\n}\\n.card .card-footer button,\\n.card .card-footer a {\\n  margin: 0 !important;\\n  position: relative;\\n  bottom: 25px;\\n  width: auto;\\n}\\n.card .card-footer button:first-child,\\n.card .card-footer a:first-child {\\n  left: -15px;\\n}\\n.modal-content {\\n  -webkit-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);\\n          box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);\\n  border-radius: 2px;\\n  border: none;\\n}\\n.modal-content .modal-header {\\n  border-bottom: none;\\n  padding-top: 24px;\\n  padding-right: 24px;\\n  padding-bottom: 0;\\n  padding-left: 24px;\\n}\\n.modal-content .modal-body {\\n  padding-top: 24px;\\n  padding-right: 24px;\\n  padding-bottom: 16px;\\n  padding-left: 24px;\\n}\\n.modal-content .modal-footer {\\n  border-top: none;\\n  padding: 7px;\\n}\\n.modal-content .modal-footer button {\\n  margin: 0;\\n  padding-left: 16px;\\n  padding-right: 16px;\\n  width: auto;\\n}\\n.modal-content .modal-footer button.pull-left {\\n  padding-left: 5px;\\n  padding-right: 5px;\\n  position: relative;\\n  left: -5px;\\n}\\n.modal-content .modal-footer button + button {\\n  margin-bottom: 16px;\\n}\\n.modal-content .modal-body + .modal-footer {\\n  padding-top: 0;\\n}\\n.modal-backdrop {\\n  background: rgba(0, 0, 0, 0.3);\\n}\\n.panel {\\n  border-radius: 2px;\\n  border: 0;\\n  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);\\n          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);\\n}\\n.panel > .panel-heading,\\n.panel.panel-default > .panel-heading {\\n  background-color: #eeeeee;\\n}\\n.panel.panel-inverse > .panel-heading {\\n  background-color: #3f51b5;\\n}\\n.panel.panel-primary > .panel-heading {\\n  background-color: #009688;\\n}\\n.panel.panel-success > .panel-heading {\\n  background-color: #4caf50;\\n}\\n.panel.panel-info > .panel-heading {\\n  background-color: #03a9f4;\\n}\\n.panel.panel-warning > .panel-heading {\\n  background-color: #ff5722;\\n}\\n.panel.panel-danger > .panel-heading {\\n  background-color: #f44336;\\n}\\n[class*=\\\"panel-\\\"] > .panel-heading {\\n  color: rgba(255,255,255, 0.84);\\n  border: 0;\\n}\\n.panel-default > .panel-heading,\\n.panel:not([class*=\\\"panel-\\\"]) > .panel-heading {\\n  color: rgba(0,0,0, 0.87);\\n}\\n.panel-footer {\\n  background-color: #eeeeee;\\n}\\nhr.on-dark {\\n  color: #1a1a1a;\\n}\\nhr.on-light {\\n  color: #ffffff;\\n}\\n@media (-webkit-min-device-pixel-ratio: 0.75), (min--moz-device-pixel-ratio: 0.75), (-o-device-pixel-ratio: 3/4), (min-device-pixel-ratio: 0.75), (-o-min-device-pixel-ratio: 3/4), (min-resolution: 0.75dppx), (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5/4), (min-resolution: 120dpi) {\\n  hr {\\n    height: 0.75px;\\n  }\\n}\\n@media (-webkit-min-device-pixel-ratio: 1), (min--moz-device-pixel-ratio: 1), (-o-device-pixel-ratio: 1), (min-device-pixel-ratio: 1), (-o-min-device-pixel-ratio: 1/1), (min-resolution: 1dppx), (-webkit-min-device-pixel-ratio: 1.6666666666666667), (-o-min-device-pixel-ratio: 5/3), (min-resolution: 160dpi) {\\n  hr {\\n    height: 1px;\\n  }\\n}\\n@media (-webkit-min-device-pixel-ratio: 1.33), (min--moz-device-pixel-ratio: 1.33), (-o-device-pixel-ratio: 133/100), (min-device-pixel-ratio: 1.33), (-o-min-device-pixel-ratio: 133/100), (min-resolution: 1.33dppx), (-webkit-min-device-pixel-ratio: 2.21875), (-o-min-device-pixel-ratio: 71/32), (min-resolution: 213dpi) {\\n  hr {\\n    height: 1.333px;\\n  }\\n}\\n@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 2.5), (-o-min-device-pixel-ratio: 5/2), (min-resolution: 240dpi) {\\n  hr {\\n    height: 1.5px;\\n  }\\n}\\n@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 3.9583333333333335), (-o-min-device-pixel-ratio: 95/24), (min-resolution: 380dpi) {\\n  hr {\\n    height: 2px;\\n  }\\n}\\n@media (-webkit-min-device-pixel-ratio: 3), (min--moz-device-pixel-ratio: 3), (-o-device-pixel-ratio: 3/1), (min-device-pixel-ratio: 3), (-o-min-device-pixel-ratio: 3/1), (min-resolution: 3dppx), (-webkit-min-device-pixel-ratio: 5), (-o-min-device-pixel-ratio: 5/1), (min-resolution: 480dpi) {\\n  hr {\\n    height: 3px;\\n  }\\n}\\n@media (-webkit-min-device-pixel-ratio: 4), (min--moz-device-pixel-ratio: 4), (-o-device-pixel-ratio: 4/1), (min-device-pixel-ratio: 3), (-o-min-device-pixel-ratio: 4/1), (min-resolution: 4dppx), (-webkit-min-device-pixel-ratio: 6.666666666666667), (-o-min-device-pixel-ratio: 20/3), (min-resolution: 640dpi) {\\n  hr {\\n    height: 4px;\\n  }\\n}\\n* {\\n  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);\\n  -webkit-tap-highlight-color: transparent;\\n}\\n*:focus {\\n  outline: 0;\\n}\\n.snackbar {\\n  background-color: #323232;\\n  color: rgba(255,255,255, 0.84);\\n  font-size: 14px;\\n  border-radius: 2px;\\n  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);\\n          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);\\n  height: 0;\\n  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;\\n       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;\\n          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;\\n  -webkit-transform: translateY(200%);\\n      -ms-transform: translateY(200%);\\n       -o-transform: translateY(200%);\\n          transform: translateY(200%);\\n}\\n.snackbar.snackbar-opened {\\n  padding: 14px 15px;\\n  margin-bottom: 20px;\\n  height: auto;\\n  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;\\n       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;\\n          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;\\n  -webkit-transform: none;\\n      -ms-transform: none;\\n       -o-transform: none;\\n          transform: none;\\n}\\n.snackbar.toast {\\n  border-radius: 200px;\\n}\\n.noUi-target,\\n.noUi-target * {\\n  -webkit-touch-callout: none;\\n  -ms-touch-action: none;\\n  -webkit-user-select: none;\\n     -moz-user-select: none;\\n      -ms-user-select: none;\\n          user-select: none;\\n  -webkit-box-sizing: border-box;\\n     -moz-box-sizing: border-box;\\n          box-sizing: border-box;\\n}\\n.noUi-base {\\n  width: 100%;\\n  height: 100%;\\n  position: relative;\\n}\\n.noUi-origin {\\n  position: absolute;\\n  right: 0;\\n  top: 0;\\n  left: 0;\\n  bottom: 0;\\n}\\n.noUi-handle {\\n  position: relative;\\n  z-index: 1;\\n  -webkit-box-sizing: border-box;\\n     -moz-box-sizing: border-box;\\n          box-sizing: border-box;\\n}\\n.noUi-stacking .noUi-handle {\\n  z-index: 10;\\n}\\n.noUi-state-tap .noUi-origin {\\n  -webkit-transition: left 0.3s, top 0.3s;\\n       -o-transition: left 0.3s, top 0.3s;\\n          transition: left 0.3s, top 0.3s;\\n}\\n.noUi-state-drag * {\\n  cursor: inherit !important;\\n}\\n.noUi-horizontal {\\n  height: 10px;\\n}\\n.noUi-handle {\\n  -webkit-box-sizing: border-box;\\n     -moz-box-sizing: border-box;\\n          box-sizing: border-box;\\n  width: 12px;\\n  height: 12px;\\n  left: -10px;\\n  top: -5px;\\n  cursor: ew-resize;\\n  border-radius: 100%;\\n  -webkit-transition: all 0.2s ease-out;\\n       -o-transition: all 0.2s ease-out;\\n          transition: all 0.2s ease-out;\\n  border: 1px solid;\\n}\\n.noUi-vertical .noUi-handle {\\n  margin-left: 5px;\\n  cursor: ns-resize;\\n}\\n.noUi-horizontal.noUi-extended {\\n  padding: 0 15px;\\n}\\n.noUi-horizontal.noUi-extended .noUi-origin {\\n  right: -15px;\\n}\\n.noUi-background {\\n  height: 2px;\\n  margin: 20px 0;\\n}\\n.noUi-origin {\\n  margin: 0;\\n  border-radius: 0;\\n  height: 2px;\\n  background: #c8c8c8;\\n}\\n.noUi-origin[style^=\\\"left: 0\\\"] .noUi-handle {\\n  background-color: #fff;\\n  border: 2px solid #c8c8c8;\\n}\\n.noUi-origin[style^=\\\"left: 0\\\"] .noUi-handle.noUi-active {\\n  border-width: 1px;\\n}\\n.noUi-target {\\n  border-radius: 2px;\\n}\\n.noUi-horizontal {\\n  height: 2px;\\n  margin: 15px 0;\\n}\\n.noUi-vertical {\\n  height: 100%;\\n  width: 2px;\\n  margin: 0 15px;\\n  display: inline-block;\\n}\\n.noUi-handle.noUi-active {\\n  -webkit-transform: scale3d(2.5, 2.5, 1);\\n          transform: scale3d(2.5, 2.5, 1);\\n}\\n[disabled].noUi-slider {\\n  opacity: 0.5;\\n}\\n[disabled] .noUi-handle {\\n  cursor: not-allowed;\\n}\\n.slider {\\n  background: #c8c8c8;\\n}\\n.slider.noUi-connect,\\n.slider.slider-default.noUi-connect {\\n  background-color: #009688;\\n}\\n.slider.slider-inverse.noUi-connect {\\n  background-color: #3f51b5;\\n}\\n.slider.slider-primary.noUi-connect {\\n  background-color: #009688;\\n}\\n.slider.slider-success.noUi-connect {\\n  background-color: #4caf50;\\n}\\n.slider.slider-info.noUi-connect {\\n  background-color: #03a9f4;\\n}\\n.slider.slider-warning.noUi-connect {\\n  background-color: #ff5722;\\n}\\n.slider.slider-danger.noUi-connect {\\n  background-color: #f44336;\\n}\\n.slider .noUi-connect,\\n.slider.slider-default .noUi-connect {\\n  background-color: #009688;\\n}\\n.slider.slider-inverse .noUi-connect {\\n  background-color: #3f51b5;\\n}\\n.slider.slider-primary .noUi-connect {\\n  background-color: #009688;\\n}\\n.slider.slider-success .noUi-connect {\\n  background-color: #4caf50;\\n}\\n.slider.slider-info .noUi-connect {\\n  background-color: #03a9f4;\\n}\\n.slider.slider-warning .noUi-connect {\\n  background-color: #ff5722;\\n}\\n.slider.slider-danger .noUi-connect {\\n  background-color: #f44336;\\n}\\n.slider .noUi-handle,\\n.slider.slider-default .noUi-handle {\\n  background-color: #009688;\\n}\\n.slider.slider-inverse .noUi-handle {\\n  background-color: #3f51b5;\\n}\\n.slider.slider-primary .noUi-handle {\\n  background-color: #009688;\\n}\\n.slider.slider-success .noUi-handle {\\n  background-color: #4caf50;\\n}\\n.slider.slider-info .noUi-handle {\\n  background-color: #03a9f4;\\n}\\n.slider.slider-warning .noUi-handle {\\n  background-color: #ff5722;\\n}\\n.slider.slider-danger .noUi-handle {\\n  background-color: #f44336;\\n}\\n.slider .noUi-handle,\\n.slider.slider-default .noUi-handle {\\n  border-color: #009688;\\n}\\n.slider.slider-inverse .noUi-handle {\\n  border-color: #3f51b5;\\n}\\n.slider.slider-primary .noUi-handle {\\n  border-color: #009688;\\n}\\n.slider.slider-success .noUi-handle {\\n  border-color: #4caf50;\\n}\\n.slider.slider-info .noUi-handle {\\n  border-color: #03a9f4;\\n}\\n.slider.slider-warning .noUi-handle {\\n  border-color: #ff5722;\\n}\\n.slider.slider-danger .noUi-handle {\\n  border-color: #f44336;\\n}\\n.selectize-control.single,\\n.selectize-control.multi {\\n  padding: 0;\\n}\\n.selectize-control.single .selectize-input,\\n.selectize-control.multi .selectize-input,\\n.selectize-control.single .selectize-input.input-active,\\n.selectize-control.multi .selectize-input.input-active {\\n  cursor: text;\\n  background: transparent;\\n  -webkit-box-shadow: none;\\n          box-shadow: none;\\n  border: 0;\\n  padding: 0;\\n  height: 100%;\\n  font-size: 14px;\\n  line-height: 30px;\\n}\\n.selectize-control.single .selectize-input .has-items,\\n.selectize-control.multi .selectize-input .has-items,\\n.selectize-control.single .selectize-input.input-active .has-items,\\n.selectize-control.multi .selectize-input.input-active .has-items {\\n  padding: 0;\\n}\\n.selectize-control.single .selectize-input:after,\\n.selectize-control.multi .selectize-input:after,\\n.selectize-control.single .selectize-input.input-active:after,\\n.selectize-control.multi .selectize-input.input-active:after {\\n  right: 5px;\\n  position: absolute;\\n  font-size: 25px;\\n  content: \\\"\\\\E5C5\\\";\\n  font-family: 'Material Icons';\\n  speak: none;\\n  font-style: normal;\\n  font-weight: normal;\\n  font-variant: normal;\\n  text-transform: none;\\n  line-height: 1;\\n  -webkit-font-smoothing: antialiased;\\n  -moz-osx-font-smoothing: grayscale;\\n}\\n.selectize-control.single .selectize-input input,\\n.selectize-control.multi .selectize-input input,\\n.selectize-control.single .selectize-input.input-active input,\\n.selectize-control.multi .selectize-input.input-active input {\\n  font-size: 14px;\\n  outline: 0;\\n  border: 0;\\n  background: transparent;\\n}\\n.selectize-control.single .selectize-input.label-floating-fix input,\\n.selectize-control.multi .selectize-input.label-floating-fix input,\\n.selectize-control.single .selectize-input.input-active.label-floating-fix input,\\n.selectize-control.multi .selectize-input.input-active.label-floating-fix input {\\n  opacity: 0;\\n}\\n.selectize-control.single .selectize-input > div,\\n.selectize-control.multi .selectize-input > div,\\n.selectize-control.single .selectize-input.input-active > div,\\n.selectize-control.multi .selectize-input.input-active > div,\\n.selectize-control.single .selectize-input > .item,\\n.selectize-control.multi .selectize-input > .item,\\n.selectize-control.single .selectize-input.input-active > .item,\\n.selectize-control.multi .selectize-input.input-active > .item {\\n  display: inline-block;\\n  margin: 0 8px 3px 0;\\n  padding: 0;\\n  background: transparent;\\n  border: 0;\\n}\\n.selectize-control.single .selectize-input > div:after,\\n.selectize-control.multi .selectize-input > div:after,\\n.selectize-control.single .selectize-input.input-active > div:after,\\n.selectize-control.multi .selectize-input.input-active > div:after,\\n.selectize-control.single .selectize-input > .item:after,\\n.selectize-control.multi .selectize-input > .item:after,\\n.selectize-control.single .selectize-input.input-active > .item:after,\\n.selectize-control.multi .selectize-input.input-active > .item:after {\\n  content: \\\",\\\";\\n}\\n.selectize-control.single .selectize-input > div:last-of-type:after,\\n.selectize-control.multi .selectize-input > div:last-of-type:after,\\n.selectize-control.single .selectize-input.input-active > div:last-of-type:after,\\n.selectize-control.multi .selectize-input.input-active > div:last-of-type:after,\\n.selectize-control.single .selectize-input > .item:last-of-type:after,\\n.selectize-control.multi .selectize-input > .item:last-of-type:after,\\n.selectize-control.single .selectize-input.input-active > .item:last-of-type:after,\\n.selectize-control.multi .selectize-input.input-active > .item:last-of-type:after {\\n  content: \\\"\\\";\\n}\\n.selectize-control.single .selectize-input > div.active,\\n.selectize-control.multi .selectize-input > div.active,\\n.selectize-control.single .selectize-input.input-active > div.active,\\n.selectize-control.multi .selectize-input.input-active > div.active,\\n.selectize-control.single .selectize-input > .item.active,\\n.selectize-control.multi .selectize-input > .item.active,\\n.selectize-control.single .selectize-input.input-active > .item.active,\\n.selectize-control.multi .selectize-input.input-active > .item.active {\\n  font-weight: bold;\\n  background: transparent;\\n  border: 0;\\n}\\n.selectize-control.single .selectize-dropdown,\\n.selectize-control.multi .selectize-dropdown {\\n  position: absolute;\\n  z-index: 1000;\\n  border: 0;\\n  width: 100% !important;\\n  left: 0 !important;\\n  height: auto;\\n  background-color: #FFF;\\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\\n  border-radius: 2px;\\n  padding: 0;\\n  margin-top: 3px;\\n}\\n.selectize-control.single .selectize-dropdown .active,\\n.selectize-control.multi .selectize-dropdown .active {\\n  background-color: inherit;\\n}\\n.selectize-control.single .selectize-dropdown .highlight,\\n.selectize-control.multi .selectize-dropdown .highlight {\\n  background-color: #d5d8ff;\\n}\\n.selectize-control.single .selectize-dropdown .selected,\\n.selectize-control.multi .selectize-dropdown .selected,\\n.selectize-control.single .selectize-dropdown .selected.active,\\n.selectize-control.multi .selectize-dropdown .selected.active {\\n  background-color: #EEEEEE;\\n}\\n.selectize-control.single .selectize-dropdown [data-selectable],\\n.selectize-control.multi .selectize-dropdown [data-selectable],\\n.selectize-control.single .selectize-dropdown .optgroup-header,\\n.selectize-control.multi .selectize-dropdown .optgroup-header {\\n  padding: 10px 20px;\\n  cursor: pointer;\\n}\\n.selectize-control.single .dropdown-active ~ .selectize-dropdown,\\n.selectize-control.multi .dropdown-active ~ .selectize-dropdown {\\n  display: block;\\n}\\n.dropdownjs::after {\\n  right: 5px;\\n  top: 3px;\\n  font-size: 25px;\\n  position: absolute;\\n  font-family: 'Material Icons';\\n  font-style: normal;\\n  font-weight: 400;\\n  content: \\\"\\\\E5C5\\\";\\n  pointer-events: none;\\n  color: #757575;\\n}\\n/*# sourceMappingURL=bootstrap-material-design.css.map */\", \"\"]);\n 85468  \n 85469  	// exports\n\nC:\\Projects\\Bookify\\Bookify\\Bookify.Website\\App\\modules\\App.js:\n    3  import FrontPage from './FrontPage';\n    4  import NavigationBar from './NavigationBar';\n    5: import 'bootstrap-material-design';\n    6: import 'bootstrap-material-design/dist/js/material.js';\n    7: import 'bootstrap-material-design/dist/js/ripples.js';\n    8: import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';\n    9: import 'bootstrap-material-design/dist/css/ripples.css';\n   10  import './style.styl';\n   11  \n\n9 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 479,
+				"buffer_size": 112604,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "modules/App.js",
+			"settings":
+			{
+				"buffer_size": 728,
 				"line_ending": "Windows"
 			}
 		}
@@ -87,10 +57,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 58.0,
-		"last_filter": "Define sync",
+		"height": 140.0,
+		"last_filter": "install pack",
 		"selected_items":
 		[
+			[
+				"install pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Define syn",
+				"Package Syncing: Define Sync Folder"
+			],
 			[
 				"Define sync",
 				"PackageSync: Sync Online - Define Online Sync Folder"
@@ -100,7 +78,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 560.0
+		"width": 446.0
 	},
 	"console":
 	{
@@ -121,48 +99,39 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/BookList",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Bookpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Frontpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Loginpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NavigationBar",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookpage",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Shared",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util"
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/vendor"
 	],
 	"file_history":
 	[
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Bookpage/bookpage-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/BookList/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/BookList/booklist-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Shared/rating-view.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/style.styl",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookpage/newbook-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/bookifyapi.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/http.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Loginpage/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/index.html",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/package.json",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/Loginpage/login-view-model.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/NewBookPage/index.js",
-		"/C/Users/AndHP/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/api.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/custom.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/App.js",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/style.less",
-		"/C/Users/AndHP/Source/Repos/Bookify/Bookify.Website/App/modules/util/style.less",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/webpack.config.js",
-		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/04-nested-routes/webpack.config.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/package.json",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/vendor/bootstrap.min.css",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/webpack.config.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Core/Filter/BaseFilter.cs",
+		"/C/Projects/Bookify/Bookify/Bookify.Core/Filter/BookFilter.cs",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.html",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/bundle.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/bookpage-view-model.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util/http.js",
+		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/.babelrc",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.styl",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.less",
+		"/C/Users/Falgantil/Desktop/Material Design Demo/Material Design for Bootstrap.html",
+		"/C/Users/Falgantil/Desktop/Material Design Demo/Material Design for Bootstrap_files/index.css",
+		"/C/Users/Falgantil/Desktop/MDB-Free/index.html",
+		"/C/Users/Falgantil/Documents/SublimeText/Snippets/ES6 Import.sublime-snippet",
+		"/C/Users/Falgantil/Desktop/Mofibo/Mofibo - Læs alt det du har lyst til for 129,- pr. måned.html",
+		"/C/Users/Falgantil/Desktop/MDB-Free/js/jquery-2.2.3.js",
+		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/04-nested-routes/webpack.config.js",
 		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/06-params/index.js",
 		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/06-params/modules/Repos.js",
 		"/C/Users/Falgantil/Desktop/react-router-tutorial/lessons/06-params/modules/Repo.js",
@@ -179,29 +148,46 @@
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
 		"height": 158.0,
 		"where_history":
 		[
-			"C:\\Users\\AndHP\\Source\\Repos\\Bookify\\Bookify.Website\\App\\modules",
-			"C:\\Users\\AndHP\\Source\\Repos\\Bookify\\Bookify.Website\\App"
+			"C:\\Projects\\Bookify\\Bookify\\Bookify.Website\\App",
+			""
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
-			" name",
-			"state",
+			"bootstrap-material-design",
+			".\",\n",
+			"p",
+			"length",
+			"/about",
+			"about",
+			"About",
+			"about",
+			"Link",
+			"'\n",
+			"<a>",
+			"javascript:void(0)",
+			"design",
 			"class=",
-			"}\n",
+			"bootstrap-elements.html",
+			"\"javascript:void(0)\"",
 			"class=",
+			"/>\n",
+			"class=",
+			"js/",
+			" <!--",
 			"class",
-			"class=",
+			"js",
+			"    <script type=\"text/javascript\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/63644fe68e\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/nr-963.min.js\"></script><script type=\"text/javascript\" id=\"www-widgetapi-script\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/www-widgetapi.js\" async=\"\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/iframe_api\"></script><script type=\"text/javascript\" async=\"\" src=\"https://track.adform.net/serving/scripts/trackpoint/async/\"></script><script async=\"\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/fbevents.js\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/bat.js\" async=\"\"></script><script async=\"\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/analytics.js\"></script><script async=\"\" src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/gtm.js\"></script><script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/2227582695.js\"></script>\n<script src=\"./Mofibo - Læs alt det du har lyst til for 129,- pr. måned_files/md5.min.js\"></script>",
 			"Repos"
 		],
 		"highlight": true,
@@ -221,24 +207,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "modules/util/bookifyapi.js",
+					"file": "index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2272,
+						"buffer_size": 619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								74,
-								102
+								288,
+								288
 							]
 						],
 						"settings":
@@ -248,27 +234,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										103,
-										104
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										66,
-										67
-									]
 								},
 								"unmatched":
 								{
@@ -276,6 +247,11 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -286,41 +262,31 @@
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -330,11 +296,14 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
 							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -346,7 +315,7 @@
 				{
 					"buffer": 1,
 					"file": "index.html",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 514,
@@ -356,8 +325,8 @@
 						"selection":
 						[
 							[
-								347,
-								347
+								350,
+								350
 							]
 						],
 						"settings":
@@ -380,6 +349,11 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -390,41 +364,31 @@
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -434,7 +398,12 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
 							],
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
@@ -442,24 +411,182 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "modules/BookList/booklist-view-model.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 479,
+						"buffer_size": 112604,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										335,
+										360
+									],
+									[
+										648,
+										673
+									],
+									[
+										111991,
+										112016
+									],
+									[
+										112241,
+										112266
+									],
+									[
+										112284,
+										112309
+									],
+									[
+										112347,
+										112372
+									],
+									[
+										112409,
+										112434
+									],
+									[
+										112444,
+										112469
+									],
+									[
+										112491,
+										112516
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								506,
+								506
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										505,
+										506
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 17459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "modules/App.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 728,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								195,
-								195
+								534,
+								534
 							]
 						],
 						"settings":
@@ -471,15 +598,15 @@
 								{
 									"1":
 									[
-										441,
-										442
+										699,
+										700
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"Packages/BracketHighlighter/icons/round_bracket.png",
 										"brackethighlighter.default"
 									]
 								},
@@ -487,8 +614,8 @@
 								{
 									"1":
 									[
-										194,
-										195
+										509,
+										510
 									]
 								},
 								"unmatched":
@@ -497,6 +624,11 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -507,41 +639,31 @@
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -551,7 +673,12 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
 							],
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
@@ -561,7 +688,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -573,7 +700,7 @@
 	},
 	"input":
 	{
-		"height": 81.0
+		"height": 68.0
 	},
 	"layout":
 	{
@@ -629,12 +756,12 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 354.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 374.0
 	},
 	"selected_group": 0,
 	"settings":
@@ -644,7 +771,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 305.0,
+	"side_bar_width": 276.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

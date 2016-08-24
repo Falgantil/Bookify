@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using Bookify.App.Core.Collections;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
 
@@ -14,6 +14,14 @@ namespace Bookify.App.Core.Interfaces.Services
     /// <seealso cref="Services.IGetByFilterService{BookDto, BookFilter}" />
     public interface IBooksService : IGetByFilterService<BookDto, BookFilter>
     {
+        /// <summary>
+        /// Gets my books.
+        /// </summary>
+        /// <value>
+        /// My books.
+        /// </value>
+        ObservableServiceCollection<BookDto, BookFilter, IBooksService> MyBooks { get; }
+
         /// <summary>
         /// Gets the book with the specified ID.
         /// </summary>

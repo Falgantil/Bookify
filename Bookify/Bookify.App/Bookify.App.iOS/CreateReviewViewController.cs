@@ -10,6 +10,7 @@ using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.General;
 using Bookify.App.iOS.Ui.Helpers;
 using Bookify.Common.Models;
+using Rope.Net.iOS;
 using UIKit;
 
 namespace Bookify.App.iOS
@@ -147,6 +148,7 @@ namespace Bookify.App.iOS
                 this.imgRating3,
                 this.imgRating4,
                 this.imgRating5);
+            this.txtMessage.BindText(this.ViewModel, vm => vm.Message);
         }
     }
 }

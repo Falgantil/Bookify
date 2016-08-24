@@ -374,8 +374,8 @@ namespace Bookify.App.Sdk
                         queryStringBuilder.Append('&');
                     }
                 }
-
-                var combined = UrlHelper.Combine(uri.ToString(), queryStringBuilder.ToString());
+                
+                var combined = uri.ToString().Trim('/') + queryStringBuilder;
                 uri = new Uri(combined, UriKind.RelativeOrAbsolute);
             }
 

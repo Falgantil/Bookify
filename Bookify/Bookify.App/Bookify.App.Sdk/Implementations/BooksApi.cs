@@ -51,14 +51,9 @@ namespace Bookify.App.Sdk.Implementations
         public async Task<IPaginatedEnumerable<BookDto>> GetMyBooks(BookFilter filter)
         {
             var request = new RequestBuilder()
-                .BaseUri(this.Url)
+                .BaseUri(this.CombineUrl("mybooks"))
                 .AddQuery(nameof(filter.Skip), filter.Skip)
                 .AddQuery(nameof(filter.Take), filter.Take);
-
-            if (filter.MyBooks)
-            {
-                request.AddQuery(nameof(filter.MyBooks), filter.MyBooks);
-            }
 
             if (!string.IsNullOrEmpty(filter.Search))
             {

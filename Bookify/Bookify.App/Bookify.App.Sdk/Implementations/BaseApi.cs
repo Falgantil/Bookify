@@ -24,7 +24,7 @@ namespace Bookify.App.Sdk.Implementations
 
         protected string CombineUrl(string url)
         {
-            return Path.Combine(this.Url, url);
+            return Path.Combine(this.Url, url).TrimEnd('/');
         }
 
         public virtual async Task<HttpResponseMessage> ExecuteRequest(RequestBuilder message)

@@ -639,7 +639,7 @@
         </scene>
         <scene sceneID="4482">
             <objects>
-                <viewController id="4483" sceneMemberID="viewController" customClass="MyBooksViewController" storyboardIdentifier="MyBooksViewController">
+                <viewController id="4483" sceneMemberID="viewController" customClass="MyBooksViewController" storyboardIdentifier="MyBooksViewController" title="Mine bøger">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4480"/>
                         <viewControllerLayoutGuide type="bottom" id="4481"/>
@@ -665,6 +665,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Mine bøger" id="5253" image="Icons/User.png"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tblContent" destination="5256" id="name-outlet-5256"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4485" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

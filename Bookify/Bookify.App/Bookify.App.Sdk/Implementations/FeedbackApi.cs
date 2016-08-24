@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Commands.Auth;
@@ -45,7 +46,8 @@ namespace Bookify.App.Sdk.Implementations
                 .BaseUri(this.CombineUrl("{id}"))
                 .AddUriSegment("id", bookId)
                 .AddQuery(nameof(command.Text), command.Text)
-                .AddQuery(nameof(command.Rating), command.Rating);
+                .AddQuery(nameof(command.Rating), command.Rating)
+                .Method(HttpMethod.Post);
 
             return await this.ExecuteAndParse<BookFeedbackDto>(request);
         }

@@ -61,6 +61,12 @@ namespace Bookify.App.iOS.Ui.Controllers.Base
             return AppDelegate.Root.Resolve<T>();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            this.ViewModel.Dispose();
+            base.Dispose(disposing);
+        }
+
         protected async Task<T> TryTask<T>(Func<Task<T>> operation, string badRequest = null, string unauthorized = null, string notFound = null, string defaultMsg = null)
         {
             return await SharedMethods.TryTask(

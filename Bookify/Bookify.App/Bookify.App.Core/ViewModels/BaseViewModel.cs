@@ -10,7 +10,7 @@ using Polly;
 
 namespace Bookify.App.Core.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged, IDisposable
     {
         protected async Task<T> TryTask<T>(Func<Task<T>> op)
         {
@@ -35,6 +35,11 @@ namespace Bookify.App.Core.ViewModels
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public virtual void Dispose()
+        {
+            this.PropertyChanged = null;
         }
     }
 }
