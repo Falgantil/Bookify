@@ -99,7 +99,7 @@ namespace Bookify.API.Controllers
 
         [HttpPut]
         [Route("{id}/buy")]
-        public async Task<IHttpActionResult> Buy(int id, string email)
+        public async Task<IHttpActionResult> Buy(int id, [FromUri]string email)
         {
             return await this.Try(
                 async () =>
@@ -109,8 +109,9 @@ namespace Bookify.API.Controllers
                         {
                             var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
                             dto = personAuthDto.PersonDto;
+                            if (email != dto.Email) throw new BadRequestException("The email was not identical with the email of the person logged in");
                         }
-                        catch (Exception ex) when (ex is InvalidAccessTokenException)
+                        catch (InvalidAccessTokenException)
                         {
                             dto = await this._personRepository.CreatePersonIfNotExists(email);
                         }
@@ -125,19 +126,6 @@ namespace Bookify.API.Controllers
                     });
         }
 
-        //[HttpGet]
-        //[Auth]
-        //[Route("{id}/download")]
-        //public async Task<IHttpActionResult> Download(int id)
-        //{
-        //    return await this.Try(
-        //        async () =>
-        //            {
-        //                var content = await this.bookContentRepository.GetById(id);
-        //                return content.EpubPath;
-        //            });
-        //}
-
         [HttpPost]
         [Auth]
         [Route("{id}/review")]
@@ -147,14 +135,27 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, personAuthDto.PersonDto.Id, command));
         }
 
-        //[HttpGet]
-        //[Auth]
-        //[Route("{id}/read")]
-        //public async Task<IHttpActionResult> Read(int id)
-        //{
-        //    // stream the Epub?
-        //    return await this.Download(id);
-        //}
+
+        [HttpPut]
+        [Auth]
+        [Route("{id}/borrow")]
+        public async Task<IHttpActionResult> Borrow(int id)
+        {
+            return await this.Try(
+                async () =>
+                {
+                    var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
+                    var dto = personAuthDto.PersonDto;
+
+                    var command = new CreateOrderCommand
+                    {
+                        BookId = id,
+                        Status = BookOrderStatus.Borrowed,
+                        PersonId = dto.Id
+                    };
+                    await this._bookOrderRepository.CreateOrder(command);
+                });
+        }
 
         [HttpGet]
         [Auth]
