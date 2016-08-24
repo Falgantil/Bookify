@@ -38,7 +38,7 @@ class FrontpageViewModel {
   }
 
   async submit(e) {
-    this.books = await bookifyapi.getBooks({search:this.search})
+    this.books = await bookifyapi.getBooks({search:this.search, genres:this.selectedGenres})
   }
 }
 
