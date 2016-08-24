@@ -16,9 +16,8 @@ getBooks(args) {
 		var argumentbuilder = '?';
 		var first = true;
 		$.each(args, function(key, value) {
-      var maybeArray = value.slice();
-			if (Array.isArray(maybeArray)) {
-				$.each(maybeArray, function(index, item) {
+			if (typeof value === 'object') {
+				$.each(value.slice(), function(index, item) {
 					if (first) {
 						argumentbuilder += key + "[]=" + item;
 						first = false;
@@ -45,7 +44,6 @@ getBooks(args) {
   getBook(id) { return http.get(baseUrl + 'books/' + id); }
   getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
   getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }
-  getRelatedBooksByAuthor(authorId) { return http.get(baseUrl + 'books?author=' + authorId); }
 
   postBook(book) { return http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
   postBookCover(bookId, data) {
