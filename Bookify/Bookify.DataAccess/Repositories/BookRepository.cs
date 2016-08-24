@@ -34,12 +34,13 @@ namespace Bookify.DataAccess.Repositories
             {
                 x.Feedback = x.Feedback.Take(10).ToList();
             });
-            // TODO: update book viewcount
             var result = await book.SingleAsync();
+            result.ViewCount++;
+            await this.Update(result);
             return result.ToDetailedDto();
         }
 
-        public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter)
+        public async Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter, int? personId = null)
         {
             var search = filter.Search?.ToLower();
             var author = filter.Author;
@@ -50,6 +51,9 @@ namespace Bookify.DataAccess.Repositories
             var take = filter.Take;
 
             var queryableBooks = this.Context.Books.Include(x => x.Author).Include(x => x.Feedback.Select(y => y.Person));
+
+            queryableBooks = personId > 0
+                ? queryableBooks.Where(x => x.Orders.Any(y => y.PersonId == personId)) : queryableBooks;
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -141,7 +145,7 @@ namespace Bookify.DataAccess.Repositories
         public async Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command)
         {
             var book = await this.Find(id);
-            if (book == null) throw  new NotFoundException($"the requested item with id: {id} could not be found");
+            if (book == null) throw new NotFoundException($"the requested item with id: {id} could not be found");
             List<Genre> dbGenres = new List<Genre>();
             if (command.Genres.Any())
             {
@@ -155,8 +159,8 @@ namespace Bookify.DataAccess.Repositories
             }
 
             // Commence updating book...
-            book.Title = string.IsNullOrEmpty(command.Title)? book.Title : command.Title;
-            book.Summary = string.IsNullOrEmpty(command.Summary)? book.Summary : command.Summary;
+            book.Title = string.IsNullOrEmpty(command.Title) ? book.Title : command.Title;
+            book.Summary = string.IsNullOrEmpty(command.Summary) ? book.Summary : command.Summary;
             book.AuthorId = command.AuthorId > 0 ? command.AuthorId.Value : book.AuthorId;
             book.PublishYear = command.PublishYear ?? book.PublishYear;
             if (dbGenres.Any())
@@ -164,13 +168,13 @@ namespace Bookify.DataAccess.Repositories
                 book.Genres = dbGenres.Select(genre => genre).ToList();
             }
             book.PublisherId = command.PublisherId > 0 ? command.PublisherId.Value : book.PublisherId;
-            book.Language = string.IsNullOrEmpty(command.Language)? book.Language : command.Language;
+            book.Language = string.IsNullOrEmpty(command.Language) ? book.Language : command.Language;
             book.CopiesAvailable = command.CopiesAvailable ?? book.CopiesAvailable;
             book.PageCount = command.PageCount ?? book.PageCount;
             book.ViewCount = command.ViewCount ?? book.ViewCount;
-            book.ISBN = string.IsNullOrEmpty(command.ISBN)? command.ISBN : book.ISBN;
+            book.ISBN = string.IsNullOrEmpty(command.ISBN) ? command.ISBN : book.ISBN;
             book.Price = command.Price ?? book.Price;
-            
+
 
             //woah
             var resultBook = await this.Update(book);
