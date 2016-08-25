@@ -43,7 +43,7 @@ namespace Bookify.Common.Repositories
         /// <param name="personId">id of a existsing person</param>
         /// <param name="paid">amount what the person paid for the subsciption</param>
         /// <returns></returns>
-        Task Subscibe(int personId, decimal paid);
+        Task Subscribe(int personId, decimal paid);
         /// <summary>
         /// checks if the person has a subscription running now
         /// </summary>

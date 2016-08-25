@@ -59,7 +59,7 @@ namespace Bookify.API.Controllers
             return await this.Try(async () =>
             {
                 var personAuthDto = await this.GetAuthorizedMember(this._authenticationRepository);
-                await this._personRepository.Subscibe(personAuthDto.PersonDto.Id, paid);
+                await this._personRepository.Subscribe(personAuthDto.PersonDto.Id, paid);
             });
         }
 

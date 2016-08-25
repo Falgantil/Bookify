@@ -82,13 +82,14 @@ namespace Bookify.DataAccess.Repositories
             return person.ToDto();
         }
 
-        public async Task Subscibe(int personId, decimal paid)
+        public async Task Subscribe(int personId, decimal paid)
         {
+            if (await HasSubscription(personId)) throw new BadRequestException($"The personId: {personId}, already has a subscription");
             var subscription = new Subscription
             {
                 PersonId = personId,
                 Created = DateTime.Now,
-                Expires = DateTime.Now.AddMonths(1),
+                Expires = DateTime.Now.AddDays(30),
                 Paid = paid
             };
 
@@ -98,15 +99,8 @@ namespace Bookify.DataAccess.Repositories
 
         public async Task<bool> HasSubscription(int personId)
         {
-            var subscription =
-                await
-                    this.Context.Subscriptions.Where(x => x.PersonId == personId)
-                        .OrderByDescending(x => x.Id)
-                        .FirstOrDefaultAsync();
-            if (subscription == null)
-                throw new NullReferenceException();
-
-            return (subscription.Created > DateTime.Now && subscription.Expires < DateTime.Now);
+            return await this.Context.Subscriptions.AnyAsync(
+                    x => x.PersonId == personId && x.Expires < DateTime.Now);
         }
     }
 }
