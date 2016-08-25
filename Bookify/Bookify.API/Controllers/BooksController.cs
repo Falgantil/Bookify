@@ -62,10 +62,10 @@ namespace Bookify.API.Controllers
         [Route("")]
         public async Task<IHttpActionResult> Create([FromBody]CreateBookCommand command)
         {
-            return await this.Try(() => this._bookRepository.CreateBook(command));
+            return await this.TryCreate(() => this._bookRepository.CreateBook(command));
         }
 
-        [HttpPut]
+        [HttpPost]
         [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Update(int id, [FromBody]UpdateBookCommand command)
