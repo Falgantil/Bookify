@@ -28,5 +28,12 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
         Task<DetailedBookDto> GetBook(int id);
+
+        /// <summary>
+        /// Downloads the book as an Epub file.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        Task<byte[]> DownloadBook(int id);
     }
 }

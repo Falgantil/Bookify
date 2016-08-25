@@ -22,9 +22,14 @@ namespace Bookify.App.Sdk.Implementations
             this.Url = url;
         }
 
-        protected string CombineUrl(string url)
+        protected string CombineUrl(params string[] urls)
         {
-            return Path.Combine(this.Url, url).TrimEnd('/');
+            List<string> paths = new List<string>
+            {
+                this.Url
+            };
+            paths.AddRange(urls);
+            return Path.Combine(paths.ToArray()).TrimEnd('/');
         }
 
         public virtual async Task<HttpResponseMessage> ExecuteRequest(RequestBuilder message)

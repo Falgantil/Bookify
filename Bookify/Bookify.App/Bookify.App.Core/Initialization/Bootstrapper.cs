@@ -90,6 +90,7 @@ namespace Bookify.App.Core.Initialization
             this.kernel.Bind<IGenresApi>().To<GenresApi>().InSingletonScope();
             this.kernel.Bind<IPersonApi>().To<PersonApi>().InSingletonScope();
             this.kernel.Bind<IFeedbackApi>().To<FeedbackApi>().InSingletonScope();
+            this.kernel.Bind<IFilesApi>().To<FilesApi>().InSingletonScope();
 
             this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
             this.kernel.Bind<IPersonService>().To<PersonService>().InSingletonScope();

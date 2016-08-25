@@ -1,13 +1,10 @@
 using System;
-using System.Net;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Helpers;
-using Bookify.App.Sdk.Exceptions;
-using Bookify.Common.Exceptions;
 using Foundation;
 
 using UIKit;

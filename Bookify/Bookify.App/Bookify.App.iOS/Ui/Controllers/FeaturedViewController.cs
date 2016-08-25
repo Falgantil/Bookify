@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Threading.Tasks;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;

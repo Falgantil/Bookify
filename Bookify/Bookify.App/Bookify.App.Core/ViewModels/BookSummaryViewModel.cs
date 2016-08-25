@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Services;
 using Bookify.Common.Models;
+using eBdb.EpubReader;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -55,6 +57,13 @@ namespace Bookify.App.Core.ViewModels
         public async Task BorrowBook()
         {
 
+        }
+
+        public async Task<string> DownloadBook()
+        {
+            var downloadBook = await this.booksService.DownloadBook(this.Book.Id);
+            var epub = new Epub(new MemoryStream(downloadBook));
+            return await Task.Run(() => epub.GetContentAsHtml());
         }
     }
 }

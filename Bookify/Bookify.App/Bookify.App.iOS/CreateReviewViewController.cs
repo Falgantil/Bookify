@@ -1,8 +1,6 @@
-using Foundation;
 using System;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;

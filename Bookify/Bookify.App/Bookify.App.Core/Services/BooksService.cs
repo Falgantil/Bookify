@@ -18,13 +18,17 @@ namespace Bookify.App.Core.Services
         /// </summary>
         private readonly IBooksApi api;
 
+        private readonly IFilesApi filesApi;
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="BooksService"/> class.
+        /// Initializes a new instance of the <see cref="BooksService" /> class.
         /// </summary>
         /// <param name="api">The API.</param>
-        public BooksService(IBooksApi api)
+        /// <param name="filesApi">The files API.</param>
+        public BooksService(IBooksApi api, IFilesApi filesApi)
         {
             this.api = api;
+            this.filesApi = filesApi;
             this.MyBooks = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this, new BookFilter
             {
                 MyBooks = true
@@ -61,6 +65,11 @@ namespace Bookify.App.Core.Services
                 return await this.api.GetBooks(filter);
             }
             return await this.api.GetMyBooks(filter);
+        }
+
+        public async Task<byte[]> DownloadBook(int id)
+        {
+            return await this.filesApi.DownloadBook(id);
         }
     }
 }

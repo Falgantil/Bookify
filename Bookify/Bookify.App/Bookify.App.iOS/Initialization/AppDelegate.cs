@@ -1,6 +1,5 @@
 ﻿using Bookify.App.Core.Initialization;
 using Bookify.App.Core.Interfaces;
-using Bookify.App.Core.Services;
 using Bookify.App.iOS.Ui.Controllers;
 using Foundation;
 
@@ -43,7 +42,7 @@ namespace Bookify.App.iOS.Initialization
                 {
                     this.Window.RootViewController = new FrontSidebarController();
                 }));
-
+            
             return true;
         }
 
