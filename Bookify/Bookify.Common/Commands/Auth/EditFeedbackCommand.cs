@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookify.Common.Commands.Auth
 {
-    public class UpdateFeedbackCommand
+    public class EditFeedbackCommand
     {
         public string Text { get; set; }
         public int? Rating { get; set; }

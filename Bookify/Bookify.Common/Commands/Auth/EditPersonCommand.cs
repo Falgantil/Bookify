@@ -1,6 +1,6 @@
 ﻿namespace Bookify.Common.Commands.Auth
 {
-    public class UpdatePersonCommand
+    public class EditPersonCommand
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

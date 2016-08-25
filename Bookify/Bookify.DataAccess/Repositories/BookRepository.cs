@@ -142,7 +142,7 @@ namespace Bookify.DataAccess.Repositories
             return book.ToDetailedDto();
         }
 
-        public async Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command)
+        public async Task<DetailedBookDto> EditBook(int id, EditBookCommand command)
         {
             var book = await this.Find(id);
             if (book == null) throw new NotFoundException($"the requested item with id: {id} could not be found");

@@ -23,9 +23,9 @@ namespace Bookify.DataAccess.Repositories
             return publisher.ToDto();
         }
 
-        public async Task<PublisherDto> EditPublisher(UpdatePublisherCommand command)
+        public async Task<PublisherDto> EditPublisher(int id, EditPublisherCommand command)
         {
-            var publisher = await this.Find(command.Id);
+            var publisher = await this.Find(id);
             publisher.Name = command.Name;
             publisher = await this.Update(publisher);
             return publisher.ToDto();

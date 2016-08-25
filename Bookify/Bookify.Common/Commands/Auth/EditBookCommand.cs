@@ -2,7 +2,7 @@
 
 namespace Bookify.Common.Commands.Auth
 {
-    public class UpdateBookCommand
+    public class EditBookCommand
     {
         public string ISBN;
         public IEnumerable<int> Genres { get; set; }

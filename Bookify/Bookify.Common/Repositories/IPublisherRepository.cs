@@ -7,7 +7,7 @@ namespace Bookify.Common.Repositories
 {
     public interface IPublisherRepository
     {
-        Task<PublisherDto> EditPublisher(UpdatePublisherCommand command);
+        Task<PublisherDto> EditPublisher(int id, EditPublisherCommand command);
 
         Task<PublisherDto> CreatePublisher(CreatePublisherCommand command);
 

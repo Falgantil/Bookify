@@ -66,11 +66,11 @@
     <Compile Include="Commands\Auth\CreateHistoryCommand.cs" />
     <Compile Include="Commands\Auth\CreateOrderCommand.cs" />
     <Compile Include="Commands\Auth\CreatePublisherCommand.cs" />
-    <Compile Include="Commands\Auth\UpdateBookCommand.cs" />
-    <Compile Include="Commands\Auth\UpdateFeedbackCommand.cs" />
-    <Compile Include="Commands\Auth\UpdateGenreCommand.cs" />
-    <Compile Include="Commands\Auth\UpdatePersonCommand.cs" />
-    <Compile Include="Commands\Auth\UpdatePublisherCommand.cs" />
+    <Compile Include="Commands\Auth\EditBookCommand.cs" />
+    <Compile Include="Commands\Auth\EditFeedbackCommand.cs" />
+    <Compile Include="Commands\Auth\EditGenreCommand.cs" />
+    <Compile Include="Commands\Auth\EditPersonCommand.cs" />
+    <Compile Include="Commands\Auth\EditPublisherCommand.cs" />
     <Compile Include="Enums\BookHistoryType.cs" />
     <Compile Include="Enums\BookOrderStatus.cs" />
     <Compile Include="Exceptions\ApiException.cs" />

@@ -18,25 +18,25 @@ namespace Bookify.API.Controllers
 
         public FilesController(IFileServerRepository fileServerRepository)
         {
-            _fileServerRepository = fileServerRepository;
+            this._fileServerRepository = fileServerRepository;
         }
         #region Epub
 
         [HttpPost]
         [Auth]
-        [Route("{id}/UploadEpub")]
+        [Route("{id}/epub")]
         public async Task<IHttpActionResult> UploadEpub(int id)
         {
             return await this.Try(
                 async () =>
                 {
                     // Check if the request contains multipart/form-data
-                    if (!Request.Content.IsMimeMultipartContent("form-data"))
+                    if (!this.Request.Content.IsMimeMultipartContent("form-data"))
                     {
                         throw new HttpResponseException(HttpStatusCode.BadRequest);
                     }
 
-                    var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
+                    var provider = await this.Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
 
                     //access files
                     IList<HttpContent> files = provider.Files;
@@ -51,7 +51,7 @@ namespace Bookify.API.Controllers
 
         [HttpGet]
         [Auth]
-        [Route("{id}/DownloadEpub")]
+        [Route("{id}/epub")]
         public async Task<IHttpActionResult> DownloadEpub(int id)
         {
             return await this.TryRaw(
@@ -71,32 +71,21 @@ namespace Bookify.API.Controllers
                 });
         }
 
-        [HttpDelete]
-        [Auth]
-        [Route("{id}/DeleteEpub")]
-        public async Task<IHttpActionResult> DeleteEpub(int id)
-        {
-            return await this.Try(
-                async () =>
-                {
-                    await this._fileServerRepository.DeleteEpubFile(id);
-                });
-        }
         [HttpPut]
         [Auth]
-        [Route("{id}/ReplaceEpub")]
+        [Route("{id}/epub")]
         public async Task<IHttpActionResult> ReplaceEpub(int id)
         {
             return await this.Try(
                 async () =>
                 {
                     // Check if the request contains multipart/form-data
-                    if (!Request.Content.IsMimeMultipartContent("form-data"))
+                    if (!this.Request.Content.IsMimeMultipartContent("form-data"))
                     {
                         throw new HttpResponseException(HttpStatusCode.BadRequest);
                     }
 
-                    var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
+                    var provider = await this.Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
 
                     //access files
                     IList<HttpContent> files = provider.Files;
@@ -108,26 +97,38 @@ namespace Bookify.API.Controllers
                     await this._fileServerRepository.ReplaceEpubFile(id, fileStream);
                 });
         }
-    
+
+        [HttpDelete]
+        [Auth]
+        [Route("{id}/epub")]
+        public async Task<IHttpActionResult> DeleteEpub(int id)
+        {
+            return await this.Try(
+                async () =>
+                {
+                    await this._fileServerRepository.DeleteEpubFile(id);
+                });
+        }
+
         #endregion
 
         #region Cover
 
         [HttpPost]
         [Auth]
-        [Route("{id}/UploadCover")]
+        [Route("{id}/cover")]
         public async Task<IHttpActionResult> UploadCover(int id)
         {
             return await this.Try(
                 async () =>
                 {
                     // Check if the request contains multipart/form-data
-                    if (!Request.Content.IsMimeMultipartContent("form-data"))
+                    if (!this.Request.Content.IsMimeMultipartContent("form-data"))
                     {
                         throw new HttpResponseException(HttpStatusCode.BadRequest);
                     }
 
-                    var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
+                    var provider = await this.Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
 
                     //access files
                     IList<HttpContent> files = provider.Files;
@@ -139,12 +140,9 @@ namespace Bookify.API.Controllers
                     await this._fileServerRepository.SaveCoverFile(id, fileStream);
                 });
         }
-
-
-
-
+        
         [HttpGet]
-        [Route("{id}/DownloadCover")]
+        [Route("{id}/cover")]
         public async Task<IHttpActionResult> DownloadCover(int id)
         {
 
@@ -166,33 +164,21 @@ namespace Bookify.API.Controllers
 
         }
 
-        [HttpDelete]
-        [Auth]
-        [Route("{id}/DeleteCover")]
-        public async Task<IHttpActionResult> DeleteCover(int id)
-        {
-            return await this.Try(
-                async () =>
-                {
-                    await this._fileServerRepository.DeleteCoverFile(id);
-                });
-        }
-
         [HttpPut]
         [Auth]
-        [Route("{id}/ReplaceCover")]
+        [Route("{id}/cover")]
         public async Task<IHttpActionResult> ReplaceCover(int id)
         {
             return await this.Try(
                 async () =>
                 {
                     // Check if the request contains multipart/form-data
-                    if (!Request.Content.IsMimeMultipartContent("form-data"))
+                    if (!this.Request.Content.IsMimeMultipartContent("form-data"))
                     {
                         throw new HttpResponseException(HttpStatusCode.BadRequest);
                     }
 
-                    var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
+                    var provider = await this.Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
 
                     //access files
                     IList<HttpContent> files = provider.Files;
@@ -205,6 +191,18 @@ namespace Bookify.API.Controllers
                 });
         }
 
-#endregion
+        [HttpDelete]
+        [Auth]
+        [Route("{id}/cover")]
+        public async Task<IHttpActionResult> DeleteCover(int id)
+        {
+            return await this.Try(
+                async () =>
+                {
+                    await this._fileServerRepository.DeleteCoverFile(id);
+                });
+        }
+
+        #endregion
     }
 }

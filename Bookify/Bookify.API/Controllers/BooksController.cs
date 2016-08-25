@@ -46,7 +46,7 @@ namespace Bookify.API.Controllers
         public async Task<IHttpActionResult> MyBooks([FromUri]BookFilter filter = null)
         {
             filter = filter ?? new BookFilter();
-            var person = await this.GetAuthorizedMember(_authRepo);
+            var person = await this.GetAuthorizedMember(this._authRepo);
             return await this.Try(() => this._bookRepository.GetByFilter(filter, person.PersonDto.Id));
         }
 
@@ -65,10 +65,10 @@ namespace Bookify.API.Controllers
             return await this.TryCreate(() => this._bookRepository.CreateBook(command));
         }
 
-        [HttpPost]
+        [HttpPatch]
         [Auth]
         [Route("{id}")]
-        public async Task<IHttpActionResult> Update(int id, [FromBody]UpdateBookCommand command)
+        public async Task<IHttpActionResult> Update(int id, [FromBody]EditBookCommand command)
         {
             return await this.Try(() => this._bookRepository.EditBook(id, command));
         }
@@ -94,10 +94,8 @@ namespace Bookify.API.Controllers
         {
             return await this.Try(() => this._bookHistoryRepository.GetHistoryForBook(id));
         }
-
-
-
-        [HttpPut]
+        
+        [HttpPost]
         [Route("{id}/buy")]
         public async Task<IHttpActionResult> Buy(int id, [FromUri]string email)
         {
@@ -125,18 +123,8 @@ namespace Bookify.API.Controllers
                         await this._bookOrderRepository.CreateOrder(command);
                     });
         }
-
+        
         [HttpPost]
-        [Auth]
-        [Route("{id}/review")]
-        public async Task<IHttpActionResult> Review(int id, CreateFeedbackCommand command)
-        {
-            var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
-            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, personAuthDto.PersonDto.Id, command));
-        }
-
-
-        [HttpPut]
         [Auth]
         [Route("{id}/borrow")]
         public async Task<IHttpActionResult> Borrow(int id)

@@ -15,6 +15,6 @@ namespace Bookify.Common.Repositories
 
         Task<DetailedBookDto> CreateBook(CreateBookCommand command);
 
-        Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command);
+        Task<DetailedBookDto> EditBook(int id, EditBookCommand command);
     }
 }
