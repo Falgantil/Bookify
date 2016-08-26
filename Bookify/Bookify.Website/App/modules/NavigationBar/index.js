@@ -1,11 +1,18 @@
 import React from 'react';
 import { ButtonGroup, Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router';
+import NavigationViewModel from './navigation-view-model';
 
 /**
  * The NavigationBar.
  */
+@observer
 class NavigationBar extends React.Component {
+    constructor() {
+    super(...arguments);
+    this.model = new NavigationViewModel();
+  }
+
   render() {
     return (
       <div className="navbar navbar-fixed-top">
@@ -23,7 +30,10 @@ class NavigationBar extends React.Component {
               <li><Link to="/book/new">Ny bog</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to="/loginpage">Log ind</Link></li>
+              <li>
+                   {!this.model.Token && (<Link to="/loginpage">Log ind</Link>)} 
+                   {this.model.Token && (<Link to="/me">Hello {this.model.Alias}</Link>) }
+              </li>
             </ul>
           </div>
         </div>

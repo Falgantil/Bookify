@@ -13,6 +13,8 @@ class LoginViewModel {
     $.cookie = "AuthToken="+result.Token+";role="+result.Roles;
     console.log("Token: " + result.Token);
     console.log("Roles: " + result.Roles);
+    console.log("Alias: " + result.Alias);
+    
     return result;
   }
 }

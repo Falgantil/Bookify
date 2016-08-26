@@ -46,7 +46,7 @@ namespace Bookify.DataAccess.Repositories
             return new AuthTokenDto
             {
                 Token = token,
-                Roles = person.Roles.Select(x => x.ToPersonRoleDto().Name).ToArray()
+                Roles = person.Roles.Select(x => x.ToPersonRoleDto().Name).ToArray(),
                 Alias = person.Alias
             };
         }
