@@ -28,11 +28,13 @@ namespace Bookify.Test.APIControllers
             var bookHistoryRepo = new Mock<IBookHistoryRepository>();
             var bookFeedbackRepo = new Mock<IBookFeedbackRepository>();
             var authRepo = new Mock<IAuthenticationRepository>();
+            var personRepository = new Mock<IPersonRepository>();
+            var bookOrderRepository = new Mock<IBookOrderRepository>();
 
             bookRepo.Setup(x => x.GetById(It.IsAny<int>()))
                 .Returns(async (int id) => { return GetStaticBooks().Where(x => x.Id == id).Single().ToDetailedDto(); });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             IHttpActionResult actionResult = await controller.Get(1);
@@ -54,6 +56,8 @@ namespace Bookify.Test.APIControllers
             var bookHistoryRepo = new Mock<IBookHistoryRepository>();
             var bookFeedbackRepo = new Mock<IBookFeedbackRepository>();
             var authRepo = new Mock<IAuthenticationRepository>();
+            var personRepository = new Mock<IPersonRepository>();
+            var bookOrderRepository = new Mock<IBookOrderRepository>();
 
             bookRepo.Setup(x => x.GetById(100))
                 .Returns(async () =>
@@ -61,7 +65,7 @@ namespace Bookify.Test.APIControllers
                     return GetStaticBooks().Where(x => x.Id == 100).SingleOrDefault()?.ToDetailedDto();
                 });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             IHttpActionResult actionResult = await controller.Get(100);
@@ -86,6 +90,8 @@ namespace Bookify.Test.APIControllers
             var bookHistoryRepo = new Mock<IBookHistoryRepository>();
             var bookFeedbackRepo = new Mock<IBookFeedbackRepository>();
             var authRepo = new Mock<IAuthenticationRepository>();
+            var personRepository = new Mock<IPersonRepository>();
+            var bookOrderRepository = new Mock<IBookOrderRepository>();
 
             bookRepo.Setup(x => x.CreateBook(createBookCommand))
                 .Returns(async () =>
@@ -98,7 +104,7 @@ namespace Bookify.Test.APIControllers
                     };
                 });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             var actionResult = await controller.Create(createBookCommand);
@@ -117,19 +123,21 @@ namespace Bookify.Test.APIControllers
             var bookHistoryRepo = new Mock<IBookHistoryRepository>();
             var bookFeedbackRepo = new Mock<IBookFeedbackRepository>();
             var authRepo = new Mock<IAuthenticationRepository>();
+            var personRepository = new Mock<IPersonRepository>();
+            var bookOrderRepository = new Mock<IBookOrderRepository>();
 
-            bookRepo.Setup(x => x.EditBook(It.IsAny<int>(), It.IsAny<UpdateBookCommand>()))
-                .Returns(async (int id, UpdateBookCommand cmd) =>
+            bookRepo.Setup(x => x.EditBook(It.IsAny<int>(), It.IsAny<EditBookCommand>()))
+                .Returns(async (int id, EditBookCommand cmd) =>
                 {
                     var bookToUpdate = GetStaticBooks().Where(x => x.Id == id).Single();
                     bookToUpdate.Price = (decimal)cmd.Price;
                     return bookToUpdate.ToDetailedDto();
                 });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
-            var actionResult = await controller.Update(1, new UpdateBookCommand { Price = 1337 });
+            var actionResult = await controller.Update(1, new EditBookCommand { Price = 1337 });
             var contentResult = actionResult as OkNegotiatedContentResult<DetailedBookDto>;
 
             // Assert

@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+
+using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Services;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Commands.Auth;
@@ -23,13 +25,13 @@ namespace Bookify.App.Core.Tests.Services
             };
 
             var authApi = new Mock<IAuthenticationApi>();
-            var personApi = new Mock<IPersonApi>();
-            personApi.Setup(api => api.GetMyself()).ReturnsAsync(myself);
-            var authService = new AuthenticationService(authApi.Object, personApi.Object);
+            var personService = new Mock<IPersonService>();
+            personService.Setup(api => api.GetMyself()).ReturnsAsync(myself);
+            var authService = new AuthenticationService(authApi.Object, personService.Object);
             
             await authService.Authenticate("email", "password");
             authApi.Verify(api => api.Authenticate(It.IsAny<AuthenticateCommand>()), Times.Once);
-            personApi.Verify(api => api.GetMyself(), Times.Once);
+            personService.Verify(api => api.GetMyself(), Times.Once);
             authService.LoggedOnAccount.ShouldNotBeNull();
             authService.LoggedOnAccount.Person.ShouldBe(myself);
             authService.LoggedOnAccount.ShouldNotBeNull();
@@ -51,9 +53,9 @@ namespace Bookify.App.Core.Tests.Services
             };
 
             var authApi = new Mock<IAuthenticationApi>();
-            var personApi = new Mock<IPersonApi>();
-            personApi.Setup(api => api.GetMyself()).ReturnsAsync(myself);
-            var authService = new AuthenticationService(authApi.Object, personApi.Object);
+            var personService = new Mock<IPersonService>();
+            personService.Setup(api => api.GetMyself()).ReturnsAsync(myself);
+            var authService = new AuthenticationService(authApi.Object, personService.Object);
             int changed = 0;
             authService.AuthChanged += (sender, model) => changed++;
 

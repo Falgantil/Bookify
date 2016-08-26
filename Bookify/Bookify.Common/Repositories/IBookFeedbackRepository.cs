@@ -9,7 +9,7 @@ namespace Bookify.Common.Repositories
     {
         Task<BookFeedbackDto> CreateFeedback(int bookid, int personId, CreateFeedbackCommand command);
         Task<IPaginatedEnumerable<BookFeedbackDto>> GetByFilter(FeedbackFilter filter);
-        Task<BookFeedbackDto> EditFeedback(int bookId, int personId, UpdateFeedbackCommand command);
+        Task<BookFeedbackDto> EditFeedback(int bookId, int personId, EditFeedbackCommand command);
         Task DeleteFeedback(int bookId, int personId);
     }
 }

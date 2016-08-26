@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Sdk.Interfaces;
@@ -34,7 +35,9 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<IPaginatedEnumerable<GenreDto>> GetItems(GenreFilter filter)
         {
-            return await this.api.GetGenres(filter);
+            var genreDtos = await this.api.GetGenres(filter);
+            var items = genreDtos.ToList();
+            return new PaginatedEnumerable<GenreDto>(items, items.Count);
         }
     }
 }

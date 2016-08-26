@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -29,7 +30,16 @@ namespace Bookify.API.Controllers
             return await this.TryRaw(async () =>
             {
                 await operation();
-                return this.Ok();
+                return this.StatusCode(HttpStatusCode.NoContent);
+            });
+        }
+
+        public async Task<IHttpActionResult> TryCreate<T>(Func<Task<T>> operation)
+        {
+            return await this.TryRaw(async () =>
+            {
+                var content = await operation();
+                return this.Content(HttpStatusCode.Created, content);
             });
         }
 

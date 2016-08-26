@@ -2,9 +2,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using Bookify.App.Core.ViewModels;
-using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.Sdk.Exceptions;
 using MonoTouch.Dialog;
@@ -13,7 +11,7 @@ using UIKit;
 
 namespace Bookify.App.iOS.Ui.Controllers
 {
-    public class RegistrationViewController : ExtendedDialogViewController
+    public class RegistrationViewController : ExtendedDialogViewController<RegistrationViewModel>
     {
         public RegistrationViewController()
             : base(UITableViewStyle.Grouped, null, true)
@@ -23,9 +21,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            this.ViewModel = AppDelegate.Root.Resolve<RegistrationViewModel>();
-
+            
             var eleFirstName = new EntryElement(string.Empty, "Fornavn", this.ViewModel.FirstName)
             {
                 AutocapitalizationType = UITextAutocapitalizationType.Words,
@@ -129,9 +125,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             await this.Parent.SidebarController.ParentViewController.DismissViewControllerAsync(true);
         }
-
-        public RegistrationViewModel ViewModel { get; set; }
-
+        
         public FrontSidebarMenuController Parent { get; set; }
     }
 }

@@ -10,13 +10,13 @@
 
         public static string GenresRoot => UrlHelper.Combine(Website, "genres");
 
-        public static string CoverUrl => UrlHelper.Combine(FilesRoot, "{bookId}/downloadcover");
-
         public static string AuthRoot => UrlHelper.Combine(Website, "auth");
 
         public static string PersonRoot => UrlHelper.Combine(Website, "persons");
 
         public static string FeedbackRoot => UrlHelper.Combine(Website, "feedbacks");
+
+        public static string CoverUrl => UrlHelper.Combine(FilesRoot, "{bookId}/downloadcover");
 
         public static string GetCoverUrl(int bookId, int? width = null, int? height = null)
         {

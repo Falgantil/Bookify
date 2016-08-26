@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-
+using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
@@ -18,14 +18,30 @@ namespace Bookify.App.Core.Services
         /// </summary>
         private readonly IBooksApi api;
 
+        private readonly IFilesApi filesApi;
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="BooksService"/> class.
+        /// Initializes a new instance of the <see cref="BooksService" /> class.
         /// </summary>
         /// <param name="api">The API.</param>
-        public BooksService(IBooksApi api)
+        /// <param name="filesApi">The files API.</param>
+        public BooksService(IBooksApi api, IFilesApi filesApi)
         {
             this.api = api;
+            this.filesApi = filesApi;
+            this.MyBooks = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this, new BookFilter
+            {
+                MyBooks = true
+            });
         }
+
+        /// <summary>
+        /// Gets my books.
+        /// </summary>
+        /// <value>
+        /// My books.
+        /// </value>
+        public ObservableServiceCollection<BookDto, BookFilter, IBooksService> MyBooks { get; }
 
         /// <summary>
         /// Gets the book with the specified ID.
@@ -44,7 +60,16 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<IPaginatedEnumerable<BookDto>> GetItems(BookFilter filter)
         {
-            return await this.api.GetBooks(filter);
+            if (!filter.MyBooks)
+            {
+                return await this.api.GetBooks(filter);
+            }
+            return await this.api.GetMyBooks(filter);
+        }
+
+        public async Task<byte[]> DownloadBook(int id)
+        {
+            return await this.filesApi.DownloadBook(id);
         }
     }
 }

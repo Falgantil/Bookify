@@ -50,7 +50,7 @@ namespace Bookify.DataAccess.Repositories
             return new PaginatedEnumerable<BookFeedbackDto>(feedbacksList.Select(x => x.ToDto()), feedbackAmount);
         }
 
-        public async Task<BookFeedbackDto> EditFeedback(int bookId, int personId, UpdateFeedbackCommand command)
+        public async Task<BookFeedbackDto> EditFeedback(int bookId, int personId, EditFeedbackCommand command)
         {
             var feedback = await this.Context.BookFeedback.Where(x => x.BookId == bookId && x.PersonId == personId).SingleAsync();
             //if (feedback == null) throw new NotFoundException($"the requested item with bookId: {bookId} and personId: {personId} could not be found");

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
@@ -13,7 +14,7 @@ namespace Bookify.App.Sdk.Implementations
 
         }
 
-        public async Task<IPaginatedEnumerable<GenreDto>> GetGenres(GenreFilter filter)
+        public async Task<IEnumerable<GenreDto>> GetGenres(GenreFilter filter)
         {
             var request = new RequestBuilder()
                 .BaseUri(this.Url)
@@ -23,7 +24,7 @@ namespace Bookify.App.Sdk.Implementations
             {
                 request.AddQuery(nameof(filter.Search), filter.Search);
             }
-            return await this.ExecuteAndParse<PaginatedEnumerable<GenreDto>>(request);
+            return await this.ExecuteAndParse<GenreDto[]>(request);
         }
     }
 }

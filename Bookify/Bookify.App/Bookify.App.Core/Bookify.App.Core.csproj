@@ -45,12 +45,14 @@
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Interfaces\Services\IDelayService.cs" />
     <Compile Include="Interfaces\Services\IGetByFilterService.cs" />
+    <Compile Include="Interfaces\Services\IPersonService.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Services\Config.cs" />
     <Compile Include="Services\DelayService.cs" />
     <Compile Include="Services\JsonCachingRegion.cs" />
     <Compile Include="Services\CachingRegionFactory.cs" />
     <Compile Include="Interfaces\Services\IGenreService.cs" />
+    <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\ShoppingCartService.cs" />
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Services\GenreService.cs" />
@@ -72,9 +74,13 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookSummaryViewModel.cs" />
     <Compile Include="ViewModels\BrowseViewModel.cs" />
+    <Compile Include="ViewModels\CreateReviewViewModel.cs" />
     <Compile Include="ViewModels\FeaturedViewModel.cs" />
     <Compile Include="ViewModels\GenresViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyBooksViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
+    <Compile Include="ViewModels\ReadBookViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\ReviewsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
@@ -86,18 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acr.UserDialogs.6.1.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+      <HintPath>..\packages\Acr.UserDialogs.6.1.2\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acr.UserDialogs.6.1.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
+      <HintPath>..\packages\Acr.UserDialogs.6.1.2\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="eBdb.EpubReader">
-      <HintPath>..\Libraries\EPub Reader\eBdb.EpubReader.dll</HintPath>
-    </Reference>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\Libraries\EPub Reader\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wp8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>
@@ -151,6 +151,10 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="VersFx.Formats.Text.Epub, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VersFx.Formats.Text.Epub.1.0.1\lib\VersFx.Formats.Text.Epub.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
@@ -167,15 +171,15 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -63,10 +63,11 @@ namespace Bookify.App.iOS.Ui.Controllers
             //{
             //    options.Add(OptReadBook);
             //}
-            //else if (this.ViewModel.Borrowable)
-            //{
-            //    options.Add(OptBorrowBook);
-            //}
+            //else 
+            if (this.ViewModel.IsLoggedIn)
+            {
+                options.Add(OptBorrowBook);
+            }
             var result = await this.DialogService.ActionSheetAsync(MsgTitle, OptCancel, null, null, options.ToArray());
             switch (result)
             {
@@ -89,14 +90,37 @@ namespace Bookify.App.iOS.Ui.Controllers
             await this.ViewModel.AddToCart();
         }
 
-        private void ReadBook_Clicked()
+        private async void ReadBook_Clicked()
         {
-            
+            string bookEpub;
+            using (this.DialogService.Loading("Henter bog..."))
+            {
+                bookEpub = await this.TryTask(async () => await this.ViewModel.DownloadBook(),
+                "Forespørgslen kunne ikke blive behandlet på serveren",
+                "Du har ikke tilladelse til at læse denne bog",
+                "Bogen blev ikke fundet i databasen");
+
+                if (bookEpub == null)
+                {
+                    return;
+                }
+            }
+            var storyboard = Storyboards.Storyboard.Main;
+            var vc = (ReadBookViewController)storyboard.InstantiateViewController(ReadBookViewController.StoryboardIdentifier);
+            vc.Book = this.ViewModel.Book;
+            vc.Epub = bookEpub;
+            this.NavigationController.PushViewController(vc, true);
         }
 
-        private void BorrowBook_Clicked()
+        private async void BorrowBook_Clicked()
         {
-            
+            var yes = await this.DialogService.ConfirmAsync("Er du sikker på at du ønsker at låne denne bog i 30 dage?", "Godkend lån", "OK");
+            if (!yes)
+            {
+                return;
+            }
+
+            await this.ViewModel.BorrowBook();
         }
 
         protected override void CreateBindings()

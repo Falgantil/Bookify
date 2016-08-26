@@ -104,7 +104,7 @@ namespace Bookify.App.Core.Tests.Collections
             collection.Count.ShouldBe(1);
             collection.IsLoading.ShouldBeFalse();
             collection.ReachedBottom.ShouldBeTrue();
-            collection[0].Id.ShouldBe(1);
+            collection[0].Id.ShouldBe(2);
         }
 
         public class TestDto

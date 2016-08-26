@@ -21,19 +21,25 @@ namespace Bookify.App.Core.Services
         private readonly IAuthenticationApi authApi;
 
         /// <summary>
-        /// The person API
+        /// The person service
         /// </summary>
-        private readonly IPersonApi personApi;
+        private readonly IPersonService personService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
+        /// Initializes a new instance of the <see cref="AuthenticationService" /> class.
         /// </summary>
         /// <param name="authApi">The authentication API.</param>
-        /// <param name="personApi">The person API.</param>
-        public AuthenticationService(IAuthenticationApi authApi, IPersonApi personApi)
+        /// <param name="personService">The person service.</param>
+        public AuthenticationService(IAuthenticationApi authApi, IPersonService personService)
         {
             this.authApi = authApi;
-            this.personApi = personApi;
+            this.personService = personService;
+
+            this.personService.SubscriptionChanged += (sender, b) =>
+            {
+                this.LoggedOnAccount.Person.IsSubscribed = true;
+                this.OnLoggedOnAccountChanged();
+            };
         }
 
         /// <summary>
@@ -70,7 +76,7 @@ namespace Bookify.App.Core.Services
                 Email = email,
                 Password = password
             });
-            var myself = await this.personApi.GetMyself();
+            var myself = await this.personService.GetMyself();
 
             this.LoggedOnAccount = new AccountModel(token, myself);
         }
@@ -94,7 +100,7 @@ namespace Bookify.App.Core.Services
         {
             this.LoggedOnAccount = account;
             await this.authApi.Authenticate(account.Token);
-            var myself = await this.personApi.GetMyself();
+            var myself = await this.personService.GetMyself();
             this.LoggedOnAccount.Person = myself;
         }
 
@@ -117,7 +123,7 @@ namespace Bookify.App.Core.Services
                 Email = email,
                 Username = username,
             });
-            var myself = await this.personApi.GetMyself();
+            var myself = await this.personService.GetMyself();
 
             this.LoggedOnAccount = new AccountModel(token, myself);
         }

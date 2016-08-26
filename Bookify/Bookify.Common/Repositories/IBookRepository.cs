@@ -9,12 +9,12 @@ namespace Bookify.Common.Repositories
     {
         Task<DetailedBookDto> GetById(int id);
 
-        Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter);
+        Task<IPaginatedEnumerable<BookDto>> GetByFilter(BookFilter filter, int? personId = null);
 
         Task<BookStatisticsDto> FindForStatistics(int id);
 
         Task<DetailedBookDto> CreateBook(CreateBookCommand command);
 
-        Task<DetailedBookDto> EditBook(int id, UpdateBookCommand command);
+        Task<DetailedBookDto> EditBook(int id, EditBookCommand command);
     }
 }

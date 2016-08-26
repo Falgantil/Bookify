@@ -10,7 +10,7 @@ namespace Bookify.API.Controllers
     [RoutePrefix("genres")]
     public class GenresController : BaseApiController
     {
-        private IGenreRepository genreRepository;
+        private readonly IGenreRepository genreRepository;
         public GenresController(IGenreRepository genreRepository)
         {
             this.genreRepository = genreRepository;
@@ -24,7 +24,14 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this.genreRepository.GetByFilter(filter));
         }
 
-        [HttpPut]
+        [HttpGet]
+        [Route("[id]")]
+        public async Task<IHttpActionResult> Get(int id)
+        {
+            return await this.Try(() => this.genreRepository.GetById(id));
+        }
+
+        [HttpPost]
         [Auth]
         [Route("")]
         public async Task<IHttpActionResult> Create([FromBody]CreateGenreCommand command)
@@ -32,13 +39,12 @@ namespace Bookify.API.Controllers
             return await this.Try(async () => await this.genreRepository.CreateGenre(command));
         }
 
-        [HttpPost]
+        [HttpPatch]
         [Auth]
         [Route("{id}")]
-        public async Task<IHttpActionResult> Update(int id, UpdateGenreCommand command)
+        public async Task<IHttpActionResult> Update(int id, [FromBody]EditGenreCommand command)
         {
-            command.Id = id;
-            return await this.Try(async () => await this.genreRepository.EditGenre(command));
+            return await this.Try(async () => await this.genreRepository.EditGenre(id, command));
         }
     }
 }

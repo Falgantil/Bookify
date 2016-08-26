@@ -15,7 +15,7 @@ namespace Bookify.API.Controllers
 
         public BookFeedbackController(IBookFeedbackRepository bookFeedbackRepository, IAuthenticationRepository authRepo)
         {
-            _bookFeedbackRepository = bookFeedbackRepository;
+            this._bookFeedbackRepository = bookFeedbackRepository;
             this._authRepo = authRepo;
         }
 
@@ -27,25 +27,27 @@ namespace Bookify.API.Controllers
             return await this.Try(() => this._bookFeedbackRepository.GetByFilter(filter));
         }
 
-        [HttpPut]
+        [HttpPost]
         [Auth]
         [Route("{id}")]
         public async Task<IHttpActionResult> Create(int id, CreateFeedbackCommand command)
         {
             var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
-            return await this.Try(() => this._bookFeedbackRepository.CreateFeedback(id, personAuthDto.PersonDto.Id, command));
+            return await this.TryCreate(() => this._bookFeedbackRepository.CreateFeedback(id, personAuthDto.PersonDto.Id, command));
         }
-        [HttpPost]
+
+        [HttpPatch]
         [Auth]
         [Route("{id}")]
-        public async Task<IHttpActionResult> Update(int id, UpdateFeedbackCommand command)
+        public async Task<IHttpActionResult> Update(int id, EditFeedbackCommand command)
         {
             var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
             return await this.Try(() => this._bookFeedbackRepository.EditFeedback(id, personAuthDto.PersonDto.Id, command));
         }
-        [HttpGet]
+
+        [HttpDelete]
         [Auth]
-        [Route("{id}/delete")]
+        [Route("{id}")]
         public async Task<IHttpActionResult> Delete(int id)
         {
             var personAuthDto = await this.GetAuthorizedMember(this._authRepo);

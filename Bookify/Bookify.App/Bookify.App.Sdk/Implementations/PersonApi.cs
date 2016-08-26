@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using Bookify.App.Sdk.Interfaces;
@@ -23,6 +24,15 @@ namespace Bookify.App.Sdk.Implementations
             var response = await this.ExecuteRequest(request);
             var json = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<PersonDto>(json);
+        }
+
+        public async Task Subscribe()
+        {
+            var request = new RequestBuilder()
+                .BaseUri(this.CombineUrl("subscribe"))
+                .Method(HttpMethod.Post);
+
+            await this.ExecuteRequest(request);
         }
     }
 }
