@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="8f52130d-fce2-41d5-83a9-920b718912ae" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="40e9f3fa-1e83-4722-8efb-eb9ca059a3d9" name="Presentation Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="a183595b-6481-4744-afcf-c3b6203402d5" direction="Bidirectional">
+          <layerMoniker Id="b78fba67-df4b-43c0-8014-00c499b8f2da" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="9702332e-87c0-4319-a794-1dd7b89ea53a" name="Website" />
+        <layer Id="2a7f8e97-1152-4db4-9e10-9bb8244aca41" name="Phone Application" />
+        <layer Id="8b98043b-5b73-40ba-a0ba-ab9973219518" name="3rd-party application" />
+      </childLayers>
+    </layer>
+    <layer Id="b78fba67-df4b-43c0-8014-00c499b8f2da" name="Service Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="7283962a-85fe-4fe7-bee0-b87090382bd1" direction="Bidirectional">
+          <layerMoniker Id="3abdf375-6361-4715-8614-46309d8fd2f2" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="6bd2c886-0115-47b6-aa46-a2f1a6375a1c" name="REST API">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="5909b56d-e804-4310-bf3c-12762878d61b" direction="Forward">
+              <layerMoniker Id="6501ba00-2fe0-415a-8e37-0ed354d38450" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="6501ba00-2fe0-415a-8e37-0ed354d38450" name="Data Transfer Objects (DTO)" />
+        <layer Id="543ef7d7-1bde-4600-97c9-35132d657f3d" name="Commands / Filters">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="0758e12c-36ee-4d0f-988e-7c96b0b90e9b" direction="Forward">
+              <layerMoniker Id="6bd2c886-0115-47b6-aa46-a2f1a6375a1c" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="3abdf375-6361-4715-8614-46309d8fd2f2" name="Data Layer">
+      <childLayers>
+        <layer Id="bfab4ce9-eb68-4f7f-9fd4-3f0aad1436d6" name="Repositories">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="44360ad4-6627-4697-b0b4-fc5d131eddff" direction="Bidirectional">
+              <layerMoniker Id="1b9f9cea-bc24-4ba4-b395-530eb97c75bc" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="d203474c-3b60-44eb-b337-5fef12266fd3" direction="Forward">
+              <layerMoniker Id="3f9410ed-64f7-47ee-b288-9d70d33958b6" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="1b9f9cea-bc24-4ba4-b395-530eb97c75bc" name="Data Context" />
+        <layer Id="3f9410ed-64f7-47ee-b288-9d70d33958b6" name="Models" />
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

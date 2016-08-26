@@ -43,12 +43,12 @@ getBooks(args) {
 }
   getBook(id) { return http.get(baseUrl + 'books/' + id); }
   getBookFeedback(id) { return http.get(baseUrl + 'books/getbookfeedback/' + id); }
-  getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/downloadcover'; }
+  getBookThumbnailSrc(id) { return baseUrl + 'files/' + id + '/cover'; }
 
   postBook(book) { return http.post(baseUrl + 'books', book, { headers: { 'Authorization': 'jwt ' + authToken } }); }
   postBookCover(bookId, data) {
     $.ajax({
-      url: baseUrl + 'files/' + bookId + '/uploadcover',
+      url: baseUrl + 'files/' + bookId + '/cover',
       type: 'POST',
       processData: false,
       contentType: false,
@@ -59,7 +59,7 @@ getBooks(args) {
 
   postBookEPub(bookId, data) {
     $.ajax({
-      url: baseUrl + 'files/' + bookId + '/uploadepub',
+      url: baseUrl + 'files/' + bookId + '/epub',
       type: 'POST',
       processData: false,
       contentType: false,
