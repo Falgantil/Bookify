@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="9594b161-b489-45bf-aa23-a27838dcf138"
   name="Bookify.ModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -485,6 +485,86 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="1e3a2e74-c79f-4806-9b56-508f4b2c8334"
+            isDerived="false"
+            sourceEndRoleName="Customer"
+            targetEndRoleName="Search"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c7c2ec9a-569b-4c4c-b02d-28b5ca543bac"
+              LastKnownName="Search"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0f3a80ed-31a4-4507-bdd8-7aa85595015b"
+                  name="Customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0a995e0d-e518-42ff-b770-3fe6caf4e557"
+                  name="Search"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6568e2ef-5a49-4cef-86b6-1d0a44056bc7"
+            isDerived="false"
+            sourceEndRoleName="Customer"
+            targetEndRoleName="Browse categories"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cfcf2904-ad8b-4636-93fd-c70aa8fa3349"
+              LastKnownName="Browse categories"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ceed3c78-cfb0-4c91-8b02-d03c5f08f3b3"
+                  name="Customer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1edb1e59-acf2-4994-9e20-3d86d4d2fb9e"
+                  name="Browse categories"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -534,6 +614,86 @@
                 <memberEnd
                   Id="4ef3dfb0-969b-4968-a25b-add3c3b0cf9b"
                   name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bd16b6e6-34c7-4560-aeca-023fa39c7f56"
+            isDerived="false"
+            sourceEndRoleName="Member"
+            targetEndRoleName="View account details"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a75faa6c-66e3-4b45-a6dc-785f4f84879b"
+              LastKnownName="View account details"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fc3587e7-61b7-4f61-88d2-da66ce987818"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b36c6351-de85-4c21-88bc-6b8e62fc7e7a"
+                  name="View account details"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ea5cb5e5-b5d0-4dba-bda5-27d40b2e57e5"
+            isDerived="false"
+            sourceEndRoleName="Member"
+            targetEndRoleName="Subscribe"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1d4618f1-f6be-46d9-8196-56212a9161e0"
+              LastKnownName="Subscribe"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="99007df0-9f89-4edc-91f9-79094a021f17"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51e17af1-a2e4-4857-b2d3-21f82646d08d"
+                  name="Subscribe"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1043,6 +1203,13 @@
               LastKnownName="View results"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </include>
+          <include
+            Id="38270c56-3212-4380-ad0a-5596379ae066">
+            <useCaseMoniker
+              Id="578cb98c-7786-44cd-99ea-3ae5b58964fc"
+              LastKnownName="View book details"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </include>
         </additions>
       </useCase>
     </packageHasNamedElement>
@@ -1068,6 +1235,13 @@
             <useCaseMoniker
               Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0"
               LastKnownName="View results"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </include>
+          <include
+            Id="0825fc3d-98ee-491d-8106-2c0507752fa5">
+            <useCaseMoniker
+              Id="578cb98c-7786-44cd-99ea-3ae5b58964fc"
+              LastKnownName="View book details"
               LastKnownLocation="Bookify.ModelingProject.uml" />
           </include>
         </additions>
@@ -2095,6 +2269,20 @@
             isComposite="false" />
         </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4f0160e0-1302-4bbe-8a58-32241f5e365e"
+        name="View brought books"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1d4618f1-f6be-46d9-8196-56212a9161e0"
+        name="Subscribe"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
