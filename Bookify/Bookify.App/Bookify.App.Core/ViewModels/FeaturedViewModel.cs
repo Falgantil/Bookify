@@ -1,14 +1,8 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
-using Polly;
 
 namespace Bookify.App.Core.ViewModels
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using Bookify.Common.Enums;
+﻿using Bookify.Common.Enums;
 
 namespace Bookify.Common.Commands.Auth
 {

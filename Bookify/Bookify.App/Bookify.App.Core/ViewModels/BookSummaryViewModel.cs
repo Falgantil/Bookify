@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Specialized;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Services;
 using Bookify.Common.Models;
-using eBdb.EpubReader;
 
 namespace Bookify.App.Core.ViewModels
 {
@@ -17,7 +14,7 @@ namespace Bookify.App.Core.ViewModels
         private readonly IShoppingCartService shoppingCartService;
         private readonly IAuthenticationService authService;
 
-        public BookSummaryViewModel(BookDto book, IBooksService booksService, IShoppingCartService shoppingCartService, IAuthenticationService authService)
+        public BookSummaryViewModel(DetailedBookDto book, IBooksService booksService, IShoppingCartService shoppingCartService, IAuthenticationService authService)
         {
             if (book == null)
             {
@@ -43,7 +40,7 @@ namespace Bookify.App.Core.ViewModels
             this.OnPropertyChanged(nameof(this.OwnsBook));
         }
 
-        public BookDto Book { get; }
+        public DetailedBookDto Book { get; }
 
         public bool IsLoggedIn => this.authService.LoggedOnAccount != null;
 
@@ -59,11 +56,9 @@ namespace Bookify.App.Core.ViewModels
 
         }
 
-        public async Task<string> DownloadBook()
+        public async Task<byte[]> DownloadBook()
         {
-            var downloadBook = await this.booksService.DownloadBook(this.Book.Id);
-            var epub = new Epub(new MemoryStream(downloadBook));
-            return await Task.Run(() => epub.GetContentAsHtml());
+            return await this.booksService.DownloadBook(this.Book.Id);
         }
     }
 }

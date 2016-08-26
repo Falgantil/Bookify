@@ -151,12 +151,12 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="VersFx.Formats.Text.Epub, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VersFx.Formats.Text.Epub.1.0.1\lib\VersFx.Formats.Text.Epub.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\EpubReader.Net\EpubReader.Net.Core\EpubReader.Net.Core.csproj">
+      <Project>{6D2470B8-3B55-49FB-8BB2-D4DB79AA7E4D}</Project>
+      <Name>EpubReader.Net.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
       <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
       <Name>Bookify.Common</Name>

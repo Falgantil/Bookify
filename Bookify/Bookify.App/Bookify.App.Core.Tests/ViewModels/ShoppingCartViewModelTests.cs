@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
-using Bookify.App.Core.Services;
 using Bookify.App.Core.ViewModels;
 using Bookify.Common.Models;
 

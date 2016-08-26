@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Bookify.App.Core.Collections;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.Common.Filter;

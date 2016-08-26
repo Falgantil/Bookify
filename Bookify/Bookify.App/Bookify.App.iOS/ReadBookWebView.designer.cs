@@ -11,19 +11,11 @@ using UIKit;
 
 namespace Bookify.App.iOS
 {
-    [Register ("ReadBookViewController")]
-    partial class ReadBookViewController
+    [Register ("ReadBookWebView")]
+    partial class ReadBookWebView
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        Bookify.App.iOS.ReadBookWebView webContent { get; set; }
-        
         void ReleaseDesignerOutlets ()
         {
-            if (webContent != null) {
-                webContent.Dispose ();
-                webContent = null;
-            }
         }
     }
 }

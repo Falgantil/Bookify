@@ -75,7 +75,7 @@ namespace Bookify.App.Core.Initialization
         {
             this.kernel = new StandardKernel();
 
-            ApiConfig.Website = "http://bookifyapi.azurewebsites.net/";
+            ApiConfig.Website = "https://bookifyapi.azurewebsites.net/";
 
             this.platformInitializer.BeforeInit(this.kernel);
 

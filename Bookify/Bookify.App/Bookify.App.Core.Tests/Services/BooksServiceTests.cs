@@ -17,7 +17,8 @@ namespace Bookify.App.Core.Tests.Services
         public async Task VerifyGettingBooksByFilterCallsTheRightApiMethodDependingOnFilter()
         {
             var booksApi = new Mock<IBooksApi>();
-            var service = new BooksService(booksApi.Object);
+            var filesApi = new Mock<IFilesApi>();
+            var service = new BooksService(booksApi.Object, filesApi.Object);
 
             booksApi.Verify(api => api.GetBooks(It.IsAny<BookFilter>()), Times.Never);
             booksApi.Verify(api => api.GetMyBooks(It.IsAny<BookFilter>()), Times.Never);

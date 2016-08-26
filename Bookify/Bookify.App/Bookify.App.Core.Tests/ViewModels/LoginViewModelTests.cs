@@ -4,12 +4,10 @@
 // -------------------------------------------
 // PersonName: Bjarke Søgaard <sogaardbjarke@gmail.com>
 
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Core.Services;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.Sdk.Exceptions;
 using Bookify.Common.Models;

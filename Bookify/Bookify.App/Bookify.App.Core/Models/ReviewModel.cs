@@ -1,5 +1,3 @@
-using System;
-
 namespace Bookify.App.Core.Models
 {
     public class ReviewModel : BaseDataModel

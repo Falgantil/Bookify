@@ -3,9 +3,7 @@ using System.ComponentModel;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Bookify.App.Core.Services;
 using Bookify.App.Sdk.Exceptions;
-using Bookify.App.Sdk.Interfaces;
 using Polly;
 
 namespace Bookify.App.Core.ViewModels

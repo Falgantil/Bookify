@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
-using Bookify.App.Core.Services;
 
 namespace Bookify.App.Core.ViewModels
 {

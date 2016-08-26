@@ -48,6 +48,11 @@ namespace Bookify.App.iOS.Ui.Controllers.Base
         {
             base.ViewDidLoad();
             this.ViewModel = this.CreateViewModel();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
             this.CreateBindings();
         }
 
@@ -60,7 +65,7 @@ namespace Bookify.App.iOS.Ui.Controllers.Base
 
         protected override void Dispose(bool disposing)
         {
-            this.ViewModel.Dispose();
+            this.ViewModel?.Dispose();
             base.Dispose(disposing);
         }
 
