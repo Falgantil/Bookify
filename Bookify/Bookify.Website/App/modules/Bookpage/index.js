@@ -3,7 +3,7 @@ import BookpageViewModel from './bookpage-view-model';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 import { Link } from 'react-router';
-import BookListView from '../BookList';
+import BookListView from '../Shared/BookList';
 import RatingView from '../Shared/rating-view';
 import bookifyapi from '../util/bookifyapi';
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import BookListViewModel from './booklist-view-model';
-import bookifyapi from '../util/bookifyapi';
+import bookifyapi from '../../util/bookifyapi';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 import { Link } from 'react-router'

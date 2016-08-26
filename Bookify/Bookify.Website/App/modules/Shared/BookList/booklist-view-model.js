@@ -1,4 +1,4 @@
-import bookifyapi from '../util/bookifyapi';
+import bookifyapi from '../../util/bookifyapi';
 import {observable, computed} from "mobx";
 
 class BookListViewModel {
