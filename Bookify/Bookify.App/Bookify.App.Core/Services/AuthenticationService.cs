@@ -92,7 +92,7 @@ namespace Bookify.App.Core.Services
         }
 
         /// <summary>
-        /// Restores from account.
+        /// Restores an Authentication state based off of <see cref="account"/>.
         /// </summary>
         /// <param name="account">The account.</param>
         /// <returns></returns>

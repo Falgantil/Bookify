@@ -1,1 +1,0 @@
-Source: http://epubreader.codeplex.com/

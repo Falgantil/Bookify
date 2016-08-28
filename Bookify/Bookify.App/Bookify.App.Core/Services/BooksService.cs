@@ -10,29 +10,31 @@ namespace Bookify.App.Core.Services
     /// <summary>
     /// The Book Service implementation
     /// </summary>
-    /// <seealso cref="Bookify.App.Core.Interfaces.Services.IBooksService" />
+    /// <seealso cref="IBooksService" />
     public class BooksService : IBooksService
     {
         /// <summary>
-        /// The API
+        /// The Books API
         /// </summary>
-        private readonly IBooksApi api;
+        private readonly IBooksApi booksApi;
 
+        /// <summary>
+        /// The Files API
+        /// </summary>
         private readonly IFilesApi filesApi;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BooksService" /> class.
         /// </summary>
-        /// <param name="api">The API.</param>
+        /// <param name="booksApi">The books API.</param>
         /// <param name="filesApi">The files API.</param>
-        public BooksService(IBooksApi api, IFilesApi filesApi)
+        public BooksService(IBooksApi booksApi, IFilesApi filesApi)
         {
-            this.api = api;
+            this.booksApi = booksApi;
             this.filesApi = filesApi;
-            this.MyBooks = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(this, new BookFilter
-            {
-                MyBooks = true
-            });
+            this.MyBooks = new ObservableServiceCollection<BookDto, BookFilter, IBooksService>(
+                this,
+                new BookFilter { MyBooks = true });
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<DetailedBookDto> GetBook(int id)
         {
-            return await this.api.Get(id);
+            return await this.booksApi.Get(id);
         }
 
         /// <summary>
@@ -62,11 +64,16 @@ namespace Bookify.App.Core.Services
         {
             if (!filter.MyBooks)
             {
-                return await this.api.GetBooks(filter);
+                return await this.booksApi.GetBooks(filter);
             }
-            return await this.api.GetMyBooks(filter);
+            return await this.booksApi.GetMyBooks(filter);
         }
 
+        /// <summary>
+        /// Downloads the book as an Epub file.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public async Task<byte[]> DownloadBook(int id)
         {
             return await this.filesApi.DownloadBook(id);

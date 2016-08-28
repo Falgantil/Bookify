@@ -115,6 +115,7 @@
     <Compile Include="ReadBookWebView.designer.cs">
       <DependentUpon>ReadBookWebView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Controllers\Base\ExtendedTableViewController.cs" />
     <Compile Include="Ui\Controllers\MyBooksViewController.cs" />
     <Compile Include="Ui\Controllers\MyBooksViewController.designer.cs">
       <DependentUpon>MyBooksViewController.cs</DependentUpon>
