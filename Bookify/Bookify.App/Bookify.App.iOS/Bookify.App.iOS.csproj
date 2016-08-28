@@ -282,6 +282,14 @@
       <HintPath>..\packages\Cirrious.FluentLayout.2.5.0\lib\Xamarin.iOS10\Cirrious.FluentLayouts.Touch.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EpubReader.Net.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\EpubReader.Net\EpubReader.Net.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib.Portable, Version=0.86.0.51803, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\EpubReader.Net\ICSharpCode.SharpZipLib.Portable.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
@@ -314,6 +322,14 @@
     <Reference Include="Polly, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Polly.4.3.0\lib\dotnet\Polly.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Rope.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Rope.Net\Rope.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Rope.Net.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Rope.Net\iOS\Rope.Net.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
@@ -354,20 +370,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\EpubReader.Net\EpubReader.Net.Core\EpubReader.Net.Core.csproj">
-      <Project>{6d2470b8-3b55-49fb-8bb2-d4db79aa7e4d}</Project>
-      <Name>EpubReader.Net.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Rope.Net\Rope.Net.iOS\Rope.Net.iOS.csproj">
-      <Project>{86edc4d2-21cc-4699-a52f-2388659d4409}</Project>
-      <Name>Rope.Net.iOS</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Rope.Net\Rope.Net\Rope.Net.csproj">
-      <Project>{30972563-e69c-4e3d-9720-0d9e858c8939}</Project>
-      <Name>Rope.Net</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Bookify.Common\Bookify.Common.csproj">
       <Project>{c8674475-1ccb-4d3c-a455-471eea08198f}</Project>
       <Name>Bookify.Common</Name>
