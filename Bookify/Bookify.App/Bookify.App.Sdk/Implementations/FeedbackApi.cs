@@ -45,8 +45,7 @@ namespace Bookify.App.Sdk.Implementations
             var request = new RequestBuilder()
                 .BaseUri(this.CombineUrl("{id}"))
                 .AddUriSegment("id", bookId)
-                .AddQuery(nameof(command.Text), command.Text)
-                .AddQuery(nameof(command.Rating), command.Rating)
+                .JsonContent(command)
                 .Method(HttpMethod.Post);
 
             return await this.ExecuteAndParse<BookFeedbackDto>(request);
