@@ -1595,6 +1595,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="ea9e3c9b-f5b9-480d-9903-74c2f48dd682">
+            <enumerationMoniker
+              Id="fcfef4e3-2352-4bcb-94ca-e9602e059417"
+              LastKnownName="BookHistoryType"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="de178325-3259-4a71-b629-7c005cf90743"
@@ -1632,6 +1641,17 @@
           <property
             Id="ba0198a7-42fc-497e-922a-8700e6148d10"
             name="Type"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d3433b32-0891-4a09-9fe9-541ce28e8dda"
+            name="NewValue"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2139,6 +2159,43 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="3a938061-3476-47cf-8691-d2a9d403bab4"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="099cc697-fa3b-486f-a196-98979d73dcd1"
+              LastKnownName="Person"
+              LastKnownLocation="Bookify.ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="12c98540-237c-4d3d-ab9a-34f0a05792e6"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e772c050-7a6e-444a-badc-2ba17d5bd097"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -2283,6 +2340,28 @@
         name="Subscribe"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="fcfef4e3-2352-4bcb-94ca-e9602e059417"
+        name="BookHistoryType"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="383c2baa-e477-4dae-b7c3-cb850c774a63"
+            name="Added" />
+          <enumerationLiteral
+            Id="7d0de665-b08e-4ceb-9d54-e3345fac6e31"
+            name="Deleted" />
+          <enumerationLiteral
+            Id="600dc317-e3f2-468b-9e8b-d4b55698bff1"
+            name="Approved" />
+          <enumerationLiteral
+            Id="a2f18ec1-a10b-44ba-a876-78cd11860706"
+            name="Changed" />
+        </ownedLiterals>
+      </enumeration>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
