@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
-using Newtonsoft.Json;
 
 namespace Bookify.App.Sdk.Implementations
 {

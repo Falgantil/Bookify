@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Filter;

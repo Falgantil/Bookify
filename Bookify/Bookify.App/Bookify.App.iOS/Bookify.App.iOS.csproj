@@ -111,6 +111,11 @@
     <Compile Include="ReadBookViewController.designer.cs">
       <DependentUpon>ReadBookViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReadBookWebView.cs" />
+    <Compile Include="ReadBookWebView.designer.cs">
+      <DependentUpon>ReadBookWebView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Controllers\Base\ExtendedTableViewController.cs" />
     <Compile Include="Ui\Controllers\MyBooksViewController.cs" />
     <Compile Include="Ui\Controllers\MyBooksViewController.designer.cs">
       <DependentUpon>MyBooksViewController.cs</DependentUpon>
@@ -277,13 +282,13 @@
       <HintPath>..\packages\Cirrious.FluentLayout.2.5.0\lib\Xamarin.iOS10\Cirrious.FluentLayouts.Touch.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="eBdb.EpubReader, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EpubReader.Net.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\EPub Reader\eBdb.EpubReader.dll</HintPath>
+      <HintPath>..\Libraries\EpubReader.Net\EpubReader.Net.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+    <Reference Include="ICSharpCode.SharpZipLib.Portable, Version=0.86.0.51803, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\EPub Reader\Ionic.Zip.dll</HintPath>
+      <HintPath>..\Libraries\EpubReader.Net\ICSharpCode.SharpZipLib.Portable.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>
@@ -318,7 +323,8 @@
       <HintPath>..\packages\Polly.4.3.0\lib\dotnet\Polly.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Rope.Net">
+    <Reference Include="Rope.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\Rope.Net\Rope.Net.dll</HintPath>
     </Reference>
     <Reference Include="Rope.Net.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -357,10 +363,7 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="VersFx.Formats.Text.Epub, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VersFx.Formats.Text.Epub.1.0.1\lib\VersFx.Formats.Text.Epub.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Xamarin-Sidebar-Unified">
       <HintPath>..\Components\SidebarNavigation-1.9\lib\ios-unified\Xamarin-Sidebar-Unified.dll</HintPath>
     </Reference>

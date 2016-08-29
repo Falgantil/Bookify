@@ -16,7 +16,7 @@
 
         public static string FeedbackRoot => UrlHelper.Combine(Website, "feedbacks");
 
-        public static string CoverUrl => UrlHelper.Combine(FilesRoot, "{bookId}/downloadcover");
+        public static string CoverUrl => UrlHelper.Combine(FilesRoot, "{bookId}/cover");
 
         public static string GetCoverUrl(int bookId, int? width = null, int? height = null)
         {

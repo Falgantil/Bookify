@@ -685,16 +685,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="5288" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="84" width="560" height="496"/>
+                            <webView contentMode="scaleToFill" id="5288" translatesAutoresizingMaskIntoConstraints="NO" customClass="ReadBookWebView">
+                                <rect key="frame" x="12" y="12" width="576" height="532"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                         </subviews>
                         <constraints>
-                            <constraint id="5289" firstItem="5282" firstAttribute="top" secondItem="5288" secondAttribute="bottom" constant="20"/>
-                            <constraint id="5290" firstItem="5288" firstAttribute="leading" secondItem="5285" secondAttribute="leading" constant="20"/>
-                            <constraint id="5291" firstItem="5288" firstAttribute="top" secondItem="5281" secondAttribute="bottom" constant="20"/>
-                            <constraint id="5292" firstItem="5285" firstAttribute="trailing" secondItem="5288" secondAttribute="trailing" constant="20"/>
+                            <constraint id="5290" firstItem="5288" firstAttribute="leading" secondItem="5285" secondAttribute="leading" constant="12"/>
+                            <constraint id="5292" firstItem="5285" firstAttribute="trailing" secondItem="5288" secondAttribute="trailing" constant="12"/>
+                            <constraint id="5308" firstItem="5282" firstAttribute="top" secondItem="5288" secondAttribute="bottom" constant="56"/>
+                            <constraint id="5323" firstItem="5288" firstAttribute="top" secondItem="5285" secondAttribute="top" constant="12"/>
                         </constraints>
                     </view>
                     <connections>

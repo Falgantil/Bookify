@@ -5,7 +5,6 @@
 // Author: Bjarke Søgaard <sogaardbjarke@gmail.com>
 
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;

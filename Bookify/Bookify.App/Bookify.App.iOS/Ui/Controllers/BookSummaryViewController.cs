@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
@@ -8,6 +10,7 @@ using Bookify.App.iOS.Ui.Helpers;
 using Bookify.Common.Models;
 using CoreAnimation;
 using CoreGraphics;
+using EpubReader.Net.Core;
 using Rope.Net.iOS;
 using UIKit;
 
@@ -61,7 +64,7 @@ namespace Bookify.App.iOS.Ui.Controllers
             List<string> options = new List<string> { OptAddToCart };
             //if (this.ViewModel.OwnsBook)
             //{
-            //    options.Add(OptReadBook);
+            options.Add(OptReadBook);
             //}
             //else 
             if (this.ViewModel.IsLoggedIn)
@@ -92,13 +95,13 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private async void ReadBook_Clicked()
         {
-            string bookEpub;
+            byte[] bookEpub;
             using (this.DialogService.Loading("Henter bog..."))
             {
                 bookEpub = await this.TryTask(async () => await this.ViewModel.DownloadBook(),
-                "Forespørgslen kunne ikke blive behandlet på serveren",
-                "Du har ikke tilladelse til at læse denne bog",
-                "Bogen blev ikke fundet i databasen");
+                    "Forespørgslen kunne ikke blive behandlet på serveren",
+                    "Du har ikke tilladelse til at læse denne bog",
+                    "Bogen blev ikke fundet i databasen");
 
                 if (bookEpub == null)
                 {
@@ -108,7 +111,7 @@ namespace Bookify.App.iOS.Ui.Controllers
             var storyboard = Storyboards.Storyboard.Main;
             var vc = (ReadBookViewController)storyboard.InstantiateViewController(ReadBookViewController.StoryboardIdentifier);
             vc.Book = this.ViewModel.Book;
-            vc.Epub = bookEpub;
+            vc.EpubBook = bookEpub;
             this.NavigationController.PushViewController(vc, true);
         }
 

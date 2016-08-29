@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Bookify.Common.Models;
-
-namespace Bookify.Common.Commands.Auth
+﻿namespace Bookify.Common.Commands.Auth
 {
     public class CreateBookCommand
     {

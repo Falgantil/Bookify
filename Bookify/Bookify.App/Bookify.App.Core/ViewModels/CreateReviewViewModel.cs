@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Bookify.App.Core.Interfaces.Services;
-using Bookify.App.Sdk.Exceptions;
 using Bookify.Common.Models;
-using Polly;
 
 namespace Bookify.App.Core.ViewModels
 {

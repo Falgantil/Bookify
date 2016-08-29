@@ -2,8 +2,6 @@ using System;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Services;
-using Bookify.Common.Commands.Auth;
-using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Interfaces.Services
 {
