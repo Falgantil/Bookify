@@ -5,10 +5,11 @@ namespace Bookify.App.Core.Services
 {
     public class AccountModel : BaseModel
     {
-        public AccountModel(AuthTokenDto token, PersonDto person)
+        public AccountModel(AuthTokenDto token)
         {
-            this.Token = token;
-            this.Person = person;
+            this.Token = token.Token;
+            this.Person = token.Person;
+            this.Roles = token.Roles;
         }
 
         public AccountModel()
@@ -18,7 +19,7 @@ namespace Bookify.App.Core.Services
 
         public PersonDto Person { get; set; }
 
-        public AuthTokenDto Token { get; set; }
+        public string Token { get; set; }
 
         public string[] Roles { get; set; }
     }

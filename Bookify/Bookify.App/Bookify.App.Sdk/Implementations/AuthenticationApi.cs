@@ -61,11 +61,11 @@ namespace Bookify.App.Sdk.Implementations
         /// </summary>
         /// <param name="authToken">The authentication token.</param>
         /// <returns></returns>
-        public async Task Authenticate(AuthTokenDto authToken)
+        public async Task Authenticate(string authToken)
         {
             if (!DefaultHeaders.ContainsKey(HeaderAuthorization))
             {
-                DefaultHeaders.Add(HeaderAuthorization, $"JWT {authToken.Token}");
+                DefaultHeaders.Add(HeaderAuthorization, $"JWT {authToken}");
             }
         }
 

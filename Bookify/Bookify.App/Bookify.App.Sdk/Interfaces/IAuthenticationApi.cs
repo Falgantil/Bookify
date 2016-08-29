@@ -21,11 +21,11 @@ namespace Bookify.App.Sdk.Interfaces
         Task Deauthenticate();
 
         /// <summary>
-        /// Authenticates the using the specified <see cref="authToken"/>.
+        /// Authenticates the using the specified <see cref="authToken" />.
         /// </summary>
         /// <param name="authToken">The authentication token.</param>
         /// <returns></returns>
-        Task Authenticate(AuthTokenDto authToken);
+        Task Authenticate(string authToken);
 
         /// <summary>
         /// Registers on the server using data in the specified <see cref="command"/>.
