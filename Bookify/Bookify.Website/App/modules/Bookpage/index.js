@@ -39,7 +39,6 @@ class Bookpage extends React.Component {
   constructor() {
     super(...arguments);
     this.model = new BookpageViewModel();
-
     this.forceUpdate =  this.forceUpdate.bind(this);
   }
 
@@ -61,7 +60,7 @@ class Bookpage extends React.Component {
             </div>
             <h1>{this.model.book.Title}</h1>
             <small>af <a href="#">{this.model.book.Author.Name}</a></small>
-            <h4><RatingView value="3" /></h4>
+            <h4><RatingView value={this.model.book.AverageRating} /></h4>
             <p><Link className="btn btn-primary btn-lg btn-raised" to="/">KØB</Link></p>
         </div>
       <div className="col-xs-12">
