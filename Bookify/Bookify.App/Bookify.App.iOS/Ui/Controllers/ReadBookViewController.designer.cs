@@ -4,25 +4,27 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace Bookify.App.iOS
+using System.CodeDom.Compiler;
+
+using Bookify.App.iOS.Ui.Controls;
+
+using Foundation;
+
+namespace Bookify.App.iOS.Ui.Controllers
 {
     [Register ("ReadBookViewController")]
     partial class ReadBookViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Bookify.App.iOS.ReadBookWebView webContent { get; set; }
+        ReadBookWebView webContent { get; set; }
         
         void ReleaseDesignerOutlets ()
         {
-            if (webContent != null) {
-                webContent.Dispose ();
-                webContent = null;
+            if (this.webContent != null) {
+                this.webContent.Dispose ();
+                this.webContent = null;
             }
         }
     }

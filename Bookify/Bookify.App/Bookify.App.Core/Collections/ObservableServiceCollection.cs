@@ -32,7 +32,7 @@ namespace Bookify.App.Core.Collections
         /// </summary>
         /// <param name="service">The service.</param>
         /// <param name="filter">The filter.</param>
-        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="ArgumentNullException">Service cannot be null</exception>
         public ObservableServiceCollection(TService service, TFilter filter = null)
         {
             if (service == null)
@@ -42,12 +42,12 @@ namespace Bookify.App.Core.Collections
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObservableServiceCollection{TModel, TFilter, TService}"/> class.
+        /// Initializes a new instance of the <see cref="ObservableServiceCollection{TModel, TFilter, TService}" /> class.
         /// </summary>
         /// <param name="service">The service.</param>
         /// <param name="collection">The collection.</param>
         /// <param name="filter">The filter.</param>
-        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="ArgumentNullException">Service cannot be null</exception>
         public ObservableServiceCollection(TService service, IEnumerable<TModel> collection, TFilter filter = null) : base(collection)
         {
             if (service == null)
@@ -99,7 +99,7 @@ namespace Bookify.App.Core.Collections
         /// This is where the real magic happens. If either it's already loading, or it has already reached the bottom, it will return immediately.
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="ArgumentNullException">The result of Service.GetItems cannot be null</exception>
         public async Task LoadMore()
         {
             if (this.IsLoading || this.ReachedBottom)

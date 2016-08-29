@@ -1,8 +1,9 @@
 using System;
 using System.Drawing;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controls
 {
     public partial class PlaceholderTextView : UITextView
     {
@@ -54,23 +55,16 @@ namespace Bookify.App.iOS
             {
                 var parentSize = this.Superview.Frame;
                 var toolbar = new UIToolbar(new RectangleF(0.0f, 0.0f, (float)parentSize.Width, 44.0f));
-                toolbar.SetItems(new[]
-                {
-                    new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace),
-                    new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) => this.ResignFirstResponder())
-                }, false);
+                toolbar.SetItems(
+                    new[]
+                    {
+                        new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace),
+                        new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) => this.ResignFirstResponder())
+                    },
+                    false);
                 return toolbar;
             });
         }
-
-        public override bool ResignFirstResponder()
-        {
-            var resigned = base.ResignFirstResponder();
-            this.LostFocus?.Invoke(this, EventArgs.Empty);
-            return resigned;
-        }
-
-        public event EventHandler LostFocus;
 
         private void FinishedEditing()
         {
