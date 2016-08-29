@@ -2,7 +2,10 @@ import bookifyapi from '../util/bookifyapi';
 import {observable, computed} from "mobx";
 import SessionStore from '../Shared/SessionStore'
 
-class LoginViewModel {
+class RegistrationViewModel {
+  @observable firstName = '';
+  @observable lastName = '';
+  @observable username = '';
   @observable email = '';
   @observable password = '';
 
@@ -10,7 +13,7 @@ class LoginViewModel {
   }
 
   async submit() {
-    var result = await bookifyapi.login(this.email, this.password);
+    var result = await bookifyapi.register(this.firstName, this.lastName, this.username, this.email, this.password);
 
     SessionStore.authenticate(result);
 
@@ -18,4 +21,4 @@ class LoginViewModel {
   }
 }
 
-export default LoginViewModel;
+export default RegistrationViewModel;

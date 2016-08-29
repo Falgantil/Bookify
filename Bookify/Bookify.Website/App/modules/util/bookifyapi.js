@@ -84,9 +84,22 @@ getBooks(args) {
     // return false;
     return result
   }
-  logout() { authToken = ''; }
 
+  // Register
+  async register(firstName, lastName, username, email, password) {
+    var result = await http.post(baseUrl + 'auth/register', {
+      firstName,
+      lastName,
+      username,
+      email,
+      password
+    });
+    return result
+  }
 
+  logout() {
+    authToken = '';
+  }
 }
 
 export default new BookifyAPI();

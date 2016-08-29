@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonGroup, Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router';
+import SessionStore from '../Shared/SessionStore'
 
 /**
  * The NavigationBar.
@@ -22,9 +23,17 @@ class NavigationBar extends React.Component {
             <ul className="nav navbar-nav">
               <li><Link to="/book/new">Ny bog</Link></li>
             </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li><Link to="/loginpage">Log ind</Link></li>
-            </ul>
+            {!SessionStore.currentUser && (
+              <ul className="nav navbar-nav navbar-right">
+                <li><Link to="/registration">Registrér</Link></li>
+                <li><Link to="/loginpage">Log ind</Link></li>
+              </ul>
+            )}
+            {SessionStore.currentUser && (
+              <ul className="nav navbar-nav navbar-right">
+                <li><a href="#">Velkommen {SessionStore.currentUser.Alias}</a></li>
+              </ul>
+            )}
           </div>
         </div>
       </div>
