@@ -101,6 +101,7 @@
     <Compile Include="Services\BooksServiceTests.cs" />
     <Compile Include="Services\EpubReaderTests.cs" />
     <Compile Include="Services\ShoppingCartServiceTests.cs" />
+    <Compile Include="ViewModels\BookSummaryViewModelTests.cs" />
     <Compile Include="ViewModels\CreateReviewViewModelTests.cs" />
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
     <Compile Include="ViewModels\RegistrationViewModelTests.cs" />

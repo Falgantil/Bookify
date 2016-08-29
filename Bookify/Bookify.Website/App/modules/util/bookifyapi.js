@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import http from './http';
 
-//let baseUrl = 'https://bookifyapi.azurewebsites.net/';
-let baseUrl = 'http://localhost:13654/';
+let baseUrl = 'https://bookifyapi.azurewebsites.net/';
+// let baseUrl = 'http://localhost:13654/';
 let authToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3NkYXRlIjoxNDcyNDU2NDkxLCJleHBkYXRlIjoxNTAzOTkyNDkxLCJ1c2VyaWQiOjR9.sCvCJMw-9WuZGAaEOcJv0d16d_MMY-XUg34Jw2jl2lI';
 
 class BookifyAPI {
