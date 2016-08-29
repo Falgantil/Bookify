@@ -13,5 +13,6 @@
         public string PublisherName { get; set; }
 
         public bool IsSubscribed { get; set; }
+        public string Alias { get; set; }
     }
 }

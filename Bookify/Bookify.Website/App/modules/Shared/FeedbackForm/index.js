@@ -3,22 +3,23 @@ import FeedbackFormViewModel from './feedbackform-view-model';
 import bookifyapi from '../../util/bookifyapi';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 @observer
 class FeedbackForm extends React.Component {
   constructor(args) {
     super(...arguments);
-    console.log(args);
     this.model = new FeedbackFormViewModel(args.bookId);
     this.state = { showError: false };
   }
 
+
   async submit(e) {
     e.preventDefault();
-    this.model.submit(e);
-    var success = await this.model.submit();
-    if (success) { window.location.reload(); }
+    var success = await this.model.submit(e);
+    if (success) {
+      this.props.callback(success);
+     }
   }
 
   render() {

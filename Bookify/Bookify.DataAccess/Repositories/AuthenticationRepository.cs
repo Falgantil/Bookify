@@ -47,7 +47,7 @@ namespace Bookify.DataAccess.Repositories
             {
                 Token = token,
                 Roles = person.Roles.Select(x => x.ToPersonRoleDto().Name).ToArray(),
-                Alias = person.Alias
+                Person = person.ToDto()
             };
         }
 

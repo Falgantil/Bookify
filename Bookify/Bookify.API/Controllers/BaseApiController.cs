@@ -14,7 +14,7 @@ namespace Bookify.API.Controllers
 {
     public class BaseApiController : ApiController
     {
-        public async Task<IHttpActionResult> Try<T>(Func<Task<T>> operation)
+        protected async Task<IHttpActionResult> Try<T>(Func<Task<T>> operation)
         {
             return await this.TryRaw(async () =>
             {
@@ -25,7 +25,7 @@ namespace Bookify.API.Controllers
             });
         }
 
-        public async Task<IHttpActionResult> Try(Func<Task> operation)
+        protected async Task<IHttpActionResult> Try(Func<Task> operation)
         {
             return await this.TryRaw(async () =>
             {
@@ -34,7 +34,7 @@ namespace Bookify.API.Controllers
             });
         }
 
-        public async Task<IHttpActionResult> TryCreate<T>(Func<Task<T>> operation)
+        protected async Task<IHttpActionResult> TryCreate<T>(Func<Task<T>> operation)
         {
             return await this.TryRaw(async () =>
             {
@@ -43,7 +43,7 @@ namespace Bookify.API.Controllers
             });
         }
 
-        public async Task<IHttpActionResult> TryRaw(Func<Task<IHttpActionResult>> operation)
+        protected async Task<IHttpActionResult> TryRaw(Func<Task<IHttpActionResult>> operation)
         {
             try
             {
