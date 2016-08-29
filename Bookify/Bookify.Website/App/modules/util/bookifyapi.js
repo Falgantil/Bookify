@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import http from './http';
 
-let baseUrl = 'https://bookifyapi.azurewebsites.net/';
-//let baseUrl = 'http://localhost:13654/';
-//let authToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3NkYXRlIjoxNDcxNjA5MTMyLCJleHBkYXRlIjoxNTAzMTQ1MTMyLCJ1c2VyaWQiOjV9.fyv68ofK4E8lyE7hJTVVG9QgY85dWC4YbwkAF7CN4yY';
+//let baseUrl = 'https://bookifyapi.azurewebsites.net/';
+let baseUrl = 'http://localhost:13654/';
+let authToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3NkYXRlIjoxNDcyNDU2NDkxLCJleHBkYXRlIjoxNTAzOTkyNDkxLCJ1c2VyaWQiOjR9.sCvCJMw-9WuZGAaEOcJv0d16d_MMY-XUg34Jw2jl2lI';
 
 class BookifyAPI {
   getBaseUrl() { return baseUrl; }
@@ -66,6 +66,10 @@ getBooks(args) {
       headers: { 'Authorization': 'jwt ' + authToken },
       data: data
     });
+  }
+
+  postBookFeedback(bookId, text, rating) {
+    return http.post(baseUrl + 'feedbacks/' + bookId, { text, rating }, { headers: { 'Authorization': 'jwt ' + authToken } });
   }
 
   getGenres() { return http.get(baseUrl + 'genres'); }

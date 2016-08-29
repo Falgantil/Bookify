@@ -5,6 +5,7 @@ import {observable} from "mobx";
 import { Link } from 'react-router';
 import BookListView from '../Shared/BookList';
 import RatingView from '../Shared/rating-view';
+import FeedbackForm from '../Shared/FeedbackForm';
 import bookifyapi from '../util/bookifyapi';
 
 const GenreList = ({ genre, isLast }) => (
@@ -87,6 +88,9 @@ class Bookpage extends React.Component {
   </div>
   <hr/>
    <div className="row">
+   <div className="col-xs-12">
+        <FeedbackForm bookId={this.model.book.Id} />
+   </div>
     <h4 className="col-xs-12">Bedømmelser</h4>
     <div className="col-xs-12">
         {this.model.book.Feedback.map((feedback, index) =>
