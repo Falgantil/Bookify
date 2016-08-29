@@ -28,7 +28,8 @@ namespace Bookify.DataAccess.Models
                 LastName = this.Lastname,
                 Email = this.Email,
                 PublisherId = this.Publisher?.Id,
-                PublisherName = this.Publisher?.Name
+                PublisherName = this.Publisher?.Name,
+                Alias = this.Alias
             };
         }
     }
