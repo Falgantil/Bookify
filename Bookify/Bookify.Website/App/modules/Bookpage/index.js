@@ -39,6 +39,12 @@ class Bookpage extends React.Component {
   constructor() {
     super(...arguments);
     this.model = new BookpageViewModel();
+
+    this.forceUpdate =  this.forceUpdate.bind(this);
+  }
+
+  forceUpdate(dto) {
+    this.model.book.Feedback.push(dto);
   }
 
   render() {
@@ -48,7 +54,7 @@ class Bookpage extends React.Component {
       <div>
   <div className="row">
       <div className="col-xs-12 text-center">
-            <div className="book-cover">
+                  <div className="book-cover">
                 <div className="image-container">
                     <img className="cover" src={bookifyapi.getBookThumbnailSrc(this.model.book.Id)} alt=""/>
                 </div>
@@ -88,9 +94,11 @@ class Bookpage extends React.Component {
   </div>
   <hr/>
    <div className="row">
+
    <div className="col-xs-12">
-        <FeedbackForm bookId={this.model.book.Id} />
+        <FeedbackForm bookId={this.model.book.Id} callback={this.forceUpdate} />
    </div>
+
     <h4 className="col-xs-12">Bedømmelser</h4>
     <div className="col-xs-12">
         {this.model.book.Feedback.map((feedback, index) =>

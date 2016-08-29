@@ -2,7 +2,7 @@ import bookifyapi from '../../util/bookifyapi';
 import {observable, computed} from "mobx";
 
 class FeedbackFormViewModel {
-  @observable bookId = 0;
+@observable bookId = 0;
 @observable text = '';
 @observable rating = '';
 
