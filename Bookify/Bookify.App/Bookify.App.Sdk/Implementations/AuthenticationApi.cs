@@ -11,13 +11,24 @@ namespace Bookify.App.Sdk.Implementations
 {
     public class AuthenticationApi : BaseApi, IAuthenticationApi
     {
+        /// <summary>
+        /// The authorization header
+        /// </summary>
         private const string HeaderAuthorization = "Authorization";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
+        /// </summary>
         public AuthenticationApi()
             : base(ApiConfig.AuthRoot)
         {
         }
 
+        /// <summary>
+        /// Authenticates using the specified <see cref="command" />.
+        /// </summary>
+        /// <param name="command">The command.</param>
+        /// <returns></returns>
         public async Task<AuthTokenDto> Authenticate(AuthenticateCommand command)
         {
             var request = new RequestBuilder()
@@ -33,6 +44,10 @@ namespace Bookify.App.Sdk.Implementations
             return authToken;
         }
 
+        /// <summary>
+        /// Deauthenticates this instance, disposing of the Auth token.
+        /// </summary>
+        /// <returns></returns>
         public async Task Deauthenticate()
         {
             if (DefaultHeaders.ContainsKey(HeaderAuthorization))
@@ -41,6 +56,11 @@ namespace Bookify.App.Sdk.Implementations
             }
         }
 
+        /// <summary>
+        /// Authenticates the using the specified <see cref="authToken" />.
+        /// </summary>
+        /// <param name="authToken">The authentication token.</param>
+        /// <returns></returns>
         public async Task Authenticate(AuthTokenDto authToken)
         {
             if (!DefaultHeaders.ContainsKey(HeaderAuthorization))
@@ -49,6 +69,11 @@ namespace Bookify.App.Sdk.Implementations
             }
         }
 
+        /// <summary>
+        /// Registers on the server using data in the specified <see cref="command" />.
+        /// </summary>
+        /// <param name="command">The command.</param>
+        /// <returns></returns>
         public async Task<AuthTokenDto> Register(CreateAccountCommand command)
         {
             var request = new RequestBuilder()
