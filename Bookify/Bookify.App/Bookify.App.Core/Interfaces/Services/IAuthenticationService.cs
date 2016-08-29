@@ -2,12 +2,11 @@ using System;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Services;
-using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Interfaces.Services
 {
     /// <summary>
-    /// The <see cref="IAuthenticationService"/> interface
+    /// The Authentication Service interface
     /// </summary>
     public interface IAuthenticationService
     {
@@ -30,7 +29,7 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <param name="emailame">The email.</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        Task<PersonDto> Authenticate(string email, string password);
+        Task Authenticate(string email, string password);
 
         /// <summary>
         /// Deauthenticates the user.
@@ -44,5 +43,16 @@ namespace Bookify.App.Core.Interfaces.Services
         /// <param name="account">The account.</param>
         /// <returns></returns>
         Task RestoreFromAccount(AccountModel account);
+
+        /// <summary>
+        /// Registers the user using the provided parameters.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        Task Register(string firstName, string lastName, string email, string password, string username);
     }
 }

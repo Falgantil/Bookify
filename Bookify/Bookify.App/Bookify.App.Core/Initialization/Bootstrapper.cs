@@ -2,7 +2,7 @@
 using System.Linq;
 
 using Acr.UserDialogs;
-
+using Bookify.App.Core.Interfaces;
 using Bookify.App.Core.Interfaces.Initialization;
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Services;
@@ -75,24 +75,28 @@ namespace Bookify.App.Core.Initialization
         {
             this.kernel = new StandardKernel();
 
-            ApiConfig.Website = "http://bookifyapi.azurewebsites.net/";
+            ApiConfig.Website = "https://bookifyapi.azurewebsites.net/";
 
             this.platformInitializer.BeforeInit(this.kernel);
 
             // Create all platform independent bindings here
             this.kernel.Bind<IUserDialogs>().ToMethod(c => UserDialogs.Instance);
             this.kernel.Bind<IFileSystem>().ToMethod(c => FileSystem.Current);
+            this.kernel.Bind<IDelayService>().To<DelayService>().InSingletonScope();
+            this.kernel.Bind<ICachingRegionFactory>().To<CachingRegionFactory>().InSingletonScope();
 
             this.kernel.Bind<IAuthenticationApi>().To<AuthenticationApi>().InSingletonScope();
             this.kernel.Bind<IBooksApi>().To<BooksApi>().InSingletonScope();
             this.kernel.Bind<IGenresApi>().To<GenresApi>().InSingletonScope();
             this.kernel.Bind<IPersonApi>().To<PersonApi>().InSingletonScope();
+            this.kernel.Bind<IFeedbackApi>().To<FeedbackApi>().InSingletonScope();
+            this.kernel.Bind<IFilesApi>().To<FilesApi>().InSingletonScope();
 
             this.kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InSingletonScope();
-            this.kernel.Bind<ICachingRegionFactory>().To<CachingRegionFactory>().InSingletonScope();
+            this.kernel.Bind<IPersonService>().To<PersonService>().InSingletonScope();
             this.kernel.Bind<IShoppingCartService>().To<ShoppingCartService>().InSingletonScope();
             this.kernel.Bind<IBooksService>().To<BooksService>().InSingletonScope();
-            this.kernel.Bind<IReviewService>().To<ReviewService>().InSingletonScope();
+            this.kernel.Bind<IFeedbackService>().To<FeedbackService>().InSingletonScope();
             this.kernel.Bind<IGenreService>().To<GenreService>().InSingletonScope();
 
             this.kernel.Bind<IConfig>().To<Config>().InSingletonScope();

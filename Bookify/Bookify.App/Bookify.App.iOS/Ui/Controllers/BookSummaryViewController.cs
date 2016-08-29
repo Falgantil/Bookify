@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
@@ -8,6 +10,7 @@ using Bookify.App.iOS.Ui.Helpers;
 using Bookify.Common.Models;
 using CoreAnimation;
 using CoreGraphics;
+using EpubReader.Net.Core;
 using Rope.Net.iOS;
 using UIKit;
 
@@ -15,6 +18,8 @@ namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class BookSummaryViewController : ExtendedViewController<BookSummaryViewModel>
     {
+        private UIBarButtonItem btnMore;
+
         public BookSummaryViewController(IntPtr handle) : base(handle)
         {
         }
@@ -38,9 +43,13 @@ namespace Bookify.App.iOS.Ui.Controllers
             this.lblSummary.UserInteractionEnabled = true;
             this.lblSummary.Enabled = true;
 
-            var iconMore = UIImage.FromBundle("Icons/More.png");
-            var btnMore = new UIBarButtonItem(iconMore, UIBarButtonItemStyle.Plain, this.BtnMore_Click);
-            this.ParentViewController.NavigationItem.SetRightBarButtonItem(btnMore, false);
+            this.btnMore = new UIBarButtonItem(UIImage.FromBundle("Icons/More.png"), UIBarButtonItemStyle.Plain, this.BtnMore_Click);
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            this.ParentViewController.NavigationItem.SetRightBarButtonItem(this.btnMore, false);
         }
 
         private async void BtnMore_Click(object sender, EventArgs e)
@@ -55,12 +64,13 @@ namespace Bookify.App.iOS.Ui.Controllers
             List<string> options = new List<string> { OptAddToCart };
             //if (this.ViewModel.OwnsBook)
             //{
-            //    options.Add(OptReadBook);
+            options.Add(OptReadBook);
             //}
-            //else if (this.ViewModel.Borrowable)
-            //{
-            //    options.Add(OptBorrowBook);
-            //}
+            //else 
+            if (this.ViewModel.IsLoggedIn)
+            {
+                options.Add(OptBorrowBook);
+            }
             var result = await this.DialogService.ActionSheetAsync(MsgTitle, OptCancel, null, null, options.ToArray());
             switch (result)
             {
@@ -83,14 +93,37 @@ namespace Bookify.App.iOS.Ui.Controllers
             await this.ViewModel.AddToCart();
         }
 
-        private void ReadBook_Clicked()
+        private async void ReadBook_Clicked()
         {
-            
+            byte[] bookEpub;
+            using (this.DialogService.Loading("Henter bog..."))
+            {
+                bookEpub = await this.TryTask(async () => await this.ViewModel.DownloadBook(),
+                    "Forespørgslen kunne ikke blive behandlet på serveren",
+                    "Du har ikke tilladelse til at læse denne bog",
+                    "Bogen blev ikke fundet i databasen");
+
+                if (bookEpub == null)
+                {
+                    return;
+                }
+            }
+            var storyboard = Storyboards.Storyboard.Main;
+            var vc = (ReadBookViewController)storyboard.InstantiateViewController(ReadBookViewController.StoryboardIdentifier);
+            vc.Book = this.ViewModel.Book;
+            vc.EpubBook = bookEpub;
+            this.NavigationController.PushViewController(vc, true);
         }
 
-        private void BorrowBook_Clicked()
+        private async void BorrowBook_Clicked()
         {
-            
+            var yes = await this.DialogService.ConfirmAsync("Er du sikker på at du ønsker at låne denne bog i 30 dage?", "Godkend lån", "OK");
+            if (!yes)
+            {
+                return;
+            }
+
+            await this.ViewModel.BorrowBook();
         }
 
         protected override void CreateBindings()

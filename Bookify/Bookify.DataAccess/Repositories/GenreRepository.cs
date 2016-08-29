@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace Bookify.DataAccess.Repositories
 
         }
 
-        public async Task<IPaginatedEnumerable<GenreDto>> GetByFilter(GenreFilter filter)
+        public async Task<IEnumerable<GenreDto>> GetByFilter(GenreFilter filter)
         {
             var searchText = (filter.Search ?? string.Empty).ToLower();
 
@@ -29,11 +30,11 @@ namespace Bookify.DataAccess.Repositories
 
             query = query.OrderBy(g => g.Id);
 
-            var totalCount = query.Count();
-            query = query.Skip(filter.Skip);
-            query = query.Take(filter.Take);
+            //var totalCount = query.Count();
+            //query = query.Skip(filter.Skip);
+            //query = query.Take(filter.Take);
             var collection = await query.ToListAsync();
-            return new PaginatedEnumerable<GenreDto>(collection.Select(g => g.ToDto()), totalCount);
+            return collection.Select(g => g.ToDto()).ToList();
         }
 
         public async Task<GenreDto> CreateGenre(CreateGenreCommand command)
@@ -42,11 +43,17 @@ namespace Bookify.DataAccess.Repositories
             return genre.ToDto();
         }
 
-        public async Task<GenreDto> EditGenre(UpdateGenreCommand command)
+        public async Task<GenreDto> EditGenre(int id, EditGenreCommand command)
         {
-            var genre = await this.Find(command.Id);
+            var genre = await this.Find(id);
             genre.Name = command.Name;
             genre = await this.Update(genre);
+            return genre.ToDto();
+        }
+
+        public async Task<GenreDto> GetById(int id)
+        {
+            var genre = await this.Find(id);
             return genre.ToDto();
         }
     }

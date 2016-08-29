@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Threading.Tasks;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.DataSources;
@@ -42,6 +40,11 @@ namespace Bookify.App.iOS.Ui.Controllers
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
+
+            if (this.ViewModel.Books.Count > 0)
+            {
+                return;
+            }
 
             await this.TryTask(async () => await this.ViewModel.Books.LoadMore());
         }

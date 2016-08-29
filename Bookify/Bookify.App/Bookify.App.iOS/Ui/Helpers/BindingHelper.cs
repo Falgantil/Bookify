@@ -41,7 +41,7 @@ namespace Bookify.App.iOS.Ui.Helpers
                 getVal,
                 async (i, bookId) =>
                 {
-                    var url = ApiConfig.GetThumbnail(bookId, (int)img.Frame.Width, (int)img.Frame.Height);
+                    var url = ApiConfig.GetCoverUrl(bookId, (int)img.Frame.Width, (int)img.Frame.Height);
 
                     UIImage uiImage;
                     try

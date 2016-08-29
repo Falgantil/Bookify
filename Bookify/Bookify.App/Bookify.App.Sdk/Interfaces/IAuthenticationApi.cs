@@ -12,5 +12,7 @@ namespace Bookify.App.Sdk.Interfaces
         Task Deauthenticate();
 
         Task Authenticate(AuthTokenDto authToken);
+
+        Task<AuthTokenDto> Register(CreateAccountCommand command);
     }
 }

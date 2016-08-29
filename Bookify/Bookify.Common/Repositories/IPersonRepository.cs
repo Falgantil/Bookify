@@ -36,14 +36,15 @@ namespace Bookify.Common.Repositories
         /// <param name="id">identifier used for validation</param>
         /// <param name="command">contains the changes field</param>
         /// <returns></returns>
-        Task<PersonDto> EditPerson(int id, UpdatePersonCommand command);
+        Task<PersonDto> EditPerson(int id, EditPersonCommand command);
+
         /// <summary>
         /// used for new subsciption
         /// </summary>
         /// <param name="personId">id of a existsing person</param>
-        /// <param name="paid">amount what the person paid for the subsciption</param>
         /// <returns></returns>
-        Task Subscibe(int personId, decimal paid);
+        Task Subscribe(int personId);
+
         /// <summary>
         /// checks if the person has a subscription running now
         /// </summary>

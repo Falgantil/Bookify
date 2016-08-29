@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import FrontPage from './FrontPage';
-import NavigationBar from './NavigationBar';
+import NavigationBar from './Shared/navigationbar.js';
 import 'bootstrap-material-design';
 import 'bootstrap-material-design/dist/js/material.js';
 import 'bootstrap-material-design/dist/js/ripples.js';

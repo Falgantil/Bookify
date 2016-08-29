@@ -29,8 +29,8 @@ namespace Bookify.App.iOS.Ui.TableCells
 
         protected override IEnumerable<IBinding> Register()
         {
-            yield return this.lblAuthor.BindText(this.Model, m => m.Author);
-            yield return this.lblComment.BindText(this.Model, m => m.Message);
+            yield return this.lblAuthor.BindText(this.Model, m => m.PersonName);
+            yield return this.lblComment.BindText(this.Model, m => m.Text);
             yield return this.BindRating(this.Model, m => m.Rating, this.imgRating1, this.imgRating2, this.imgRating3, this.imgRating4, this.imgRating5);
         }
 

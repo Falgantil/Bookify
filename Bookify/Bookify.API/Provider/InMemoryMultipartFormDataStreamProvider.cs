@@ -33,7 +33,7 @@ namespace Bookify.API.Provider
             if (contentDisposition == null) throw new InvalidOperationException("Did not find required 'Content-Disposition' header field in MIME multipart body part..");
 
             // We will post process this as form data
-            _isFormData.Add(string.IsNullOrEmpty(contentDisposition.FileName));
+            this._isFormData.Add(string.IsNullOrEmpty(contentDisposition.FileName));
 
             return new MemoryStream();
             
@@ -50,22 +50,22 @@ namespace Bookify.API.Provider
         {
             // Find instances of non-file HttpContents and read them asynchronously
             // to get the string content and then add that as form data
-            for (int index = 0; index < Contents.Count; index++)
+            for (int index = 0; index < this.Contents.Count; index++)
             {
-                if (_isFormData[index])
+                if (this._isFormData[index])
                 {
-                    HttpContent formContent = Contents[index];
+                    HttpContent formContent = this.Contents[index];
                     // Extract name from Content-Disposition header. We know from earlier that the header is present.
                     ContentDispositionHeaderValue contentDisposition = formContent.Headers.ContentDisposition;
                     string formFieldName = UnquoteToken(contentDisposition.Name) ?? string.Empty;
 
                     // Read the contents as string data and add to form data
                     string formFieldValue = await formContent.ReadAsStringAsync();
-                    FormData.Add(formFieldName, formFieldValue);
+                    this.FormData.Add(formFieldName, formFieldValue);
                 }
                 else
                 {
-                    Files.Add(Contents[index]);
+                    this.Files.Add(this.Contents[index]);
                 }
             }
         }

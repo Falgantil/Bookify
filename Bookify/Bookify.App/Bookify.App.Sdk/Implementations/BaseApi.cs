@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,7 +12,7 @@ namespace Bookify.App.Sdk.Implementations
 {
     public abstract class BaseApi
     {
-        protected static IDictionary<string, object> DefaultHeaders = new Dictionary<string, object>(); 
+        protected static readonly IDictionary<string, object> DefaultHeaders = new Dictionary<string, object>();
 
         protected string Url { get; private set; }
 
@@ -22,9 +21,14 @@ namespace Bookify.App.Sdk.Implementations
             this.Url = url;
         }
 
-        protected string CombineUrl(string url)
+        protected string CombineUrl(params string[] urls)
         {
-            return Path.Combine(this.Url, url);
+            List<string> paths = new List<string>
+            {
+                this.Url
+            };
+            paths.AddRange(urls);
+            return Path.Combine(paths.ToArray()).TrimEnd('/');
         }
 
         public virtual async Task<HttpResponseMessage> ExecuteRequest(RequestBuilder message)

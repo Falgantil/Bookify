@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -16,6 +15,8 @@ namespace Bookify.App.iOS.Ui.Controllers
     public partial class LoginViewController : ExtendedViewController<LoginViewModel>
     {
         public const string StoryboardIdentifier = "LoginViewController";
+
+        private const int ConstraintDefaultValue = 44;
 
         private bool shouldHide;
 
@@ -84,7 +85,7 @@ namespace Bookify.App.iOS.Ui.Controllers
                 args.Duration.TotalSeconds,
                 () =>
                 {
-                    this.constBottomConstraint.Constant = 64;
+                    this.constBottomConstraint.Constant = ConstraintDefaultValue;
                     if (this.shouldHide)
                     {
                         this.imgLogo.Alpha = 1;
@@ -101,7 +102,7 @@ namespace Bookify.App.iOS.Ui.Controllers
                 args.Duration.TotalSeconds,
                 () =>
                 {
-                    this.constBottomConstraint.Constant = 64 + args.KeyboardSize.Height;
+                    this.constBottomConstraint.Constant = ConstraintDefaultValue + args.KeyboardSize.Height;
                     if (this.shouldHide)
                     {
                         this.imgLogo.Alpha = 0;
@@ -116,10 +117,10 @@ namespace Bookify.App.iOS.Ui.Controllers
             {
                 try
                 {
-                    var account = await this.ViewModel.Authenticate();
+                    await this.ViewModel.Authenticate();
                     await this.DismissLoginView();
                 }
-                catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.Forbidden)
+                catch (HttpResponseException ex) when (ex.StatusCode == HttpStatusCode.BadRequest)
                 {
                     this.DialogService.Alert("Dit brugernavn eller kodeord kunne ikke genkendes.", "Login fejl", "OK");
                 }
@@ -133,7 +134,7 @@ namespace Bookify.App.iOS.Ui.Controllers
         private async Task DismissLoginView()
         {
             await this.Parent.SidebarController.ParentViewController.DismissViewControllerAsync(true);
-            this.Parent.SidebarController.OpenMenu();
+            //this.Parent.SidebarController.OpenMenu();
         }
     }
 }

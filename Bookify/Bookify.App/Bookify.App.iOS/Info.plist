@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Bookify</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.bookify.iosapp</string>
+	<string>com.bookify.ios</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -38,10 +38,10 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/AppIcon.xcassets/AppIcons.appiconset</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+  </dict>
 </dict>
 </plist>

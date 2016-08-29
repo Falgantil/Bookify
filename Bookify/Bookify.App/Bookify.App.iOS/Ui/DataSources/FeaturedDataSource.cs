@@ -32,9 +32,8 @@ namespace Bookify.App.iOS.Ui.DataSources
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            tableView.DeselectRow(indexPath, true);
-
             this.parent.CellTapped(this.viewModel.Books[indexPath.Row]);
+            tableView.DeselectRow(indexPath, true);
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)

@@ -11,8 +11,10 @@ namespace Bookify.Common.Models
         public string ISBN { get; set; }
 
         public decimal Price { get; set; }
+        public string Language { get; set; }
 
         public int PublishYear { get; set; }
+        public double AverageRating { get; set; }
 
         public AuthorDto Author { get; set; }
 

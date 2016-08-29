@@ -1,26 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="47a1f040-9c4c-491f-ba79-bb03956a6992" name="Customer" linkedPackageId="34ef098e-e8fa-4ef4-b9ff-49d7957b022d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="47a1f040-9c4c-491f-ba79-bb03956a6992" name="Customer" linkedPackageId="34ef098e-e8fa-4ef4-b9ff-49d7957b022d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="ffd27a64-9119-45e7-8de0-a533dae45f41" name="Customer" isAbstract="false" isLeaf="false">
         <elementDefinition Id="aeedd545-c53f-4a94-bef8-a8982dbb0475" />
         <targetEnds>
-          <association Id="76e9b082-43ba-46f9-83a0-66d570d523d8" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="U1: Find book" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" LastKnownName="Find book" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="78503fe2-31dc-4b38-9481-ae402afca296" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="5f899092-f977-4c6a-a518-17d9f486dae1" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="e5576021-18d8-46c5-bfee-6316dcc12f58" name="U1: Find book" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="2bddb92a-11ef-4e49-b289-857766686df8" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="1a0dd07c-e48f-4eda-89b1-c6022d7f1408" />
-          </association>
           <association Id="f057f876-cbb5-4af2-8613-e3e1c65d448b" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="U3: Register" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="039d5d81-3dfe-4c07-998d-25be759d12e7" LastKnownName="Register" />
             <relationshipOwnedElementsInternal>
@@ -37,6 +21,38 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="78c2c8b4-66b8-45d5-87ca-04e388de06f7" />
           </association>
+          <association Id="be8feef2-2cba-4f16-940d-84684181797b" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="Search" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3806965d-62ee-42a3-912a-c9512becafdd" LastKnownName="Search" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="43ccd77d-3ffa-43fb-86e4-195ac7ec46ff" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0f3a80ed-31a4-4507-bdd8-7aa85595015b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f187e7b8-9d73-494d-adfc-f7a05b4bbd4e" name="Search" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0a995e0d-e518-42ff-b770-3fe6caf4e557" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1e3a2e74-c79f-4806-9b56-508f4b2c8334" />
+          </association>
+          <association Id="69c97579-5e33-4415-b8e0-3547f2baef2d" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="Browse categories" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="34eb90af-7b72-4354-9b4c-1618ae443ba4" LastKnownName="Browse categories" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aeeb3899-42e3-4eb9-b4ce-dde817fc0bc7" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ceed3c78-cfb0-4c91-8b02-d03c5f08f3b3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2c0342e6-d629-4a37-bc80-0cea2939636f" name="Browse categories" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1edb1e59-acf2-4994-9e20-3d86d4d2fb9e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6568e2ef-5a49-4cef-86b6-1d0a44056bc7" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -50,50 +66,44 @@
           </generalization>
         </generalsInternal>
         <targetEnds>
-          <association Id="c59ae9ee-9dc1-4e56-822a-504a046be292" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" LastKnownName="Login" />
+          <association Id="c84789d7-de3d-4e37-8ef3-4a0bbfcbd35a" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="View account details" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9e3dd320-0092-4ba6-aa4c-c5def00dcd4a" LastKnownName="View account details" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="87bb03b3-c63b-4050-a02a-756673b4a996" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="64157ede-2e00-4e8c-85a4-b5022dea48ab" />
+                <memberEnd Id="ceb95259-eabb-4d1b-a159-86ea9466048e" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fc3587e7-61b7-4f61-88d2-da66ce987818" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="5b457d6b-10f0-4a41-b61d-d9d2d493e683" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="4ef3dfb0-969b-4968-a25b-add3c3b0cf9b" />
+                <memberEnd Id="5127a48a-7fcd-4d98-b30a-72958f517b09" name="View account details" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b36c6351-de85-4c21-88bc-6b8e62fc7e7a" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="e2ec8bb0-b33e-49d6-85a6-1fe2442f9ea3" />
+            <elementDefinition Id="bd16b6e6-34c7-4560-aeca-023fa39c7f56" />
+          </association>
+          <association Id="5a579f7b-17cd-4a4a-a352-13efa5bbd51d" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="Subscribe" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="bec2acda-69d0-4b96-91fa-4f92f4a46c0f" LastKnownName="Subscribe" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c0623da4-fe1f-4578-8bc1-bbdd6e41e311" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="99007df0-9f89-4edc-91f9-79094a021f17" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a26b9a3c-dfd9-46df-ba96-e7a2c1b1d33b" name="Subscribe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="51e17af1-a2e4-4857-b2d3-21f82646d08d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ea5cb5e5-b5d0-4dba-bda5-27d40b2e57e5" />
           </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" name="Login" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="4e52b809-be2e-4d77-af5f-487e4e998460" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="c9713bfd-d44f-4014-a75d-c45bf9926fc9" name="Logoff" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="f218d4ff-73db-4b00-9206-05b885c0cd5a" />
-        <extendedCases>
-          <extend Id="b29f8c58-34fa-468b-9cc4-61d0d1ce23e3">
-            <useCaseMoniker Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" LastKnownName="Login" />
-            <elementDefinition Id="6c2bd3a2-b325-437b-b10d-f21efeccde75" />
-          </extend>
-        </extendedCases>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
       <useCase Id="9e3dd320-0092-4ba6-aa4c-c5def00dcd4a" name="View account details" isAbstract="false" isLeaf="false">
         <elementDefinition Id="a75faa6c-66e3-4b45-a6dc-785f4f84879b" />
-        <extendedCases>
-          <extend Id="2ce14bec-3101-47ba-896a-4b28b2b7ceba">
-            <useCaseMoniker Id="d2fe6fd0-0738-4a36-a70a-48a1d97bc041" LastKnownName="Login" />
-            <elementDefinition Id="fc3a21d9-9e93-429c-9c18-5b1b36ea6073" />
-          </extend>
-        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -102,23 +112,12 @@
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" name="Find book" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="25297018-7d18-499b-ba89-e7c1398f3d4e" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
       <useCase Id="3806965d-62ee-42a3-912a-c9512becafdd" name="Search" isAbstract="false" isLeaf="false">
         <elementDefinition Id="c7c2ec9a-569b-4c4c-b02d-28b5ca543bac" />
-        <generalsInternal>
-          <generalization Id="d5f90a16-1c82-404a-a8e9-1083aa11d07c" isSubstitutable="false">
-            <useCaseMoniker Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" LastKnownName="Find book" />
-            <elementDefinition Id="77c1f8c9-ceae-49de-899b-0cf266c242b5" />
-          </generalization>
-        </generalsInternal>
         <additions>
-          <include Id="70b8bc36-f4da-4519-8dac-67561bf3f654">
-            <useCaseMoniker Id="2919af79-7363-4ef0-8436-68666396b24a" LastKnownName="View results" />
-            <elementDefinition Id="0e64c9af-88cf-4eb9-9ba2-de41dccb6c79" />
+          <include Id="b3c7e0b6-9a07-44c5-91c3-c65b2e081b3b">
+            <useCaseMoniker Id="c682084a-b547-456c-b2ca-f1d95f1cda40" LastKnownName="View book details" />
+            <elementDefinition Id="38270c56-3212-4380-ad0a-5596379ae066" />
           </include>
         </additions>
       </useCase>
@@ -126,34 +125,17 @@
     <useCaseModelRootHasTypes>
       <useCase Id="34eb90af-7b72-4354-9b4c-1618ae443ba4" name="Browse categories" isAbstract="false" isLeaf="false">
         <elementDefinition Id="cfcf2904-ad8b-4636-93fd-c70aa8fa3349" />
-        <generalsInternal>
-          <generalization Id="459909cd-a835-4c25-9aeb-46ed23b8293a" isSubstitutable="false">
-            <useCaseMoniker Id="2401d289-9b4c-4771-933b-52b52cd9a0cf" LastKnownName="Find book" />
-            <elementDefinition Id="0554273b-ec0e-4c64-9bbc-9447896c8eae" />
-          </generalization>
-        </generalsInternal>
         <additions>
-          <include Id="c56970f4-0096-4929-9673-87c3494e9cfd">
-            <useCaseMoniker Id="2919af79-7363-4ef0-8436-68666396b24a" LastKnownName="View results" />
-            <elementDefinition Id="e52a89ee-e9ba-4485-a53a-557b34a647e8" />
+          <include Id="964e313f-7d44-4b05-a15a-0f8f069a0728">
+            <useCaseMoniker Id="c682084a-b547-456c-b2ca-f1d95f1cda40" LastKnownName="View book details" />
+            <elementDefinition Id="0825fc3d-98ee-491d-8106-2c0507752fa5" />
           </include>
         </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="2919af79-7363-4ef0-8436-68666396b24a" name="View results" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="b47f4f0d-e1f3-4d7e-aec0-cf8e4461abf0" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
       <useCase Id="c682084a-b547-456c-b2ca-f1d95f1cda40" name="View book details" isAbstract="false" isLeaf="false">
         <elementDefinition Id="578cb98c-7786-44cd-99ea-3ae5b58964fc" />
-        <extendedCases>
-          <extend Id="94b72149-45ec-4785-aaf2-211d44a004f3">
-            <useCaseMoniker Id="2919af79-7363-4ef0-8436-68666396b24a" LastKnownName="View results" />
-            <elementDefinition Id="23888e5f-353f-4131-89a9-39e7b4545897" />
-          </extend>
-        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -176,6 +158,11 @@
             <elementDefinition Id="49160f57-b1f3-4e9a-8403-bef9d0b03d9f" />
           </extend>
         </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bec2acda-69d0-4b96-91fa-4f92f4a46c0f" name="Subscribe" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1d4618f1-f6be-46d9-8196-56212a9161e0" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>

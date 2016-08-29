@@ -15,6 +15,52 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "modules/util/bookifyapi.js",
+			"settings":
+			{
+				"buffer_size": 2466,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/Loginpage/index.js",
+			"settings":
+			{
+				"buffer_size": 1773,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import React from 'react'\nimport {observer} from \"mobx-react\";\nimport {observable} from \"mobx\";\nimport { Link, browserHistory } from 'react-router';\nimport bookifyapi from '../util/bookifyapi';\nimport RegistrationViewModel from './registration-view-model';\n\n@observer\nclass Registrationpage extends React.Component {\n  constructor() {\n    super(...arguments);\n    this.model = new RegistrationViewModel();\n  }\n\n  render() {\n    return (\n      <div className=\"row\">\n        <div className=\"col-xs-12 col-sm-6 col-sm-offset-3\">\n        <h4>Log ind</h4>\n        <form onSubmit={(e) => this.submit(e)}>\n          <div className=\"form-group\">\n            <input type=\"text\" className=\"form-control\" id=\"email\" placeholder=\"Email\" value={this.model.email} onChange={(e) => this.model.email = e.target.value } />\n          </div>\n          <div className=\"form-group\">\n            <input type=\"password\" className=\"form-control\" id=\"password\" placeholder=\"Password\" value={this.model.password} onChange={(e) => this.model.password = e.target.value } />\n          </div>\n          <button type=\"submit\" className=\"btn btn-block btn-raised btn-primary\"><i className=\"material-icons\">check</i></button>\n        </form>\n        </div>\n      </div>\n    )\n  }\n}\n\nexport default Registrationpage",
+			"file": "modules/Registrationpage/index.js",
+			"file_size": 1244,
+			"file_write_time": 131169307459818065,
+			"settings":
+			{
+				"buffer_size": 1281,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import bookifyapi from '../util/bookifyapi';\nimport {observable, computed} from \"mobx\";\n\nclass LoginViewModel {\n@observable email = 'admin@test.com';\n@observable password = '';\n\n  constructor() {\n  }\n\n  async submit() {\n    var result = await bookifyapi.login(this.email, this.password);\n    $.cookie = \"AuthToken=\"+result.Token+\";role=\"+result.Roles;\n    console.log(\"Token: \" + result.Token);\n    console.log(\"Roles: \" + result.Roles);\n    return result;\n  }\n}\n\nexport default LoginViewModel;",
+			"file": "modules/Registrationpage/registration-view-model.js",
+			"file_size": 0,
+			"file_write_time": 131169307736050239,
+			"settings":
+			{
+				"buffer_size": 494,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/Loginpage/login-view-model.js",
+			"settings":
+			{
+				"buffer_size": 494,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -67,20 +113,26 @@
 	[
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Shared",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util"
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Loginpage",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Registrationpage",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/vendor"
 	],
 	"file_history":
 	[
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/webpack.config.js",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/package.json",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Shared/navigationbar.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Registrationpage/index.js",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.html",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
+		"/C/Users/Falgantil/Documents/visual studio 2015/Projects/EpubReader/EpubReader.Core.Tests/Files/book1/EPUB/package.opf",
+		"/C/Users/Falgantil/Documents/visual studio 2015/Projects/EpubReader/EpubReader.Core.Tests/Files/book2/OEBPS/package.opf",
+		"/C/Projects/EpubReader.Net/EpubReader.Net.Core.Tests/Files/book1/META-INF/container.xml",
+		"/C/Users/Falgantil/Documents/visual studio 2015/Projects/EpubReader/EpubReader.Core.Tests/Files/book1/META-INF/container.xml",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/package.json",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/vendor/bootstrap.min.css",
+		"/C/Projects/Bookify/Bookify/Bookify.Website/App/webpack.config.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Core/Filter/BaseFilter.cs",
 		"/C/Projects/Bookify/Bookify/Bookify.Core/Filter/BookFilter.cs",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/index.html",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Frontpage/frontpage-view-model.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/bundle.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/Bookpage/bookpage-view-model.js",
@@ -89,7 +141,6 @@
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/util/http.js",
 		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Users/Falgantil/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/App.js",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/.babelrc",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/style.styl",
 		"/C/Projects/Bookify/Bookify/Bookify.Website/App/modules/NavigationBar/index.js",
@@ -133,6 +184,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"LoginViewModel",
+			"=\"/",
+			"from",
+			"loginpage",
+			"Loginpage",
+			"ncx",
+			"toc",
+			"bootstrap-material-design",
 			".\",\n",
 			"p",
 			"length",
@@ -175,8 +234,553 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "modules/util/bookifyapi.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								465,
+								465
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2431,
+										2432
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										343,
+										344
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 69.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "modules/Loginpage/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1773,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								193
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "modules/Registrationpage/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								254
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										254,
+										255
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										228,
+										229
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "modules/Registrationpage/registration-view-model.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95,
+								109
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "modules/Loginpage/login-view-model.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								494
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],

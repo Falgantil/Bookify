@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Bookify.Common.Models;
@@ -39,6 +40,8 @@ namespace Bookify.DataAccess.Models
                 Author = Author?.ToDto(),
                 Genres = Genres.Select(x => x.ToDto()).ToList(),
                 Price = Price,
+                Language = Language,
+                AverageRating = Math.Round(AverageRating, 1),
                 PublishYear = PublishYear,
                 Summary = Summary,
                 Title = Title
@@ -55,6 +58,8 @@ namespace Bookify.DataAccess.Models
                 Author = Author?.ToDto(),
                 Genres = Genres.Select(x => x.ToDto()).ToList(),
                 Price = Price,
+                Language = Language,
+                AverageRating = Math.Round(AverageRating, 1),
                 PublishYear = PublishYear,
                 Summary = Summary,
                 Title = Title,

@@ -7,5 +7,7 @@ namespace Bookify.App.Sdk.Interfaces
     public interface IPersonApi
     {
         Task<PersonDto> GetMyself();
+
+        Task Subscribe();
     }
 }

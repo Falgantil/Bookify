@@ -47,7 +47,7 @@ namespace Bookify.DataAccess.Repositories
             {
                 Token = token,
                 Roles = person.Roles.Select(x => x.ToPersonRoleDto().Name).ToArray(),
-                Alias = person.Alias
+                Person = person.ToDto()
             };
         }
 
@@ -94,7 +94,7 @@ namespace Bookify.DataAccess.Repositories
             userQuery = userQuery.Include(x => x.Roles);
             var user = userQuery.Single();
             if (user == null)
-                throw new NullReferenceException();
+                throw new NotFoundException($"Could not find user with ID '{userId}' in database");
             return new PersonAuthDto
             {
                 PersonDto = user.ToDto(),

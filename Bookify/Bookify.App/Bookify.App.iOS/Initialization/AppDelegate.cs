@@ -1,5 +1,5 @@
 ﻿using Bookify.App.Core.Initialization;
-using Bookify.App.Core.Services;
+using Bookify.App.Core.Interfaces;
 using Bookify.App.iOS.Ui.Controllers;
 using Foundation;
 
@@ -38,8 +38,11 @@ namespace Bookify.App.iOS.Initialization
             this.Window.MakeKeyAndVisible();
 
             restoreAccount.ContinueWith(
-                op => this.InvokeOnMainThread(() => this.Window.RootViewController = new FrontSidebarController()));
-
+                op => this.InvokeOnMainThread(() =>
+                {
+                    this.Window.RootViewController = new FrontSidebarController();
+                }));
+            
             return true;
         }
 

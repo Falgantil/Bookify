@@ -1,20 +1,19 @@
 import bookifyapi from '../util/bookifyapi';
 import {observable, computed} from "mobx";
+import SessionStore from '../Shared/SessionStore'
 
 class LoginViewModel {
-@observable email = 'admin@test.com';
-@observable password = '';
+  @observable email = '';
+  @observable password = '';
 
   constructor() {
   }
 
   async submit() {
     var result = await bookifyapi.login(this.email, this.password);
-    $.cookie = "AuthToken="+result.Token+";role="+result.Roles;
-    console.log("Token: " + result.Token);
-    console.log("Roles: " + result.Roles);
-    console.log("Alias: " + result.Alias);
-    
+
+    SessionStore.authenticate(result);
+
     return result;
   }
 }

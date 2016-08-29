@@ -40,11 +40,11 @@ namespace Bookify.API.Controllers
                     });
         }
 
-        [HttpPost]
-        [Route("logout")]
-        public async Task<IHttpActionResult> Logout()
-        {
-            return this.Ok();
-        }
+        //[HttpPost]
+        //[Route("logout")]
+        //public async Task<IHttpActionResult> Logout()
+        //{
+        //    return this.Ok();
+        //}
     }
 }

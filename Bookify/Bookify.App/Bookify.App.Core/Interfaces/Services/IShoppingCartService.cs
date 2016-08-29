@@ -7,7 +7,7 @@ using Bookify.Common.Models;
 namespace Bookify.App.Core.Interfaces.Services
 {
     /// <summary>
-    /// The <see cref="IShoppingCartService"/> interface.
+    /// The Shopping Cart interface.
     /// </summary>
     public interface IShoppingCartService
     {

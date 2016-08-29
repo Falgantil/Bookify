@@ -1,11 +1,14 @@
 using System;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
 using Bookify.Common.Exceptions;
 using Bookify.Common.Filter;
+using Bookify.Common.Models;
+using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
@@ -27,7 +30,16 @@ namespace Bookify.API.Controllers
             return await this.TryRaw(async () =>
             {
                 await operation();
-                return this.Ok();
+                return this.StatusCode(HttpStatusCode.NoContent);
+            });
+        }
+
+        public async Task<IHttpActionResult> TryCreate<T>(Func<Task<T>> operation)
+        {
+            return await this.TryRaw(async () =>
+            {
+                var content = await operation();
+                return this.Content(HttpStatusCode.Created, content);
             });
         }
 
@@ -66,6 +78,13 @@ namespace Bookify.API.Controllers
                 var response = HttpContext.Current.Response;
                 response.Headers[HeaderTotalCount] = paginated.TotalCount.ToString();
             }
+        }
+
+        protected async Task<PersonAuthDto> GetAuthorizedMember(IAuthenticationRepository authRepo)
+        {
+            var token = this.Request.Headers.Authorization.Parameter;
+            var personAuthDto = await authRepo.VerifyToken(token);
+            return personAuthDto;
         }
     }
 }

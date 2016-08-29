@@ -143,6 +143,7 @@
     <Compile Include="Attributes\AuthAttribute.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\BookFeedbackController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\GenresController.cs" />

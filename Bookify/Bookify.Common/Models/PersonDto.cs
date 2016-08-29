@@ -11,12 +11,8 @@
         public int? PublisherId { get; set; }
 
         public string PublisherName { get; set; }
-    }
 
-    public class PersonAuthDto : BaseDto
-    {
-        public PersonDto PersonDto { get; set; }
-
-        public AuthTokenDto AuthTokenDto { get; set; }
+        public bool IsSubscribed { get; set; }
+        public string Alias { get; set; }
     }
 }

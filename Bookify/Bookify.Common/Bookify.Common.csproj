@@ -64,11 +64,13 @@
     <Compile Include="Commands\Auth\CreateFeedbackCommand.cs" />
     <Compile Include="Commands\Auth\CreateGenreCommand.cs" />
     <Compile Include="Commands\Auth\CreateHistoryCommand.cs" />
+    <Compile Include="Commands\Auth\CreateOrderCommand.cs" />
     <Compile Include="Commands\Auth\CreatePublisherCommand.cs" />
-    <Compile Include="Commands\Auth\UpdateBookCommand.cs" />
-    <Compile Include="Commands\Auth\UpdateGenreCommand.cs" />
-    <Compile Include="Commands\Auth\UpdatePersonCommand.cs" />
-    <Compile Include="Commands\Auth\UpdatePublisherCommand.cs" />
+    <Compile Include="Commands\Auth\EditBookCommand.cs" />
+    <Compile Include="Commands\Auth\EditFeedbackCommand.cs" />
+    <Compile Include="Commands\Auth\EditGenreCommand.cs" />
+    <Compile Include="Commands\Auth\EditPersonCommand.cs" />
+    <Compile Include="Commands\Auth\EditPublisherCommand.cs" />
     <Compile Include="Enums\BookHistoryType.cs" />
     <Compile Include="Enums\BookOrderStatus.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filter\BaseFilter.cs" />
     <Compile Include="Filter\BookFilter.cs" />
+    <Compile Include="Filter\FeedbackFilter.cs" />
     <Compile Include="Filter\GenreFilter.cs" />
     <Compile Include="Filter\IPaginatedEnumerable.cs" />
     <Compile Include="Filter\PublisherFilter.cs" />
@@ -93,6 +96,7 @@
     <Compile Include="Models\BookStatisticsDto.cs" />
     <Compile Include="Models\DetailedBookDto.cs" />
     <Compile Include="Models\GenreDto.cs" />
+    <Compile Include="Models\PersonAuthDto.cs" />
     <Compile Include="Models\PersonDto.cs" />
     <Compile Include="Models\PersonRoleDto.cs" />
     <Compile Include="Models\PublisherDto.cs" />

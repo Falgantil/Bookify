@@ -22,28 +22,27 @@ namespace Bookify.API.Controllers
         [Route("")]
         public async Task<IHttpActionResult> Get([FromUri]PublisherFilter filter)
         {
-            return Ok(await this.publisherRepository.GetByFilter(filter));
-        }
-
-        [HttpPut]
-        [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]CreatePublisherCommand command)
-        {
-            return await this.Try(async () => await this.publisherRepository.CreatePublisher(command));
-        }
-
-        [HttpPost]
-        [Route("{id}")]
-        public async Task<IHttpActionResult> Update(int id, [FromBody]UpdatePublisherCommand command)
-        {
-            command.Id = id;
-            return await this.Try(async () => await this.publisherRepository.EditPublisher(command));
+            return this.Ok(await this.publisherRepository.GetByFilter(filter));
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> Get(int id)
         {
             return await this.Try(() => this.publisherRepository.GetById(id));
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<IHttpActionResult> Create([FromBody]CreatePublisherCommand command)
+        {
+            return await this.Try(async () => await this.publisherRepository.CreatePublisher(command));
+        }
+
+        [HttpPatch]
+        [Route("{id}")]
+        public async Task<IHttpActionResult> Update(int id, [FromBody]EditPublisherCommand command)
+        {
+            return await this.Try(async () => await this.publisherRepository.EditPublisher(id, command));
         }
     }
 }

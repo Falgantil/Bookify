@@ -1,27 +1,45 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 using Bookify.App.Core.Interfaces.Services;
 using Bookify.App.Core.Models;
-using Bookify.App.Sdk.Implementations;
 using Bookify.App.Sdk.Interfaces;
 using Bookify.Common.Commands.Auth;
-using Bookify.Common.Models;
 
 namespace Bookify.App.Core.Services
 {
+    /// <summary>
+    /// The Authentication Service implementation.
+    /// </summary>
+    /// <seealso cref="BaseModel" />
+    /// <seealso cref="IAuthenticationService" />
     public class AuthenticationService : BaseModel, IAuthenticationService
     {
+        /// <summary>
+        /// The authentication API
+        /// </summary>
         private readonly IAuthenticationApi authApi;
 
-        private readonly IPersonApi personApi;
+        /// <summary>
+        /// The person service
+        /// </summary>
+        private readonly IPersonService personService;
 
-        public AuthenticationService(IAuthenticationApi authApi, IPersonApi personApi)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationService" /> class.
+        /// </summary>
+        /// <param name="authApi">The authentication API.</param>
+        /// <param name="personService">The person service.</param>
+        public AuthenticationService(IAuthenticationApi authApi, IPersonService personService)
         {
             this.authApi = authApi;
-            this.personApi = personApi;
+            this.personService = personService;
+
+            this.personService.SubscriptionChanged += (sender, b) =>
+            {
+                this.LoggedOnAccount.Person.IsSubscribed = true;
+                this.OnLoggedOnAccountChanged();
+            };
         }
 
         /// <summary>
@@ -51,17 +69,16 @@ namespace Bookify.App.Core.Services
         /// <param name="email">The email</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        public async Task<PersonDto> Authenticate(string email, string password)
+        public async Task Authenticate(string email, string password)
         {
             var token = await this.authApi.Authenticate(new AuthenticateCommand
             {
                 Email = email,
                 Password = password
             });
-            var myself = await this.personApi.GetMyself();
+            var myself = await this.personService.GetMyself();
 
             this.LoggedOnAccount = new AccountModel(token, myself);
-            return myself;
         }
 
         /// <summary>
@@ -75,7 +92,7 @@ namespace Bookify.App.Core.Services
         }
 
         /// <summary>
-        /// Restores from account.
+        /// Restores an Authentication state based off of <see cref="account"/>.
         /// </summary>
         /// <param name="account">The account.</param>
         /// <returns></returns>
@@ -83,8 +100,32 @@ namespace Bookify.App.Core.Services
         {
             this.LoggedOnAccount = account;
             await this.authApi.Authenticate(account.Token);
-            var myself = await this.personApi.GetMyself();
+            var myself = await this.personService.GetMyself();
             this.LoggedOnAccount.Person = myself;
+        }
+
+        /// <summary>
+        /// Registers the user using the provided parameters.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        public async Task Register(string firstName, string lastName, string email, string password, string username)
+        {
+            var token = await this.authApi.Register(new CreateAccountCommand
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Password = password,
+                Email = email,
+                Username = username,
+            });
+            var myself = await this.personService.GetMyself();
+
+            this.LoggedOnAccount = new AccountModel(token, myself);
         }
     }
 }
