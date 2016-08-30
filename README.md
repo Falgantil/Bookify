@@ -31,12 +31,11 @@ There really isn't all that much to getting up and running with the smartphone a
 
     1. Install Visual Studio
     2. Install Xamarin
-    3. Clone this repository
-    4. Change ApiConfig's Website path to point to the location of your API (localhost?). See API and Backend
-    5. Build Code
-    6. Run Unit tests to verify it runs
-    7. Connect to your Mac machine
-    8. Deploy the app to your iOS device/simulator
+    3. Change ApiConfig's Website path to point to the location of your API (localhost?). See API and Backend
+    4. Build Code
+    5. Run Unit tests to verify it runs
+    6. Connect to your Mac machine
+    7. Deploy the app to your iOS device/simulator
 
 For device deployment, see [Device Provisioning - Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/)
 
