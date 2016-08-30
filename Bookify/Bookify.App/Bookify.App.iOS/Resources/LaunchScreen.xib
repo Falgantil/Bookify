@@ -64,7 +64,7 @@
         <image name="Icons/Play.png" width="25" height="25"/>
         <image name="Icons/Reviews.png" width="25" height="25"/>
         <image name="Icons/Star.png" width="25" height="25"/>
-        <image name="Icon-Logo.png" width="512" height="509"/>
+        <image name="Icon-Logo.png" width="384" height="384"/>
         <image name="Icons/Cart.png" width="25" height="25"/>
         <image name="Icons/Heart.png" width="25" height="25"/>
         <image name="Icons/HeartFilled.png" width="25" height="25"/>

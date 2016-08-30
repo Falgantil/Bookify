@@ -20,7 +20,7 @@ namespace Bookify.DataAccess
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
 
-        public BookifyContext() : base("LocalDb") //DefaultConnection
+        public BookifyContext() : base("DefaultConnection")
         {
             Database.Log = s => Debug.WriteLine(s);
         }
