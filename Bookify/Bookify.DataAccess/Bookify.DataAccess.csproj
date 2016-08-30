@@ -112,13 +112,9 @@
     <Compile Include="Configuration\BookFeedbackConfiguration.cs" />
     <Compile Include="EncryptSha512.cs" />
     <Compile Include="Extensions\Extensions.cs" />
-    <Compile Include="Migrations\201608220843030_Initial.cs" />
-    <Compile Include="Migrations\201608220843030_Initial.Designer.cs">
-      <DependentUpon>201608220843030_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608221312412_PersonInBookFeedback.cs" />
-    <Compile Include="Migrations\201608221312412_PersonInBookFeedback.Designer.cs">
-      <DependentUpon>201608221312412_PersonInBookFeedback.cs</DependentUpon>
+    <Compile Include="Migrations\201608301209389_Initial.cs" />
+    <Compile Include="Migrations\201608301209389_Initial.Designer.cs">
+      <DependentUpon>201608301209389_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -170,11 +166,8 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608220843030_Initial.resx">
-      <DependentUpon>201608220843030_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608221312412_PersonInBookFeedback.resx">
-      <DependentUpon>201608221312412_PersonInBookFeedback.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608301209389_Initial.resx">
+      <DependentUpon>201608301209389_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

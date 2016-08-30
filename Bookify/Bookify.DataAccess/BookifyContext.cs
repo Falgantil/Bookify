@@ -31,6 +31,7 @@ namespace Bookify.DataAccess
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new BookConfiguration());
             modelBuilder.Configurations.Add(new BookFeedbackConfiguration());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookifyContext, Migrations.Configuration>());
         }
     }
 }

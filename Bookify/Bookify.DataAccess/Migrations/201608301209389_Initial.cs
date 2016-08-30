@@ -90,7 +90,9 @@ namespace Bookify.DataAccess.Migrations
                     })
                 .PrimaryKey(t => new { t.BookId, t.PersonId })
                 .ForeignKey("dbo.Book", t => t.BookId, cascadeDelete: true)
-                .Index(t => t.BookId);
+                .ForeignKey("dbo.Person", t => t.PersonId, cascadeDelete: true)
+                .Index(t => t.BookId)
+                .Index(t => t.PersonId);
             
             CreateTable(
                 "dbo.Genre",
@@ -186,6 +188,7 @@ namespace Bookify.DataAccess.Migrations
             DropForeignKey("dbo.BookHistory", "BookId", "dbo.Book");
             DropForeignKey("dbo.BookGenre", "GenreId", "dbo.Genre");
             DropForeignKey("dbo.BookGenre", "BookId", "dbo.Book");
+            DropForeignKey("dbo.BookFeedback", "PersonId", "dbo.Person");
             DropForeignKey("dbo.BookFeedback", "BookId", "dbo.Book");
             DropForeignKey("dbo.Book", "AuthorId", "dbo.Author");
             DropForeignKey("dbo.Address", "PersonId", "dbo.Person");
@@ -196,6 +199,7 @@ namespace Bookify.DataAccess.Migrations
             DropIndex("dbo.BookOrder", new[] { "PersonId" });
             DropIndex("dbo.BookOrder", new[] { "BookId" });
             DropIndex("dbo.BookHistory", new[] { "BookId" });
+            DropIndex("dbo.BookFeedback", new[] { "PersonId" });
             DropIndex("dbo.BookFeedback", new[] { "BookId" });
             DropIndex("dbo.Book", new[] { "PublisherId" });
             DropIndex("dbo.Book", new[] { "AuthorId" });
