@@ -50,3 +50,30 @@ For device deployment, see [Device Provisioning - Xamarin](https://developer.xam
 * Andreas Hansen
 * Jonas Thorsen
 * Rick Boysen
+
+### Credits:
+
+#### Backend:
+* [Entity Framework](http://www.asp.net/entity-framework)
+
+#### API:
+* [ASP.Net Web API](http://www.asp.net/web-api)
+
+#### Website::
+* [React](https://facebook.github.io/react/)
+* [React-Router](https://github.com/reactjs/react-router)
+* [Babel.JS](https://babeljs.io/)
+* [MobX](https://github.com/mobxjs/mobx)
+* [Lodash](https://lodash.com/)
+* [Bookstrap Material Design](http://fezvrasta.github.io/bootstrap-material-design/)
+
+#### App:
+* [Xamarin](https://www.xamarin.com/)
+* [Rope.Net](https://github.com/Falgantil/Rope.Net) --- MVVM Binding
+* [EpubReader.Net](https://github.com/Falgantil/EpubReader.Net) --- Epub Reader for .Net
+* [ACR User Dialogs](https://github.com/aritchie/userdialogs)
+* [Akavache](https://github.com/akavache/Akavache)
+* [ModernHttpClient](https://github.com/paulcbetts/ModernHttpClient)
+* [PCL Storage](https://components.xamarin.com/gettingstarted/pclstorage)
+* [Polly](https://github.com/App-vNext/Polly)
+* [MonoTouch Dialog](https://github.com/migueldeicaza/MonoTouch.Dialog)
