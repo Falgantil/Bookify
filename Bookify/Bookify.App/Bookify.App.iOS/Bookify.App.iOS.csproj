@@ -102,17 +102,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="CreateReviewViewController.cs" />
-    <Compile Include="CreateReviewViewController.designer.cs">
+    <Compile Include="Ui\Controllers\CreateReviewViewController.cs" />
+    <Compile Include="Ui\Controllers\CreateReviewViewController.designer.cs">
       <DependentUpon>CreateReviewViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Initialization\LaunchViewController.cs" />
-    <Compile Include="ReadBookViewController.cs" />
-    <Compile Include="ReadBookViewController.designer.cs">
+    <Compile Include="Ui\Controllers\ReadBookViewController.cs" />
+    <Compile Include="Ui\Controllers\ReadBookViewController.designer.cs">
       <DependentUpon>ReadBookViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReadBookWebView.cs" />
-    <Compile Include="ReadBookWebView.designer.cs">
+    <Compile Include="Ui\Controls\ReadBookWebView.cs" />
+    <Compile Include="Ui\Controls\ReadBookWebView.designer.cs">
       <DependentUpon>ReadBookWebView.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Controllers\Base\ExtendedTableViewController.cs" />

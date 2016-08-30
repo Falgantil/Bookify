@@ -12,7 +12,7 @@ namespace Bookify.App.Core.Interfaces.Services
     public interface IShoppingCartService
     {
         /// <summary>
-        /// Gets the books that currently reside in the basket.
+        /// Gets the books that currently reside in the cart.
         /// </summary>
         /// <value>
         /// The books.
@@ -20,21 +20,21 @@ namespace Bookify.App.Core.Interfaces.Services
         ObservableCollection<CartItemModel> CartItems { get; }
 
         /// <summary>
-        /// Adds the specified book to the basket.
+        /// Adds the specified book to the cart.
         /// </summary>
         /// <param name="book">The book.</param>
         /// <returns></returns>
         Task AddToCart(BookDto book);
 
         /// <summary>
-        /// Removes the book from the basket.
+        /// Removes the book from the cart.
         /// </summary>
         /// <param name="book">The book.</param>
         /// <returns></returns>
         Task RemoveFromCart(BookDto book);
 
         /// <summary>
-        /// Removes the book with the specified ID from the basket.
+        /// Removes the book with the specified ID from the cart.
         /// </summary>
         /// <param name="bookId">The book identifier.</param>
         /// <returns></returns>

@@ -7,14 +7,21 @@ namespace Bookify.App.Core.ViewModels
 {
     public class GenresViewModel : BaseViewModel
     {
-        private readonly IGenreService service;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenresViewModel"/> class.
+        /// </summary>
+        /// <param name="service">The service.</param>
         public GenresViewModel(IGenreService service)
         {
-            this.service = service;
-            this.Genres = new ObservableServiceCollection<GenreDto, GenreFilter, IGenreService>(this.service);
+            this.Genres = new ObservableServiceCollection<GenreDto, GenreFilter, IGenreService>(service);
         }
 
+        /// <summary>
+        /// Gets the genres.
+        /// </summary>
+        /// <value>
+        /// The genres.
+        /// </value>
         public ObservableServiceCollection<GenreDto, GenreFilter, IGenreService> Genres { get; }
     }
 }

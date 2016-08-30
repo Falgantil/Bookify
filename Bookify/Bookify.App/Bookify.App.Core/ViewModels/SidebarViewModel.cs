@@ -30,17 +30,6 @@ namespace Bookify.App.Core.ViewModels
         }
 
         /// <summary>
-        /// Authentications the service authentication changed.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="accountModel">The account model.</param>
-        private void AuthService_AuthChanged(object sender, AccountModel accountModel)
-        {
-            this.OnPropertyChanged(nameof(this.Account));
-            this.OnPropertyChanged(nameof(this.IsLoggedIn));
-        }
-
-        /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
         public override void Dispose()
@@ -58,7 +47,7 @@ namespace Bookify.App.Core.ViewModels
         public AccountModel Account => this.authenticationService.LoggedOnAccount;
 
         /// <summary>
-        /// Gets a value indicating whether this instance is logged in.
+        /// Gets a value indicating whether the user is logged in.
         /// </summary>
         /// <value>
         /// <c>true</c> if this instance is logged in; otherwise, <c>false</c>.
@@ -66,7 +55,7 @@ namespace Bookify.App.Core.ViewModels
         public bool IsLoggedIn => this.Account != null;
 
         /// <summary>
-        /// Logouts this instance.
+        /// Logs out this instance.
         /// </summary>
         /// <returns></returns>
         public async Task Logout()
@@ -75,12 +64,23 @@ namespace Bookify.App.Core.ViewModels
         }
 
         /// <summary>
-        /// Purchases the subscription.
+        /// Purchases a subscription.
         /// </summary>
         /// <returns></returns>
         public async Task PurchaseSubscription()
         {
             await this.personService.PurchaseSubscription();
+        }
+
+        /// <summary>
+        /// Authentications the service authentication changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="accountModel">The account model.</param>
+        private void AuthService_AuthChanged(object sender, AccountModel accountModel)
+        {
+            this.OnPropertyChanged(nameof(this.Account));
+            this.OnPropertyChanged(nameof(this.IsLoggedIn));
         }
     }
 }

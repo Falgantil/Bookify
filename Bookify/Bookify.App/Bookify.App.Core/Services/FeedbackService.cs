@@ -47,11 +47,8 @@ namespace Bookify.App.Core.Services
         /// <returns></returns>
         public async Task<BookFeedbackDto> CreateFeedback(int bookId, int rating, string message)
         {
-            return await this.api.CreateFeedback(bookId, new CreateFeedbackCommand
-            {
-                Text = message,
-                Rating = rating
-            });
+            var command = new CreateFeedbackCommand { Text = message, Rating = rating };
+            return await this.api.CreateFeedback(bookId, command);
         }
     }
 }

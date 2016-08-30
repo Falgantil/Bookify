@@ -12,8 +12,16 @@ namespace Bookify.App.Core.Services
 {
     public class ShoppingCartService : IShoppingCartService
     {
+        /// <summary>
+        /// The caching region
+        /// </summary>
         private readonly ICachingRegion<IEnumerable<CartItemModel>> cachingRegion;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ShoppingCartService"/> class.
+        /// </summary>
+        /// <param name="cachingRegionFactory">The caching region factory.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ShoppingCartService(ICachingRegionFactory cachingRegionFactory)
         {
             if (cachingRegionFactory == null)
@@ -23,6 +31,9 @@ namespace Bookify.App.Core.Services
             this.LoadItems();
         }
 
+        /// <summary>
+        /// Loads the items from the caching region.
+        /// </summary>
         private async void LoadItems()
         {
             var items = await this.cachingRegion.GetItem();
@@ -36,8 +47,20 @@ namespace Bookify.App.Core.Services
             }
         }
 
+        /// <summary>
+        /// Gets the books that currently reside in the cart.
+        /// </summary>
+        /// <value>
+        /// The books.
+        /// </value>
         public ObservableCollection<CartItemModel> CartItems { get; } = new ObservableCollection<CartItemModel>();
 
+        /// <summary>
+        /// Adds the specified book to the cart.
+        /// </summary>
+        /// <param name="book">The book.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public async Task AddToCart(BookDto book)
         {
             if (book == null)
@@ -57,6 +80,14 @@ namespace Bookify.App.Core.Services
             await this.cachingRegion.UpdateItem(this.CartItems);
         }
 
+        /// <summary>
+        /// Removes the book from the cart.
+        /// </summary>
+        /// <param name="book">The book.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">
+        /// The specified Book was not found as an item in the shopping cart!
+        /// </exception>
         public async Task RemoveFromCart(BookDto book)
         {
             if (book == null)
@@ -71,6 +102,12 @@ namespace Bookify.App.Core.Services
             await this.cachingRegion.UpdateItem(this.CartItems);
         }
 
+        /// <summary>
+        /// Removes the book with the specified ID from the cart.
+        /// </summary>
+        /// <param name="bookId">The book identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">A cart item with a book with the specified ID was not found in the shopping cart!</exception>
         public async Task RemoveFromCart(int bookId)
         {
             var oldItem = this.CartItems.FirstOrDefault(m => m.Book.Id == bookId);

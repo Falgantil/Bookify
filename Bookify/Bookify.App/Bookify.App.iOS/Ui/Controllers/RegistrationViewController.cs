@@ -82,7 +82,7 @@ namespace Bookify.App.iOS.Ui.Controllers
 
         private async void BtnRegister_Clicked(object sender, EventArgs e)
         {
-            var fields = this.ViewModel.GetInvalidFields().ToArray();
+            var fields = this.ViewModel.VerifyData().ToArray();
             if (fields.Length > 0)
             {
                 StringBuilder message = new StringBuilder();

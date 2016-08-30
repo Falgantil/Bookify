@@ -19,12 +19,7 @@ namespace Bookify.App.Core.Services
         /// The authentication API
         /// </summary>
         private readonly IAuthenticationApi authApi;
-
-        /// <summary>
-        /// The person service
-        /// </summary>
-        private readonly IPersonService personService;
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationService" /> class.
         /// </summary>
@@ -33,9 +28,8 @@ namespace Bookify.App.Core.Services
         public AuthenticationService(IAuthenticationApi authApi, IPersonService personService)
         {
             this.authApi = authApi;
-            this.personService = personService;
 
-            this.personService.SubscriptionChanged += (sender, b) =>
+            personService.SubscriptionChanged += (sender, b) =>
             {
                 this.LoggedOnAccount.Person.IsSubscribed = true;
                 this.OnLoggedOnAccountChanged();
@@ -76,9 +70,8 @@ namespace Bookify.App.Core.Services
                 Email = email,
                 Password = password
             });
-            var myself = await this.personService.GetMyself();
 
-            this.LoggedOnAccount = new AccountModel(token, myself);
+            this.LoggedOnAccount = new AccountModel(token);
         }
 
         /// <summary>
@@ -100,8 +93,6 @@ namespace Bookify.App.Core.Services
         {
             this.LoggedOnAccount = account;
             await this.authApi.Authenticate(account.Token);
-            var myself = await this.personService.GetMyself();
-            this.LoggedOnAccount.Person = myself;
         }
 
         /// <summary>
@@ -123,9 +114,8 @@ namespace Bookify.App.Core.Services
                 Email = email,
                 Username = username,
             });
-            var myself = await this.personService.GetMyself();
 
-            this.LoggedOnAccount = new AccountModel(token, myself);
+            this.LoggedOnAccount = new AccountModel(token);
         }
     }
 }

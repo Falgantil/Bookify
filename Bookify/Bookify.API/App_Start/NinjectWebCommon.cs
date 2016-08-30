@@ -85,6 +85,7 @@ namespace Bookify.API
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
             kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
+            kernel.Bind<IBrewerRepository>().To<BrewerRepository>().InRequestScope();
         }
     }
 }

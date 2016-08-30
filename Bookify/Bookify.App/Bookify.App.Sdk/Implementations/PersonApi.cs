@@ -10,11 +10,18 @@ namespace Bookify.App.Sdk.Implementations
 {
     public class PersonApi : BaseApi, IPersonApi
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonApi"/> class.
+        /// </summary>
         public PersonApi()
             : base(ApiConfig.PersonRoot)
         {
         }
 
+        /// <summary>
+        /// Gets my own Person object.
+        /// </summary>
+        /// <returns></returns>
         public async Task<PersonDto> GetMyself()
         {
             var request = new RequestBuilder()
@@ -25,6 +32,10 @@ namespace Bookify.App.Sdk.Implementations
             return JsonConvert.DeserializeObject<PersonDto>(json);
         }
 
+        /// <summary>
+        /// Creates a subscription.
+        /// </summary>
+        /// <returns></returns>
         public async Task Subscribe()
         {
             var request = new RequestBuilder()

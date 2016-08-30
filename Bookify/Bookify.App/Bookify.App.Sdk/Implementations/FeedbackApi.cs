@@ -10,11 +10,20 @@ namespace Bookify.App.Sdk.Implementations
 {
     public class FeedbackApi : BaseApi, IFeedbackApi
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedbackApi"/> class.
+        /// </summary>
         public FeedbackApi() 
             : base(ApiConfig.FeedbackRoot)
         {
         }
 
+        /// <summary>
+        /// Gets the feedback, filtered by <see cref="filter" />.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">Missing Book ID!</exception>
         public async Task<IPaginatedEnumerable<BookFeedbackDto>> GetFeedback(FeedbackFilter filter)
         {
             if (filter.BookId == 0)
@@ -35,6 +44,13 @@ namespace Bookify.App.Sdk.Implementations
             return await this.ExecuteAndParse<PaginatedEnumerable<BookFeedbackDto>>(request);
         }
 
+        /// <summary>
+        /// Creates the feedback.
+        /// </summary>
+        /// <param name="bookId">The book identifier.</param>
+        /// <param name="command">The command.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">Missing Book ID!</exception>
         public async Task<BookFeedbackDto> CreateFeedback(int bookId, CreateFeedbackCommand command)
         {
             if (bookId == 0)
