@@ -54,11 +54,7 @@ namespace Bookify.DataAccess.Repositories
 
             var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
             var file = directory.GetFileReference(filename);
-            if (file.Exists() && overWrite)
-            {
-                await file.DeleteAsync();
-            }
-            else if (!file.Exists())
+            if (!file.Exists() || overWrite)
             {
                 await file.UploadFromStreamAsync(source);
             }

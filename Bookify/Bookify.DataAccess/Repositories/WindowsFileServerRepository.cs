@@ -1,60 +1,118 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Bookify.Common.Exceptions;
 using Bookify.Common.Repositories;
 
 namespace Bookify.DataAccess.Repositories
 {
     public class WindowsFileServerRepository : IFileServerRepository
     {
-        public Task SaveEpubFile(int bookId, Stream source)
+        private const string Share = "bookifyshare";
+        private const string Covers = "Covers";
+        private const string Epubs = "Epubs";
+        public string tempConnectionString = "DESKTOP-U6GGDIA";
+
+
+        private async Task SaveFile(int bookId, string folderName, Stream source, bool overWrite = false)
         {
-            throw new System.NotImplementedException();
+            var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
+            string filePath = FilePath(tempConnectionString, Share, folderName, filename);
+
+            var exists = File.Exists(filePath);
+
+            if (exists && overWrite)
+            {
+                using (var output = File.Open(filePath, FileMode.Create))
+                {
+                    await source.CopyToAsync(output);
+                }
+            }
+            else if (!exists)
+            {
+                using (var output = File.Open(filePath, FileMode.CreateNew))
+                {
+                    await source.CopyToAsync(output);
+                }
+            }
+            else
+            {
+                throw new FileAlreadyExistsException();
+            }
         }
 
-        public Task ReplaceEpubFile(int bookId, Stream source)
+        private async Task DeleteFile(int bookId, string folderName)
         {
-            throw new System.NotImplementedException();
+            var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
+            string filePath = FilePath(tempConnectionString, Share, folderName, filename);
+            
+
+            var exists = File.Exists(filePath);
+
+            if (exists)
+            {
+                await Task.Factory.StartNew(() => File.Delete(filePath));
+            }
         }
 
-        public Task DeleteEpubFile(int bookId)
+
+        private async Task<MemoryStream> DownloadToStream(int bookId, string folderName)
         {
-            throw new System.NotImplementedException();
+            var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
+            string filePath = FilePath(tempConnectionString, Share, folderName, filename);
+
+            var exists = File.Exists(filePath);
+            if (!exists)
+                throw new NotFoundException();
+            
+            return new MemoryStream(File.ReadAllBytes(filePath)); 
         }
 
-        public Task GetEpubFile(int bookId)
+
+        private string FilePath(string computername, string sharename, string foldername, string filename)
         {
-            throw new System.NotImplementedException();
+            return new Uri(@"\\" + Path.Combine(computername, sharename, foldername, filename).Trim('\\')).LocalPath;
         }
 
-        public Task SaveCoverFile(int bookId, Stream source)
+
+        public async Task SaveEpubFile(int bookId, Stream source)
         {
-            throw new System.NotImplementedException();
+            await SaveFile(bookId, Epubs, source);
         }
 
-        public Task ReplaceCoverFile(int bookId, Stream source)
+        public async Task ReplaceEpubFile(int bookId, Stream source)
         {
-            throw new System.NotImplementedException();
+            await SaveFile(bookId, Epubs, source, true);
         }
 
-        public Task DeleteCoverFile(int bookId)
+        public async Task DeleteEpubFile(int bookId)
         {
-            throw new System.NotImplementedException();
+            await DeleteFile(bookId, Epubs);
         }
 
-        public Task GetCoverFile(int bookId)
+        public async Task<MemoryStream> GetEpubFile(int bookId)
         {
-            throw new System.NotImplementedException();
+            return await DownloadToStream(bookId, Epubs);
         }
 
-        Task<MemoryStream> IFileServerRepository.GetEpubFile(int bookId)
+        public async Task SaveCoverFile(int bookId, Stream source)
         {
-            throw new NotImplementedException();
+            await SaveFile(bookId, Covers, source);
         }
 
-        Task<MemoryStream> IFileServerRepository.GetCoverFile(int bookId)
+        public async Task ReplaceCoverFile(int bookId, Stream source)
         {
-            throw new NotImplementedException();
+            await SaveFile(bookId, Covers, source, true);
+        }
+
+        public async Task DeleteCoverFile(int bookId)
+        {
+            await DeleteFile(bookId, Covers);
+        }
+
+        public async Task<MemoryStream> GetCoverFile(int bookId)
+        {
+            return await DownloadToStream(bookId, Covers);
         }
     }
 }
