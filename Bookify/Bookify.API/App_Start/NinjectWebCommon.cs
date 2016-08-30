@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Web;
 using System.Web.Http;
 
@@ -83,9 +84,20 @@ namespace Bookify.API
             kernel.Bind<IBookOrderRepository>().To<BookOrderRepository>().InRequestScope();
             kernel.Bind<IBookHistoryRepository>().To<BookHistoryRepository>().InRequestScope();
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
+
+            try
+            {
+                if (Convert.ToBoolean(ConfigurationManager.AppSettings["UseAzure"]))
+                    kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
+                else
+                    kernel.Bind<IFileServerRepository>().To<WindowsFileServerRepository>().InRequestScope();
+            }
+            catch (Exception)
+            {
+                kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
+            }
+
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
-            //kernel.Bind<IFileServerRepository>().To<WindowsFileServerRepository>().InRequestScope();
-            kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
             kernel.Bind<IBrewerRepository>().To<BrewerRepository>().InRequestScope();
         }
     }
