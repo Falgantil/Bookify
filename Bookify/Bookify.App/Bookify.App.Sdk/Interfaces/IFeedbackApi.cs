@@ -8,7 +8,7 @@ namespace Bookify.App.Sdk.Interfaces
     public interface IFeedbackApi
     {
         /// <summary>
-        /// Gets the feedback.
+        /// Gets the feedback, filtered by <see cref="filter"/>.
         /// </summary>
         /// <param name="filter">The filter.</param>
         /// <returns></returns>

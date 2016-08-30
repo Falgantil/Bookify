@@ -50,8 +50,8 @@ namespace Bookify.App.iOS.Ui.Controllers
         {
             base.ViewWillAppear(animated);
 
-            // If not logged in, the button will be null. Cause calling SetRightBarButtonItem
-            // to null, removes any other button. Which is what we want.
+            // If not logged in, the button will be null. Calling SetRightBarButtonItem
+            // with null, removes any other button. Which is what we want.
             this.ParentViewController.NavigationItem.SetRightBarButtonItem(this.btnAddReview, false);
 
             if (this.rendered)

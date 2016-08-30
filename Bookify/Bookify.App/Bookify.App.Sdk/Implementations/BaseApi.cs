@@ -12,15 +12,33 @@ namespace Bookify.App.Sdk.Implementations
 {
     public abstract class BaseApi
     {
+        /// <summary>
+        /// A dictionary that defines all the headers that will automatically be included in any API call.
+        /// </summary>
         protected static readonly IDictionary<string, object> DefaultHeaders = new Dictionary<string, object>();
 
+        /// <summary>
+        /// Gets the URL.
+        /// </summary>
+        /// <value>
+        /// The URL.
+        /// </value>
         protected string Url { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseApi"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
         protected BaseApi(string url)
         {
             this.Url = url;
         }
 
+        /// <summary>
+        /// Combines the URL with <see cref="Url"/>.
+        /// </summary>
+        /// <param name="urls">The urls.</param>
+        /// <returns></returns>
         protected string CombineUrl(params string[] urls)
         {
             List<string> paths = new List<string>
@@ -31,7 +49,13 @@ namespace Bookify.App.Sdk.Implementations
             return Path.Combine(paths.ToArray()).TrimEnd('/');
         }
 
-        public virtual async Task<HttpResponseMessage> ExecuteRequest(RequestBuilder message)
+        /// <summary>
+        /// Executes the request, returning a <see cref="HttpResponseMessage"/>.
+        /// If the response is not successful, it will instead throw an exception.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <returns></returns>
+        protected virtual async Task<HttpResponseMessage> ExecuteRequest(RequestBuilder message)
         {
             using (var client = new HttpClient(new NativeMessageHandler()))
             {
@@ -45,7 +69,13 @@ namespace Bookify.App.Sdk.Implementations
             }
         }
 
-        public virtual async Task<T> ExecuteAndParse<T>(RequestBuilder message)
+        /// <summary>
+        /// Executes the request using <see cref="ExecuteRequest"/> and parses the response as JSON to the type of <see cref="T"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="message">The message.</param>
+        /// <returns></returns>
+        protected virtual async Task<T> ExecuteAndParse<T>(RequestBuilder message)
         {
             var response = await this.ExecuteRequest(message);
             var json = await response.Content.ReadAsStringAsync();
@@ -67,6 +97,11 @@ namespace Bookify.App.Sdk.Implementations
             return obj;
         }
 
+        /// <summary>
+        /// Throws if the <see cref="message"/>'s Status Code is unsuccessful (not 200OK or a variant thereof).
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <returns></returns>
         private static async Task<HttpResponseMessage> ThrowIfUnsuccessful(HttpResponseMessage message)
         {
             if (message.IsSuccessStatusCode)

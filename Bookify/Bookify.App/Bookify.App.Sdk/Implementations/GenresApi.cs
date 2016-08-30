@@ -8,11 +8,19 @@ namespace Bookify.App.Sdk.Implementations
 {
     public class GenresApi : BaseApi, IGenresApi
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GenresApi"/> class.
+        /// </summary>
         public GenresApi() : base(ApiConfig.GenresRoot)
         {
 
         }
 
+        /// <summary>
+        /// Gets the genres, filtered by <see cref="filter" />.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
         public async Task<IEnumerable<GenreDto>> GetGenres(GenreFilter filter)
         {
             var request = new RequestBuilder()

@@ -5,21 +5,47 @@ namespace Bookify.App.Core.Services
 {
     public class AccountModel : BaseModel
     {
-        public AccountModel(AuthTokenDto token, PersonDto person)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountModel"/> class.
+        /// </summary>
+        /// <param name="token">The token.</param>
+        public AccountModel(AuthTokenDto token)
         {
-            this.Token = token;
-            this.Person = person;
+            this.Token = token.Token;
+            this.Person = token.Person;
+            this.Roles = token.Roles;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountModel"/> class.
+        /// </summary>
         public AccountModel()
         {
 
         }
 
+        /// <summary>
+        /// Gets or sets the person.
+        /// </summary>
+        /// <value>
+        /// The person.
+        /// </value>
         public PersonDto Person { get; set; }
 
-        public AuthTokenDto Token { get; set; }
+        /// <summary>
+        /// Gets or sets the authentication token.
+        /// </summary>
+        /// <value>
+        /// The token.
+        /// </value>
+        public string Token { get; set; }
 
+        /// <summary>
+        /// Gets or sets the roles.
+        /// </summary>
+        /// <value>
+        /// The roles.
+        /// </value>
         public string[] Roles { get; set; }
     }
 }

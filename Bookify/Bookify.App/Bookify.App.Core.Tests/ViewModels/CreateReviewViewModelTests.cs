@@ -28,9 +28,11 @@ namespace Bookify.App.Core.Tests.ViewModels
         {
             var book = new DetailedBookDto();
             var authenticationService = new Mock<IAuthenticationService>();
-            var authToken = new AuthTokenDto();
-            var person = new PersonDto();
-            AccountModel loggedOnUser = new AccountModel(authToken, person);
+            var authToken = new AuthTokenDto
+            {
+                Person = new PersonDto()
+            };
+            AccountModel loggedOnUser = new AccountModel(authToken);
             authenticationService.SetupGet(s => s.LoggedOnAccount).Returns(() => loggedOnUser);
             var feedbackService = new Mock<IFeedbackService>();
 
@@ -43,7 +45,10 @@ namespace Bookify.App.Core.Tests.ViewModels
         {
             var book = new DetailedBookDto();
             var authService = new Mock<IAuthenticationService>();
-            AccountModel loggedOnUser = new AccountModel(new AuthTokenDto(), new PersonDto());
+            AccountModel loggedOnUser = new AccountModel(new AuthTokenDto
+            {
+                Person = new PersonDto()
+            });
             authService.SetupGet(s => s.LoggedOnAccount).Returns(() => loggedOnUser);
             var feedbackService = new Mock<IFeedbackService>();
 
@@ -66,7 +71,10 @@ namespace Bookify.App.Core.Tests.ViewModels
         {
             var book = new DetailedBookDto {Id = 5};
             var authService = new Mock<IAuthenticationService>();
-            AccountModel loggedOnUser = new AccountModel(new AuthTokenDto(), new PersonDto());
+            AccountModel loggedOnUser = new AccountModel(new AuthTokenDto
+            {
+                Person = new PersonDto()
+            });
             authService.SetupGet(s => s.LoggedOnAccount).Returns(() => loggedOnUser);
             var feedbackService = new Mock<IFeedbackService>();
 

@@ -47,6 +47,7 @@
     <Compile Include="Interfaces\Services\IGetByFilterService.cs" />
     <Compile Include="Interfaces\Services\IPersonService.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Services\Config.cs" />
     <Compile Include="Services\DelayService.cs" />
     <Compile Include="Services\JsonCachingRegion.cs" />

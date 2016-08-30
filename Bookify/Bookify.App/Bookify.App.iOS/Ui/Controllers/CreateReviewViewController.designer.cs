@@ -4,12 +4,14 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace Bookify.App.iOS
+using System.CodeDom.Compiler;
+
+using Bookify.App.iOS.Ui.Controls;
+
+using Foundation;
+
+namespace Bookify.App.iOS.Ui.Controllers
 {
     [Register ("CreateReviewViewController")]
     partial class CreateReviewViewController
@@ -44,48 +46,48 @@ namespace Bookify.App.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Bookify.App.iOS.PlaceholderTextView txtMessage { get; set; }
+        PlaceholderTextView txtMessage { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (constBottomConstraint != null) {
-                constBottomConstraint.Dispose ();
-                constBottomConstraint = null;
+            if (this.constBottomConstraint != null) {
+                this.constBottomConstraint.Dispose ();
+                this.constBottomConstraint = null;
             }
 
-            if (imgRating1 != null) {
-                imgRating1.Dispose ();
-                imgRating1 = null;
+            if (this.imgRating1 != null) {
+                this.imgRating1.Dispose ();
+                this.imgRating1 = null;
             }
 
-            if (imgRating2 != null) {
-                imgRating2.Dispose ();
-                imgRating2 = null;
+            if (this.imgRating2 != null) {
+                this.imgRating2.Dispose ();
+                this.imgRating2 = null;
             }
 
-            if (imgRating3 != null) {
-                imgRating3.Dispose ();
-                imgRating3 = null;
+            if (this.imgRating3 != null) {
+                this.imgRating3.Dispose ();
+                this.imgRating3 = null;
             }
 
-            if (imgRating4 != null) {
-                imgRating4.Dispose ();
-                imgRating4 = null;
+            if (this.imgRating4 != null) {
+                this.imgRating4.Dispose ();
+                this.imgRating4 = null;
             }
 
-            if (imgRating5 != null) {
-                imgRating5.Dispose ();
-                imgRating5 = null;
+            if (this.imgRating5 != null) {
+                this.imgRating5.Dispose ();
+                this.imgRating5 = null;
             }
 
-            if (lblCreatorName != null) {
-                lblCreatorName.Dispose ();
-                lblCreatorName = null;
+            if (this.lblCreatorName != null) {
+                this.lblCreatorName.Dispose ();
+                this.lblCreatorName = null;
             }
 
-            if (txtMessage != null) {
-                txtMessage.Dispose ();
-                txtMessage = null;
+            if (this.txtMessage != null) {
+                this.txtMessage.Dispose ();
+                this.txtMessage = null;
             }
         }
     }
