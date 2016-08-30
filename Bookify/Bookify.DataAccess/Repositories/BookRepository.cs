@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
 using Bookify.Common.Commands.Auth;
+using Bookify.Common.Enums;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Filter;
 using Bookify.Common.Models;
 using Bookify.Common.Repositories;
 using Bookify.DataAccess.Extensions;
 using Bookify.DataAccess.Models;
+using Microsoft.Data.OData.Query.SemanticAst;
 
 namespace Bookify.DataAccess.Repositories
 {
@@ -29,6 +31,8 @@ namespace Bookify.DataAccess.Repositories
                     .Include(b => b.Author)
                     .Include(x => x.Publisher)
                     .Include(f => f.Feedback.Select(y => y.Person));
+
+
 
             await book.ForEachAsync(x =>
             {
@@ -50,7 +54,9 @@ namespace Bookify.DataAccess.Repositories
             var skip = filter.Skip;
             var take = filter.Take;
 
-            var queryableBooks = this.Context.Books.Include(x => x.Author).Include(x => x.Feedback.Select(y => y.Person));
+            var queryableBooks = this.Context.Books
+                .Include(x => x.Author)
+                .Include(x => x.Feedback.Select(y => y.Person));
 
             queryableBooks = personId > 0
                 ? queryableBooks.Where(x => x.Orders.Any(y => y.PersonId == personId)) : queryableBooks;
@@ -81,8 +87,11 @@ namespace Bookify.DataAccess.Repositories
             }
 
 
+            queryableBooks = queryableBooks.Include(x => x.History);
+            queryableBooks = queryableBooks.Where(x => x.History.All(y => y.Type != BookHistoryType.Deleted));
 
             queryableBooks = queryableBooks.Include(x => x.Genres);
+
             queryableBooks = queryableBooks.OrderBy(orderBy, desc);
 
             var totalCount = queryableBooks.Count();
@@ -90,11 +99,14 @@ namespace Bookify.DataAccess.Repositories
             queryableBooks = queryableBooks.Skip(skip);
             queryableBooks = queryableBooks.Take(take);
 
+
             var collection = await queryableBooks.ToListAsync();
             foreach (var g in collection.SelectMany(b => b.Genres))
             {
                 g.Books = new Book[0];
             }
+
+
 
             return new PaginatedEnumerable<BookDto>(collection.Select(b => b.ToDto()), totalCount);
         }

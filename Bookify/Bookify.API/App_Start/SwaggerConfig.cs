@@ -34,7 +34,11 @@ namespace Bookify.API
                         // the docs is taken as the default. If your API supports multiple schemes and you want to be explicit
                         // about them, you can use the "Schemes" option as shown below.
                         //
-                        c.Schemes(new[] { "http", "https" });
+                        c.Schemes(new[]
+                        {
+                            "http",
+                            "https"
+                        });
 
                         // Use "SingleApiVersion" to describe a single version API. Swagger 2.0 includes an "Info" object to
                         // hold additional metadata for an API. Version and title are required but you can also provide
@@ -161,7 +165,7 @@ namespace Bookify.API
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        //c.IncludeXmlComments(GetXmlCommentsPath());
+                        c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swashbuckle will raise an exception if it encounters multiple actions
@@ -216,6 +220,15 @@ namespace Bookify.API
                         //
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
+        }
+
+        /// <summary>
+        /// Gets the XML comments path.
+        /// </summary>
+        /// <returns>Application root directory path</returns>
+        protected static string GetXmlCommentsPath()
+        {
+            return $@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\Bookify.API.XML";
         }
     }
 }

@@ -4,21 +4,24 @@ using Bookify.Common.Filter;
 using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using Bookify.API.Attributes;
 using Bookify.Common.Exceptions;
 using Bookify.Common.Models;
 using Bookify.Common.Repositories;
-using Bookify.DataAccess.Models;
 
 namespace Bookify.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Bookify.API.Controllers.BaseApiController" />
     [RoutePrefix("books")]
     public class BooksController : BaseApiController
     {
         private readonly IBookRepository _bookRepository;
         private readonly IBookHistoryRepository _bookHistoryRepository;
-        private readonly IBookFeedbackRepository _bookFeedbackRepository;
-        private readonly IAuthenticationRepository _authRepo;
+        private readonly IAuthenticationRepository _authRepository;
         private readonly IPersonRepository _personRepository;
         private readonly IBookOrderRepository _bookOrderRepository;
 
@@ -27,16 +30,19 @@ namespace Bookify.API.Controllers
         /// </summary>
         /// <param name="bookRepository">The book repository. This will be injected.</param>
         /// <param name="bookHistoryRepository">The book history repository. This will be injected.</param>
-        /// <param name="bookFeedbackRepository">The book feedback repository. This will be injected.</param>
-        /// <param name="authRepo">The authentication repo. This will be injected.</param>
+        /// <param name="authRepository">The authentication repo. This will be injected.</param>
         /// <param name="personRepository">The person repository. This will be injected.</param>
         /// <param name="bookOrderRepository">The book order repository. This will be injected.</param>
-        public BooksController(IBookRepository bookRepository, IBookHistoryRepository bookHistoryRepository, IBookFeedbackRepository bookFeedbackRepository, IAuthenticationRepository authRepo, IPersonRepository personRepository, IBookOrderRepository bookOrderRepository)
+        public BooksController(
+            IBookRepository bookRepository, 
+            IBookHistoryRepository bookHistoryRepository, 
+            IAuthenticationRepository authRepository, 
+            IPersonRepository personRepository, 
+            IBookOrderRepository bookOrderRepository)
         {
             this._bookRepository = bookRepository;
             this._bookHistoryRepository = bookHistoryRepository;
-            this._bookFeedbackRepository = bookFeedbackRepository;
-            this._authRepo = authRepo;
+            this._authRepository = authRepository;
             this._personRepository = personRepository;
             this._bookOrderRepository = bookOrderRepository;
         }
@@ -45,9 +51,11 @@ namespace Bookify.API.Controllers
         /// Gets books from the specified filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
         [Route("")]
+        [ResponseType(typeof(IPaginatedEnumerable<BookDto>))]
         public async Task<IHttpActionResult> Get([FromUri]BookFilter filter = null)
         {
             filter = filter ?? new BookFilter();
@@ -58,14 +66,16 @@ namespace Bookify.API.Controllers
         /// Gets the bowword books from the specified filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
         [Auth]
         [Route("mybooks")]
+        [ResponseType(typeof(IPaginatedEnumerable<BookDto>))]
         public async Task<IHttpActionResult> MyBooks([FromUri]BookFilter filter = null)
         {
             filter = filter ?? new BookFilter();
-            var person = await this.GetAuthorizedMember(this._authRepo);
+            var person = await this.GetAuthorizedMember(this._authRepository);
             return await this.Try(() => this._bookRepository.GetByFilter(filter, person.PersonDto.Id));
         }
 
@@ -73,9 +83,11 @@ namespace Bookify.API.Controllers
         /// Gets the book specified by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
+        [ResponseType(typeof(DetailedBookDto))]
         public async Task<IHttpActionResult> Get(int id)
         {
             return await this.Try(() => this._bookRepository.GetById(id));
@@ -85,10 +97,12 @@ namespace Bookify.API.Controllers
         /// Creates a book specified by the command.
         /// </summary>
         /// <param name="command">The command.</param>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpPost]
         [Auth]
         [Route("")]
+        [ResponseType(typeof(DetailedBookDto))]
         public async Task<IHttpActionResult> Create([FromBody]CreateBookCommand command)
         {
             return await this.TryCreate(() => this._bookRepository.CreateBook(command));
@@ -99,10 +113,13 @@ namespace Bookify.API.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="command">The command.</param>
+        /// <response code="500">Internal Server Error</response>
+        /// <response code="404">Not Found Error</response>
         /// <returns></returns>
         [HttpPatch]
         [Auth]
         [Route("{id}")]
+        [ResponseType(typeof(DetailedBookDto))]
         public async Task<IHttpActionResult> Update(int id, [FromBody]EditBookCommand command)
         {
             return await this.Try(() => this._bookRepository.EditBook(id, command));
@@ -112,7 +129,7 @@ namespace Bookify.API.Controllers
         /// Deletes the book specified by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <returns></returns>
+        /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Auth]
         [Route("{id}")]
@@ -156,7 +173,7 @@ namespace Bookify.API.Controllers
                         PersonDto dto;
                         try
                         {
-                            var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
+                            var personAuthDto = await this.GetAuthorizedMember(this._authRepository);
                             dto = personAuthDto.PersonDto;
                             if (email != dto.Email) throw new BadRequestException("The email was not identical with the email of the person logged in");
                         }
@@ -188,7 +205,7 @@ namespace Bookify.API.Controllers
             return await this.Try(
                 async () =>
                 {
-                    var personAuthDto = await this.GetAuthorizedMember(this._authRepo);
+                    var personAuthDto = await this.GetAuthorizedMember(this._authRepository);
                     var dto = personAuthDto.PersonDto;
 
                     var command = new CreateOrderCommand
