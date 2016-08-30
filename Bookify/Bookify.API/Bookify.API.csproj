@@ -159,6 +159,8 @@
     <Content Include="packages.config" />
     <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="apiapp.json" />
+    <Content Include="ConnectionStrings.config" />
+    <Content Include="AppSettings.config" />
     <None Include="Properties\PublishProfiles\BookifyApi.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
