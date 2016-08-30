@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.IO;
 using System.Threading.Tasks;
 using Bookify.Common.Exceptions;
@@ -11,13 +12,12 @@ namespace Bookify.DataAccess.Repositories
         private const string Share = "bookifyshare";
         private const string Covers = "Covers";
         private const string Epubs = "Epubs";
-        public string tempConnectionString = "DESKTOP-U6GGDIA";
 
 
         private async Task SaveFile(int bookId, string folderName, Stream source, bool overWrite = false)
         {
             var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
-            string filePath = FilePath(tempConnectionString, Share, folderName, filename);
+            string filePath = FilePath(ConfigurationManager.AppSettings["WindowsStorageConnectionString"], Share, folderName, filename);
 
             var exists = File.Exists(filePath);
 
@@ -44,7 +44,7 @@ namespace Bookify.DataAccess.Repositories
         private async Task DeleteFile(int bookId, string folderName)
         {
             var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
-            string filePath = FilePath(tempConnectionString, Share, folderName, filename);
+            string filePath = FilePath(ConfigurationManager.AppSettings["WindowsStorageConnectionString"], Share, folderName, filename);
             
 
             var exists = File.Exists(filePath);
@@ -59,7 +59,7 @@ namespace Bookify.DataAccess.Repositories
         private async Task<MemoryStream> DownloadToStream(int bookId, string folderName)
         {
             var filename = folderName == Covers ? $"{bookId}.png" : $"{bookId}.epub";
-            string filePath = FilePath(tempConnectionString, Share, folderName, filename);
+            string filePath = FilePath(ConfigurationManager.AppSettings["WindowsStorageConnectionString"], Share, folderName, filename);
 
             var exists = File.Exists(filePath);
             if (!exists)
