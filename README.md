@@ -1,2 +1,2 @@
 # Bookify
-The 2016 Apprenticeship Bookify project.
+The 2016 Apprenticeship exam Bookify project.
