@@ -1,8 +1,10 @@
-using Foundation;
 using System;
+
+using Foundation;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controls
 {
     public partial class ReadBookWebView : UIWebView
     {

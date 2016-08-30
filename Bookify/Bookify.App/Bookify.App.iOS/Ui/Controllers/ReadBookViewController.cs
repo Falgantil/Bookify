@@ -1,19 +1,20 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading.Tasks;
+
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
 using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.Common.Models;
+
 using CoreGraphics;
-using EpubReader.Net.Core;
+
 using Rope.Net;
 using Rope.Net.iOS;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class ReadBookViewController : ExtendedViewController<ReadBookViewModel>
     {

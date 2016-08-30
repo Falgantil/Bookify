@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Text;
+
+using Bookify.App.Core.Helpers;
 using Bookify.App.Core.Initialization;
 using Bookify.App.Core.ViewModels;
 using Bookify.App.iOS.Initialization;
@@ -8,10 +10,12 @@ using Bookify.App.iOS.Ui.Controllers.Base;
 using Bookify.App.iOS.Ui.General;
 using Bookify.App.iOS.Ui.Helpers;
 using Bookify.Common.Models;
+
 using Rope.Net.iOS;
+
 using UIKit;
 
-namespace Bookify.App.iOS
+namespace Bookify.App.iOS.Ui.Controllers
 {
     public partial class CreateReviewViewController : ExtendedViewController<CreateReviewViewModel>
     {
@@ -109,7 +113,7 @@ namespace Bookify.App.iOS
 
         private async void BtnCreateReview_Click(object sender, EventArgs e)
         {
-            var errors = this.ViewModel.VerifyReview().ToArray();
+            var errors = this.ViewModel.VerifyData().ToArray();
             if (errors.Any())
             {
                 var msg = new StringBuilder();
@@ -147,6 +151,7 @@ namespace Bookify.App.iOS
                 this.imgRating4,
                 this.imgRating5);
             this.txtMessage.BindText(this.ViewModel, vm => vm.Message);
+            this.lblCreatorName.Bind(this.ViewModel, vm => vm.Person, (lbl, dto) => lbl.Text = $"af {dto.GetFullName()}");
         }
     }
 }
