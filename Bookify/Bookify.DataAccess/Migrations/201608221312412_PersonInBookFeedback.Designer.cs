@@ -7,13 +7,13 @@ namespace Bookify.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class PersonInBookFeedback : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PersonInBookFeedback));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608301201261_Initial"; }
+            get { return "201608221312412_PersonInBookFeedback"; }
         }
         
         string IMigrationMetadata.Source

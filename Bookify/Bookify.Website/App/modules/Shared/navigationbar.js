@@ -31,7 +31,7 @@ class NavigationBar extends React.Component {
             )}
             {SessionStore.currentUser && (
               <ul className="nav navbar-nav navbar-right">
-                <li><a href="#">Velkommen {SessionStore.currentUser.Person.Alias}</a></li>
+                <li><a href="#">Velkommen {SessionStore.currentUser.Alias}</a></li>
               </ul>
             )}
           </div>

@@ -23,7 +23,6 @@ namespace Bookify.DataAccess
         public BookifyContext() : base("DefaultConnection")
         {
             Database.Log = s => Debug.WriteLine(s);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookifyContext, Migrations.Configuration>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
