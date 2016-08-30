@@ -51,6 +51,7 @@ namespace Bookify.API.Controllers
         /// Gets books from the specified filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
+        /// <remarks>return the books</remarks>
         /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
@@ -66,8 +67,9 @@ namespace Bookify.API.Controllers
         /// Gets the bowword books from the specified filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
+        /// <remarks>return the books</remarks>
         /// <response code="500">Internal Server Error</response>
-        /// <returns></returns>
+        /// <returns>IPaginatedEnumerable<BookDto></returns>
         [HttpGet]
         [Auth]
         [Route("mybooks")]
@@ -83,8 +85,9 @@ namespace Bookify.API.Controllers
         /// Gets the book specified by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
+        /// <remarks>return the book specified by the identifier</remarks>
         /// <response code="500">Internal Server Error</response>
-        /// <returns></returns>
+        /// <returns>DetailedBookDto</returns>
         [HttpGet]
         [Route("{id}")]
         [ResponseType(typeof(DetailedBookDto))]
@@ -97,8 +100,9 @@ namespace Bookify.API.Controllers
         /// Creates a book specified by the command.
         /// </summary>
         /// <param name="command">The command.</param>
+        /// <remarks>Insert a book and returns it</remarks>
         /// <response code="500">Internal Server Error</response>
-        /// <returns></returns>
+        /// <returns>DetailedBookDto</returns>
         [HttpPost]
         [Auth]
         [Route("")]

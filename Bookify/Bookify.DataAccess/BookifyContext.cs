@@ -20,7 +20,7 @@ namespace Bookify.DataAccess
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
 
-        public BookifyContext() : base("DefaultConnection") //LocalDb
+        public BookifyContext() : base("LocalDb") //DefaultConnection
         {
             Database.Log = s => Debug.WriteLine(s);
         }
@@ -31,6 +31,8 @@ namespace Bookify.DataAccess
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new BookConfiguration());
             modelBuilder.Configurations.Add(new BookFeedbackConfiguration());
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookifyContext, Migrations.Configuration>());
         }
     }
 }

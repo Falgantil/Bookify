@@ -15,6 +15,7 @@ namespace Bookify.DataAccess.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
+
         protected override void Seed(BookifyContext ctx)
         {
             var genres = new[]
