@@ -32,7 +32,7 @@ namespace Bookify.DataAccess.Repositories
         public async Task<IEnumerable<BookHistoryDto>> GetHistoryForBook(int bookId)
         {
             var histories = await this.Get(h => h.BookId == bookId);
-            var bookHistories = await histories.ToListAsync(CancellationToken.None);
+            var bookHistories = await histories.ToListAsync();
             return bookHistories.Select(h => h.ToDto());
         }
 

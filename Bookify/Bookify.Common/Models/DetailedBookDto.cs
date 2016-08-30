@@ -2,10 +2,6 @@ using System.Collections.Generic;
 
 namespace Bookify.Common.Models
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Bookify.Common.Models.BookDto" />
     public class DetailedBookDto : BookDto
     {
         /// <summary>

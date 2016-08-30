@@ -1,9 +1,5 @@
 namespace Bookify.Common.Filter
 {
-    /// <summary>
-    /// Book filer, filters the books by the available params.
-    /// </summary>
-    /// <seealso cref="Bookify.Common.Filter.BaseFilter" />
     public class BookFilter : BaseFilter
     {
         /// <summary>

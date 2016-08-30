@@ -26,7 +26,7 @@ namespace Bookify.Test.APIControllers
             // Arrange
             var bookRepo = new Mock<IBookRepository>();
             var bookHistoryRepo = new Mock<IBookHistoryRepository>();
-            var bookFeedbackRepo = new Mock<IBookFeedbackRepository>();
+            //var bookFeedbackRepo = new Mock<IBookFeedbackRepository>();
             var authRepo = new Mock<IAuthenticationRepository>();
             var personRepository = new Mock<IPersonRepository>();
             var bookOrderRepository = new Mock<IBookOrderRepository>();
@@ -34,7 +34,7 @@ namespace Bookify.Test.APIControllers
             bookRepo.Setup(x => x.GetById(It.IsAny<int>()))
                 .Returns(async (int id) => { return GetStaticBooks().Where(x => x.Id == id).Single().ToDetailedDto(); });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             IHttpActionResult actionResult = await controller.Get(1);
@@ -65,7 +65,7 @@ namespace Bookify.Test.APIControllers
                     return GetStaticBooks().Where(x => x.Id == 100).SingleOrDefault()?.ToDetailedDto();
                 });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             IHttpActionResult actionResult = await controller.Get(100);
@@ -104,7 +104,7 @@ namespace Bookify.Test.APIControllers
                     };
                 });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             var actionResult = await controller.Create(createBookCommand);
@@ -134,7 +134,7 @@ namespace Bookify.Test.APIControllers
                     return bookToUpdate.ToDetailedDto();
                 });
 
-            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, bookFeedbackRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
+            var controller = new BooksController(bookRepo.Object, bookHistoryRepo.Object, authRepo.Object, personRepository.Object, bookOrderRepository.Object);
 
             // Act
             var actionResult = await controller.Update(1, new EditBookCommand { Price = 1337 });

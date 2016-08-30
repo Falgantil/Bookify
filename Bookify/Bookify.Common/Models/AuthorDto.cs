@@ -1,9 +1,6 @@
 ﻿namespace Bookify.Common.Models
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Bookify.Common.Models.BaseDto" />
+
     public class AuthorDto : BaseDto
     {
         /// <summary>

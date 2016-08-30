@@ -5,17 +5,26 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using Bookify.API.Attributes;
 using Bookify.API.Provider;
 using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Bookify.API.Controllers.BaseApiController" />
     [RoutePrefix("Files")]
     public class FilesController : BaseApiController
     {
         private readonly IFileServerRepository _fileServerRepository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FilesController"/> class.
+        /// </summary>
+        /// <param name="fileServerRepository">The file server repository.</param>
         public FilesController(IFileServerRepository fileServerRepository)
         {
             this._fileServerRepository = fileServerRepository;
@@ -23,6 +32,14 @@ namespace Bookify.API.Controllers
 
         #region Epub
 
+        /// <summary>
+        /// Uploads the epub.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="UploadEpub">OK</response>
+        /// <response code="400">Bad Reqeust Error</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         [HttpPost]
         [Auth]
         [Route("{id}/epub")]
@@ -50,9 +67,17 @@ namespace Bookify.API.Controllers
                 });
         }
 
+        /// <summary>
+        /// Downloads the epub.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="DownloadEpub">OK</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         [HttpGet]
         [Auth]
         [Route("{id}/epub")]
+        [ResponseType(typeof(ByteArrayContent))]
         public async Task<IHttpActionResult> DownloadEpub(int id)
         {
             return await this.TryRaw(
@@ -72,6 +97,12 @@ namespace Bookify.API.Controllers
                 });
         }
 
+        /// <summary>
+        /// Replaces the epub.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="ReplaceEpub">OK</response>
+        /// <returns></returns>
         [HttpPut]
         [Auth]
         [Route("{id}/epub")]
@@ -99,6 +130,12 @@ namespace Bookify.API.Controllers
                 });
         }
 
+        /// <summary>
+        /// Deletes the epub.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="DeleteEpub">OK</response>
+        /// <returns></returns>
         [HttpDelete]
         [Auth]
         [Route("{id}/epub")]
@@ -115,6 +152,13 @@ namespace Bookify.API.Controllers
 
         #region Cover
 
+        /// <summary>
+        /// Uploads the cover.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="UploadCover">OK</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         [HttpPost]
         [Auth]
         [Route("{id}/cover")]
@@ -141,7 +185,14 @@ namespace Bookify.API.Controllers
                     await this._fileServerRepository.SaveCoverFile(id, fileStream);
                 });
         }
-        
+
+        /// <summary>
+        /// Downloads the cover.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="DownloadCover">OK</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id}/cover")]
         public async Task<IHttpActionResult> DownloadCover(int id)
@@ -165,6 +216,13 @@ namespace Bookify.API.Controllers
 
         }
 
+        /// <summary>
+        /// Replaces the cover.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="ReplaceCover">OK</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         [HttpPut]
         [Auth]
         [Route("{id}/cover")]
@@ -192,6 +250,13 @@ namespace Bookify.API.Controllers
                 });
         }
 
+        /// <summary>
+        /// Deletes the cover.
+        /// </summary>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="DeleteCover">OK</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         [HttpDelete]
         [Auth]
         [Route("{id}/cover")]

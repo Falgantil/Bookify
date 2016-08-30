@@ -2,6 +2,7 @@
 using Bookify.Common.Enums;
 using Bookify.Common.Filter;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -51,7 +52,7 @@ namespace Bookify.API.Controllers
         /// Gets books from the specified filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
-        /// <remarks>return the books</remarks>
+        /// <response code="200" cref="Get(Bookify.Common.Filter.BookFilter)">OK</response>
         /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
@@ -67,9 +68,9 @@ namespace Bookify.API.Controllers
         /// Gets the bowword books from the specified filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
-        /// <remarks>return the books</remarks>
+        /// <response code="200" cref="MyBooks">OK</response>
         /// <response code="500">Internal Server Error</response>
-        /// <returns>IPaginatedEnumerable<BookDto></returns>
+        /// <returns></returns>
         [HttpGet]
         [Auth]
         [Route("mybooks")]
@@ -85,9 +86,9 @@ namespace Bookify.API.Controllers
         /// Gets the book specified by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <remarks>return the book specified by the identifier</remarks>
+        /// <response code="200" cref="Get(int)">OK</response>
         /// <response code="500">Internal Server Error</response>
-        /// <returns>DetailedBookDto</returns>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
         [ResponseType(typeof(DetailedBookDto))]
@@ -100,9 +101,9 @@ namespace Bookify.API.Controllers
         /// Creates a book specified by the command.
         /// </summary>
         /// <param name="command">The command.</param>
-        /// <remarks>Insert a book and returns it</remarks>
+        /// <response code="201" cref="Create">OK</response>
         /// <response code="500">Internal Server Error</response>
-        /// <returns>DetailedBookDto</returns>
+        /// <returns></returns>
         [HttpPost]
         [Auth]
         [Route("")]
@@ -117,6 +118,7 @@ namespace Bookify.API.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="command">The command.</param>
+        /// <response code="200" cref="Update">OK</response>
         /// <response code="500">Internal Server Error</response>
         /// <response code="404">Not Found Error</response>
         /// <returns></returns>
@@ -133,6 +135,7 @@ namespace Bookify.API.Controllers
         /// Deletes the book specified by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
+        /// <response code="200">OK</response>
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Auth]
@@ -149,13 +152,16 @@ namespace Bookify.API.Controllers
         }
 
         /// <summary>
-        /// Gets the Histories specified by identifier.
+        /// Gets the Histories specified by book identifier.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="History">OK</response>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
         [Auth]
         [Route("{id}/history")]
+        [ResponseType(typeof(IEnumerable<BookHistoryDto>))]
         public async Task<IHttpActionResult> History(int id)
         {
             return await this.Try(() => this._bookHistoryRepository.GetHistoryForBook(id));
@@ -166,9 +172,13 @@ namespace Bookify.API.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="email">The email.</param>
+        /// <response code="200">OK</response>
+        /// <response code="500">Internal Server Error</response>
+        /// <response code="400">Bad Request Error</response>
         /// <returns></returns>
         [HttpPost]
         [Route("{id}/buy")]
+        [ResponseType(typeof(IHttpActionResult))]
         public async Task<IHttpActionResult> Buy(int id, [FromUri]string email)
         {
             return await this.Try(
@@ -200,10 +210,13 @@ namespace Bookify.API.Controllers
         /// Borrows the book specified by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
+        /// <response code="200">OK</response>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpPost]
         [Auth]
         [Route("{id}/borrow")]
+        [ResponseType(typeof(IHttpActionResult))]
         public async Task<IHttpActionResult> Borrow(int id)
         {
             return await this.Try(
@@ -225,11 +238,14 @@ namespace Bookify.API.Controllers
         /// <summary>
         /// Gets the Statisticses specified by the book identifier.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="id">The book identifier.</param>
+        /// <response code="200" cref="Statistics">OK</response>
+        /// <response code="500">Internal Server Error</response>
         /// <returns></returns>
         [HttpGet]
         [Auth]
         [Route("{id}/statistics")]
+        [ResponseType(typeof(BookStatisticsDto))]
         public async Task<IHttpActionResult> Statistics(int id)
         {
             return await this.Try(async () => await this._bookRepository.FindForStatistics(id));

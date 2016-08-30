@@ -12,19 +12,35 @@ using Bookify.Common.Repositories;
 
 namespace Bookify.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Web.Http.ApiController" />
     public class BaseApiController : ApiController
     {
+
+        /// <summary>
+        /// Tries the specified operation.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="operation">The operation.</param>
+        /// <returns></returns>
         protected async Task<IHttpActionResult> Try<T>(Func<Task<T>> operation)
         {
             return await this.TryRaw(async () =>
             {
                 var content = await operation();
                 var response = this.Ok(content);
-                this.AddPaginationHeader(content as IPaginatedEnumerable);
+                AddPaginationHeader(content as IPaginatedEnumerable);
                 return response;
             });
         }
 
+        /// <summary>
+        /// Tries the specified operation.
+        /// </summary>
+        /// <param name="operation">The operation.</param>
+        /// <returns></returns>
         protected async Task<IHttpActionResult> Try(Func<Task> operation)
         {
             return await this.TryRaw(async () =>
@@ -34,6 +50,12 @@ namespace Bookify.API.Controllers
             });
         }
 
+        /// <summary>
+        /// Tries the execute a create function.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="operation">The operation.</param>
+        /// <returns></returns>
         protected async Task<IHttpActionResult> TryCreate<T>(Func<Task<T>> operation)
         {
             return await this.TryRaw(async () =>
@@ -43,6 +65,12 @@ namespace Bookify.API.Controllers
             });
         }
 
+        /// <summary>
+        /// Tries the to excute the function raw.
+        /// </summary>
+        /// <param name="operation">The operation.</param>
+        /// <response code="500">Internal Server Error</response>
+        /// <returns></returns>
         protected async Task<IHttpActionResult> TryRaw(Func<Task<IHttpActionResult>> operation)
         {
             try
@@ -53,8 +81,8 @@ namespace Bookify.API.Controllers
             {
                 return this.Content((HttpStatusCode)ex.StatusCode, new
                 {
-                    Message = ex.Message,
-                    StatusCode = ex.StatusCode
+                    ex.Message,
+                    ex.StatusCode
                 });
             }
             catch (Exception e)
@@ -69,21 +97,30 @@ namespace Bookify.API.Controllers
                     });
             }
         }
-        
-        private void AddPaginationHeader(IPaginatedEnumerable paginated)
+
+        /// <summary>
+        /// Adds a pagination header.
+        /// </summary>
+        /// <param name="paginated">The paginated.</param>
+        private static void AddPaginationHeader(IPaginatedEnumerable paginated)
         {
             if (paginated != null)
             {
-                const string HeaderTotalCount = "X-TotalCount";
+                const string headerTotalCount = "X-TotalCount";
                 var response = HttpContext.Current.Response;
-                response.Headers[HeaderTotalCount] = paginated.TotalCount.ToString();
+                response.Headers[headerTotalCount] = paginated.TotalCount.ToString();
             }
         }
 
-        protected async Task<PersonAuthDto> GetAuthorizedMember(IAuthenticationRepository authRepo)
+        /// <summary>
+        /// Gets the authorized member.
+        /// </summary>
+        /// <param name="authRepository"></param>
+        /// <returns></returns>
+        protected async Task<PersonAuthDto> GetAuthorizedMember(IAuthenticationRepository authRepository)
         {
             var token = this.Request.Headers.Authorization.Parameter;
-            var personAuthDto = await authRepo.VerifyToken(token);
+            var personAuthDto = await authRepository.VerifyToken(token);
             return personAuthDto;
         }
     }

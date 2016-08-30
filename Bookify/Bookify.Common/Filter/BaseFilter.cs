@@ -1,8 +1,6 @@
 namespace Bookify.Common.Filter
 {
-    /// <summary>
-    /// Base filer, all filter can use thise 
-    /// </summary>
+
     public abstract class BaseFilter
     {
         /// <summary>
