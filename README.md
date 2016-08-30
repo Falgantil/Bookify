@@ -65,7 +65,7 @@ For device deployment, see [Device Provisioning - Xamarin](https://developer.xam
 * [Babel.JS](https://babeljs.io/)
 * [MobX](https://github.com/mobxjs/mobx)
 * [Lodash](https://lodash.com/)
-* [Bookstrap Material Design](http://fezvrasta.github.io/bootstrap-material-design/)
+* [Bootstrap Material Design](http://fezvrasta.github.io/bootstrap-material-design/)
 
 #### App:
 * [Xamarin](https://www.xamarin.com/)
