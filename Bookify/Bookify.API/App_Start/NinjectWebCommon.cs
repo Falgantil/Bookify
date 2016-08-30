@@ -23,7 +23,8 @@ namespace Bookify.API
 {
     public static class NinjectWebCommon
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        private const string ConfigName = "UseAzure";
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
@@ -32,7 +33,7 @@ namespace Bookify.API
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace Bookify.API
         /// </summary>
         public static void Stop()
         {
-            bootstrapper.ShutDown();
+            Bootstrapper.ShutDown();
         }
 
         /// <summary>
@@ -72,6 +73,17 @@ namespace Bookify.API
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            try
+            {
+                if (Convert.ToBoolean(ConfigurationManager.AppSettings[ConfigName]))
+                    kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
+                else
+                    kernel.Bind<IFileServerRepository>().To<WindowsFileServerRepository>().InRequestScope();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             kernel.Bind<BookifyContext>().ToSelf().InRequestScope();
             kernel.Bind<IAuthenticationRepository>().To<AuthenticationRepository>().InRequestScope();
             kernel.Bind<IBookFeedbackRepository>().To<BookFeedbackRepository>().InRequestScope();
@@ -84,19 +96,6 @@ namespace Bookify.API
             kernel.Bind<IBookOrderRepository>().To<BookOrderRepository>().InRequestScope();
             kernel.Bind<IBookHistoryRepository>().To<BookHistoryRepository>().InRequestScope();
             kernel.Bind<IAuthorRepository>().To<AuthorRepository>().InRequestScope();
-
-            try
-            {
-                if (Convert.ToBoolean(ConfigurationManager.AppSettings["UseAzure"]))
-                    kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
-                else
-                    kernel.Bind<IFileServerRepository>().To<WindowsFileServerRepository>().InRequestScope();
-            }
-            catch (Exception)
-            {
-                kernel.Bind<IFileServerRepository>().To<AzureFileServerRepository>().InRequestScope();
-            }
-
             kernel.Bind<IAddressRepository>().To<AddressRepository>().InRequestScope();
             kernel.Bind<IBrewerRepository>().To<BrewerRepository>().InRequestScope();
         }
