@@ -13,23 +13,43 @@ The general idea was to make a service that allows users to buy and borrow books
 ---
 
 ## Setting up
-*  Backend
+*  Backend & API
 
---- Edit me
+The API is a ASP.Net Web API, and the Backend is a simple Data Access repository.
 
-*  API
+    1. Install Visual Studio 2015
+        - You will need a ConnectionString and AppSettings config to build.
+    2. Build project
+    3. Run unit tests to verify everything works
+    5. Debug or publish solution.
 
---- Edit me
+
+___
 
 *  Website
 
---- Edit me
+The website is a basic Node.JS app.
+
+    1. Install Node.JS & Node Package Manager (NPM)
+    2. Open a commandline in %GIT_SOURCE%/Bookify/Bookify.Website/App
+    3. Run 'npm i'
+
+    Debug:
+    4. Run 'npm start'
+    5. Open your webbrowser on http://localhost:8080/
+
+    Production
+    4. Run 'npm run build'
+    5. Publish the Index.html & Bundle.js that will be generated in the current folder (App)
+    6. Define Index.html as default route
+
+___
 
 *  iOS Smartphone App
 
 There really isn't all that much to getting up and running with the smartphone app.
 
-    1. Install Visual Studio
+    1. Install Visual Studio 2015
     2. Install Xamarin
     3. Change ApiConfig's Website path to point to the location of your API (localhost?). See API and Backend
     4. Build Code
@@ -38,6 +58,8 @@ There really isn't all that much to getting up and running with the smartphone a
     7. Deploy the app to your iOS device/simulator
 
 For device deployment, see [Device Provisioning - Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/)
+
+___
 
 * Android Smartphone App
 
@@ -65,7 +87,7 @@ For device deployment, see [Device Provisioning - Xamarin](https://developer.xam
 * [Babel.JS](https://babeljs.io/)
 * [MobX](https://github.com/mobxjs/mobx)
 * [Lodash](https://lodash.com/)
-* [Bookstrap Material Design](http://fezvrasta.github.io/bootstrap-material-design/)
+* [Bootstrap Material Design](http://fezvrasta.github.io/bootstrap-material-design/)
 
 #### App:
 * [Xamarin](https://www.xamarin.com/)
