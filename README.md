@@ -15,11 +15,14 @@ The general idea was to make a service that allows users to buy and borrow books
 ## Setting up
 *  Backend & API
 
+The API is a ASP.Net Web API, and the Backend is a simple Data Access repository.
+
     1. Install Visual Studio 2015
         - You will need a ConnectionString and AppSettings config to build.
     2. Build project
     3. Run unit tests to verify everything works
     5. Debug or publish solution.
+
 
 ___
 
