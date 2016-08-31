@@ -13,13 +13,15 @@ The general idea was to make a service that allows users to buy and borrow books
 ---
 
 ## Setting up
-*  Backend
+*  Backend & API
 
---- Edit me
+    1. Install Visual Studio 2015
+        - You will need a ConnectionString and AppSettings config to build.
+    2. Build project
+    3. Run unit tests to verify everything works
+    5. Debug or publish solution.
 
-*  API
-
---- Edit me
+___
 
 *  Website
 
@@ -32,17 +34,19 @@ The website is a basic Node.JS app.
     Debug:
     4. Run 'npm start'
     5. Open your webbrowser on http://localhost:8080/
-    
+
     Production
     4. Run 'npm run build'
     5. Publish the Index.html & Bundle.js that will be generated in the current folder (App)
     6. Define Index.html as default route
 
+___
+
 *  iOS Smartphone App
 
 There really isn't all that much to getting up and running with the smartphone app.
 
-    1. Install Visual Studio
+    1. Install Visual Studio 2015
     2. Install Xamarin
     3. Change ApiConfig's Website path to point to the location of your API (localhost?). See API and Backend
     4. Build Code
@@ -51,6 +55,8 @@ There really isn't all that much to getting up and running with the smartphone a
     7. Deploy the app to your iOS device/simulator
 
 For device deployment, see [Device Provisioning - Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/)
+
+___
 
 * Android Smartphone App
 
