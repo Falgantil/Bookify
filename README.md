@@ -23,7 +23,20 @@ The general idea was to make a service that allows users to buy and borrow books
 
 *  Website
 
---- Edit me
+The website is a basic Node.JS app.
+
+    1. Install Node.JS & Node Package Manager (NPM)
+    2. Open a commandline in %GIT_SOURCE%/Bookify/Bookify.Website/App
+    3. Run 'npm i'
+
+    Debug:
+    4. Run 'npm start'
+    5. Open your webbrowser on http://localhost:8080/
+    
+    Production
+    4. Run 'npm run build'
+    5. Publish the Index.html & Bundle.js that will be generated in the current folder (App)
+    6. Define Index.html as default route
 
 *  iOS Smartphone App
 
